@@ -1,7 +1,7 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Icons
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
