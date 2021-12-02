@@ -9,5 +9,3 @@
 5. Run `checkhealth`
 6. TADA~ Your done and setup.
 
-## Showcase
-
