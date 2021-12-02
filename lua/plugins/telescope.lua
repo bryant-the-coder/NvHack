@@ -2,6 +2,7 @@ local actions = require("telescope.actions")
 local putils = require("telescope.previewers.utils")
 -- Disable highlighting for certain files
 local previewers = require('telescope.previewers')
+local mappings   = require('telescope.mappings')
 local _bad = { '.*%.exe', '.git', '.node_modules', '.gitattributes' }
 local bad_files = function(filepath)
   for _, v in ipairs(_bad) do
