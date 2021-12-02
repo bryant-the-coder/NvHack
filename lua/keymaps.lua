@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 local defaut_opts = { noremap = true, silent = true }
-local cmd = vim.cmd
 
 -- ESC key
 map('i', 'jk', '<Esc>', defaut_opts)
@@ -54,6 +53,7 @@ map ('n', '<leader>fm', '<cmd>Telescope current_buffer_fuzzy_find<CR>', defaut_o
 map ('n', '<leader>ft', '<cmd>Telescope treesitter<CR>', defaut_opts)
 map ('n', '<leader>fd', '<cmd>Telescope lsp_workspace_diagnostics<CR>', defaut_opts)
 map ('n', '<leader>fds', '<cmd>Telescope lsp_document_symbols<CR>', defaut_opts)
+map ('n', '<leader>fk', '<cmd>Telescope keymaps<CR>', defaut_opts)
 
 -- Bufferline
 map('n', '<A-1>', '<cmd>BufferLineGoToBuffer 1<CR>', defaut_opts)

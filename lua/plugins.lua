@@ -11,6 +11,8 @@ return require('packer').startup(function()
     -- Theme base on my personal favourites & https://vimcolorschemes.com/
     use 'folke/tokyonight.nvim'
     use {'rose-pine/neovim', as = 'rose-pine',}
+    use 'olimorris/onedarkpro.nvim'
+    use 'catppuccin/nvim'
 
     -- Explorer menu
     use {
@@ -39,15 +41,15 @@ return require('packer').startup(function()
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
-    
+ 
+    -- Dashboard
+    use 'glepnir/dashboard-nvim'
+
     -- Bufferline
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
     -- Colorizer
     use 'norcalli/nvim-colorizer.lua'
-
-    -- Dashboard 
-    use 'glepnir/dashboard-nvim'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -72,5 +74,6 @@ return require('packer').startup(function()
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     -- Terminal
-    use {"akinsho/toggleterm.nvim"}
+    use "akinsho/toggleterm.nvim"
+
 end)

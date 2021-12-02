@@ -5,7 +5,6 @@ local fn = vim.fn
 local g = vim.g
 local o = vim.opt
 
-
 -- Basic
 g.mapleader = ','
 o.mouse = 'a'

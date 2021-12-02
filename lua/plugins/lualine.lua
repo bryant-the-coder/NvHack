@@ -86,7 +86,7 @@ left {
 
 left {
   'diagnostics',
-  sources = { 'nvim_lsp' },
+  sources = { 'nvim' },
   sections = { 'error', 'warn', 'info'},
   symbols = {error = ' ', warn = ' ', info = ' '},
   diagnostics_color = {
