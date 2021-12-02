@@ -1,6 +1,6 @@
 require('Comment').setup {
   padding = true,
-  sticky = false,
+  sticky = true,
   ignore = '^$',
   toggler = {
     line = 'gcc',
@@ -28,3 +28,6 @@ require('Comment').setup {
     }
   end,
 }
+
+
+
