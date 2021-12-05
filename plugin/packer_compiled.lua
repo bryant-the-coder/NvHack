@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["codesmell_dark.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\codesmell_dark.vim",
+    url = "https://github.com/whatsthatsmell/codesmell_dark.vim"
+  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim",

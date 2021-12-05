@@ -49,7 +49,7 @@ local config = {
     lualine_c = {},
     lualine_x = {},
   },
-  extensions = {'nvim-tree'}
+  extensions = {'nvim-tree', 'toggleterm'}
 }
 
 local function left(component)

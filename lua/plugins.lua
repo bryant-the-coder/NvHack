@@ -13,6 +13,7 @@ return require('packer').startup(function()
     use {'rose-pine/neovim', as = 'rose-pine',}
     use 'olimorris/onedarkpro.nvim'
     use 'catppuccin/nvim'
+    use "whatsthatsmell/codesmell_dark.vim"
 
     -- Explorer menu
     use {
@@ -41,7 +42,7 @@ return require('packer').startup(function()
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
- 
+
     -- Dashboard
     use 'glepnir/dashboard-nvim'
 
