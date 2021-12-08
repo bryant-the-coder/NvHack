@@ -25,7 +25,7 @@ require("lsp-colors").setup({
   Error = "#EE4B2B",
   Warning = "#d9ff00",
   Information = "#08f7ff",
-  Hint = "#0db9d7"
+  Hint = "#00ff00"
 })
 
 -- indent-blankline

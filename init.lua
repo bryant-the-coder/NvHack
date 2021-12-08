@@ -15,3 +15,5 @@ require("plugins.lualine")
 require("plugins.toggleterm")
 require("plugins.dashboard")
 require("plugins.comment")
+
+-- TODO: change lualine

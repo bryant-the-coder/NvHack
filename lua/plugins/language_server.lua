@@ -1,5 +1,6 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+local capabilities1 = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -30,7 +31,7 @@ require'lspconfig'.cssls.setup {
 -- js/typescript
 require'lspconfig'.tsserver.setup{
     cmd = { "typescript-language-server.cmd", "--stdio" },
-    capabilities = capabilities,
+    capabilities = capabilities1,
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
 }
 

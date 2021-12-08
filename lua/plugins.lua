@@ -10,10 +10,8 @@ return require('packer').startup(function()
 
     -- Theme base on my personal favourites & https://vimcolorschemes.com/
     use 'folke/tokyonight.nvim'
-    use {'rose-pine/neovim', as = 'rose-pine',}
     use 'olimorris/onedarkpro.nvim'
-    use 'catppuccin/nvim'
-    use "whatsthatsmell/codesmell_dark.vim"
+    use 'morhetz/gruvbox'
 
     -- Explorer menu
     use {
@@ -59,10 +57,10 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'onsails/lspkind-nvim'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
     use 'folke/lsp-colors.nvim'
     use 'David-Kunz/cmp-npm'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
 
     -- Indentation
     use "lukas-reineke/indent-blankline.nvim"
@@ -77,4 +75,10 @@ return require('packer').startup(function()
     -- Terminal
     use "akinsho/toggleterm.nvim"
 
+    -- Harpoon
+    use {
+        'ThePrimeagen/harpoon',
+        requires = {{'nvim-lua/plenary.nvim'}}
+
+    }
 end)

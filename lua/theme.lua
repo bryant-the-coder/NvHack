@@ -3,34 +3,11 @@ local g = vim.g
 
 -- Tokyonight
 g.tokyonight_style = "night"
+g.gruvbox_hls_cursor='red'
+g.gruvbox_contrast_dark = 'medium'
+g.gruvbox_number_column = 'bg0'
+g.gruvbox_sign_column = 'bg0'
 cmd[[colorscheme tokyonight]]
 
 -- Onedark
 g.onedark_style = "deep"
-
-local catppuccin = require("catppuccin")
-catppuccin.setup(
-    {
-		term_colors = true,
-		integrations = {
-			treesitter = true,
-			native_lsp = {
-				enabled = true,
-				virtual_text = {
-					errors = "italic",
-					hints = "italic",
-					warnings = "italic",
-					information = "italic",
-				},
-				underlines = {
-					errors = "underline",
-					hints = "underline",
-					warnings = "underline",
-					information = "underline",
-				},
-			},
-			telescope = true,
-			bufferline = false,
-		},
-	}
-)

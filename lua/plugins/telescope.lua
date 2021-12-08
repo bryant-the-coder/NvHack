@@ -3,6 +3,7 @@ local putils = require("telescope.previewers.utils")
 -- Disable highlighting for certain files
 local previewers = require('telescope.previewers')
 local mappings   = require('telescope.mappings')
+local pickers    = require('telescope.pickers')
 local _bad = { '.*%.exe', '.git', '.node_modules', '.gitattributes' }
 local bad_files = function(filepath)
   for _, v in ipairs(_bad) do
@@ -53,6 +54,14 @@ require("telescope").setup{
             ["<C-k>"] = actions.move_selection_previous,
         }
     },
+    pickers = {
+        find_files = {
+            hidden = true,
+        },
+        live_grep = {
+            path_display = { 'shorten' }
+        }
+    }
   },
 }
 
