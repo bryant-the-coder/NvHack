@@ -61,6 +61,7 @@ map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', defaut_opts)
 -- Dashboard
 map('n', '<leader>nf', '<cmd>DashboardNewFile<CR>', defaut_opts)
 
+-- Harpooon
 map('n', '<leader>lf', [[<cmd>lua require("harpoon.mark").add_file()<CR>]], defaut_opts)
 map('n', '<leader>lt', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], defaut_opts)
 map('n', '<leader>l;', [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]], defaut_opts)
@@ -69,3 +70,6 @@ map('n', '<A-1>', [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]], defaut_opt
 map('n', '<A-2>', [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]], defaut_opts)
 map('n', '<A-3>', [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]], defaut_opts)
 map('n', '<A-4>', [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]], defaut_opts)
+
+-- Trouble
+map("n", "<leader>xx", "<cmd>Trouble lsp_workspace_diagnostics<cr>", defaut_opts)

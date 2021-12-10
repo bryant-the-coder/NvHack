@@ -10,8 +10,11 @@ return require('packer').startup(function()
 
     -- Theme base on my personal favourites & https://vimcolorschemes.com/
     use 'folke/tokyonight.nvim'
-    use 'olimorris/onedarkpro.nvim'
     use 'morhetz/gruvbox'
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin"
+    })
 
     -- Explorer menu
     use {
@@ -64,7 +67,7 @@ return require('packer').startup(function()
 
     -- Indentation
     use "lukas-reineke/indent-blankline.nvim"
-    
+
     -- Auto-save
     use "Pocco81/AutoSave.nvim"
 
@@ -79,6 +82,6 @@ return require('packer').startup(function()
     use {
         'ThePrimeagen/harpoon',
         requires = {{'nvim-lua/plenary.nvim'}}
-
     }
+
 end)

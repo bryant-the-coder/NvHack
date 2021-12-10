@@ -60,22 +60,6 @@ local function right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-left {
-  -- mode component
-  function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.blue,
-      i = colors.cyan,
-      v = colors.yellow,
-      V = colors.yellow,
-    }
-    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
-  end,
-  color = 'LualineMode',
-  padding = { left = 1, right = 1 },
-}
 
 left {
   'branch',
@@ -84,9 +68,21 @@ left {
   color = { fg = colors.fg, bg = colors.bg}
 }
 
+
 left {
+    center
+}
+
+left {
+  'filename',
+  file_status = true,
+  shorting_target = 35,
+  color = { fg = colors.purple }
+}
+
+right {
   'diagnostics',
-  sources = { 'nvim' },
+  sources = { 'nvim_diagnostic' },
   sections = { 'error', 'warn', 'info'},
   symbols = {error = ' ', warn = ' ', info = ' '},
   diagnostics_color = {
@@ -96,18 +92,6 @@ left {
   },
   always_visible = true,
   update_in_insert = true
-}
-
-right {
-  'filename',
-  file_status = true,
-  shorting_target = 35,
-  color = { fg = colors.purple }
-}
-
-right {
-  'progress',
-  color = { fg = colors.yellow }
 }
 
 -- Setup the config file~
