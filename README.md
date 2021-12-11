@@ -9,3 +9,19 @@
 5. Run `checkhealth`
 6. TADA~ Your done and setup.
 
+## Setups in my config
+-----------------------
+### plugins
+1. (file explorer)[https://github.com/kyazdani42/nvim-tree.lua]
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+
