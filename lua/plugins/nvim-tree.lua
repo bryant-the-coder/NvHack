@@ -53,7 +53,7 @@ require'nvim-tree'.setup {
 }
 
 g.nvim_tree_icons = {
-  default = '',
+  default = '',
   symlink = '',
   folder = {
     default = '',
