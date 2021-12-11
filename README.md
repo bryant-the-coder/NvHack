@@ -10,7 +10,9 @@
 6. TADA~ Your done and setup.
 
 ## Setups in my config
------------------------
+
+---
+
 ### plugins
 1. [File explorer](https://github.com/kyazdani42/nvim-tree.lua)
 2. [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
