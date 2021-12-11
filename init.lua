@@ -2,6 +2,7 @@ require("settings")
 require("plugins")
 require("keymaps")
 require("theme")
+require("autocommands")
 require("plugins.nvim-tree")
 require("plugins.treesitter")
 require("plugins.telescope")
@@ -15,5 +16,3 @@ require("plugins.lualine")
 require("plugins.toggleterm")
 require("plugins.dashboard")
 require("plugins.comment")
-
--- TODO: change lualine

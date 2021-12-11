@@ -17,7 +17,7 @@ o.swapfile = false
 o.number = true
 o.relativenumber = true
 o.showmatch = true
-o.colorcolumn = '105'
+o.colorcolumn = '9999'
 o.cursorline = false
 o.scrolloff = 20
 o.splitright = true
@@ -27,6 +27,8 @@ o.wrap = false
 o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = "menuone,noselect,menu"
+o.foldexpr = 'nvim_treesitter#foldexpr()'
+g.autoread =true
 
 -- Computer management
 o.hidden = true
@@ -54,5 +56,3 @@ o.ignorecase = true
 -- Python
 g.python3_host_prog = 'C:/Python310/python.exe'
 
--- Theme
-o.termguicolors = true
