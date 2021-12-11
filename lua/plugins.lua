@@ -8,18 +8,15 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Theme base on my personal favourites & https://vimcolorschemes.com/
+    -- Theme
     use 'folke/tokyonight.nvim'
     use 'morhetz/gruvbox'
-    use({
-        "catppuccin/nvim",
-        as = "catppuccin"
-    })
 
     -- Explorer menu
     use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons'
+
     }
 
     -- Treesitter
