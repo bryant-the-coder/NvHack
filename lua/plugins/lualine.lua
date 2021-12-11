@@ -1,5 +1,5 @@
 -- Simple yet useful config for lualine
--- Author: Bryant 
+-- Author: Bryant
 -- Credit: glepnir & shadmansaleh
 
 local lualine = require 'lualine'
@@ -60,24 +60,23 @@ local function right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
+local my_filename = require('lualine.components.filename'):extend()
+my_filename.apply_icon = require('lualine.components.filetype').apply_icon
 
 left {
   'branch',
   icon = '',
   fmt = string.upper,
-  color = { fg = colors.fg, bg = colors.bg}
+  color = {fg = colors.bg, bg = colors.yellow}
 }
-
 
 left {
     center
 }
 
 left {
-  'filename',
-  file_status = true,
-  shorting_target = 35,
-  color = { fg = colors.purple }
+    my_filename,
+    colored = true,
 }
 
 right {
