@@ -35,7 +35,7 @@ cmp.setup({
           elseif has_words_before() then
             cmp.complete()
           else
-            fallback() 
+            fallback()
           end
         end, { "i", "s" }),
 
@@ -67,8 +67,8 @@ cmp.setup({
       { name = 'nvim_lsp'},
       { name = 'lspkind' },
       { name = 'vsnip' },
-      { name = 'buffer', keyword_length = 5 },
-      { name = 'npm', keyword_length = 5}
+      { name = 'buffer', keyword_length = 2 },
+      { name = 'npm', keyword_length = 2}
       }),
     })
     cmp.setup.cmdline('/', {

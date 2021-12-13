@@ -1,11 +1,9 @@
 -- Aliases for Neovim
-local cmd = vim.cmd
-local exec = vim.api.nvim_exec
-local fn = vim.fn
 local g = vim.g
 local o = vim.opt
 
--- Guicursor
+-- Non-blinking in normal & visual  mode
+-- Blink in insert mode
 o.guicursor = 'n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 
 -- Basic
@@ -28,7 +26,6 @@ o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = "menuone,noselect,menu"
 o.foldexpr = 'nvim_treesitter#foldexpr()'
-g.autoread =true
 
 -- Computer management
 o.hidden = true
@@ -55,4 +52,3 @@ o.ignorecase = true
 
 -- Python
 g.python3_host_prog = 'C:/Python310/python.exe'
-
