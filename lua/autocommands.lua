@@ -19,12 +19,32 @@ exec([[au BufWritePre * call NoWhitespace()]], false)
 -- Disable autocommenting in new lines (kinda annoying)
 exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
 
+-- Escaping in terminal mode (i cant set it in lua idk y)
+exec([[au TermOpen * tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>]], false)
+
 -- Setting tabs for different filetypes
 cmd([[
   autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
   autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
   autocmd Filetype scss setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 ]])
+
+cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+
+-- This is for nvim-cmp
+-- cmd([[
+--   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+--   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+--   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+--   highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+--   highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+--   highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+--   highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+--   highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+--   highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+--   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+--   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+-- ]])
 
 -- Autosource the file
 -- cmd[[
@@ -49,7 +69,7 @@ cmd[[
 
   augroup auto_reload_file
     autocmd!
-    autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!", 'warn', {'title': 'nvim-config'})
+    autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim-config'})
     autocmd FocusGained,CursorHold * if getcmdwintype() == '' | checktime | endif
   augroup END
 
@@ -76,4 +96,8 @@ cmd[[
     autocmd BufRead,BufNewFile *.{html} set filetype=html
     autocmd BufRead,BufNewFile *.{css} set filetype=css
     autocmd BufRead,BufNewFile *.{scss,sass,less} set filetype=scss
+  augroup end
 ]]
+
+-- Nvim-lsp
+cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
