@@ -101,3 +101,4 @@ cmd[[
 
 -- Nvim-lsp
 cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.signature_help(nil, {focus=false})]]
