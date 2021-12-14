@@ -88,17 +88,30 @@ cmd[[
   augroup end
 ]]
 
--- Setting filetype
-cmd[[
-  augroup types_of_file
-    autocmd!
-    autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
-    autocmd BufRead,BufNewFile *.{html} set filetype=html
-    autocmd BufRead,BufNewFile *.{css} set filetype=css
-    autocmd BufRead,BufNewFile *.{scss,sass,less} set filetype=scss
-  augroup end
-]]
+-- -- Setting filetype
+-- cmd[[
+--   augroup types_of_file
+--     autocmd!
+--     autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
+--     autocmd BufRead,BufNewFile *.{html} set filetype=html
+--     autocmd BufRead,BufNewFile *.{css} set filetype=css
+--     autocmd BufRead,BufNewFile *.{scss,sass,less} set filetype=scss
+--   augroup end
+-- ]]
 
 -- Nvim-lsp
+
+-- 1. When there is any diagnostic it will open a float (kinda useful :)
 cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
--- cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.signature_help(nil, {focus=false})]]
+-- 2. Highlights the number. (i dun like icons anyways)
+cmd [[
+  highlight DiagnosticLineNrError guibg=#e00404 guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrInfo  guibg=#03c6c6 guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrHint  guibg=#0064fc guifg=#ffffff gui=bold
+
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]

@@ -4,6 +4,7 @@ local default_opts = { noremap = true, silent = true }
 
 -- ESC key
 map('i', 'jk', '<Esc>', default_opts)
+map('i', 'JK', '<Esc>', default_opts)
 map('v', 'jk', '<Esc>', default_opts)
 map('i', '<Esc>', '<cmd>noh<CR>', default_opts)
 map('v', '<Esc>', '<cmd>noh<CR>', default_opts)
@@ -49,17 +50,17 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
 
 
 -- Telescope
-map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files({prompt_title =' [ FIND FILES ] '})<CR>]], default_opts)
+map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], default_opts)
 map("n", "<leader>fw", [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]], default_opts)
-map("n", "<leader>fp", [[<Cmd>lua require'telescope.builtin'.file_browser({prompt_title =' [ NVIM-TREE CLONE : D] '})<CR>]], default_opts)
-map("n", "<leader>fc", [[<Cmd>lua require'telescope.builtin'.colorscheme({prompt_title =' [ CHANGE COLORSCHEME ] '})<CR>]], default_opts)
-map("n", "<leader>fo", [[<Cmd>lua require'telescope.builtin'.oldfiles({prompt_title =' [ GO THOUGH OLDFILES ] '})<CR>]], default_opts)
+map("n", "<leader>fp", [[<Cmd>lua require'telescope.builtin'.file_browser()<CR>]], default_opts)
+map("n", "<leader>fc", [[<Cmd>lua require'telescope.builtin'.colorscheme()<CR>]], default_opts)
+map("n", "<leader>fo", [[<Cmd>lua require'telescope.builtin'.oldfiles()<CR>]], default_opts)
 map("n", "<leader>fk", [[<Cmd>lua require'telescope.builtin'.keymaps()<CR>]], default_opts)
-map("n", "<leader>fm", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({prompt_title =' [ FIND LINE IN CURRENT FILE] '})<CR>]], default_opts)
+map("n", "<leader>fm", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]], default_opts)
 map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]], default_opts)
 map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]], default_opts)
 map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], default_opts)
-
+-- map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({winblend = 10, prompt_title = '[ FIND FILES ]'}))<CR>]], default_opts)
 
 -- Bufferline
 map('n', '<leader>be', '<cmd>BufferLineSortByTab<CR>', default_opts)

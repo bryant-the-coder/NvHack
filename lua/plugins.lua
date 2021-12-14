@@ -13,6 +13,7 @@ return require('packer').startup(function()
     use "morhetz/gruvbox"
     use "drewtempelmeyer/palenight.vim"
     use "joshdick/onedark.vim"
+    use "arcticicestudio/nord-vim"
 
     -- Explorer menu
     use {

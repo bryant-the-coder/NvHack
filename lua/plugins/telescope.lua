@@ -39,7 +39,6 @@ require("telescope").setup{
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-    border = {},
     borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
     color_devicons = true,
     buffer_previewer_maker = new_maker,
@@ -54,14 +53,33 @@ require("telescope").setup{
             ["<C-k>"] = actions.move_selection_previous,
         }
     },
-    pickers = {
-        find_files = {
-            hidden = true,
-        },
-        live_grep = {
-            path_display = { 'shorten' }
-        }
-    }
   },
+  pickers = {
+      find_files = {
+          hidden = true,
+          prompt_title =  ' [ FIND FILES ]',
+          theme = "ivy"
+      },
+      live_grep = {
+          path_display = { 'shorten' }
+      },
+      file_browser = {
+        prompt_title = ' [ NVIM-TREE CLONE :D] '
+      },
+      colorscheme = {
+        prompt_title = ' [ CHANGE COLORSCHEME ]',
+      },
+      oldfiles = {
+        prompt_title = ' [ GO THROUGH OLDFILES ]'
+      },
+      keymaps = {
+        prompt_title = ' [ FIND YOUR KEYMAPS ]'
+      },
+      current_buffer_fuzzy_find = {
+        prompt_title = ' [ FIND WORD IN CURRENT FILE ]'
+    }
+  }
 }
 
+-- local builtin = require('telescope.builtin')
+-- local themes = require('telescope.themes')

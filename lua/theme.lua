@@ -12,7 +12,9 @@ g.gruvbox_number_column = 'bg0'
 g.gruvbox_sign_column = 'bg0'
 g.gruvbox_underline = false
 g.gruvbox_undercurl = false
-cmd[[colorscheme gruvbox]]
 
 -- Tokyonight
 g.tokyonight_style = "night"
+
+
+cmd[[colorscheme nord]]
