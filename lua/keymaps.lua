@@ -60,7 +60,7 @@ map("n", "<leader>fm", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzz
 map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]], default_opts)
 map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]], default_opts)
 map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], default_opts)
--- map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({winblend = 10, prompt_title = '[ FIND FILES ]'}))<CR>]], default_opts)
+
 
 -- Bufferline
 map('n', '<leader>be', '<cmd>BufferLineSortByTab<CR>', default_opts)
