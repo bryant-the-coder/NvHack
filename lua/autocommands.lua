@@ -32,28 +32,19 @@ cmd([[
 cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- This is for nvim-cmp
--- cmd([[
---   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
---   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
---   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
---   highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
---   highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
---   highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
---   highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
---   highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
---   highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
---   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
---   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
--- ]])
-
--- Autosource the file
--- cmd[[
---   augroup source_file
---       autocmd!
---       autocmd BufWritePost $APPDATA/Local/nvim/init.lua source <afile>
---       autocmd BufWritePost $APPDATA/Local/nvim/lua/*.lua source <afile>
---   augroup END
--- ]]
+cmd([[
+  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+  highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+  highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+  highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+  highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+  highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+]])
 
 -- Restore cursor last position upon reopening the file
 cmd[[
@@ -66,7 +57,6 @@ cmd[[
 
 -- Reload the contents of file if changed outside of nvim
 cmd[[
-
   augroup auto_reload_file
     autocmd!
     autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim-config'})
@@ -88,19 +78,7 @@ cmd[[
   augroup end
 ]]
 
--- -- Setting filetype
--- cmd[[
---   augroup types_of_file
---     autocmd!
---     autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
---     autocmd BufRead,BufNewFile *.{html} set filetype=html
---     autocmd BufRead,BufNewFile *.{css} set filetype=css
---     autocmd BufRead,BufNewFile *.{scss,sass,less} set filetype=scss
---   augroup end
--- ]]
-
 -- Nvim-lsp
-
 -- 1. When there is any diagnostic it will open a float (kinda useful :)
 cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 -- 2. Highlights the number. (i dun like icons anyways)

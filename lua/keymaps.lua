@@ -32,18 +32,14 @@ map('i', '<C-s>', '<cmd>w<CR>', default_opts)
 map('n', '<leader>sf', '<cmd>source % <CR>', default_opts)
 map("n", "<leader>fs", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>", default_opts)
 
-
-
 -- Resizing windows
 map('n', '<C-up>', '<C-w>+', default_opts)
 map('n', '<C-down>', '<C-w>-', default_opts)
 map('n', '<C-left>', '<C-w>>', default_opts)
 map('n', '<C-right>', '<C-w><', default_opts)
 
-
 -- Quitting
 map('n', '<C-q>', '<cmd>q<CR>', default_opts)
-
 
 -- Packer
 map('n', '<leader>pi', '<cmd>PackerInstall<CR>', default_opts)
@@ -51,17 +47,14 @@ map('n', '<leader>pu', '<cmd>PackerUpdate<CR>', default_opts)
 map('n', '<leader>pc', '<cmd>PackerClean<CR>', default_opts)
 map('n', '<leader>ps', '<cmd>PackerSync<CR>', default_opts)
 
-
 -- Window Navigation
 map('n', '<A-j>', '<C-w><C-j>', default_opts)
 map('n', '<A-k>', '<C-w><C-k>', default_opts)
 map('n', '<A-l>', '<C-w><C-l>', default_opts)
 map('n', '<A-h>', '<C-w><C-h>', default_opts)
 
-
 -- Nvim-tree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
-
 
 -- Telescope
 map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], default_opts)
@@ -76,20 +69,16 @@ map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]],
 map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]], default_opts)
 map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], default_opts)
 
-
 -- Bufferline
-map('n', '<leader>be', '<cmd>BufferLineSortByTab<CR>', default_opts)
-map('n', '<leader>bpc', '<cmd>BufferLinePickClose<CR>', default_opts)
-
+map('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>', default_opts)
+map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', default_opts)
 
 -- TSPlayground
 map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
 map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
 
-
 -- Dashboard
 map('n', '<leader>nf', '<cmd>DashboardNewFile<CR>', default_opts)
-
 
 -- Harpooon
 map('n', '<A-p>', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], default_opts)
@@ -100,7 +89,6 @@ map('n', '<A-1>', [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]], default_op
 map('n', '<A-2>', [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]], default_opts)
 map('n', '<A-3>', [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]], default_opts)
 map('n', '<A-4>', [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]], default_opts)
-
 
 -- LSP
 map('n', '<leader>ld', [[<cmd>lua vim.lsp.buf.definition()<CR>]], default_opts)

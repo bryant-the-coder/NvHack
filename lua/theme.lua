@@ -18,6 +18,7 @@ g.gruvbox_undercurl = false
 
 -- Tokyonight
 g.tokyonight_style = "night"
+g.tokyonight_italic_comments = false
 g.tokyonight_italic_keywords = false
 -- g.tokyonight_colors = { bg = "#1c1b26", warning = "#d38b04", hint = "#0064fc", magenta = "#12b385"}
 
