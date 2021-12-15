@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox",

@@ -10,6 +10,7 @@ vim.diagnostic.config({
   },
   float = {
     source = "always",
+    prefix = '',
   },
   signs = true,
   underline = true,

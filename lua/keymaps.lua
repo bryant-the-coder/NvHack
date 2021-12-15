@@ -6,11 +6,25 @@ local default_opts = { noremap = true, silent = true }
 map('i', 'jk', '<Esc>', default_opts)
 map('i', 'JK', '<Esc>', default_opts)
 map('v', 'jk', '<Esc>', default_opts)
+
+-- ESC to clear all highlights
 map('i', '<Esc>', '<cmd>noh<CR>', default_opts)
 map('v', '<Esc>', '<cmd>noh<CR>', default_opts)
 map('n', '<Esc>', '<cmd>noh<CR>', default_opts)
+
+-- Help mapped to C+/
 map('n', '<C-f>', '/' , {noremap = true})
+
+-- Terminal ESC key
 map('t', '<ESC>', [[<C-\><C-n>]], default_opts)
+
+-- Don't yank text upon delete (good mapping btw)
+map('n', 'd', '"_d', default_opts)
+map('v', 'd', '"_d', default_opts)
+
+-- Don't yank text on cut
+map('n', 'x', '"_x', default_opts)
+map('n', 'x', '"_x', default_opts)
 
 -- Saving the traditional way
 map('n', '<C-s>', '<cmd>w<CR>', default_opts)
@@ -51,6 +65,7 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
 
 -- Telescope
 map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], default_opts)
+map("n", "<leader>fb", [[<Cmd>lua require'telescope.builtin'.buffers()<CR>]], default_opts)
 map("n", "<leader>fw", [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]], default_opts)
 map("n", "<leader>fp", [[<Cmd>lua require'telescope.builtin'.file_browser()<CR>]], default_opts)
 map("n", "<leader>fc", [[<Cmd>lua require'telescope.builtin'.colorscheme()<CR>]], default_opts)

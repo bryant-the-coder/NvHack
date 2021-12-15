@@ -1,11 +1,11 @@
--- Simple yet useful config for lualine
+-- Simple yet amazing config for statusline
 -- Author: Bryant
 -- Credit: glepnir & shadmansaleh
 
 local lualine = require 'lualine'
 
 local colors = {
-  bg            = '#2e3440',
+  bg            = '#1c1b26',
   fg            = '#f8f8ff',
   red           = '#dd3e46',
   bred          = '#fc3235',
