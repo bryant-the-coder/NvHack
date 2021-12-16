@@ -37,6 +37,11 @@ require'lspconfig'.tsserver.setup{
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
 }
 
+-- json
+require'lspconfig'.jsonls.setup {
+  cmd = {"vscode-json-language-server.cmd", "--studio"},
+  capabilities = capabilities
+}
 
 -- lua
 local system_name
@@ -84,15 +89,3 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
-
-if not lspconfig.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = {'emmet-ls.cmd', '--stdio'};
-      filetypes = {'html', 'css', 'scss'};
-    };
-  }
-end
-lspconfig.emmet_ls.setup{ capabilities = capabilities; }
-
-

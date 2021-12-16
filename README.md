@@ -35,6 +35,7 @@
     - [NPM completion](https://github.com/David-Kunz/cmp-npm)
     - [VSnip](https://github.com/hrsh7th/cmp-vsnip)
     - [Plugin for VSnip](https://github.com/hrsh7th/vim-vsnip)
+    - [A repo full of amazing snippet](https://github.com/rafamadriz/friendly-snippets)
 10. [Indentation highlight](https://github.com/lukas-reineke/indent-blankline.nvim)
 11. [Auto commenting](https://github.com/numToStr/Comment.nvim)
     - [Plugin for auto commenting](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
