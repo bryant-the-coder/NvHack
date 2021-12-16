@@ -1,7 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
-
+-----------------------------------
+--           BASIC               --
+-----------------------------------
 -- ESC key
 map('i', 'jk', '<Esc>', default_opts)
 map('i', 'JK', '<Esc>', default_opts)
@@ -38,20 +40,24 @@ map('n', '<C-down>', '<C-w>-', default_opts)
 map('n', '<C-left>', '<C-w>>', default_opts)
 map('n', '<C-right>', '<C-w><', default_opts)
 
+-- Window Navigation
+map('n', '<A-j>', '<C-w><C-j>', default_opts)
+map('n', '<A-k>', '<C-w><C-k>', default_opts)
+map('n', '<A-l>', '<C-w><C-l>', default_opts)
+map('n', '<A-h>', '<C-w><C-h>', default_opts)
+
 -- Quitting
 map('n', '<C-q>', '<cmd>q<CR>', default_opts)
 
+-----------------------------------
+--           Plugins             --
+-----------------------------------
 -- Packer
 map('n', '<leader>pi', '<cmd>PackerInstall<CR>', default_opts)
 map('n', '<leader>pu', '<cmd>PackerUpdate<CR>', default_opts)
 map('n', '<leader>pc', '<cmd>PackerClean<CR>', default_opts)
 map('n', '<leader>ps', '<cmd>PackerSync<CR>', default_opts)
 
--- Window Navigation
-map('n', '<A-j>', '<C-w><C-j>', default_opts)
-map('n', '<A-k>', '<C-w><C-k>', default_opts)
-map('n', '<A-l>', '<C-w><C-l>', default_opts)
-map('n', '<A-h>', '<C-w><C-h>', default_opts)
 
 -- Nvim-tree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
