@@ -9,7 +9,6 @@ o.termguicolors = true
 
 -- Gruvbox
 g.gruvbox_hls_cursor='red'
-g.gruvbox_contrast_dark = 'medium'
 g.gruvbox_number_column = 'bg0'
 g.gruvbox_sign_column = 'bg0'
 g.gruvbox_underline = false

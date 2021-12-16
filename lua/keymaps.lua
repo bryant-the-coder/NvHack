@@ -58,7 +58,6 @@ map('n', '<leader>pu', '<cmd>PackerUpdate<CR>', default_opts)
 map('n', '<leader>pc', '<cmd>PackerClean<CR>', default_opts)
 map('n', '<leader>ps', '<cmd>PackerSync<CR>', default_opts)
 
-
 -- Nvim-tree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
 
@@ -82,9 +81,6 @@ map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', default_opts)
 -- TSPlayground
 map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
 map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
-
--- Dashboard
-map('n', '<leader>nf', '<cmd>DashboardNewFile<CR>', default_opts)
 
 -- Harpooon
 map('n', '<A-p>', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], default_opts)
