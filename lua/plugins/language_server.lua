@@ -5,13 +5,13 @@ local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
 
 vim.diagnostic.config({
-  -- virtual_text = {
-  --   source = "always",
-  -- },
-  -- float = {
-  --   source = "always",
-  --   prefix = '',
-  -- },
+  virtual_text = {
+    source = "always",
+  },
+  float = {
+    source = "always",
+    prefix = '',
+  },
   signs = true,
   underline = true,
   severity_sort = true,
@@ -42,6 +42,16 @@ require'lspconfig'.jsonls.setup {
   cmd = {"vscode-json-language-server.cmd", "--studio"},
   capabilities = capabilities
 }
+
+if not lspconfig.emmet_ls then
+  configs.emmet_ls = {
+    default_config = {
+      cmd = {'emmet-ls.cmd', '--stdio'};
+      filetypes = {'html', 'css', 'scss'};
+    };
+  }
+end
+lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 
 -- lua
 local system_name

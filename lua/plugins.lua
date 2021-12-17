@@ -8,6 +8,10 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
 
+    -- Dependencies
+    use "nvim-lua/plenary.nvim"
+    use "kyazdani42/nvim-web-devicons"
+
     -- Theme
     use "folke/tokyonight.nvim"
     use "morhetz/gruvbox"
@@ -17,11 +21,7 @@ return require('packer').startup(function()
     use {"rose-pine/neovim", as = "rose-pine"}
 
     -- Explorer menu
-    use {
-      "kyazdani42/nvim-tree.lua",
-      requires = "kyazdani42/nvim-web-devicons"
-
-    }
+    use "kyazdani42/nvim-tree.lua"
 
     -- Treesitter
     use {
@@ -40,16 +40,13 @@ return require('packer').startup(function()
     }
 
     -- Telescope
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = { {"nvim-lua/plenary.nvim"} }
-    }
+    use "nvim-telescope/telescope.nvim"
 
     -- Dashboard
     use "glepnir/dashboard-nvim"
 
     -- Bufferline
-    use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use "akinsho/bufferline.nvim"
 
     -- Colorizer
     use "norcalli/nvim-colorizer.lua"
@@ -78,16 +75,15 @@ return require('packer').startup(function()
     use "akinsho/toggleterm.nvim"
 
     -- Harpoon
-    use {
-        "ThePrimeagen/harpoon",
-        requires = {{"nvim-lua/plenary.nvim"}}
-    }
+    use "ThePrimeagen/harpoon"
 
     -- Disturbance free writing
     use {
     "folke/twilight.nvim",
     "folke/zen-mode.nvim"
-  }
+    }
 
+    -- Git
+    use "lewis6991/gitsigns.nvim"
 
 end)

@@ -23,6 +23,7 @@ exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
 cmd([[
   augroup terminal
     autocmd!
+    autocmd TermOpen * startinsert
     autocmd TermOpen * setlocal nonumber norelativenumber
     au TermOpen * tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>
   augroup END
@@ -63,7 +64,7 @@ cmd[[
 cmd[[
   augroup auto_reload_file
     autocmd!
-    autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim-config'})
+    autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim'})
     autocmd FocusGained,CursorHold * if getcmdwintype() == '' | checktime | endif
   augroup END
 
@@ -76,7 +77,7 @@ cmd[[
 
 -- Highlight when yanking :)
 cmd[[
-  augroup YankHighlight
+  augroup yank_with_highlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
@@ -85,16 +86,17 @@ cmd[[
 -- Nvim-lsp
 -- 1. When there is any diagnostic it will open a float (kinda useful :)
 -- VSCode like
--- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 -- 2. Highlights the number. (i dun like icons anyways)
 cmd [[
   highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
   highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
   highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
   highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
-
+  highlight link GitSignsCurrentLineBlame Insert
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
   sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
   sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
 ]]
+
