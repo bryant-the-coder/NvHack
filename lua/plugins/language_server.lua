@@ -5,13 +5,13 @@ local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
 
 vim.diagnostic.config({
-  virtual_text = {
-    source = "always",
-  },
-  float = {
-    source = "always",
-    prefix = '',
-  },
+  -- virtual_text = {
+  --   source = "always",
+  -- },
+  -- float = {
+  --   source = "always",
+  --   prefix = '',
+  -- },
   signs = true,
   underline = true,
   severity_sort = true,

@@ -61,7 +61,8 @@ require("telescope").setup{
           theme = "ivy"
       },
       live_grep = {
-          path_display = { 'shorten' }
+          path_display = { 'shorten' },
+          prompt_title = '並 [ FIND A SPECIFIC LINE ] '
       },
       file_browser = {
         prompt_title = ' [ NVIM-TREE CLONE :D] '

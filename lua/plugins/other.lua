@@ -38,5 +38,3 @@ require("indent_blankline").setup {
         "else_clause", "jsx_element", "jsx_self_closing_element", "try_statement", "catch_clause", "import_statement", "operation_type"
     },
 }
-
-

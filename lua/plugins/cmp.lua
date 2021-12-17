@@ -63,6 +63,9 @@ cmp.setup({
     documentation = {
         border = "rounded",
     },
+    -- experimental = {
+    --   ghost_text = true
+    -- },
     sources = cmp.config.sources({
       { name = 'nvim_lsp'},
       { name = 'lspkind' },
@@ -76,3 +79,5 @@ cmp.setup({
         { name = 'buffer' }
       }
 })
+
+

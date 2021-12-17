@@ -19,8 +19,14 @@ exec([[au BufWritePre * call NoWhitespace()]], false)
 -- Disable autocommenting in new lines (kinda annoying)
 exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
 
--- Escaping in terminal mode (i cant set it in lua idk y)
-exec([[au TermOpen * tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>]], false)
+-- Terminal
+cmd([[
+  augroup terminal
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+    au TermOpen * tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>
+  augroup END
+]])
 
 -- Setting tabs for different filetypes
 cmd([[
@@ -28,8 +34,6 @@ cmd([[
   autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
   autocmd Filetype scss setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 ]])
-
-cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- This is for nvim-cmp
 cmd([[
@@ -80,7 +84,8 @@ cmd[[
 
 -- Nvim-lsp
 -- 1. When there is any diagnostic it will open a float (kinda useful :)
-cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- VSCode like
+-- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 -- 2. Highlights the number. (i dun like icons anyways)
 cmd [[
   highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
