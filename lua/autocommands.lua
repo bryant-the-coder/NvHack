@@ -93,10 +93,9 @@ cmd [[
   highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
   highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
   highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
-  highlight link GitSignsCurrentLineBlame Insert
+
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
   sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
   sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
 ]]
-
