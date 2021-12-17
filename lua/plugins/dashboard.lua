@@ -24,7 +24,6 @@ g.dashboard_custom_section = {
     c = {description = {"ﲉ  Find Help                SPC f h"}, command = "Telescope help_tags"},
     d = {description = {"  Colorschemes             SPC f c"}, command = "Telescope colorscheme"},
     e = {description = {"  Find Keymaps             SPC f k"}, command = "Telescope keymaps"},
-    f = {description = {"  New File                 SPC n f"}, command = "DashboardNewFile"},
 }
 
 g.dashboard_custom_footer = {

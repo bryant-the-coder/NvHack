@@ -83,10 +83,10 @@ cmd[[
 cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 -- 2. Highlights the number. (i dun like icons anyways)
 cmd [[
-  highlight DiagnosticLineNrError guibg=#e00404 guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
   highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
-  highlight DiagnosticLineNrInfo  guibg=#03c6c6 guifg=#ffffff gui=bold
-  highlight DiagnosticLineNrHint  guibg=#0064fc guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
+  highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
 
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn

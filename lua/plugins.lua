@@ -14,6 +14,7 @@ return require('packer').startup(function()
     use "drewtempelmeyer/palenight.vim"
     use "joshdick/onedark.vim"
     use "arcticicestudio/nord-vim"
+    use {"rose-pine/neovim", as = "rose-pine"}
 
     -- Explorer menu
     use {

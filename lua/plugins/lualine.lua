@@ -5,7 +5,7 @@
 local lualine = require 'lualine'
 
 local colors = {
-  bg            = '#282828',
+  bg            = '#191724',
   fg            = '#f8f8ff',
   red           = '#dd3e46',
   bred          = '#fc3235',
@@ -93,5 +93,5 @@ right {
   update_in_insert = true
 }
 
--- Setup the config file~
+-- Setup the config file / source it?
 lualine.setup(config)

@@ -4,6 +4,12 @@ local default_opts = { noremap = true, silent = true }
 -----------------------------------
 --           BASIC               --
 -----------------------------------
+-- Quitting
+map('n', '<C-q>', '<cmd>q<CR>', default_opts)
+
+-- Buffer
+map('n', '<leader>dd', '<cmd>bdelete<CR>', default_opts)
+
 -- ESC key
 map('i', 'jk', '<Esc>', default_opts)
 map('i', 'JK', '<Esc>', default_opts)
@@ -46,20 +52,47 @@ map('n', '<A-k>', '<C-w><C-k>', default_opts)
 map('n', '<A-l>', '<C-w><C-l>', default_opts)
 map('n', '<A-h>', '<C-w><C-h>', default_opts)
 
--- Quitting
-map('n', '<C-q>', '<cmd>q<CR>', default_opts)
 
 -----------------------------------
 --           Plugins             --
 -----------------------------------
+-- Nvim-tree
+map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
+
+-- Zen-mode
+map('n', '<leader>zm', '<cmd>ZenMode<CR>', default_opts)
+
+-- Bufferline
+map('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>', default_opts)
+map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', default_opts)
+
+-- TSPlayground
+map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
+map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
+
 -- Packer
 map('n', '<leader>pi', '<cmd>PackerInstall<CR>', default_opts)
 map('n', '<leader>pu', '<cmd>PackerUpdate<CR>', default_opts)
 map('n', '<leader>pc', '<cmd>PackerClean<CR>', default_opts)
 map('n', '<leader>ps', '<cmd>PackerSync<CR>', default_opts)
 
--- Nvim-tree
-map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', default_opts)
+-- LSP
+map('n', '<leader>ld', [[<cmd>lua vim.lsp.buf.definition()<CR>]], default_opts)
+map('n', '<leader>lt', [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], default_opts)
+map('n', '<leader>lr', [[<cmd>lua vim.lsp.buf.rename()<CR>]], default_opts)
+map('n', '<C-a>', [[<cmd>lua vim.lsp.buf.references()<CR>]], default_opts)
+map('n', '<C-k>', [[<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]], default_opts)
+map('n', '<C-j>', [[<cmd>lua vim.lsp.diagnostic.goto_next()<CR>]], default_opts)
+
+-- Harpooon
+map('n', '<A-p>', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], default_opts)
+map('n', '<leader>lf', [[<cmd>lua require("harpoon.mark").add_file()<CR>]], default_opts)
+map('n', '<leader>l;', [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]], default_opts)
+map('n', '<leader>ll', [[<cmd>lua require("harpoon.ui").nav_next()<CR>]], default_opts)
+map('n', '<A-1>', [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]], default_opts)
+map('n', '<A-2>', [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]], default_opts)
+map('n', '<A-3>', [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]], default_opts)
+map('n', '<A-4>', [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]], default_opts)
 
 -- Telescope
 map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], default_opts)
@@ -74,31 +107,5 @@ map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]],
 map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]], default_opts)
 map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], default_opts)
 
--- Bufferline
-map('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>', default_opts)
-map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', default_opts)
 
--- TSPlayground
-map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
-map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>', default_opts)
 
--- Harpooon
-map('n', '<A-p>', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], default_opts)
-map('n', '<leader>lf', [[<cmd>lua require("harpoon.mark").add_file()<CR>]], default_opts)
-map('n', '<leader>l;', [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]], default_opts)
-map('n', '<leader>ll', [[<cmd>lua require("harpoon.ui").nav_next()<CR>]], default_opts)
-map('n', '<A-1>', [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]], default_opts)
-map('n', '<A-2>', [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]], default_opts)
-map('n', '<A-3>', [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]], default_opts)
-map('n', '<A-4>', [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]], default_opts)
-
--- LSP
-map('n', '<leader>ld', [[<cmd>lua vim.lsp.buf.definition()<CR>]], default_opts)
-map('n', '<leader>lt', [[<cmd>lua vim.lsp.buf.type_definition()<CR>]], default_opts)
-map('n', '<leader>lr', [[<cmd>lua vim.lsp.buf.rename()<CR>]], default_opts)
-map('n', '<C-a>', [[<cmd>lua vim.lsp.buf.references()<CR>]], default_opts)
-map('n', '<C-k>', [[<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]], default_opts)
-map('n', '<C-j>', [[<cmd>lua vim.lsp.diagnostic.goto_next()<CR>]], default_opts)
-
--- Zen-mode
-map('n', '<leader>zm', '<cmd>ZenMode<CR>', default_opts)
