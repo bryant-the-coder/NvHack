@@ -14,8 +14,14 @@
 ---
 
 ### Theme
+1. [Tokyonight](https://github.com/folke/tokyonight.nvim)
+2. [Gruvbox](https://github.com/morhetz/gruvbox)
+3. [Palenight](https://github.com/drewtempelmeyer/palenight.vim)
+4. [Onedark](https://github.com/joshdick/onedark.vim)
+5. [Nord](https://github.com/arcticicestudio/nord-vim)
+6. [Rose-pine](https://github.com/arcticicestudio/nord-vim)
 
-### plugins
+### Plugins
 1. [File explorer](https://github.com/kyazdani42/nvim-tree.lua)
 2. [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
     -  [Autotag](https://github.com/windwp/nvim-ts-autotag)
@@ -44,3 +50,8 @@
 12. [Terminal in neovim](https://github.com/akinsho/toggleterm.nvim)
 13. [Harpoon](https://github.com/ThePrimeagen/harpoon)
 14. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
+15. [Git](https://github.com/arcticicestudio/nord-vim)
+
+### Issues
+1. [Neovim official homepage](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+2. If you still encounter any issues, file an issue :)) pull request are welcome lol 
