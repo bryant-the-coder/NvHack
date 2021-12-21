@@ -6,7 +6,7 @@
 2. Run `git clone https://github.com/bryant-the-coder/config`
 3. Run `nvim`
 4. There will be no changes at first (I think), just type in `source %`
-5. Run `checkhealth`
+5. Run `:checkhealth`
 6. TADA~ Your done and setup.
 
 ## Setups in my config
