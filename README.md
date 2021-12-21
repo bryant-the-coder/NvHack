@@ -4,10 +4,11 @@
 1. cd into the directory of your nvim folder
   > Or not create a folder called as nvim
 2. Run `git clone https://github.com/bryant-the-coder/config`
-3. Run `nvim`
-4. There will be no changes at first (I think), just type in `source %`
-5. Run `:checkhealth`
-6. TADA~ Your done and setup.
+3. Run `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+4. Run `nvim` then type `:PackerInstall`
+5. There will be no changes at first (I think), just type in `:source %` (**OPTIONAL**)
+6. Run `:checkhealth`
+7. TADA~ Your done and setup.
 
 ## Setups in my config
 
