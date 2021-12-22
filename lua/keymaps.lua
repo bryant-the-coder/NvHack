@@ -1,7 +1,7 @@
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend("force", options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local default_options = {noremap = true}
+  if opts then default_options = vim.tbl_extend("force", default_options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, default_options)
 end
 
 -----------------------------------
@@ -106,6 +106,3 @@ map("n", "<leader>fm", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzz
 map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]])
 map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]])
 map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]])
-
-
-
