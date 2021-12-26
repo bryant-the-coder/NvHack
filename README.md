@@ -3,19 +3,25 @@
 ## Installation
 1. cd into the directory of your nvim folder
   > Or not create a folder called as nvim
-2. Run `git clone https://github.com/bryant-the-coder/config`
-3. Run `nvim`
-4. There will be no changes at first (I think), just type in `source %`
-5. Run `checkhealth`
-6. TADA~ Your done and setup.
+2. Run `git clone https://github.com/bryant-the-coder/NvHack.git`
+3. Run `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+4. Run `nvim` then type `:PackerInstall`
+5. Run `:checkhealth`
+6. TADA~ Your done and setup
 
 ## Setups in my config
 
 ---
 
 ### Theme
+1. [Tokyonight](https://github.com/folke/tokyonight.nvim)
+2. [Gruvbox](https://github.com/morhetz/gruvbox)
+3. [Palenight](https://github.com/drewtempelmeyer/palenight.vim)
+4. [Onedark](https://github.com/joshdick/onedark.vim)
+5. [Nord](https://github.com/arcticicestudio/nord-vim)
+6. [Rose-pine](https://github.com/arcticicestudio/nord-vim)
 
-### plugins
+### Plugins
 1. [File explorer](https://github.com/kyazdani42/nvim-tree.lua)
 2. [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
     -  [Autotag](https://github.com/windwp/nvim-ts-autotag)
@@ -44,3 +50,8 @@
 12. [Terminal in neovim](https://github.com/akinsho/toggleterm.nvim)
 13. [Harpoon](https://github.com/ThePrimeagen/harpoon)
 14. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
+15. [Git](https://github.com/arcticicestudio/nord-vim)
+
+### Issues
+1. [Neovim official homepage](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+2. If you still encounter any issues, file an issue :)) pull request are welcome lol 
