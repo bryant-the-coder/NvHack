@@ -21,12 +21,12 @@ return require('packer').startup(function()
     use {"rose-pine/neovim", as = "rose-pine"}
 
     -- Explorer menu
-    use "kyazdani42/nvim-tree.lua"
+    use {"kyazdani42/nvim-tree.lua"}
 
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+        run = ":TSUpdate",
     }
     use "p00f/nvim-ts-rainbow"
     use "nvim-treesitter/playground"
@@ -40,7 +40,7 @@ return require('packer').startup(function()
     }
 
     -- Telescope
-    use "nvim-telescope/telescope.nvim"
+    use {"nvim-telescope/telescope.nvim"}
 
     -- Dashboard
     use "glepnir/dashboard-nvim"
