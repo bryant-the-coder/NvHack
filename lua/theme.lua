@@ -49,29 +49,31 @@ end
 
 
 -- Rosepine
-g.rose_pine_bold_vertical_split_line = true
-g.rose_pine_disable_italics = true
+M.rosepine = function ()
+  g.rose_pine_bold_vertical_split_line = true
+  g.rose_pine_disable_italics = true
 
-local p = require('rose-pine.palette')
-g.rose_pine_colors = {
-	punctuation = p.subtle,
-	comment = p.subtle,
-	hint = p.iris,
-	info = p.foam,
-	warn = p.gold,
-	error = p.love,
+  local p = require('rose-pine.palette')
+  g.rose_pine_colors = {
+    punctuation = p.subtle,
+    comment = p.subtle,
+    hint = p.iris,
+    info = p.foam,
+    warn = p.gold,
+    error = p.love,
 
-	headings = {
-		h1 = p.iris,
-		h2 = p.foam,
-		h3 = p.rose,
-		h4 = p.gold,
-		h5 = p.pine,
-		h6 = p.foam,
-	},
-}
+    headings = {
+      h1 = p.iris,
+      h2 = p.foam,
+      h3 = p.rose,
+      h4 = p.gold,
+      h5 = p.pine,
+      h6 = p.foam,
+    },
+  }
+  vim.cmd [[colorscheme rose-pine]]
+end
 
-vim.cmd[[colorscheme tokyonight]]
 
 return M
 
