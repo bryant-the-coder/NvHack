@@ -52,6 +52,14 @@ map('n', '<A-k>', '<C-w><C-k>')
 map('n', '<A-l>', '<C-w><C-l>')
 map('n', '<A-h>', '<C-w><C-h>')
 
+-- Yanking mayb?
+map('v', '>', '>gv')
+map('v', '<', '<gv')
+
+-- Buffer navigation
+map('n', '<Tab>', '<cmd>bnext<CR>')
+map('n', '<S-Tab>', '<cmd>bprevious<CR>')
+map('n', '<C-w>', '<cmd>bdelete<CR>')
 
 -----------------------------------
 --           Plugins             --
@@ -61,10 +69,6 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
 
 -- Zen-mode
 map('n', '<leader>zm', '<cmd>ZenMode<CR>')
-
--- Bufferline
-map('n', '<Tab>', '<cmd>BufferLineCycleNext<CR>')
-map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>')
 
 -- TSPlayground
 map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>')
