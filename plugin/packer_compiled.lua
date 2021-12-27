@@ -140,7 +140,6 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine.nvim"] = {
-    config = { "require('plugins.lualine')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -156,7 +155,6 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    config = { "require('plugins.cmp')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -201,11 +199,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
@@ -241,6 +234,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["tokyodark.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyodark.nvim",
+    url = "https://github.com/tiagovla/tokyodark.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
@@ -264,14 +262,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('plugins.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.lualine')
-time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
