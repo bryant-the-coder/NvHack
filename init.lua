@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 require("settings")
 require("keymaps")
 require("autocommands")
