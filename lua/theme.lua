@@ -13,6 +13,7 @@ g.gruvbox_sign_column = 'bg0'
 g.gruvbox_underline = false
 g.gruvbox_undercurl = false
 -- g.gruvbox_transparent_bg = true
+
 -- Tokyonight
 g.tokyonight_style = "night"
 g.tokyonight_italic_comments = false

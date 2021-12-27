@@ -13,6 +13,7 @@ local colors = {
   yellow        = '#dda654',
   byellow       = '#e8f402',
   green         = '#41c643',
+  cyber_green   = '#32b53d',
   orange        = '#c67f41',
   cyan          = '#41c684',
   purple        = '#cd8fe0',
@@ -81,7 +82,9 @@ left {
 }
 
 left {
-  clock
+  clock,
+  icon = '',
+  color = {fg = colors.cyber_green}
 }
 
 left {
