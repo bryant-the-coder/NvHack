@@ -35,7 +35,6 @@ return require('packer').startup(function()
 
     -- Statusline
     use "nvim-lualine/lualine.nvim"
-    -- use "tamton-aquib/staline.nvim"
 
     -- Telescope
     use {"nvim-telescope/telescope.nvim"}
