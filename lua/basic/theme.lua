@@ -46,4 +46,4 @@ g.rose_pine_colors = {
 	},
 }
 
-cmd[[colorscheme rose-pine]]
+cmd[[colorscheme tokyonight]]
