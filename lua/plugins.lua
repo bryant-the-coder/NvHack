@@ -34,10 +34,7 @@ return require('packer').startup(function()
     use "windwp/nvim-autopairs"
 
     -- Statusline
-    use {
-      "nvim-lualine/lualine.nvim",
-      requires = {"kyazdani42/nvim-web-devicons", opt = true}
-    }
+    use "nvim-lualine/lualine.nvim"
 
     -- Telescope
     use {"nvim-telescope/telescope.nvim"}
@@ -65,7 +62,6 @@ return require('packer').startup(function()
 
     -- Indentation
     use "lukas-reineke/indent-blankline.nvim"
-
 
     -- Auto-comment
     use "numToStr/Comment.nvim"
