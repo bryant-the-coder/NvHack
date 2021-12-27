@@ -1,28 +1,11 @@
+local present, telescope = pcall(require, "telescope")
+if not present then
+   return
+end
+
 local actions = require("telescope.actions")
-local putils = require("telescope.previewers.utils")
--- Disable highlighting for certain files
-local previewers = require('telescope.previewers')
-local mappings   = require('telescope.mappings')
-local pickers    = require('telescope.pickers')
-local _bad = { '.*%.exe', '.git', '.node_modules', '.gitattributes' }
-local bad_files = function(filepath)
-  for _, v in ipairs(_bad) do
-    if filepath:match(v) then
-      return false
-    end
-  end
 
-  return true
-end
-
-local new_maker = function(filepath, bufnr, opts)
-  opts = opts or {}
-  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
-  opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
-  previewers.buffer_previewer_maker(filepath, bufnr, opts)
-end
-
-require("telescope").setup{
+telescope.setup{
   defaults = {
     layout_config = {
       width = 0.75,
@@ -32,16 +15,21 @@ require("telescope").setup{
       vertical = {mirror = false},
     },
     find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = "  ",
+    selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-    borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     color_devicons = true,
-    buffer_previewer_maker = new_maker,
+    set_env = { ["COLORTERM"] = "truecolor" },
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
         i = {
             ["<C-j>"] = actions.move_selection_next,
@@ -56,13 +44,12 @@ require("telescope").setup{
   },
   pickers = {
       find_files = {
-          hidden = true,
-          prompt_title =  ' [ FIND FILES ]',
-          theme = "ivy"
+        hidden = true,
+        prompt_title =  ' [ FIND FILES ]',
       },
       live_grep = {
-          path_display = { 'shorten' },
-          prompt_title = '並 [ FIND A SPECIFIC LINE ] '
+        path_display = { 'shorten' },
+        prompt_title = '並 [ FIND A SPECIFIC LINE ] '
       },
       file_browser = {
         prompt_title = ' [ NVIM-TREE CLONE :D] '
