@@ -44,7 +44,6 @@ telescope.setup{
   },
   pickers = {
       find_files = {
-        hidden = true,
         prompt_title =  ' [ FIND FILES ]',
       },
       live_grep = {
