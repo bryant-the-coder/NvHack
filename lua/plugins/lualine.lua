@@ -63,11 +63,25 @@ end
 local my_filename = require('lualine.components.filename'):extend()
 my_filename.apply_icon = require('lualine.components.filetype').apply_icon
 
+-- clock
+local clock = 'os.date("%I:%M:%S", os.time())'
+if _G.Statusline_timer == nil then
+    _G.Statusline_timer = vim.loop.new_timer()
+else
+    _G.Statusline_timer:stop()
+end
+_G.Statusline_timer:start(0, 1000, vim.schedule_wrap(
+                              function() vim.api.nvim_command('redrawstatus') end))
+
 left {
   'branch',
   icon = '',
   fmt = string.upper,
   color = {fg = colors.bg, bg = colors.yellow}
+}
+
+left {
+  clock
 }
 
 left {
