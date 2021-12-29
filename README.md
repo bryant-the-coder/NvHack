@@ -52,6 +52,8 @@
 14. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
 15. [Git](https://github.com/arcticicestudio/nord-vim)
 
-### Issues
-1. [Neovim official homepage](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-2. If you still encounter any issues, file an issue :)) pull request are welcome lol 
+### Screenshots
+<details>
+<summary>:art: Themes<summary>
+Tokyonight
+</details>
