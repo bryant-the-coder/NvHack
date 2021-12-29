@@ -9,10 +9,6 @@
 5. Run `:checkhealth`
 6. TADA~ Your done and setup
 
-## Setups in my config
-
----
-
 ### Theme
 1. [Tokyonight](https://github.com/folke/tokyonight.nvim)
 2. [Gruvbox](https://github.com/morhetz/gruvbox)
@@ -52,8 +48,7 @@
 14. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
 15. [Git](https://github.com/arcticicestudio/nord-vim)
 
-### Screenshots
-<details>
-<summary>:art: Themes<summary>
-Tokyonight
-</details>
+## TODO
+- [ ] change lualine icons and mode
+- [ ] update readme (adding showcase)
+
