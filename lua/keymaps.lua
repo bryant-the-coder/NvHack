@@ -41,10 +41,10 @@ map('n', '<leader>sf', ':source % <CR>')
 map("n", "<leader>fs", ":lua vim.lsp.buf.formatting_sync(nil, 100)<CR>")
 
 -- Resizing windows
-map('n', '<C-up>', '<C-w>+')
-map('n', '<C-down>', '<C-w>-')
-map('n', '<C-left>', '<C-w>>')
-map('n', '<C-right>', '<C-w><')
+map('n', '<A-up>', '<C-w>+')
+map('n', '<A-down>', '<C-w>-')
+map('n', '<A-left>', '<C-w>>')
+map('n', '<A-right>', '<C-w><')
 
 -- Window Navigation
 map('n', 'J', '<C-w><C-j>')
@@ -62,10 +62,10 @@ map('n', '<S-Tab>', ':bprevious<CR>')
 map('n', '<C-w>',   ':bdelete<CR>')
 
 -- Moving lines up & down (complicated)
-map('n', '<A-j>', ':m .+1<CR>==')
-map('n', '<A-k>', ':m .-2<CR>==')
-map('v', '<A-j>', ":m '>+1<CR>gv=gv")
-map('v', '<A-k>', ":m '<-2<CR>gv=gv")
+map('n', '<C-down>', ':m .+1<CR>==')
+map('n', '<C-up>', ':m .-2<CR>==')
+map('v', '<C-down>', ":m '>+1<CR>gv=gv")
+map('v', '<C-up>', ":m '<-2<CR>gv=gv")
 
 -----------------------------------
 --           Plugins             --
