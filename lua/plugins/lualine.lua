@@ -81,11 +81,6 @@ left {
   color = {fg = colors.bg, bg = colors.yellow}
 }
 
-left {
-  clock,
-  icon = '',
-  color = {fg = colors.cyber_green}
-}
 
 left {
     center
@@ -107,7 +102,28 @@ right {
     color_info   = { fg = colors.bgreen },
   },
   always_visible = true,
-  update_in_insert = true
+  update_in_insert = true,
+  padding = {right = 2}
+}
+
+right {
+  clock,
+  icon = '',
+  color = {fg = colors.cyber_green},
+  padding = {right = 1}
+}
+
+right {
+  function()
+	local current_line = vim.fn.line(".")
+	local total_lines = vim.fn.line("$")
+	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+	local line_ratio = current_line / total_lines
+	local index = math.ceil(line_ratio * #chars)
+	return chars[index]
+end,
+  padding = 0,
+  color = {fg = colors.yellow}
 }
 
 -- Setup the config file / source it?
