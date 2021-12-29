@@ -1,3 +1,8 @@
+local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+return
+end
+
 local incremental_selection = require "nvim-treesitter.incremental_selection"
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
@@ -12,7 +17,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 require 'nvim-treesitter.install'.compilers = { "clang" }
-require'nvim-treesitter.configs'.setup {
+treesitter.setup {
   ensure_installed = {"html", "javascript", "lua", "scss"},
   sync_install = false,
   incremental_selection = {

@@ -1,7 +1,12 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local g = vim.g
 
-require'nvim-tree'.setup {
+local present, tree = pcall(require, "nvim-tree")
+if not present then
+   return
+end
+
+tree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
