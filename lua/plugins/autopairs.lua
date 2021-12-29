@@ -1,11 +1,16 @@
-require('nvim-autopairs').setup({
-  check_ts = true,
-})
+local status_ok, npairs = pcall(require, "nvim-autopairs")
+if not status_ok then
+  return
+end
+
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
-local npairs = require'nvim-autopairs'
 local Rule   = require'nvim-autopairs.rule'
 local cond = require'nvim-autopairs.conds'
+
+npairs.setup({
+  check_ts = true,
+})
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 -- Add spaces between parentheses
