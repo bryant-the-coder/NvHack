@@ -7,11 +7,6 @@ o.termguicolors = true
 
 
 -- Gruvbox
-g.gruvbox_hls_cursor='red'
-g.gruvbox_number_column = 'bg0'
-g.gruvbox_sign_column = 'bg0'
-g.gruvbox_underline = false
-g.gruvbox_undercurl = false
 -- g.gruvbox_transparent_bg = true
 
 -- Tokyonight
@@ -46,3 +41,35 @@ g.rose_pine_colors = {
 }
 
 cmd [[colorscheme tokyonight]]
+
+
+--local time = os.date("*t")
+--if time.hour <=7 then
+--  vim.g.gruvbox_hls_cursor='red'
+--  vim.g.gruvbox_number_column = 'bg0'
+--  vim.g.gruvbox_sign_column = 'bg0'
+--  vim.g.gruvbox_underline = false
+--  vim.g.gruvbox_undercurl = false
+--  vim.cmd[[colorscheme gruvbox]]
+-- elseif time.hour <= 11 then
+--end
+
+--7
+--8
+--9
+--10
+
+--11
+--12
+--13
+--14
+
+--15
+--16
+--17
+--18
+
+--19
+--20
+--21
+--22

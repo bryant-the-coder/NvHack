@@ -1,4 +1,9 @@
-require('bufferline').setup {
+local present, bufferline = pcall(require, "bufferline")
+if not present then
+   return
+end
+
+bufferline.setup {
   options = {
     numbers = "none",
     close_command = "bdelete! %d",
@@ -29,3 +34,4 @@ require('bufferline').setup {
     always_show_bufferline = true,
   },
 }
+

@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, opts)
-  local default_options = {noremap = true}
+  local default_options = {noremap = true, silent = true}
   if opts then default_options = vim.tbl_extend("force", default_options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, default_options)
 end
@@ -8,10 +8,10 @@ end
 --           BASIC               --
 -----------------------------------
 -- Quitting
-map('n', '<C-q>', '<cmd>q<CR>')
+map('n', '<C-q>', ':q<CR>')
 
 -- Buffer
-map('n', '<leader>dd', '<cmd>bdelete<CR>')
+map('n', '<leader>dd', ':bdelete<CR>')
 
 -- ESC key
 map('i', 'jk', '<Esc>')
@@ -19,9 +19,9 @@ map('i', 'JK', '<Esc>')
 map('v', 'jk', '<Esc>')
 
 -- ESC to clear all highlights
-map('i', '<Esc>', '<cmd>noh<CR>')
-map('v', '<Esc>', '<cmd>noh<CR>')
-map('n', '<Esc>', '<cmd>noh<CR>')
+map('i', '<Esc>', ':noh<CR>')
+map('v', '<Esc>', ':noh<CR>')
+map('n', '<Esc>', ':noh<CR>')
 
 -- Terminal ESC key
 map('t', '<ESC>', [[<C-\><C-n>]])
@@ -35,10 +35,10 @@ map('n', 'x', '"_x')
 map('n', 'x', '"_x')
 
 -- Saving the traditional way
-map('n', '<C-s>', '<cmd>w<CR>')
-map('i', '<C-s>', '<cmd>w<CR>')
-map('n', '<leader>sf', '<cmd>source % <CR>')
-map("n", "<leader>fs", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>")
+map('n', '<C-s>', ':w<CR>')
+map('i', '<C-s>', ':w<CR>')
+map('n', '<leader>sf', ':source % <CR>')
+map("n", "<leader>fs", ":lua vim.lsp.buf.formatting_sync(nil, 100)<CR>")
 
 -- Resizing windows
 map('n', '<C-up>', '<C-w>+')
@@ -47,66 +47,72 @@ map('n', '<C-left>', '<C-w>>')
 map('n', '<C-right>', '<C-w><')
 
 -- Window Navigation
-map('n', '<A-j>', '<C-w><C-j>')
-map('n', '<A-k>', '<C-w><C-k>')
-map('n', '<A-l>', '<C-w><C-l>')
-map('n', '<A-h>', '<C-w><C-h>')
+map('n', 'J', '<C-w><C-j>')
+map('n', 'K', '<C-w><C-k>')
+map('n', 'L', '<C-w><C-l>')
+map('n', 'H', '<C-w><C-h>')
 
 -- Yanking mayb?
 map('v', '>', '>gv')
 map('v', '<', '<gv')
 
 -- Buffer navigation
-map('n', '<Tab>', '<cmd>bnext<CR>')
-map('n', '<S-Tab>', '<cmd>bprevious<CR>')
-map('n', '<C-w>', '<cmd>bdelete<CR>')
+map('n', '<Tab>',   ':bnext<CR>')
+map('n', '<S-Tab>', ':bprevious<CR>')
+map('n', '<C-w>',   ':bdelete<CR>')
+
+-- Moving lines up & down (complicated)
+map('n', '<A-j>', ':m .+1<CR>==')
+map('n', '<A-k>', ':m .-2<CR>==')
+map('v', '<A-j>', ":m '>+1<CR>gv=gv")
+map('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 -----------------------------------
 --           Plugins             --
 -----------------------------------
 -- Nvim-tree
-map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
 -- Zen-mode
-map('n', '<leader>zm', '<cmd>ZenMode<CR>')
+map('n', '<leader>zm', ':ZenMode<CR>')
 
 -- TSPlayground
-map('n', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>')
-map('i', '<leader>tp', '<cmd>TSPlaygroundToggle<CR>')
+map('n', '<leader>tp', ':TSPlaygroundToggle<CR>')
+map('i', '<leader>tp', ':TSPlaygroundToggle<CR>')
 
 -- Packer
-map('n', '<leader>pi', '<cmd>PackerInstall<CR>')
-map('n', '<leader>pu', '<cmd>PackerUpdate<CR>')
-map('n', '<leader>pc', '<cmd>PackerClean<CR>')
-map('n', '<leader>ps', '<cmd>PackerSync<CR>')
+map('n', '<leader>pi', ':PackerInstall<CR>')
+map('n', '<leader>pu', ':PackerUpdate<CR>')
+map('n', '<leader>pc', ':PackerClean<CR>')
+map('n', '<leader>ps', ':PackerSync<CR>')
 
 -- LSP
-map('n', '<leader>ld', [[<cmd>lua vim.lsp.buf.definition()<CR>]])
-map('n', '<leader>lt', [[<cmd>lua vim.lsp.buf.type_definition()<CR>]])
-map('n', '<leader>lr', [[<cmd>lua vim.lsp.buf.rename()<CR>]])
-map('n', '<C-a>', [[<cmd>lua vim.lsp.buf.references()<CR>]])
-map('n', '<C-k>', [[<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]])
-map('n', '<C-j>', [[<cmd>lua vim.lsp.diagnostic.goto_next()<CR>]])
+map('n', '<leader>ld', [[:lua vim.lsp.buf.definition()<CR>]])
+map('n', '<leader>lt', [[:lua vim.lsp.buf.type_definition()<CR>]])
+map('n', '<leader>lr', [[:lua vim.lsp.buf.rename()<CR>]])
+map('n', '<C-a>', [[:lua vim.lsp.buf.references()<CR>]])
+map('n', '<C-k>', [[:lua vim.lsp.diagnostic.goto_prev()<CR>]])
+map('n', '<C-j>', [[:lua vim.lsp.diagnostic.goto_next()<CR>]])
 
 -- Harpooon
-map('n', '<A-p>', [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]])
-map('n', '<leader>lf', [[<cmd>lua require("harpoon.mark").add_file()<CR>]])
-map('n', '<leader>l;', [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]])
-map('n', '<leader>ll', [[<cmd>lua require("harpoon.ui").nav_next()<CR>]])
-map('n', '<A-1>', [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]])
-map('n', '<A-2>', [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]])
-map('n', '<A-3>', [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]])
-map('n', '<A-4>', [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]])
+map('n', '<A-p>', [[:lua require("harpoon.ui").toggle_quick_menu()<CR>]])
+map('n', '<leader>lf', [[:lua require("harpoon.mark").add_file()<CR>]])
+map('n', '<leader>l;', [[:lua require("harpoon.ui").nav_prev()<CR>]])
+map('n', '<leader>ll', [[:lua require("harpoon.ui").nav_next()<CR>]])
+map('n', '<A-1>', [[:lua require("harpoon.ui").nav_file(1)<CR>]])
+map('n', '<A-2>', [[:lua require("harpoon.ui").nav_next(2)<CR>]])
+map('n', '<A-3>', [[:lua require("harpoon.ui").nav_next(3)<CR>]])
+map('n', '<A-4>', [[:lua require("harpoon.ui").nav_next(4)<CR>]])
 
 -- Telescope
-map("n", "<leader>ff", [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]])
-map("n", "<leader>fb", [[<Cmd>lua require'telescope.builtin'.buffers()<CR>]])
-map("n", "<leader>fw", [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]])
-map("n", "<leader>fp", [[<Cmd>lua require'telescope.builtin'.file_browser()<CR>]])
-map("n", "<leader>fc", [[<Cmd>lua require'telescope.builtin'.colorscheme()<CR>]])
-map("n", "<leader>fo", [[<Cmd>lua require'telescope.builtin'.oldfiles()<CR>]])
-map("n", "<leader>fk", [[<Cmd>lua require'telescope.builtin'.keymaps()<CR>]])
-map("n", "<leader>fm", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]])
-map("n", "<leader>ft", [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]])
-map("n", "<leader>fd", [[<Cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]])
-map("n", "<leader>fds", [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]])
+map("n", "<leader>ff", [[:lua require'telescope.builtin'.find_files()<CR>]])
+map("n", "<leader>fb", [[:lua require'telescope.builtin'.buffers()<CR>]])
+map("n", "<leader>fw", [[:lua require'telescope.builtin'.live_grep()<CR>]])
+map("n", "<leader>fp", [[:lua require'telescope.builtin'.file_browser()<CR>]])
+map("n", "<leader>fc", [[:lua require'telescope.builtin'.colorscheme()<CR>]])
+map("n", "<leader>fo", [[:lua require'telescope.builtin'.oldfiles()<CR>]])
+map("n", "<leader>fk", [[:lua require'telescope.builtin'.keymaps()<CR>]])
+map("n", "<leader>fm", [[:lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]])
+map("n", "<leader>ft", [[:lua require'telescope.builtin'.treesitter()<CR>]])
+map("n", "<leader>fd", [[:lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]])
+map("n", "<leader>fds", [[:lua require'telescope.builtin'.lsp_document_symbols()<CR>]])

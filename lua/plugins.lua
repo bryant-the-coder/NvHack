@@ -13,12 +13,11 @@ return require('packer').startup(function()
     use "kyazdani42/nvim-web-devicons"
 
     -- Theme
-    use "tiagovla/tokyodark.nvim"
     use "folke/tokyonight.nvim"
     use "morhetz/gruvbox"
-    use "drewtempelmeyer/palenight.vim"
-    use "arcticicestudio/nord-vim"
     use {"rose-pine/neovim", as = "rose-pine"}
+    use "olimorris/onedarkpro.nvim"
+    use "yashguptaz/calvera-dark.nvim"
 
     -- Explorer menu
     use {"kyazdani42/nvim-tree.lua"}

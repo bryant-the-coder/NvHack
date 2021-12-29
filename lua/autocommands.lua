@@ -86,7 +86,7 @@ cmd[[
 -- Nvim-lsp
 -- 1. When there is any diagnostic it will open a float (kinda useful :)
 -- VSCode like
-cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+-- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 -- 2. Highlights the number. (i dun like icons anyways)
 cmd [[
   highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold

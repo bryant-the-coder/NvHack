@@ -25,6 +25,7 @@ o.wrap = false
 o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = "menuone,noselect,menu"
+o.termguicolors = true
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Computer management
