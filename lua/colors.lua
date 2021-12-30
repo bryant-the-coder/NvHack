@@ -2,7 +2,7 @@ local M = {}
 
 M.colors = {
   lualine = {
-    bg            = '#262833',
+    bg            = '#21222d',
     fg            = '#f8f8ff',
     red           = '#dd3e46',
     bred          = '#fc3235',
