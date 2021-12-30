@@ -75,6 +75,64 @@ _G.Statusline_timer:start(0, 1000, vim.schedule_wrap(
                               function() vim.api.nvim_command('redrawstatus') end))
 
 left {
+  -- mode component
+  function()
+    -- auto change color according to neovims mode
+    local mode_color = {
+      n = colors.red,
+      i = colors.green,
+      v = colors.blue,
+      [''] = colors.blue,
+      V = colors.blue,
+      c = colors.magenta,
+      no = colors.red,
+      s = colors.orange,
+      S = colors.orange,
+      [''] = colors.orange,
+      ic = colors.yellow,
+      R = colors.violet,
+      Rv = colors.violet,
+      cv = colors.red,
+      ce = colors.red,
+      r = colors.cyan,
+      rm = colors.cyan,
+      ['r?'] = colors.cyan,
+      ['!'] = colors.red,
+      t = colors.red,
+    }
+    local mode = {
+      ['n']    = ' NORMAL',
+      ['no']   = ' NORMAL',
+      ['nov']  = ' NORMAL',
+      ['noV']  = ' NORMAL',
+      ['no'] = ' NORMAL',
+      ['niI']  = ' NORMAL',
+      ['niR']  = ' NORMAL',
+      ['niV']  = ' NORMAL',
+
+      ['i']   = ' INSERT',
+      ['ic']  = ' INSERT ',
+      ['ix']  = ' INSERT ',
+      ['s']   = ' INSERT ',
+      ['S']   = ' INSERT ',
+
+      ['v']   = ' VISUAL',
+      ['V']   = ' V-LINE',
+      ['']  = ' ',
+      ['r']   = '﯒ ',
+      ['r?']  = ' ',
+      ['c']   = ' ',
+      ['t']   = ' ',
+      ['!']   = ' ',
+      ['R']   = ' ',
+    }
+    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
+    return mode[vim.fn.mode()] or 'default'
+  end,
+  color = 'LualineMode',
+  padding = { left = 1 , right = 1},
+}
+left {
   'branch',
   icon = '',
   fmt = string.upper,
