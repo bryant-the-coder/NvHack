@@ -51,4 +51,3 @@
 ## TODO
 - [ ] change lualine icons and mode
 - [ ] update readme (adding showcase)
-
