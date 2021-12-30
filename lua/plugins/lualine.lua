@@ -3,26 +3,26 @@
 -- Credit: glepnir & shadmansaleh
 
 local lualine = require 'lualine'
-
-local colors = {
-  bg            = '#191724',
-  fg            = '#f8f8ff',
-  red           = '#dd3e46',
-  bred          = '#fc3235',
-  blue          = '#4198c6',
-  yellow        = '#dda654',
-  byellow       = '#e8f402',
-  green         = '#41c643',
-  cyber_green   = '#32b53d',
-  orange        = '#c67f41',
-  cyan          = '#41c684',
-  purple        = '#cd8fe0',
-}
+local colors = require('colors').colors.lualine
 
 -- Centering files
 local function center()
   return '%='
 end
+
+-- Filename with icons
+local my_filename = require('lualine.components.filename'):extend()
+my_filename.apply_icon = require('lualine.components.filetype').apply_icon
+
+-- clock
+local clock = 'os.date("%I:%M:%S", os.time())'
+if _G.Statusline_timer == nil then
+    _G.Statusline_timer = vim.loop.new_timer()
+else
+    _G.Statusline_timer:stop()
+end
+_G.Statusline_timer:start(0, 1000, vim.schedule_wrap(
+                              function() vim.api.nvim_command('redrawstatus') end))
 
 -- Config
 local config = {
@@ -37,18 +37,18 @@ local config = {
   sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
     lualine_c = {},
     lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_v = {},
+    lualine_b = {center},
+    lualine_c = {{my_filename, colored = true}},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
   },
   extensions = {'nvim-tree', 'toggleterm'}
 }
@@ -61,18 +61,6 @@ local function right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-local my_filename = require('lualine.components.filename'):extend()
-my_filename.apply_icon = require('lualine.components.filetype').apply_icon
-
--- clock
-local clock = 'os.date("%I:%M:%S", os.time())'
-if _G.Statusline_timer == nil then
-    _G.Statusline_timer = vim.loop.new_timer()
-else
-    _G.Statusline_timer:stop()
-end
-_G.Statusline_timer:start(0, 1000, vim.schedule_wrap(
-                              function() vim.api.nvim_command('redrawstatus') end))
 
 left {
   -- mode component
@@ -148,6 +136,27 @@ left {
     my_filename,
     colored = true,
 }
+
+-- right {
+--   -- Lsp server name .
+--   function()
+--     local msg = 'No Active Lsp'
+--     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+--     local clients = vim.lsp.get_active_clients()
+--     if next(clients) == nil then
+--       return msg
+--     end
+--     for _, client in ipairs(clients) do
+--       local filetypes = client.config.filetypes
+--       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+--         return client.name
+--       end
+--     end
+--     return msg
+--   end,
+--   icon = ' LSP:',
+--   color = { fg = '#ffffff', gui = 'bold' },
+-- }
 
 right {
   'diagnostics',
