@@ -49,5 +49,7 @@
 15. [Git](https://github.com/arcticicestudio/nord-vim)
 
 ## TODO
-- [ ] change lualine icons and mode
-- [ ] update readme (adding showcase)
+- [x] change lualine icons and modes
+- [ ] change icons and modes color
+- [ ] update readme (add showcase)
+
