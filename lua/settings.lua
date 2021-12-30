@@ -53,3 +53,6 @@ o.ignorecase = true
 
 -- Python
 g.python3_host_prog = 'C:/Python310/python.exe'
+
+-- Theme
+o.termguicolors = true
