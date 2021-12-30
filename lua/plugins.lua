@@ -17,7 +17,6 @@ return require('packer').startup(function()
     use "morhetz/gruvbox"
     use {"rose-pine/neovim", as = "rose-pine"}
     use "olimorris/onedarkpro.nvim"
-    use "yashguptaz/calvera-dark.nvim"
 
     -- Explorer menu
     use {"kyazdani42/nvim-tree.lua"}
