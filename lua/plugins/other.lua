@@ -39,6 +39,7 @@ require("indent_blankline").setup {
     },
 }
 
+-- Git
 require('gitsigns').setup {
   current_line_blame_opts = {
     virt_text = true,
