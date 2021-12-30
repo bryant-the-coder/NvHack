@@ -80,5 +80,4 @@ return require('packer').startup(function()
 
     -- Git
     use "lewis6991/gitsigns.nvim"
-
 end)
