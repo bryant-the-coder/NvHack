@@ -80,13 +80,18 @@ _G.packer_plugins = {
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["cmp-buffer"] = {
+    after_files = { "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer\\after\\plugin\\cmp_buffer.lua" },
+    load_after = {},
     loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    needs_bufread = false,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-npm"] = {
+    load_after = {},
     loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-npm",
+    needs_bufread = false,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-npm",
     url = "https://github.com/David-Kunz/cmp-npm"
   },
   ["cmp-nvim-lsp"] = {
@@ -95,8 +100,11 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
+    after_files = { "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path\\after\\plugin\\cmp_path.lua" },
+    load_after = {},
     loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
+    needs_bufread = false,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-vsnip"] = {
@@ -105,11 +113,13 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["dashboard-nvim"] = {
+    config = { "require('plugins.dashboard')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["gitsigns.nvim"] = {
+    config = { "require('plugins.other')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -125,11 +135,13 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["indent-blankline.nvim"] = {
+    config = { "require('plugins.other')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-colors.nvim"] = {
+    config = { "require('plugins.other')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
@@ -140,6 +152,7 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine.nvim"] = {
+    config = { "require('plugins.lualine')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -150,31 +163,36 @@ _G.packer_plugins = {
     url = "https://github.com/shaunsingh/moonlight.nvim"
   },
   ["nvim-autopairs"] = {
+    config = { "require('plugins.autopairs')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    after = { "cmp-npm", "cmp-path", "cmp-buffer", "vim-vsnip" },
     loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    only_config = true
   },
   ["nvim-colorizer.lua"] = {
+    config = { "require('plugins.other')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
+    config = { "require('plugins.lsp')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
+    config = { "require('plugins.nvim-tree')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { "require('plugins.treesitter')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -221,13 +239,15 @@ _G.packer_plugins = {
   },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
+    config = { "require('plugins.telescope')" },
     loaded = false,
-    needs_bufread = false,
+    needs_bufread = true,
     only_cond = false,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
+    config = { "require('plugins.toggleterm')" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -243,8 +263,10 @@ _G.packer_plugins = {
     url = "https://github.com/folke/twilight.nvim"
   },
   ["vim-vsnip"] = {
+    load_after = {},
     loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
+    needs_bufread = false,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
   ["zen-mode.nvim"] = {
@@ -255,6 +277,89 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+local module_lazy_loads = {
+  ["^telescope"] = "telescope.nvim"
+}
+local lazy_load_called = {['packer.load'] = true}
+local function lazy_load_module(module_name)
+  local to_load = {}
+  if lazy_load_called[module_name] then return nil end
+  lazy_load_called[module_name] = true
+  for module_pat, plugin_name in pairs(module_lazy_loads) do
+    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
+      to_load[#to_load + 1] = plugin_name
+    end
+  end
+
+  if #to_load > 0 then
+    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
+    local loaded_mod = package.loaded[module_name]
+    if loaded_mod then
+      return function(modname) return loaded_mod end
+    end
+  end
+end
+
+if not vim.g.packer_custom_loader_enabled then
+  table.insert(package.loaders, 1, lazy_load_module)
+  vim.g.packer_custom_loader_enabled = true
+end
+
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('plugins.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('plugins.autopairs')
+time([[Config for nvim-autopairs]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('plugins.other')
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('plugins.toggleterm')
+time([[Config for toggleterm.nvim]], false)
+-- Config for: lsp-colors.nvim
+time([[Config for lsp-colors.nvim]], true)
+require('plugins.other')
+time([[Config for lsp-colors.nvim]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('plugins.dashboard')
+time([[Config for dashboard-nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('plugins.lsp')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('plugins.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.other')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require('plugins.other')
+time([[Config for nvim-colorizer.lua]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-npm ]]
+vim.cmd [[ packadd vim-vsnip ]]
+vim.cmd [[ packadd cmp-path ]]
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
