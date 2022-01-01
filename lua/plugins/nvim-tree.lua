@@ -34,7 +34,7 @@ tree.setup {
     ignore_list = {}
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
     custom = {".git", ".gitattributes", "node_module", "package-lock.json"}
   },
   git = {

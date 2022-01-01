@@ -4,7 +4,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
 
@@ -16,7 +16,7 @@ return require('packer').startup(function()
     use "folke/tokyonight.nvim"
     use "morhetz/gruvbox"
     use {"rose-pine/neovim", as = "rose-pine"}
-    use "olimorris/onedarkpro.nvim"
+    use "shaunsingh/moonlight.nvim"
 
     -- Explorer menu
     use {"kyazdani42/nvim-tree.lua"}
@@ -35,8 +35,9 @@ return require('packer').startup(function()
     use "nvim-lualine/lualine.nvim"
 
     -- Telescope
-    use {"nvim-telescope/telescope.nvim"}
-
+    use {
+      "nvim-telescope/telescope.nvim",
+    }
     -- Dashboard
     use "glepnir/dashboard-nvim"
 
@@ -79,4 +80,8 @@ return require('packer').startup(function()
 
     -- Git
     use "lewis6991/gitsigns.nvim"
+
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

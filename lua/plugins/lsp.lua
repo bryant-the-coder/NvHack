@@ -1,8 +1,17 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local capabilities1 = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
+
+-- Icons
+local signs = {
+  { name = "DiagnosticSignError", text = " " },
+  { name = "DiagnosticSignWarn", text = " " },
+  { name = "DiagnosticSignHint", text = " " },
+  { name = "DiagnosticSignInfo", text = " " },
+}
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
 
 vim.diagnostic.config({
   virtual_text = {
@@ -11,6 +20,7 @@ vim.diagnostic.config({
   float = {
     source = "always",
     prefix = '',
+    border = "rounded",
   },
   signs = true,
   underline = true,
@@ -19,28 +29,29 @@ vim.diagnostic.config({
 })
 
 -- html
-require'lspconfig'.html.setup {
+lspconfig.html.setup {
   cmd = { "vscode-html-language-server.cmd", "--stdio" },
   capabilities = capabilities,
 }
 
 -- scss/css/ls
-require'lspconfig'.cssls.setup {
+lspconfig.cssls.setup {
   cmd = { "vscode-css-language-server.cmd", "--stdio" },
   capabilities = capabilities,
 }
 
 -- js/typescript
-require'lspconfig'.tsserver.setup{
+lspconfig.tsserver.setup{
     cmd = { "typescript-language-server.cmd", "--stdio" },
-    capabilities = capabilities1,
+    capabilities = capabilities,
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
 }
 
 -- json
-require'lspconfig'.jsonls.setup {
-  cmd = {"vscode-json-language-server.cmd", "--studio"},
-  capabilities = capabilities
+lspconfig.jsonls.setup {
+  cmd = {"vscode-json-language-server.cmd", "--stdio"},
+  capabilities = capabilities,
+  filetypes = { "json" }
 }
 
 if not lspconfig.emmet_ls then

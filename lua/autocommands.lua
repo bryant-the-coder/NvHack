@@ -88,17 +88,17 @@ cmd[[
 -- VSCode like
 -- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 -- 2. Highlights the number. (i dun like icons anyways)
-cmd [[
-  highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
-  highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
-  highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
-  highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
+-- cmd [[
+--   highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
+--   highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
+--   highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
+--   highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
 
-  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
-  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
-  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
-  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
-]]
+--   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+--   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+--   sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+--   sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+-- ]]
 
 cmd [[
   highlight GitSignsCurrentLineBlame guifg=#827e7e

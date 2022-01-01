@@ -17,7 +17,7 @@ bufferline.setup {
     right_trunc_marker = '',
     max_name_length = 14,
     max_prefix_length = 13,
-    tab_size = 17,
+    tab_size = 20,
     view = "multiwindow",
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = true,
@@ -25,13 +25,12 @@ bufferline.setup {
       return "("..count..")"
     end,
     offsets = {{filetype = "NvimTree", text = "File Explorer" , text_align = "center", highlight = "pmenu" }},
+    separator_style = "thin",
     show_buffer_icons = true,
     show_buffer_close_icons = true,
     show_close_icon = true,
     show_tab_indicators = true,
-    separator_style = "{'any','any}",
     enforce_regular_tabs = true,
     always_show_bufferline = true,
   },
 }
-

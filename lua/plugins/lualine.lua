@@ -44,7 +44,7 @@ local config = {
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {center},
+    lualine_b = {},
     lualine_c = {{my_filename, colored = true}},
     lualine_x = {},
     lualine_y = {},
@@ -62,69 +62,12 @@ local function right(component)
 end
 
 
-left {
-  -- mode component
-  function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
-    }
-    local mode = {
-      ['n']    = ' NORMAL',
-      ['no']   = ' NORMAL',
-      ['nov']  = ' NORMAL',
-      ['noV']  = ' NORMAL',
-      ['no'] = ' NORMAL',
-      ['niI']  = ' NORMAL',
-      ['niR']  = ' NORMAL',
-      ['niV']  = ' NORMAL',
 
-      ['i']   = ' INSERT',
-      ['ic']  = ' INSERT ',
-      ['ix']  = ' INSERT ',
-      ['s']   = ' INSERT ',
-      ['S']   = ' INSERT ',
-
-      ['v']   = ' VISUAL',
-      ['V']   = ' V-LINE',
-      ['']  = ' ',
-      ['r']   = '﯒ ',
-      ['r?']  = ' ',
-      ['c']   = ' ',
-      ['t']   = ' ',
-      ['!']   = ' ',
-      ['R']   = ' ',
-    }
-    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return mode[vim.fn.mode()] or 'default'
-  end,
-  color = 'LualineMode',
-  padding = { left = 1 , right = 1},
-}
 left {
   'branch',
   icon = '',
   fmt = string.upper,
-  color = {fg = colors.bg, bg = colors.yellow}
+  color = {fg = colors.yellow}
 }
 
 
@@ -136,27 +79,6 @@ left {
     my_filename,
     colored = true,
 }
-
--- right {
---   -- Lsp server name .
---   function()
---     local msg = 'No Active Lsp'
---     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
---     local clients = vim.lsp.get_active_clients()
---     if next(clients) == nil then
---       return msg
---     end
---     for _, client in ipairs(clients) do
---       local filetypes = client.config.filetypes
---       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
---         return client.name
---       end
---     end
---     return msg
---   end,
---   icon = ' LSP:',
---   color = { fg = '#ffffff', gui = 'bold' },
--- }
 
 right {
   'diagnostics',
@@ -175,7 +97,7 @@ right {
 
 right {
   clock,
-  icon = '',
+  icon = '',
   color = {fg = colors.cyber_green},
   padding = {right = 1}
 }
