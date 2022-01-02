@@ -6,12 +6,6 @@ if time.hour <= 10 then
   vim.g.gruvbox_underline = false
   vim.g.gruvbox_undercurl = false
   vim.cmd[[colorscheme gruvbox]]
-elseif time.hour <= 14 then
-  vim.g.moonlight_italic_comments = false
-  vim.g.moonlight_italic_keywords = false
-  vim.g.moonlight_italic_functions = false
-  vim.g.moonlight_italic_variables = false
-  vim.cmd[[colorscheme moonlight]]
 elseif time.hour <= 18 then
   vim.g.rose_pine_bold_vertical_split_line = true
   vim.g.rose_pine_disable_italics = true

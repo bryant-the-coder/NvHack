@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'morhetz/gruvbox'
     use {'rose-pine/neovim', as = "rose-pine"}
-    use 'shaunsingh/moonlight.nvim'
 
     -- Explorer menu
     use {'kyazdani42/nvim-tree.lua', config = [[require('plugins.nvim-tree')]]}
