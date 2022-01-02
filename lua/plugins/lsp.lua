@@ -28,6 +28,14 @@ vim.diagnostic.config({
   update_in_insert = true
 })
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
+
 -- html
 lspconfig.html.setup {
   cmd = { "vscode-html-language-server.cmd", "--stdio" },

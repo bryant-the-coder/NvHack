@@ -13,7 +13,10 @@ local NoWhitespace = exec(
     true
 )
 
--- Trim Whitespace (noiceeeeeeeee)
+-----------------------------------
+--           Basic               --
+-----------------------------------
+-- Trim Whitespace ( cleaner code  guess ヾ(•ω•`)o )
 exec([[au BufWritePre * call NoWhitespace()]], false)
 
 -- Disable autocommenting in new lines (kinda annoying)
@@ -36,25 +39,6 @@ cmd([[
   autocmd Filetype scss setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 ]])
 
--- This is for nvim-cmp
-cmd([[
-  " gray
-  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-  " blue
-  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-  " light blue
-  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-  highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-  " pink
-  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-  highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-  " front
-  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-  highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-]])
 
 -- Restore cursor last position upon reopening the file
 cmd[[
@@ -88,23 +72,34 @@ cmd[[
   augroup end
 ]]
 
+-----------------------------------
+--           Plugins             --
+-----------------------------------
+-- Nvim-cmp
+cmd([[
+  " gray
+  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+  " blue
+  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+  " light blue
+  highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+  highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+  highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+  " pink
+  highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+  highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+  " front
+  highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+  highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+  highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+]])
+
 -- Nvim-lsp
--- 1. When there is any diagnostic it will open a float (kinda useful :)
--- VSCode like
+-- Floating diagnostics
 -- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
--- 2. Highlights the number. (i dun like icons anyways)
--- cmd [[
---   highlight DiagnosticLineNrError guibg=#B90E0A guifg=#ffffff gui=bold
---   highlight DiagnosticLineNrWarn  guibg=#d38b04 guifg=#ffffff gui=bold
---   highlight DiagnosticLineNrInfo  guibg=#4682b4 guifg=#ffffff gui=bold
---   highlight DiagnosticLineNrHint  guibg=#228b22 guifg=#ffffff gui=bold
 
---   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
---   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
---   sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
---   sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
--- ]]
-
+-- Gitsigns color
 cmd [[
   highlight GitSignsCurrentLineBlame guifg=#827e7e
 ]]

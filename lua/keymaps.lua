@@ -89,12 +89,13 @@ map('n', '<leader>pc', ':PackerClean<CR>')
 map('n', '<leader>ps', ':PackerSync<CR>')
 
 -- LSP
+map('n', '<leader>lr', [[:lua vim.lsp.buf.rename()<CR>]])
 map('n', '<leader>ld', [[:lua vim.lsp.buf.definition()<CR>]])
 map('n', '<leader>lt', [[:lua vim.lsp.buf.type_definition()<CR>]])
-map('n', '<leader>lr', [[:lua vim.lsp.buf.rename()<CR>]])
+map('n', '<leader>lh', [[:lua vim.lsp.buf.signature_help()<CR>]])
 map('n', '<C-a>', [[:lua vim.lsp.buf.references()<CR>]])
-map('n', '<C-k>', [[:lua vim.lsp.diagnostic.goto_prev()<CR>]])
-map('n', '<C-j>', [[:lua vim.lsp.diagnostic.goto_next()<CR>]])
+map('n', '<C-k>', [[:lua vim.diagnostic.goto_prev({border = "rounded"})<CR>]])
+map('n', '<C-j>', [[:lua vim.diagnostic.goto_next({border = "rounded"})<CR>]])
 
 -- Harpooon
 map('n', '<A-p>', [[:lua require("harpoon.ui").toggle_quick_menu()<CR>]])
@@ -116,5 +117,5 @@ map("n", "<leader>fo", [[:lua require'telescope.builtin'.oldfiles()<CR>]])
 map("n", "<leader>fk", [[:lua require'telescope.builtin'.keymaps()<CR>]])
 map("n", "<leader>fm", [[:lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]])
 map("n", "<leader>ft", [[:lua require'telescope.builtin'.treesitter()<CR>]])
-map("n", "<leader>fd", [[:lua require'telescope.builtin'.lsp_workspace_diagnostics()<CR>]])
+map("n", "<leader>fd", [[:lua require'telescope.builtin'.diagnostics()<CR>]])
 map("n", "<leader>fds", [[:lua require'telescope.builtin'.lsp_document_symbols()<CR>]])

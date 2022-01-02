@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
     use {'glepnir/dashboard-nvim', config = [[require('plugins.dashboard')]]}
 
     -- Bufferline
-    use {'akinsho/bufferline.nvim'--[[ , config = [[require('plugins.bufferline')]] }
+    use {'akinsho/bufferline.nvim', config = [[require('plugins.bufferline')]]}
 
     -- Colorizer
     use {
