@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
          'p00f/nvim-ts-rainbow',
          'nvim-treesitter/playground',
          'windwp/nvim-ts-autotag',
-         {'jose-elias-alvarez/null-ls.nvim', config = [[require('plugins.null_ls')]]},
          {'windwp/nvim-autopairs', config = [[require('plugins.autopairs')]]},
       },
       config = [[require('plugins.treesitter')]]

@@ -73,6 +73,8 @@ map('v', '<C-up>', ":m '<-2<CR>gv=gv")
 -- Nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
+map('n', '<leader>ss', '[[:lua vim.lsp.buf.formatting_sync()<CR>]]')
+
 -- Zen-mode
 map('n', '<leader>zm', ':ZenMode<CR>')
 
