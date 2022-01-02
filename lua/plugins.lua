@@ -88,7 +88,9 @@ return require('packer').startup(function(use)
     -- Auto-comment
     use {
       'numToStr/Comment.nvim',
-      'JoosepAlviste/nvim-ts-context-commentstring',
+      requires = {
+        'JoosepAlviste/nvim-ts-context-commentstring'
+      },
       config = [[require('plugins.comment')]]
     }
 
@@ -100,10 +102,14 @@ return require('packer').startup(function(use)
 
     -- Disturbance free writing
     use {
-    'folke/twilight.nvim',
-    'folke/zen-mode.nvim'
+      'folke/twilight.nvim',
+      config = [[require('plugins.twilight')]]
     }
 
+    use {
+      'folke/zen-mode.nvim',
+      config = [[require('plugins.zen-mode')]]
+    }
     -- Git
     use {
       'lewis6991/gitsigns.nvim',
@@ -122,6 +128,9 @@ return require('packer').startup(function(use)
             delete       = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
             topdelete    = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
             changedelete = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+          },
+          current_line_blame_formatter_opts = {
+            relative_time = true
           },
         }
       end
