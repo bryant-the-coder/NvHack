@@ -70,7 +70,6 @@ left {
   color = {fg = colors.yellow}
 }
 
-
 left {
     center
 }
