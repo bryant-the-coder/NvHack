@@ -2,25 +2,31 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
 
--- Icons
+-----------------------------------
+--           Icons               --
+-----------------------------------
 local signs = {
-  { name = "DiagnosticSignError", text = " " },
-  { name = "DiagnosticSignWarn", text = " " },
-  { name = "DiagnosticSignHint", text = " " },
-  { name = "DiagnosticSignInfo", text = " " },
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
 }
 for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
+
+-----------------------------------
+--           Basics              --
+-----------------------------------
 vim.diagnostic.config({
   virtual_text = {
-    source = "always",
+    source = 'always',
   },
   float = {
-    source = "always",
+    source = 'always',
     prefix = '',
-    border = "rounded",
+    border = 'rounded',
   },
   signs = true,
   underline = true,
@@ -36,6 +42,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "rounded",
 })
 
+
+-----------------------------------
+--           Servers             --
+-----------------------------------
 -- html
 lspconfig.html.setup {
   cmd = { "vscode-html-language-server.cmd", "--stdio" },
