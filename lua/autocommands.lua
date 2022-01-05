@@ -97,7 +97,7 @@ cmd([[
 
 -- Nvim-lsp
 -- Floating diagnostics
--- cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- Gitsigns color
 cmd [[
