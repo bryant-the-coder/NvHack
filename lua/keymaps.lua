@@ -73,7 +73,6 @@ map('v', '<C-up>', ":m '<-2<CR>gv=gv")
 -- Nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>')
 
-map('n', '<leader>ss', '[[:lua vim.lsp.buf.formatting_sync()<CR>]]')
 
 -- Zen-mode
 map('n', '<leader>zm', ':ZenMode<CR>')
@@ -96,6 +95,7 @@ map('n', '<leader>lh', [[:lua vim.lsp.buf.signature_help()<CR>]])
 map('n', '<C-a>', [[:lua vim.lsp.buf.references()<CR>]])
 map('n', '<C-k>', [[:lua vim.diagnostic.goto_prev({border = "rounded"})<CR>]])
 map('n', '<C-j>', [[:lua vim.diagnostic.goto_next({border = "rounded"})<CR>]])
+map('n', '<leader>ss', '[[:lua vim.lsp.buf.formatting_sync()<CR>]]')
 
 -- Harpooon
 map('n', '<A-p>', [[:lua require("harpoon.ui").toggle_quick_menu()<CR>]])
