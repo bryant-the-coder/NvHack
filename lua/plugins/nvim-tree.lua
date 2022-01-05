@@ -1,4 +1,3 @@
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local g = vim.g
 
 local present, tree = pcall(require, "nvim-tree")
@@ -56,16 +55,26 @@ tree.setup {
     require_confirm = true
   }
 }
-
 g.nvim_tree_icons = {
-  default = '',
-  symlink = '',
+  default = '',
+  symlink = '',
+  git = {
+   unstaged = "✗",
+   staged = "✓",
+   unmerged = "",
+   renamed = "➜",
+   untracked = "★",
+   deleted = "",
+   ignored = "◌"
+   },
   folder = {
-    default = '',
-    open = '',
-    empty = '',
-    empty_open = '',
-    symlink = '',
-    symlink_open = '',
-  },
-}
+   arrow_open = "",
+   arrow_closed = "",
+   default = "",
+   open = "",
+   empty = "",
+   empty_open = "",
+   symlink = "",
+   symlink_open = "",
+   }
+  }

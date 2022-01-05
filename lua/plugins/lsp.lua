@@ -62,7 +62,11 @@ lspconfig.cssls.setup {
 lspconfig.tsserver.setup{
     cmd = { "typescript-language-server.cmd", "--stdio" },
     capabilities = capabilities,
-    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end,
 }
 
 -- json
@@ -127,4 +131,8 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
+  on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+  end,
 }
