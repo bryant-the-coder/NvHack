@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 
 	-- Theme
 	use("folke/tokyonight.nvim")
-	use("morhetz/gruvbox")
+  use ("tiagovla/tokyodark.nvim")
 	use({ "rose-pine/neovim", as = "rose-pine" })
 
 	-- Explorer menu
@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Statusline
-	use({ "nvim-lualine/lualine.nvim", config = [[require('plugins.lualine')]] })
+  use({ "nvim-lualine/lualine.nvim", config = [[require('plugins.lualine')]] })
 
 	-- Telescope
 	use({
