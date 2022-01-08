@@ -96,9 +96,11 @@ cmd([[
 ]])
 
 -- Nvim-lsp
--- Floating diagnostics
-cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
-
+-- Credits to @max397574
+cmd(
+	[[au CursorHold * lua vim.diagnostic.open_float(0, { focusable = false,scope = "cursor",source = true, header = {"Cursor Diagnostics:","DiagnosticHeader"}, prefix = function(diagnostic,i,total) local icon, highlight if diagnostic.severity == 1 then icon = ""; highlight ="DiagnosticError" elseif diagnostic.severity == 2 then icon = ""; highlight ="DiagnosticWarn" elseif diagnostic.severity == 3 then icon = ""; highlight ="DiagnosticInfo" elseif diagnostic.severity == 4 then icon = ""; highlight ="DiagnosticHint" end return i.."/"..total.." "..icon.."  ",highlight end})]]
+)
+cmd([[hi DiagnosticHeader gui=bold,italic guifg=#2cb27f]])
 -- Gitsigns color
 cmd [[
   highlight GitSignsCurrentLineBlame guifg=#827e7e
