@@ -1,7 +1,7 @@
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
 local capabilities1 = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local configs = require("lspconfig/configs")
 
 -----------------------------------
@@ -14,25 +14,28 @@ local signs = {
 	{ name = "DiagnosticSignInfo", text = "" },
 }
 for _, sign in ipairs(signs) do
-	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
 -----------------------------------
 --           Basics              --
 -----------------------------------
 vim.diagnostic.config({
-	virtual_text = {
-		source = "always",
-	},
-	float = {
-		source = "always",
-		prefix = "",
-		border = "rounded",
-	},
+  virtual_text = false,
+	-- float = {
+	-- 	border = "rounded",
+	-- 	header = { " Diagnostics", "String" },
+	-- 	focusable = false,
+	-- 	prefix = function(_, _, _)
+	-- 		-- local hl = "Diagnostic"..signs[diagnostic.severity].name
+	-- 		-- local icon = signs[diagnostic.severity].icon
+	-- 		return "﬌ " , "String" -- icons:        ﬌  
+	-- 	end
+	-- },
 	signs = true,
 	underline = true,
 	severity_sort = true,
-	update_in_insert = true,
+	update_in_insert = false,
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

@@ -1,6 +1,6 @@
 local present, cmp = pcall(require, "cmp")
-if not present then
-return
+  if not present then
+  return
 end
 
 local has_words_before = function()
@@ -13,7 +13,6 @@ local feedkey = function(key, mode)
 end
 
 local lspkind = require('lspkind')
-
 
 cmp.setup({
   snippet = {
@@ -52,6 +51,7 @@ cmp.setup({
     end, { "i", "s" }),
   },
     formatting = {
+      -- fields = { "kind", "abbr", "menu" },
       format = lspkind.cmp_format {
         with_text = true,
         menu = {
@@ -80,5 +80,3 @@ cmp.setup({
         { name = 'buffer' }
       }
 })
-
-

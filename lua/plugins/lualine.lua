@@ -61,8 +61,6 @@ local function right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-
-
 left {
   'branch',
   icon = '',

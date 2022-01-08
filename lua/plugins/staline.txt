@@ -14,7 +14,6 @@ require('staline').setup {
 		inactive_bgcolor = "none",
 		true_colors     = false,       -- true lsp colors.
 		font_active     = "none",     -- "bold", "italic", "bold,italic", etc
-		branch_symbol   = " ",
 	},
 	mode_colors = {
 		n = "#2bbb4f",
@@ -29,7 +28,7 @@ require('staline').setup {
 		v = " ",   -- etc..
 	},
 	sections = {
-		left = { '- ', '-mode', 'left_sep_double', ' ', 'branch' },
+		left = { '- ', '-mode', 'left_sep_double'},
 		mid  = { 'file_name' },
 		right = { 'cool_symbol','right_sep_double', '-line_column' },
 	},

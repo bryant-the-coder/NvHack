@@ -78,3 +78,4 @@ g.nvim_tree_icons = {
    symlink_open = "",
    }
   }
+g.nvim_tree_indent_markers = 1
