@@ -14,32 +14,63 @@ local signs = {
 	{ name = "DiagnosticSignInfo", text = "" },
 }
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
+
+-- local border = {
+-- 	{ "┎", "FloatBorder" },
+-- 	{ "┒", "FloatBorder" },
+-- 	{ "┖", "FloatBorder" },
+-- 	{ "┚", "FloatBorder" },
+-- 	{ "━", "FloatBorder" },
+-- 	{ "┃", "FloatBorder" },
+-- 	{ "━", "FloatBorder" },
+-- 	{ "┃", "FloatBorder" },
+-- }
+
+local border = {
+	{ "┏", "FloatBorder" },
+	{ "━", "FloatBorder" },
+	{ "┓", "FloatBorder" },
+	{ "┃", "FloatBorder" },
+	{ "┛", "FloatBorder" },
+	{ "━", "FloatBorder" },
+	{ "┗", "FloatBorder" },
+	{ "┃", "FloatBorder" },
+}
 
 -----------------------------------
 --           Basics              --
 -----------------------------------
 vim.diagnostic.config({
-  virtual_text = false,
-	-- float = {
-	-- 	border = "rounded",
-	-- 	header = { " Diagnostics", "String" },
-	-- 	focusable = false,
-	-- 	prefix = function(_, _, _)
-	-- 		-- local hl = "Diagnostic"..signs[diagnostic.severity].name
-	-- 		-- local icon = signs[diagnostic.severity].icon
-	-- 		return "﬌ " , "String" -- icons:        ﬌  
-	-- 	end
-	-- },
 	signs = true,
 	underline = true,
 	severity_sort = true,
-	update_in_insert = false,
-})
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded",
+	update_in_insert = true,
+	float = {
+		focusable = false,
+		scope = "cursor",
+		source = true,
+		border = border,
+		header = { "Mistakes you made:", "DiagnosticHeader" },
+		prefix = function(diagnostic, i, total)
+			local icon, highlight
+			if diagnostic.severity == 1 then
+				icon = ""
+				highlight = "DiagnosticError"
+			elseif diagnostic.severity == 2 then
+				icon = ""
+				highlight = "DiagnosticWarn"
+			elseif diagnostic.severity == 3 then
+				icon = ""
+				highlight = "DiagnosticInfo"
+			elseif diagnostic.severity == 4 then
+				icon = ""
+				highlight = "DiagnosticHint"
+			end
+			return i .. "/" .. total .. " " .. icon .. "  ", highlight
+		end,
+	},
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
