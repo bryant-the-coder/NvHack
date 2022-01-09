@@ -1,4 +1,4 @@
-# Welome to NvHack or my config repo
+# Welcome to NvHack or my config repo
 
 ## Installation
 1. cd into the directory of your nvim folder
@@ -50,6 +50,14 @@
 
 ## TODO
 - [x] change lualine icons and modes
-- [ ] change icons and modes color
+- [x] change icons and modes color
 - [ ] update readme (add showcase)
 
+## CREDITS
+Thanks to these wonderful people. They helped me making this config.
+- [max397574](https://github.com/max397574/NeovimConfig)
+    > Complicated config but you will find it very useful.
+- [abzcoding](https://github.com/abzcoding/lvim)
+    > amazing config. recommend to check it out.
+- [vsedov](https://github.com/vsedov/nvim)
+- [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
