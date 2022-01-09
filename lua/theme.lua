@@ -22,19 +22,20 @@
 --           Tokyonight          --
 -----------------------------------
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_comments = false
+vim.g.tokyonight_italic_comments = true
+vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_italic_keywords = false
 
 -----------------------------------
 --           RosePine            --
 -----------------------------------
-vim.g.rose_pine_disable_italics = true
+vim.g.rose_pine_disable_italics = false
 vim.g.rose_pine_bold_vertical_split_line = true
 
 ----------------------------------
 --          Tokyodark           --
 ----------------------------------
-vim.g.tokyodark_enable_italic_comment = false
-vim.g.tokyodark_enable_italic = false
+vim.g.tokyodark_enable_italic_comment = true
+vim.g.tokyodark_enable_italic = true
 
 vim.cmd([[colorscheme tokyodark]])
