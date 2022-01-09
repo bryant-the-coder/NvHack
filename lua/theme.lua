@@ -18,7 +18,6 @@
 --   vim.cmd[[colorscheme tokyonight]]
 -- end
 
-
 -----------------------------------
 --           Tokyonight          --
 -----------------------------------
@@ -26,13 +25,11 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_comments = false
 vim.g.tokyonight_italic_keywords = false
 
-
 -----------------------------------
 --           RosePine            --
 -----------------------------------
 vim.g.rose_pine_disable_italics = true
 vim.g.rose_pine_bold_vertical_split_line = true
-
 
 ----------------------------------
 --          Tokyodark           --
@@ -40,5 +37,4 @@ vim.g.rose_pine_bold_vertical_split_line = true
 vim.g.tokyodark_enable_italic_comment = false
 vim.g.tokyodark_enable_italic = false
 
-
-vim.cmd [[colorscheme tokyodark]]
+vim.cmd([[colorscheme tokyodark]])
