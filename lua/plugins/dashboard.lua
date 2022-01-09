@@ -28,5 +28,5 @@ g.dashboard_custom_section = {
 
 g.dashboard_custom_footer = {
     " ",
-    "NV Hack successfully loaded " .. plugins_count .. " plugins!"
+    "NV Hack successfully loaded " .. plugins_count .. " plugins!",
 }
