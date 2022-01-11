@@ -57,3 +57,11 @@ g.python3_host_prog = 'C:/Python310/python.exe'
 
 -- Theme
 o.termguicolors = true
+
+-- Shell (:h shell-powershell)
+--[[ o.shell = "pwsh"
+o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+o.shellxquote = "" ]]
+

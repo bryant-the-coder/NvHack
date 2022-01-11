@@ -121,6 +121,11 @@ return require("packer").startup(function(use)
 		config = [[require('plugins.zen-mode')]],
 	})
 
+  use ({
+    "folke/trouble.nvim",
+    config = [[require('plugins.trouble')]],
+  })
+
 	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -128,7 +133,7 @@ return require("packer").startup(function(use)
 			require("gitsigns").setup({
 				current_line_blame_opts = {
 					virt_text = true,
-					virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+					virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
 					delay = 1000,
 					ignore_whitespace = false,
 				},
@@ -172,7 +177,4 @@ return require("packer").startup(function(use)
 	if packer_bootstrap then
 		require("packer").sync()
 	end
-  config = {
-    max_jobs = 10,
-  }
 end)
