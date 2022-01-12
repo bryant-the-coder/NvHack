@@ -11,11 +11,9 @@
 
 ### Theme
 1. [Tokyonight](https://github.com/folke/tokyonight.nvim)
-2. [Gruvbox](https://github.com/morhetz/gruvbox)
-3. [Palenight](https://github.com/drewtempelmeyer/palenight.vim)
-4. [Onedark](https://github.com/joshdick/onedark.vim)
-5. [Nord](https://github.com/arcticicestudio/nord-vim)
-6. [Rose-pine](https://github.com/arcticicestudio/nord-vim)
+2. [Tokyodark](https://github.com/tiagovla/tokyodark.nvim)
+3. [Rose-pine](https://github.com/arcticicestudio/nord-vim)
+4. [Catppuccin](https://github.com/catppuccin/nvim)
 
 ### Plugins
 1. [File explorer](https://github.com/kyazdani42/nvim-tree.lua)

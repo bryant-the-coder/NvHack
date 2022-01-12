@@ -20,9 +20,11 @@ return require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Theme
-	use("folke/tokyonight.nvim")
-  use ("tiagovla/tokyodark.nvim")
-	use({ "rose-pine/neovim", as = "rose-pine" })
+	use( "folke/tokyonight.nvim")
+  use( "tiagovla/tokyodark.nvim" )
+  use( "rebelot/kanagawa.nvim" )
+  use({ "rose-pine/neovim", as = "rose-pine" })
+  use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- Explorer menu
 	use({ "kyazdani42/nvim-tree.lua", config = [[require('plugins.nvim-tree')]] })
