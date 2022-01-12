@@ -1,5 +1,5 @@
 require("settings")
 require("keymaps")
-require("autocommands")
+require("autocmd")
 require("theme")
 require("plugins")

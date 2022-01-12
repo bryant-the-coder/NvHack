@@ -168,9 +168,15 @@ return require("packer").startup(function(use)
 				current_line_blame_formatter_opts = {
 					relative_time = true,
 				},
+        debug_mode = true
 			})
 		end,
 	})
+
+  use ({
+    "nvim-neorg/neorg",
+    config = [[require("plugins.neorg")]]
+  })
 
   use "tpope/vim-fugitive"
 
