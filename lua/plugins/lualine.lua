@@ -3,7 +3,20 @@
 -- Credit: glepnir & shadmansaleh
 
 local lualine = require 'lualine'
-local colors = require('colors').colors.lualine
+local colors = {
+  bg            = '#21222d',
+  fg            = '#f8f8ff',
+  red           = '#dd3e46',
+  bred          = '#fc3235',
+  blue          = '#4198c6',
+  yellow        = '#dda654',
+  byellow       = '#e8f402',
+  green         = '#41c643',
+  cyber_green   = '#32b53d',
+  orange        = '#c67f41',
+  cyan          = '#41c684',
+  purple        = '#cd8fe0',
+}
 
 -- Centering files
 local function center()
