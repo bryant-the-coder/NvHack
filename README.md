@@ -56,7 +56,7 @@ Thanks to these wonderful people. They helped me making this config.
     > Complicated config but you will find it very useful.
 - [abzcoding](https://github.com/abzcoding/lvim)
     > amazing config. recommend to check it out.
-- [vsedov](https://github.com/vsedov/nvim)
-- [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
 - [tamton-aquib](https://github.com/tamton-aquib/nvim)
     > Remember to check his plugin. [staline](https://github.com/tamton-aquib/staline.nvim)
+- [vsedov](https://github.com/vsedov/nvim)
+- [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
