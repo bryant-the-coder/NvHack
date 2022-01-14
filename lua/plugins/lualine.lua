@@ -36,6 +36,7 @@ else
 end
 _G.Statusline_timer:start(0, 1000, vim.schedule_wrap(
                               function() vim.api.nvim_command('redrawstatus') end))
+local date = os.date("%d-%m-%Y  %H:%M:%S")
 
 -- Config
 local config = {
@@ -111,7 +112,6 @@ right {
   color = {fg = colors.cyber_green},
   padding = {right = 1}
 }
-
 right {
   function()
 	local current_line = vim.fn.line(".")

@@ -44,7 +44,6 @@
 12. [Terminal in neovim](https://github.com/akinsho/toggleterm.nvim)
 13. [Harpoon](https://github.com/ThePrimeagen/harpoon)
 14. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
-15. [Git](https://github.com/arcticicestudio/nord-vim)
 
 ## TODO
 - [x] change lualine icons and modes
