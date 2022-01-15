@@ -60,3 +60,4 @@ Thanks to these wonderful people. They helped me making this config.
     > Remember to check his plugin. [staline](https://github.com/tamton-aquib/staline.nvim)
 - [vsedov](https://github.com/vsedov/nvim)
 - [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
+
