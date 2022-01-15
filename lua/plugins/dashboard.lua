@@ -31,5 +31,5 @@ g.dashboard_custom_footer = {
     -- "┌─ Today is " .. datetime .. " ─┐",
     -- "└─ " .. plugins_count .. " plugins in total ─┘"
     " ",
-    "NvHack loaded " .. plugins_count .. "plugins successfully!",
+    "NvHack loaded " .. plugins_count .. " plugins successfully!",
 }

@@ -7,20 +7,20 @@ toggleterm.setup {
   size = 20,
   open_mapping = [[<c-\>]],
   shade_filetypes = {},
-  shade_terminals = true,
+	shade_terminals = false,
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
-  direction = 'horizontal',
+  direction = 'float',
   close_on_exit = true,
-  shell = vim.o.shell,
+  shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
   float_opts = {
-    border = 'single',
-    height = 20,
-    winblend = 3,
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    }
-  },
+      border = 		{ "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winblend = 15,
+      highlights = {
+          border = "FloatBorder",
+          background = "NormalFloat"
+      },
+      height = 50
+  }
 }

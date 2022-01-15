@@ -9,7 +9,7 @@ telescope.setup({
 	defaults = {
 		layout_config = {
 			width = 0.75,
-			prompt_position = "bottom",
+			prompt_position = "top",
 			preview_cutoff = 120,
 			horizontal = { mirror = false },
 			vertical = { mirror = false },
@@ -30,6 +30,7 @@ telescope.setup({
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+		file_ignore_patterns = {'__pycache__', 'node_modules', '.jpg', '.jpeg', '.png', '.ico'},
 		mappings = {
 			i = {
 				["<C-j>"] = actions.move_selection_next,
@@ -45,6 +46,7 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			prompt_title = " [ FIND FILES ]",
+      winblend = 30,
 		},
 		live_grep = {
 			path_display = { "shorten" },
