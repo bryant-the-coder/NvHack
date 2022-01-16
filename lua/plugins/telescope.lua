@@ -14,6 +14,10 @@ telescope.setup({
 			horizontal = { mirror = false },
 			vertical = { mirror = false },
 		},
+
+    -- Transparency settings
+    winblend = 25,
+
 		find_command = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
 		prompt_prefix = "  ",
 		selection_caret = "  ",
@@ -46,7 +50,6 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			prompt_title = " [ FIND FILES ]",
-      winblend = 30,
 		},
 		live_grep = {
 			path_display = { "shorten" },
