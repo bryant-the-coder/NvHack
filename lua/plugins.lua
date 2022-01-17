@@ -44,7 +44,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Statusline
-  use({ "nvim-lualine/lualine.nvim", config = [[require("plugins.lualine")]] })
+  -- use({ "nvim-lualine/lualine.nvim", config = [[require("plugins.lualine")]] })
 
 	-- Telescope
 	use({
@@ -77,7 +77,6 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/vim-vsnip", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 			{ "David-Kunz/cmp-npm", after = "nvim-cmp" },
 		},
@@ -177,6 +176,11 @@ return require("packer").startup(function(use)
 	})
   use "tpope/vim-fugitive"
 
+  use "nvim-neorg/neorg"
+  use ({
+    "tamton-aquib/staline.nvim",
+    config = [[require("plugins.staline")]]
+  })
 if packer_bootstrap then
 		require("packer").sync()
 	end

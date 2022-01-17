@@ -34,6 +34,7 @@ o.hidden = true
 o.history = 300 -- remember 300 lines of history
 o.lazyredraw = true
 o.updatetime = 200
+o.smarttab = true
 
 -- Tabs / Indent
 o.expandtab = true
