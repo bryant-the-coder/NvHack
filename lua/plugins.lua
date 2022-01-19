@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+    commit = "668de0951a36ef17016074f1120b6aacbe6c4515",
 		requires = {
 			"p00f/nvim-ts-rainbow",
 			"nvim-treesitter/playground",
@@ -94,7 +95,7 @@ return require("packer").startup(function(use)
 	-- Indentation
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		config = [[require("plugins.other")]],
+		config = [[require("plugins.indent")]],
 	})
 
 	-- Auto-comment
