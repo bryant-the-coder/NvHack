@@ -22,17 +22,17 @@ vim.g.rose_pine_bold_vertical_split_line = true
 --          Kanagawa            --
 ----------------------------------
 require('kanagawa').setup({
-    undercurl = true,
-    commentStyle = "italic",
-    functionStyle = "italic",
-    keywordStyle = "NONE",
-    statementStyle = "bold",
-    typeStyle = "NONE",
-    variablebuiltinStyle = "NONE",
-    specialReturn = true,
-    specialException = true,
-    transparent = false,
-    dimInactive = true,
+  undercurl = true,
+  commentStyle = "italic",
+  functionStyle = "italic",
+  keywordStyle = "NONE",
+  statementStyle = "bold",
+  typeStyle = "NONE",
+  variablebuiltinStyle = "NONE",
+  specialReturn = true,
+  specialException = true,
+  transparent = false,
+  dimInactive = false,
 })
 
 --------------------------------
@@ -85,7 +85,7 @@ integrations = {
 }
 }
 
-vim.cmd([[colorscheme tokyodark]])
+vim.cmd([[colorscheme kanagawa]])
 
 
 --------------------------------
