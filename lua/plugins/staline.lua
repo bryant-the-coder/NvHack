@@ -1,45 +1,49 @@
-require('staline').setup {
-	defaults = {
-		left_separator  = "",
-		right_separator = "",
-		cool_symbol     = " ",       -- Change this to override defult OS icon.
-		full_path       = false,
-		mod_symbol      = "  ",
-		lsp_client_symbol = " ",
-		line_column     = "[%l/%L] :%c 並%p%% ", -- `:h stl` to see all flags.
+local present, staline = pcall(require, "staline")
+if not present then
+   return
+end
 
-		fg              = "#000000",  -- Foreground text color.
-		bg              = "none",     -- Default background is transparent.
-		inactive_color  = "#303030",
-		inactive_bgcolor = "none",
-		true_colors     = false,       -- true lsp colors.
-		font_active     = "none",     -- "bold", "italic", "bold,italic", etc
-	},
-	mode_colors = {
-		n = "#2bbb4f",
-		i = "#986fec",
-		c = "#e27d60",
-		v = "#4799eb",   -- etc..
-	},
-	mode_icons = {
-		n = " ",
-		i = " ",
-		c = " ",
-		v = " ",   -- etc..
-	},
-	sections = {
-		left = { '- ', '-mode', 'left_sep_double'},
-		mid  = { 'file_name' },
-		right = { 'cool_symbol','right_sep_double', '-line_column' },
-	},
-	special_table = {
-		NvimTree = { 'NvimTree', ' ' },
-		packer = { 'Packer',' ' },        -- etc
-	},
-	lsp_symbols = {
-		Error=" ",
-		Info=" ",
-		Warn=" ",
-		Hint="",
-	},
+-- staline.setup {
+-- 	sections = {
+-- 		left = {
+-- 			'▊', ' ', { 'Evil', ' ' }, ' ',         -- The mode and evil sign
+-- 			'file_size', ' ',                        -- Filesize
+-- 			{ 'StalineFile', 'file_name' }, ' '       -- Filename in different highlight
+-- 		},
+-- 		mid = { ' ', 'lsp_name' },                      -- "lsp_name" is still a little buggy
+-- 		right = {
+-- 			{ 'StalineEnc', vim.bo.fileencoding:upper() }, '  ',  -- Example for custom section
+-- 			{ 'StalineEnc', 'cool_symbol' }, ' ',                 -- the cool_symbol for your OS
+-- 			{ 'StalineGit', 'branch' }, ' ', '▊'                  -- Branch Name in different highlight
+-- 		}
+-- 	},
+-- 	defaults = {
+-- 		bg = "#202328",
+-- 		branch_symbol = " "
+-- 	},
+-- 	mode_colors = {
+-- 		n = "#38b1f0",
+-- 		i = "#9ece6a",       -- etc mode
+-- 	}
+-- }
+-- vim.cmd [[hi Evil        guifg=#f36365 guibg=#202328]]       -- Higlight for Evil symbol
+-- vim.cmd [[hi StalineEnc  guifg=#7d9955 guibg=#202328]]       -- Encoding Highlight
+-- vim.cmd [[hi StalineGit  guifg=#8583b3 guibg=#202328]]       -- Branch Name Highlight
+-- vim.cmd [[hi StalineFile guifg=#c37cda guibg=#202328]]       -- File name Highlight
+
+-- function()
+--     local current_line = vim.fn.line "."
+--     local total_lines = vim.fn.line "$"
+--     local chars = { "_", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+--     local line_ratio = current_line / total_lines
+--     local index = math.ceil(line_ratio * #chars)
+--     return chars[index]
+-- end, ' '
+
+staline.setup {
+  sections ={
+    left = {
+      '▌', 'mode', 'branch', 'file_name',
+    }
+  }
 }

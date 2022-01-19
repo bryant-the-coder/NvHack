@@ -1,5 +1,5 @@
 -- Colorizer
-require("colorizer").setup({
+require("colorizer").setup({
 	"css",
 	"scss",
 	"javascript",
@@ -26,14 +26,4 @@ require("lsp-colors").setup({
 	Warning = "#d9ff00",
 	Information = "#08f7ff",
 	Hint = "#00ff00",
-})
-
--- indent-blankline
-require("indent_blankline").setup({
-  buftype_exclude = {"terminal"},
-  filetype_exclude = {"dashboard", "NvimTree", "packer", "help"},
-	show_current_context = true,
-	show_current_context_start = true,
-	space_char_blankline = " ",
-  indentLine_char_list = '|'
 })

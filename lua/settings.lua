@@ -4,18 +4,18 @@ local o = vim.opt
 
 -- Non-blinking in normal & visual  mode
 -- Blink in insert mode
-o.guicursor = 'n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
+o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
 -- Basic
-g.mapleader = ','
-o.mouse = 'a'
+g.mapleader = ","
+o.mouse = "a"
 o.swapfile = false
 
 -- Screen
 o.number = true
 o.relativenumber = true
 o.showmatch = true
-o.colorcolumn = '9999'
+o.colorcolumn = "9999"
 o.cursorline = false
 o.scrolloff = 20
 o.splitright = true
@@ -26,7 +26,7 @@ o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = "menuone,noselect,menu"
 o.termguicolors = true
-o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldexpr = "nvim_treesitter#foldexpr()"
 o.fillchars = { eob = " " }
 
 -- Computer management
@@ -35,6 +35,9 @@ o.history = 300 -- remember 300 lines of history
 o.lazyredraw = true
 o.updatetime = 200
 o.smarttab = true
+
+-- Do not show mode in the cmdline
+o.smd = false
 
 -- Tabs / Indent
 o.expandtab = true
@@ -54,15 +57,15 @@ o.incsearch = true
 o.ignorecase = true
 
 -- Python
-g.python3_host_prog = 'C:/Python310/python.exe'
+g.python3_host_prog = "C:/Python310/python.exe"
 
 -- Theme
 o.termguicolors = true
 
 -- Shell (:h shell-powershell)
---[[ o.shell = "pwsh"
-o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-o.shellxquote = "" ]]
-
+-- Checking for the DE
+if vim.fn.has("wind32") then
+	o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+else
+	o.shell = vim.o.shell
+end
