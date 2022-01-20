@@ -85,7 +85,7 @@ integrations = {
 }
 }
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme ayu-dark]])
 
 
 --------------------------------

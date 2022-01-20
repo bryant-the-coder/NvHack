@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
   use( "rebelot/kanagawa.nvim" )
   use({ "rose-pine/neovim", as = "rose-pine" })
   use({ "catppuccin/nvim", as = "catppuccin" })
+  use( "Shatur/neovim-ayu" )
 
 	-- Explorer menu
 	use({ "kyazdani42/nvim-tree.lua", config = [[require("plugins.nvim-tree")]] })
