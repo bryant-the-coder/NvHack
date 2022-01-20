@@ -43,7 +43,20 @@ end
 staline.setup {
   sections ={
     left = {
-      '▌', 'mode', 'branch', 'file_name',
+      '▌', 'mode', {'StalineBranch', 'branch'},' ',
+    },
+    mid = {
+      {'StalineName', 'file_name'}
+    },
+    right = {
+      '-lsp'
     }
+  },
+  defaults = {
+    -- LSP highlighting
+    true_colors = true
   }
 }
+
+vim.cmd [[hi StalineBranch guifg=#d6c91b]]
+vim.cmd [[hi StalineName guifg=#FFFFFF]]

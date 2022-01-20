@@ -18,7 +18,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 
 require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
-	ensure_installed = { "html", "javascript", "lua", "scss" },
+	ensure_installed = { "html", "javascript", "lua", "scss", "norg", "norg_meta", "norg_table" },
 	sync_install = false,
 	incremental_selection = {
 		enable = true,
@@ -81,10 +81,10 @@ treesitter.setup({
 			},
 		},
 	},
-})
-
--- Downloading neorg :D
+}
+)
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
 parser_configs.norg = {
     install_info = {
         url = "https://github.com/nvim-neorg/tree-sitter-norg",

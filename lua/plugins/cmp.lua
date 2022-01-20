@@ -72,7 +72,8 @@ cmp.setup({
       { name = 'lspkind' },
       { name = 'vsnip' },
       { name = 'buffer', keyword_length = 2 },
-      { name = 'npm', keyword_length = 2}
+      { name = 'npm', keyword_length = 2},
+      { name = "neorg" }
       }),
     })
     cmp.setup.cmdline('/', {
