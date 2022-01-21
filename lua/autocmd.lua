@@ -101,8 +101,6 @@ cmd([[au CursorHold  * lua vim.diagnostic.open_float()]])
 cmd([[hi DiagnosticHeader gui=bold guifg=#2cb27f]])
 
 -- Gitsigns
-cmd [[
+--[[ cmd [[
   highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#827e7e
 ]]
-
-
