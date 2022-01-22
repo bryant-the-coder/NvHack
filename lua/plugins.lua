@@ -94,10 +94,9 @@ return require("packer").startup(function(use)
 	use({ "folke/lsp-colors.nvim", config = [[require("plugins.other")]] })
 
 	-- Indentation
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = [[require("plugins.indent")]],
-	})
+  use({
+      "lukas-reineke/indent-blankline.nvim",
+  })
 
 	-- Auto-comment
 	use({
