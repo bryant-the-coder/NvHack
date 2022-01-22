@@ -18,7 +18,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 
 require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
-	ensure_installed = { "html", "javascript", "lua", "scss", "norg", "norg_meta", "norg_table" },
+	ensure_installed = { "html", "javascript", "lua", "scss" },
 	sync_install = false,
 	incremental_selection = {
 		enable = true,
@@ -83,28 +83,3 @@ treesitter.setup({
 	},
 }
 )
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-parser_configs.norg = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg",
-        files = { "src/parser.c", "src/scanner.cc" },
-        branch = "main"
-    },
-}
-
-parser_configs.norg_meta = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
-}
-
-parser_configs.norg_table = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
-}
