@@ -27,7 +27,7 @@ telescope.setup({
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
 		border = {},
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		borderchars = { '━', '┃', '─', '┃', '┏', '┓', '┛', '┗' },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" },
 		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
