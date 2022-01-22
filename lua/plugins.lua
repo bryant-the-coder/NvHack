@@ -96,6 +96,7 @@ return require("packer").startup(function(use)
 	-- Indentation
   use({
       "lukas-reineke/indent-blankline.nvim",
+      config = [[require("plugins.other")]]
   })
 
 	-- Auto-comment

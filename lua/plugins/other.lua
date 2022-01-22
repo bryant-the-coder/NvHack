@@ -20,10 +20,17 @@ DEFAULT_OPTIONS = {
 	mode = "background",
 }
 
--- lsp-colors
+-- lsp-colors
 require("lsp-colors").setup({
 	Error = "#EE4B2B",
 	Warning = "#d9ff00",
 	Information = "#08f7ff",
 	Hint = "#00ff00",
 })
+
+-- indent_blankline
+require("indent_blankline").setup {
+  -- for example, context is off by default, use this to turn it on
+  show_current_context = true,
+  show_current_context_start = true,
+}
