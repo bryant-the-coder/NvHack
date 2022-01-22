@@ -24,7 +24,7 @@ vim.g.rose_pine_bold_vertical_split_line = true
 require('kanagawa').setup({
   undercurl = true,
   commentStyle = "italic",
-  functionStyle = "italic",
+  functionStyle = "NONE",
   keywordStyle = "NONE",
   statementStyle = "bold",
   typeStyle = "NONE",
