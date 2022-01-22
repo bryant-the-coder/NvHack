@@ -179,12 +179,6 @@ return require("packer").startup(function(use)
 	})
   use "tpope/vim-fugitive"
 
-  use {
-    "nvim-neorg/neorg",
-    requires = "nvim-neorg/neorg-telescope",
-    config = [[require("plugins.neorg")]]
-  }
-
   use ({
     "tamton-aquib/staline.nvim",
     config = [[require("plugins.staline")]]
