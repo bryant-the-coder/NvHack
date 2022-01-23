@@ -1,93 +1,72 @@
------------------------------------
---           Tokyonight          --
------------------------------------
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_comments = true
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_keywords = false
+require("themer").setup({
+	colorscheme = "darknight", -- default colorscheme
+	transparent = false,
+	term_colors = true,
+	dim_inactive = false,
+	styles = {
+		heading = {
+			h1 = {},
+			h2 = {},
+		},
+		["function"] = { style = "italic" },
+		functionBuiltIn = { style = "italic" },
+		variable = {},
+		variableBuiltIn = {},
+		include = {},
+		identifier = {},
+		keyword = {},
+		keywordBuiltIn = {},
+		struct = {},
+		string = {},
+		parameter = {},
+		field = {},
+		type = {},
+		typeBuiltIn = {},
+		property = {},
+		comment = { style = "italic" },
+		punctuation = {},
+		constructor = {},
+		operator = {},
+		constant = {},
+		constantBuiltIn = {},
+		todo = {},
+		character = {},
+		conditional = {},
+		number = { style = "italic" },
+		statement = {},
+		uri = {},
+		diagnostic = {
+			underline = {
+				error = {},
+				warn = {},
+				info = {},
+				hint = {},
+			},
+			virtual_text = {
+				error = {},
+				warn = {},
+				info = {},
+				hint = {},
+			},
+		},
+	},
 
-----------------------------------
---          Tokyodark           --
-----------------------------------
-vim.g.tokyodark_enable_italic_comment = true
-vim.g.tokyodark_enable_italic = true
+	langs = {
+		html = true,
+		md = true,
+	},
 
------------------------------------
---           RosePine            --
------------------------------------
-vim.g.rose_pine_disable_italics = false
-vim.g.rose_pine_bold_vertical_split_line = true
-
-----------------------------------
---          Kanagawa            --
-----------------------------------
-require('kanagawa').setup({
-  undercurl = true,
-  commentStyle = "italic",
-  functionStyle = "italic",
-  keywordStyle = "NONE",
-  statementStyle = "bold",
-  typeStyle = "NONE",
-  variablebuiltinStyle = "NONE",
-  specialReturn = true,
-  specialException = true,
-  transparent = false,
-  dimInactive = false,
+	plugins = {
+		treesitter = true,
+		indentline = true,
+		barbar = true,
+		bufferline = true,
+		cmp = true,
+		gitsigns = true,
+		lsp = true,
+		telescope = true,
+	},
 })
-
---------------------------------
---         Catppuccin         --
---------------------------------
-local catppuccin = require("catppuccin")
-catppuccin.setup{
-transparent_background = false,
-term_colors = true,
-styles = {
-	comments = "italic",
-	functions = "italic",
-	keywords = "NONE",
-	strings = "NONE",
-	variables = "NONE",
-},
-integrations = {
-	treesitter = true,
-	native_lsp = {
-		enabled = true,
-		virtual_text = {
-			errors = "italic",
-			hints = "NONE",
-			warnings = "italic",
-			information = "NONE",
-		},
-		underlines = {
-			errors = "underline",
-			hints = "underline",
-			warnings = "underline",
-			information = "underline",
-		},
-	},
-	lsp_trouble = true,
-	cmp = true,
-	gitsigns = true,
-	telescope = true,
-	nvimtree = {
-		enabled = true,
-		show_root = false,
-	},
-	indent_blankline = {
-		enabled = true,
-		colored_indent_levels = true,
-	},
-	dashboard = true,
-	bufferline = true,
-	markdown = true,
-	ts_rainbow = true,
-}
-}
-
-vim.cmd([[colorscheme ayu-dark]])
-
-
 --------------------------------
 --      Time Changing Func    --
 --------------------------------

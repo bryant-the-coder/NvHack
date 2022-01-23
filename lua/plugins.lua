@@ -21,12 +21,9 @@ return require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Theme
-	use( "folke/tokyonight.nvim")
-  use( "tiagovla/tokyodark.nvim" )
-  use( "rebelot/kanagawa.nvim" )
-  use({ "rose-pine/neovim", as = "rose-pine" })
-  use({ "catppuccin/nvim", as = "catppuccin" })
-  use( "Shatur/neovim-ayu" )
+  use({
+    "themercorp/themer.lua"
+  })
 
 	-- Explorer menu
 	use({ "kyazdani42/nvim-tree.lua", config = [[require("plugins.nvim-tree")]] })
@@ -95,8 +92,8 @@ return require("packer").startup(function(use)
 
 	-- Indentation
   use({
-      "lukas-reineke/indent-blankline.nvim",
-      config = [[require("plugins.other")]]
+    "lukas-reineke/indent-blankline.nvim",
+    config = [[require("plugins.indent")]]
   })
 
 	-- Auto-comment

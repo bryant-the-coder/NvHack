@@ -81,11 +81,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  catppuccin = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     after_files = { "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer\\after\\plugin\\cmp_buffer.lua" },
     load_after = {},
@@ -126,7 +121,7 @@ _G.packer_plugins = {
     url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\n�\6\0\0\5\0\23\0\0276\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\a\0005\3\6\0=\3\b\0025\3\n\0005\4\t\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\3=\3\20\0025\3\21\0=\3\22\2B\0\2\1K\0\1\0&current_line_blame_formatter_opts\1\0\1\18relative_time\2\nsigns\17changedelete\1\0\4\ahl\19GitSignsChange\nnumhl\21GitSignsChangeNr\ttext\b│\vlinehl\21GitSignsChangeLn\14topdelete\1\0\4\ahl\19GitSignsDelete\nnumhl\21GitSignsDeleteNr\ttext\b│\vlinehl\21GitSignsDeleteLn\vdelete\1\0\4\ahl\19GitSignsDelete\nnumhl\21GitSignsDeleteNr\ttext\b│\vlinehl\21GitSignsDeleteLn\vchange\1\0\4\ahl\19GitSignsChange\nnumhl\21GitSignsChangeNr\ttext\b│\vlinehl\21GitSignsChangeLn\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\nnumhl\18GitSignsAddNr\ttext\b│\vlinehl\18GitSignsAddLn\28current_line_blame_opts\1\0\2\15debug_mode\2\23current_line_blame\2\1\0\4\18virt_text_pos\beol\14virt_text\2\22ignore_whitespace\1\ndelay\3�\a\nsetup\rgitsigns\frequireEhighlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f\bcmd\bvim\0" },
+    config = { "\27LJ\2\n�\6\0\0\5\0\23\0\0276\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\a\0005\3\6\0=\3\b\0025\3\n\0005\4\t\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\3=\3\20\0025\3\21\0=\3\22\2B\0\2\1K\0\1\0&current_line_blame_formatter_opts\1\0\1\18relative_time\2\nsigns\17changedelete\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\b│\nnumhl\21GitSignsChangeNr\14topdelete\1\0\4\ahl\19GitSignsDelete\vlinehl\21GitSignsDeleteLn\ttext\b│\nnumhl\21GitSignsDeleteNr\vdelete\1\0\4\ahl\19GitSignsDelete\vlinehl\21GitSignsDeleteLn\ttext\b│\nnumhl\21GitSignsDeleteNr\vchange\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\b│\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\vlinehl\18GitSignsAddLn\ttext\b│\nnumhl\18GitSignsAddNr\28current_line_blame_opts\1\0\2\23current_line_blame\2\15debug_mode\2\1\0\4\ndelay\3�\a\18virt_text_pos\beol\14virt_text\2\22ignore_whitespace\1\nsetup\rgitsigns\frequireEhighlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f\bcmd\bvim\0" },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -137,15 +132,10 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["indent-blankline.nvim"] = {
-    config = { 'require("plugins.other")' },
+    config = { 'require("plugins.indent")' },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lsp-colors.nvim"] = {
     config = { 'require("plugins.other")' },
@@ -157,11 +147,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
-  },
-  ["neovim-ayu"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["null-ls.nvim"] = {
     config = { 'require("plugins.null-ls")' },
@@ -176,7 +161,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-npm", "cmp-path", "vim-vsnip", "cmp-buffer" },
+    after = { "vim-vsnip", "cmp-buffer", "cmp-path", "cmp-npm" },
     loaded = true,
     only_config = true
   },
@@ -239,11 +224,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["staline.nvim"] = {
     config = { 'require("plugins.staline")' },
     loaded = true,
@@ -259,21 +239,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["themer.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\themer.lua",
+    url = "https://github.com/themercorp/themer.lua"
+  },
   ["toggleterm.nvim"] = {
     config = { 'require("plugins.toggleterm")' },
     loaded = true,
     path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["tokyodark.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyodark.nvim",
-    url = "https://github.com/tiagovla/tokyodark.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\User\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     config = { 'require("plugins.trouble")' },
@@ -336,84 +311,84 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: lsp-colors.nvim
-time([[Config for lsp-colors.nvim]], true)
-require("plugins.other")
-time([[Config for lsp-colors.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 require("plugins.trouble")
 time([[Config for trouble.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require("plugins.cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: twilight.nvim
 time([[Config for twilight.nvim]], true)
 require("plugins.twilight")
 time([[Config for twilight.nvim]], false)
+-- Config for: lsp-colors.nvim
+time([[Config for lsp-colors.nvim]], true)
+require("plugins.other")
+time([[Config for lsp-colors.nvim]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 require("plugins.null-ls")
 time([[Config for null-ls.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("plugins.autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: zen-mode.nvim
 time([[Config for zen-mode.nvim]], true)
 require("plugins.zen-mode")
 time([[Config for zen-mode.nvim]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require("plugins.dashboard")
-time([[Config for dashboard-nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require("plugins.other")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n�\6\0\0\5\0\23\0\0276\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\a\0005\3\6\0=\3\b\0025\3\n\0005\4\t\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\3=\3\20\0025\3\21\0=\3\22\2B\0\2\1K\0\1\0&current_line_blame_formatter_opts\1\0\1\18relative_time\2\nsigns\17changedelete\1\0\4\ahl\19GitSignsChange\nnumhl\21GitSignsChangeNr\ttext\b│\vlinehl\21GitSignsChangeLn\14topdelete\1\0\4\ahl\19GitSignsDelete\nnumhl\21GitSignsDeleteNr\ttext\b│\vlinehl\21GitSignsDeleteLn\vdelete\1\0\4\ahl\19GitSignsDelete\nnumhl\21GitSignsDeleteNr\ttext\b│\vlinehl\21GitSignsDeleteLn\vchange\1\0\4\ahl\19GitSignsChange\nnumhl\21GitSignsChangeNr\ttext\b│\vlinehl\21GitSignsChangeLn\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\nnumhl\18GitSignsAddNr\ttext\b│\vlinehl\18GitSignsAddLn\28current_line_blame_opts\1\0\2\15debug_mode\2\23current_line_blame\2\1\0\4\18virt_text_pos\beol\14virt_text\2\22ignore_whitespace\1\ndelay\3�\a\nsetup\rgitsigns\frequireEhighlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f\bcmd\bvim\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require("plugins.comment")
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require("plugins.nvim-tree")
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("plugins.treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require("plugins.toggleterm")
-time([[Config for toggleterm.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require("plugins.other")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("plugins.lsp")
-time([[Config for nvim-lspconfig]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require("plugins.bufferline")
-time([[Config for bufferline.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("plugins.autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: staline.nvim
 time([[Config for staline.nvim]], true)
 require("plugins.staline")
 time([[Config for staline.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require("plugins.other")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require("plugins.dashboard")
+time([[Config for dashboard-nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("plugins.lsp")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("plugins.cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require("plugins.toggleterm")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require("plugins.nvim-tree")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require("plugins.comment")
+time([[Config for Comment.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n�\6\0\0\5\0\23\0\0276\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0005\2\a\0005\3\6\0=\3\b\0025\3\n\0005\4\t\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\3=\3\20\0025\3\21\0=\3\22\2B\0\2\1K\0\1\0&current_line_blame_formatter_opts\1\0\1\18relative_time\2\nsigns\17changedelete\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\b│\nnumhl\21GitSignsChangeNr\14topdelete\1\0\4\ahl\19GitSignsDelete\vlinehl\21GitSignsDeleteLn\ttext\b│\nnumhl\21GitSignsDeleteNr\vdelete\1\0\4\ahl\19GitSignsDelete\vlinehl\21GitSignsDeleteLn\ttext\b│\nnumhl\21GitSignsDeleteNr\vchange\1\0\4\ahl\19GitSignsChange\vlinehl\21GitSignsChangeLn\ttext\b│\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\4\ahl\16GitSignsAdd\vlinehl\18GitSignsAddLn\ttext\b│\nnumhl\18GitSignsAddNr\28current_line_blame_opts\1\0\2\23current_line_blame\2\15debug_mode\2\1\0\4\ndelay\3�\a\18virt_text_pos\beol\14virt_text\2\22ignore_whitespace\1\nsetup\rgitsigns\frequireEhighlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f\bcmd\bvim\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("plugins.treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("plugins.indent")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require("plugins.bufferline")
+time([[Config for bufferline.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd cmp-path ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-npm ]]
 vim.cmd [[ packadd vim-vsnip ]]
+vim.cmd [[ packadd cmp-npm ]]
+vim.cmd [[ packadd cmp-buffer ]]
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
