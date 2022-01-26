@@ -104,3 +104,5 @@ cmd([[hi DiagnosticHeader gui=bold guifg=#2cb27f]])
 --[[ cmd [[
   highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#827e7e
 ]]
+
+

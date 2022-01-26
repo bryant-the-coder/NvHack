@@ -1,5 +1,5 @@
 require("themer").setup({
-	colorscheme = "darknight", -- default colorscheme
+	colorscheme = "onedark", -- default colorscheme
 	transparent = false,
 	term_colors = true,
 	dim_inactive = false,
@@ -23,11 +23,11 @@ require("themer").setup({
 		type = {},
 		typeBuiltIn = {},
 		property = {},
-		comment = { style = "italic" },
+		comment = { style = "bold" },
 		punctuation = {},
 		constructor = {},
 		operator = {},
-		constant = {},
+		constant = { style = "italic" },
 		constantBuiltIn = {},
 		todo = {},
 		character = {},
@@ -35,37 +35,35 @@ require("themer").setup({
 		number = { style = "italic" },
 		statement = {},
 		uri = {},
-		diagnostic = {
-			underline = {
-				error = {},
-				warn = {},
-				info = {},
-				hint = {},
-			},
-			virtual_text = {
-				error = {},
-				warn = {},
-				info = {},
-				hint = {},
-			},
-		},
+    diagnostic = {
+        underline = {
+            error = {style = "italic"},
+            warn = {},
+            info = {},
+            hint = {},
+        },
+        virtual_text = {
+            error = {},
+            warn = {},
+            info = {},
+            hint = {},
+        },
+    },
 	},
-
-	langs = {
-		html = true,
-		md = true,
-	},
-
-	plugins = {
-		treesitter = true,
-		indentline = true,
-		barbar = true,
-		bufferline = true,
-		cmp = true,
-		gitsigns = true,
-		lsp = true,
-		telescope = true,
-	},
+  telescope_mappings = {
+    ["n"] = {
+      ["<CR>"] = "enter",
+      ["k"] = "prev_color",
+      ["j"] = "next_color",
+      ["p"] = "preview",
+    },
+    ["i"] = {
+      ["<CR>"] = "enter",
+      ["<S-Tab>"] = "prev_color",
+      ["<Tab>"] = "next_color",
+      ["<C-p>"] = "preview",
+    },
+  },
 })
 --------------------------------
 --      Time Changing Func    --

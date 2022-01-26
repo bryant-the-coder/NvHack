@@ -11,7 +11,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
   print("Packer installed")
 end
+require("packer").init{
 
+}
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -22,8 +24,15 @@ return require("packer").startup(function(use)
 
 	-- Theme
   use({
-    "themercorp/themer.lua"
+    "themercorp/themer.lua",
+    branch = "dev",
+    commit = "f5f0593819e84a7a481d0f7c0b1eb462ffb4ad62"
   })
+  use("rockerBOO/boo-colorscheme-nvim")
+  use("numToStr/Sakura.nvim")
+
+  -- Impatient
+  use({"lewis6991/impatient.nvim"})
 
 	-- Explorer menu
 	use({ "kyazdani42/nvim-tree.lua", config = [[require("plugins.nvim-tree")]] })
@@ -176,11 +185,7 @@ return require("packer").startup(function(use)
 	})
   use "tpope/vim-fugitive"
 
-  use ({
-    "tamton-aquib/staline.nvim",
-    config = [[require("plugins.staline")]]
-  })
 if packer_bootstrap then
 		require("packer").sync()
-	end
+end
 end)

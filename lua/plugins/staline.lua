@@ -1,101 +1,101 @@
-local present, staline = pcall(require, "staline")
-if not present then
-   return
-end
-
-local percentage = function()
-	local current_line = vim.fn.line(".")
-	local total_lines = vim.fn.line("$")
-	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-	local line_ratio = current_line / total_lines
-	local index = math.ceil(line_ratio * #chars)
-	return chars[index]
-end
-
-local time = function ()
-  return os.date("%a │ %H:%M %x")
-end
-
--- local branch = function ()
---   return " "..( vim.b.gitsigns_head:upper() or "")
+-- local present, staline = pcall(require, "staline")
+-- if not present then
+--    return
 -- end
 
-local my_colors = {
-  n = "#ec5f67",
-  i = "#98be65",
-  c = "#c678dd",
-  v = "#51afef",
-}
+-- local percentage = function()
+-- 	local current_line = vim.fn.line(".")
+-- 	local total_lines = vim.fn.line("$")
+-- 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+-- 	local line_ratio = current_line / total_lines
+-- 	local index = math.ceil(line_ratio * #chars)
+-- 	return chars[index]
+-- end
 
-staline.setup {
-  sections ={
-    left = {
-      'mode',
-      ' ',
-      {'StalineBranch', 'branch'},
-      -- branch,
-    },
-    mid = {
-      {'StalineName', 'file_name'},
-    },
-    right = {
-      '-lsp',
-      ' ',
-      time,
-      '  ',
-      percentage,
-    }
-  },
+-- local time = function ()
+--   return os.date("%a │ %H:%M %x")
+-- end
 
-  defaults = {
-    true_colors   = true,       -- LSP highlighing
-		font_active   = "none",
-		branch_symbol = " ",       -- Change the branch symbol
-    mod_symbol    = "  ",      -- Change the modified symbol
-  },
+-- -- local branch = function ()
+-- --   return " "..( vim.b.gitsigns_head:upper() or "")
+-- -- end
 
-  -- I changed the mode icons to text
-	mode_icons = {
-		['n']    = 'NORMAL',
-		['no']   = 'NORMAL',
-		['nov']  = 'NORMAL',
-		['noV']  = 'NORMAL',
-		['no'] = 'NORMAL',
-		['niI']  = 'NORMAL',
-		['niR']  = 'NORMAL',
-		['niV']  = 'NORMAL',
+-- local my_colors = {
+--   n = "#ec5f67",
+--   i = "#98be65",
+--   c = "#c678dd",
+--   v = "#51afef",
+-- }
 
-		['i']    = 'INSERT',
-		['ic']   = 'INSERT',
-		['ix']   = 'INSERT',
-		['s']    = 'INSERT',
-		['S']    = 'INSERT',
+-- staline.setup {
+--   sections ={
+--     left = {
+--       'mode',
+--       ' ',
+--       {'StalineBranch', 'branch'},
+--       -- branch,
+--     },
+--     mid = {
+--       {'StalineName', 'file_name'},
+--     },
+--     right = {
+--       '-lsp',
+--       ' ',
+--       time,
+--       '  ',
+--       percentage,
+--     }
+--   },
 
-		['v']    = 'VISUAL',
-		['V']    = 'VISUAL',
-		['']   = 'VISUAL',
-		['r']    = 'REPLACE',
-		['r?']   = 'REPLACE',
-    ['R']    = 'REPLACE',
-		['c']    = 'COMMAND',
-		['t']    = 'TERMINAL',
-	},
+--   defaults = {
+--     true_colors   = true,       -- LSP highlighing
+-- 		font_active   = "none",
+-- 		branch_symbol = " ",       -- Change the branch symbol
+--     mod_symbol    = "  ",      -- Change the modified symbol
+--   },
 
-  mode_colors = my_colors,      -- Change mode colors
+--   -- I changed the mode icons to text
+-- 	mode_icons = {
+-- 		['n']    = 'NORMAL',
+-- 		['no']   = 'NORMAL',
+-- 		['nov']  = 'NORMAL',
+-- 		['noV']  = 'NORMAL',
+-- 		['no'] = 'NORMAL',
+-- 		['niI']  = 'NORMAL',
+-- 		['niR']  = 'NORMAL',
+-- 		['niV']  = 'NORMAL',
 
-	special_table = {
-		NvimTree        = { 'File Explorer', ' ' },
-		packer          = { 'Packer', ' ' },
-    TelescopePrompt = { 'Telescope', ' ' }
-	},
+-- 		['i']    = 'INSERT',
+-- 		['ic']   = 'INSERT',
+-- 		['ix']   = 'INSERT',
+-- 		['s']    = 'INSERT',
+-- 		['S']    = 'INSERT',
 
-	lsp_symbols = {
-		Error =" ",
-		Info  =" ",
-		Warn  =" ",
-		Hint  =" ",
-	},
-}
+-- 		['v']    = 'VISUAL',
+-- 		['V']    = 'VISUAL',
+-- 		['']   = 'VISUAL',
+-- 		['r']    = 'REPLACE',
+-- 		['r?']   = 'REPLACE',
+--     ['R']    = 'REPLACE',
+-- 		['c']    = 'COMMAND',
+-- 		['t']    = 'TERMINAL',
+-- 	},
 
-vim.cmd [[hi StalineBranch guifg=#d6c91b]]
-vim.cmd [[hi StalineName guifg=#c37cda]]
+--   mode_colors = my_colors,      -- Change mode colors
+
+-- 	special_table = {
+-- 		NvimTree        = { 'File Explorer', ' ' },
+-- 		packer          = { 'Packer', ' ' },
+--     TelescopePrompt = { 'Telescope', ' ' }
+-- 	},
+
+-- 	lsp_symbols = {
+-- 		Error =" ",
+-- 		Info  =" ",
+-- 		Warn  =" ",
+-- 		Hint  =" ",
+-- 	},
+-- }
+
+-- vim.cmd [[hi StalineBranch guifg=#d6c91b]]
+-- vim.cmd [[hi StalineName guifg=#c37cda]]

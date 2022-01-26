@@ -3,4 +3,4 @@ require("keymaps")
 require("autocmd")
 require("theme")
 require("plugins")
-
+require("statusline")

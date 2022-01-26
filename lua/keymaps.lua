@@ -124,5 +124,4 @@ map("n", "<leader>ft", [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]])
 map("n", "<leader>fd", [[<cmd>lua require'telescope.builtin'.diagnostics()<CR>]])
 map("n", "<leader>fds", [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]])
 
-
--- map("n", "<leader>ffp", "<cmd>lua require('telescope.builtin').find_files({cwd='E:/coding_journey/cyber.nvim/'})<cr>") -- opening telescope in projects dir
+-- map("n", "<leader>ffp", "<cmd>lua require('telescope.builtin').find_files({cwd='E:/coding_journey/cyber.nvim/'})<cr>") -- opening telescope in projects dir

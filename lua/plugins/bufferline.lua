@@ -33,4 +33,15 @@ bufferline.setup {
     enforce_regular_tabs = true,
     always_show_bufferline = true,
   },
+  highlights = {
+    tab = {
+      guibg = {
+        attribute = "bg",
+        highlight = "TabLine",
+      },
+    },
+    buffer_selected = {
+      gui = "none",
+    },
+  },
 }
