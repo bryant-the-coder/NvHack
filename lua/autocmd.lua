@@ -99,10 +99,3 @@ cmd([[
 -- Credits to @max397574
 cmd([[au CursorHold  * lua vim.diagnostic.open_float()]])
 cmd([[hi DiagnosticHeader gui=bold guifg=#2cb27f]])
-
--- Gitsigns
---[[ cmd [[
-  highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#827e7e
-]]
-
-

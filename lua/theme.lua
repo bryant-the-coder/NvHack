@@ -1,55 +1,25 @@
 require("themer").setup({
-	colorscheme = "onedark", -- default colorscheme
+	colorscheme = "darknight", -- default colorscheme
 	transparent = false,
 	term_colors = true,
-	dim_inactive = false,
+	dim_inactive = true,
 	styles = {
-		heading = {
-			h1 = {},
-			h2 = {},
-		},
 		["function"] = { style = "italic" },
 		functionBuiltIn = { style = "italic" },
-		variable = {},
-		variableBuiltIn = {},
-		include = {},
-		identifier = {},
-		keyword = {},
-		keywordBuiltIn = {},
-		struct = {},
-		string = {},
-		parameter = {},
-		field = {},
-		type = {},
-		typeBuiltIn = {},
-		property = {},
 		comment = { style = "bold" },
-		punctuation = {},
-		constructor = {},
-		operator = {},
-		constant = { style = "italic" },
-		constantBuiltIn = {},
-		todo = {},
-		character = {},
-		conditional = {},
+		constant = { style = "bold" },
 		number = { style = "italic" },
-		statement = {},
-		uri = {},
     diagnostic = {
-        underline = {
-            error = {style = "italic"},
-            warn = {},
-            info = {},
-            hint = {},
-        },
-        virtual_text = {
-            error = {},
-            warn = {},
-            info = {},
-            hint = {},
-        },
+      underline = {
+        error = { style = "underline" },
+        warn = { style = "underline" },
+      },
+      virtual_text = {
+        error = { style = "italic" },
+        warn  = { style = "italic" },
+      },
     },
-	},
+  },
   telescope_mappings = {
     ["n"] = {
       ["<CR>"] = "enter",

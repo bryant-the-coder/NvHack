@@ -85,7 +85,7 @@ map("n", "<leader>tt", "<cmd>Trouble<CR>")
 map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 map("i", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 
--- Packe
+-- Packer
 map("n", "<leader>pi", "<cmd>PackerInstall<CR>")
 map("n", "<leader>pu", "<cmd>PackerUpdate<CR>")
 map("n", "<leader>pc", "<cmd>PackerClean<CR>")
