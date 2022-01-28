@@ -9,31 +9,31 @@ require("themer").setup({
 		comment = { style = "bold" },
 		constant = { style = "bold" },
 		number = { style = "italic" },
-    diagnostic = {
-      underline = {
-        error = { style = "underline" },
-        warn = { style = "underline" },
-      },
-      virtual_text = {
-        error = { style = "italic" },
-        warn  = { style = "italic" },
-      },
-    },
-  },
-  telescope_mappings = {
-    ["n"] = {
-      ["<CR>"] = "enter",
-      ["k"] = "prev_color",
-      ["j"] = "next_color",
-      ["p"] = "preview",
-    },
-    ["i"] = {
-      ["<CR>"] = "enter",
-      ["<S-Tab>"] = "prev_color",
-      ["<Tab>"] = "next_color",
-      ["<C-p>"] = "preview",
-    },
-  },
+		diagnostic = {
+			underline = {
+				error = { style = "underline" },
+				warn = { style = "underline" },
+			},
+			virtual_text = {
+				error = { style = "italic" },
+				warn = { style = "italic" },
+			},
+		},
+	},
+	telescope_mappings = {
+		["n"] = {
+			["<CR>"] = "enter",
+			["k"] = "prev_color",
+			["j"] = "next_color",
+			["p"] = "preview",
+		},
+		["i"] = {
+			["<CR>"] = "enter",
+			["<S-Tab>"] = "prev_color",
+			["<Tab>"] = "next_color",
+			["<C-p>"] = "preview",
+		},
+	},
 })
 --------------------------------
 --      Time Changing Func    --

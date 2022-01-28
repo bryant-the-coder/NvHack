@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local exec = vim.api.nvim_exec
 
 local NoWhitespace = exec(
-    [[
+	[[
     function! NoWhitespace()
         let l:save = winsaveview()
         keeppatterns %s/\s\+$//e
@@ -10,7 +10,7 @@ local NoWhitespace = exec(
     endfunction
     call NoWhitespace()
     ]],
-    true
+	true
 )
 
 -----------------------------------
@@ -39,18 +39,17 @@ cmd([[
   autocmd Filetype scss setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 ]])
 
-
 -- Restore cursor last position upon reopening the file
-cmd[[
+cmd([[
   augroup last_cursor_position
     autocmd!
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
   augroup END
-]]
+]])
 
 -- Reload the contents of file if changed outside of nvim
-cmd[[
+cmd([[
   augroup auto_reload_file
     autocmd!
     autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim'})
@@ -62,15 +61,15 @@ cmd[[
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
   augroup END
-]]
+]])
 
 -- Highlight when yanking :)
-cmd[[
+cmd([[
   augroup yank_with_highlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]]
+]])
 
 -----------------------------------
 --           Plugins             --

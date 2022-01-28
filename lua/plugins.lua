@@ -9,11 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
-  print("Packer installed")
+	print("Packer installed")
 end
-require("packer").init{
-
-}
+require("packer").init({})
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -23,16 +21,16 @@ return require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Theme
-  use({
-    "themercorp/themer.lua",
-    branch = "dev",
-    commit = "f5f0593819e84a7a481d0f7c0b1eb462ffb4ad62"
-  })
-  use("rockerBOO/boo-colorscheme-nvim")
-  use("numToStr/Sakura.nvim")
+	use({
+		"themercorp/themer.lua",
+		branch = "dev",
+		commit = "f5f0593819e84a7a481d0f7c0b1eb462ffb4ad62",
+	})
+	use("rockerBOO/boo-colorscheme-nvim")
+	use("numToStr/Sakura.nvim")
 
-  -- Impatient
-  use({"lewis6991/impatient.nvim"})
+	-- Impatient
+	use({ "lewis6991/impatient.nvim" })
 
 	-- Explorer menu
 	use({ "kyazdani42/nvim-tree.lua", config = [[require("plugins.nvim-tree")]] })
@@ -41,7 +39,7 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-    commit = "668de0951a36ef17016074f1120b6aacbe6c4515",
+		commit = "668de0951a36ef17016074f1120b6aacbe6c4515",
 		requires = {
 			"p00f/nvim-ts-rainbow",
 			"nvim-treesitter/playground",
@@ -52,7 +50,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Statusline
-  -- use({ "nvim-lualine/lualine.nvim", config = [[require("plugins.lualine")]] })
+	-- use({ "nvim-lualine/lualine.nvim", config = [[require("plugins.lualine")]] })
 
 	-- Telescope
 	use({
@@ -100,10 +98,10 @@ return require("packer").startup(function(use)
 	use({ "folke/lsp-colors.nvim", config = [[require("plugins.other")]] })
 
 	-- Indentation
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    config = [[require("plugins.indent")]]
-  })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = [[require("plugins.indent")]],
+	})
 
 	-- Auto-comment
 	use({
@@ -131,16 +129,16 @@ return require("packer").startup(function(use)
 		config = [[require("plugins.zen-mode")]],
 	})
 
-  use ({
-    "folke/trouble.nvim",
-    config = [[require("plugins.trouble")]],
-  })
+	use({
+		"folke/trouble.nvim",
+		config = [[require("plugins.trouble")]],
+	})
 
 	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
-      vim.cmd [[highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f]]
+			vim.cmd([[highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f]])
 			require("gitsigns").setup({
 				current_line_blame_opts = {
 					virt_text = true,
@@ -179,13 +177,13 @@ return require("packer").startup(function(use)
 				current_line_blame_formatter_opts = {
 					relative_time = true,
 				},
-        debug_mode = true
+				debug_mode = true,
 			})
 		end,
 	})
-  use "tpope/vim-fugitive"
+	use("tpope/vim-fugitive")
 
-if packer_bootstrap then
+	if packer_bootstrap then
 		require("packer").sync()
-end
+	end
 end)

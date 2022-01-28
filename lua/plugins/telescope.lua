@@ -15,8 +15,8 @@ telescope.setup({
 			vertical = { mirror = false },
 		},
 
-    -- Transparency settings
-    --[[ winblend = 25, ]]
+		-- Transparency settings
+		--[[ winblend = 25, ]]
 
 		find_command = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
 		prompt_prefix = "  ",
@@ -27,14 +27,14 @@ telescope.setup({
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
 		border = {},
-		borderchars = { '━', '┃', '─', '┃', '┏', '┓', '┛', '┗' },
+		borderchars = { "━", "┃", "─", "┃", "┏", "┓", "┛", "┗" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" },
 		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-		file_ignore_patterns = {'__pycache__', 'node_modules', '.jpg', '.jpeg', '.png', '.ico'},
+		file_ignore_patterns = { "__pycache__", "node_modules", ".jpg", ".jpeg", ".png", ".ico" },
 		mappings = {
 			i = {
 				["<C-j>"] = actions.move_selection_next,
