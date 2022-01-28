@@ -91,6 +91,14 @@ map("n", "<leader>pu", "<cmd>PackerUpdate<CR>")
 map("n", "<leader>pc", "<cmd>PackerClean<CR>")
 map("n", "<leader>ps", "<cmd>PackerSync<CR>")
 
+-- Comment box
+map("n", "<leader>bb", "<cmd>CBcbox<CR>")
+map("v", "<leader>bb", "<cmd>CBcbox<CR>")
+map("n", "<leader>bl", "<cmd>CBlbox<CR>")
+map("v", "<leader>bl", "<cmd>CBlbox<CR>")
+map("n", "<leader>bu", "<cmd>CBline<CR>")
+map("v", "<leader>bu", "<cmd>CBline<CR>")
+
 -- LSP
 map("n", "<leader>lr", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
 map("n", "<leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]])

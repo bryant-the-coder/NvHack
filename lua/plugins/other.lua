@@ -28,4 +28,6 @@ require("lsp-colors").setup({
 	Hint = "#00ff00",
 })
 
+-- Impatient
 require("impatient")
+

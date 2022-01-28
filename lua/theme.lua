@@ -1,5 +1,5 @@
 require("themer").setup({
-	colorscheme = "darknight", -- default colorscheme
+	colorscheme = "darknight",
 	transparent = false,
 	term_colors = true,
 	dim_inactive = true,
@@ -18,20 +18,6 @@ require("themer").setup({
 				error = { style = "italic" },
 				warn = { style = "italic" },
 			},
-		},
-	},
-	telescope_mappings = {
-		["n"] = {
-			["<CR>"] = "enter",
-			["k"] = "prev_color",
-			["j"] = "next_color",
-			["p"] = "preview",
-		},
-		["i"] = {
-			["<CR>"] = "enter",
-			["<S-Tab>"] = "prev_color",
-			["<Tab>"] = "next_color",
-			["<C-p>"] = "preview",
 		},
 	},
 })
