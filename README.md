@@ -47,7 +47,7 @@
 Dashboard
 <img src="./utils/media/startscreen.png" />
 NvimTree
-<img src="./utils/media/file_explorer.png" />
+<img src="./utils/media/file_explorer.png" align_text =left />
 Telescope
 <img src="./utils/media/telescope.png" />
 Trouble
