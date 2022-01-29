@@ -48,9 +48,6 @@ Telescope
 <img src="./utils/media/telescope.png" />
 Trouble
 <img src="./utils/media/trouble.png" />
-Statusline
-<img src="./utils/media/custom_statusline.png" />
-
 Completion
 <img src="./utils/media/cmp.png" />
 
