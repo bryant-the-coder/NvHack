@@ -113,6 +113,7 @@ M.clock = function ()
   return os.date(" %a | %H:%M:%S ")
 end
 
+
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                     Active statusline                    │
 -- ╰──────────────────────────────────────────────────────────╯
@@ -133,9 +134,13 @@ M.set_active = function(self)
   }
 end
 
+
+
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                    Inactive statusline                   │
 -- ╰──────────────────────────────────────────────────────────╯
+---
+---@param self string
 M.set_inactive = function (self)
   return table.concat {
     center,

@@ -2,11 +2,12 @@ require("themer").setup({
 	colorscheme = "darknight",
 	transparent = false,
 	term_colors = true,
-	dim_inactive = true,
+	dim_inactive = false,
 	styles = {
 		["function"] = { style = "italic" },
 		functionBuiltIn = { style = "italic" },
 		comment = { style = "bold" },
+    number = { style = "italic" },
 		constant = { style = "bold" },
 		diagnostic = {
 			underline = {

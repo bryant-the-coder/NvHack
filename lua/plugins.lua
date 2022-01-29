@@ -26,10 +26,7 @@ return require("packer").startup({
 		-- Theme
 		use({
 			"themercorp/themer.lua",
-			branch = "dev",
 		})
-		use("rockerBOO/boo-colorscheme-nvim")
-		use("numToStr/Sakura.nvim")
 
 		-- Impatient
 		use({ "lewis6991/impatient.nvim" })
@@ -41,7 +38,6 @@ return require("packer").startup({
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
-			commit = "668de0951a36ef17016074f1120b6aacbe6c4515",
 			requires = {
 				"p00f/nvim-ts-rainbow",
 				"nvim-treesitter/playground",
@@ -133,6 +129,9 @@ return require("packer").startup({
 			"folke/trouble.nvim",
 			config = [[require("plugins.trouble")]],
 		})
+
+    -- Neogen
+    use { "danymat/neogen" }
 
 		-- Git
 		use({

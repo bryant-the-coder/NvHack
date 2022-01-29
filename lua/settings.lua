@@ -57,11 +57,7 @@ g.python3_host_prog = "C:/Python310/python.exe"
 
 -- Shell (:h shell-powershell)
 -- Checking for the DE
-if vim.fn.has("wind32") then
-	o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
-else
-	o.shell = vim.o.shell
-end
+o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
 
 -- Builtin plugins
 g.loaded_gzip = 1
