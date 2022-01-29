@@ -41,8 +41,6 @@
 12. [Harpoon](https://github.com/ThePrimeagen/harpoon)
 13. [Icons](https://github.com/kyazdani42/nvim-web-devicons)
 
-## TODO
-- [x] update readme (add showcase)
 ## showcase
 Dashboard
 <img src="./utils/media/startscreen.png" />
