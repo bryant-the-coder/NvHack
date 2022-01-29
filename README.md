@@ -46,16 +46,12 @@
 ## showcase
 Dashboard
 <img src="./utils/media/startscreen.png" />
-NvimTree
-<img src="./utils/media/file_explorer.png" />
 Telescope
 <img src="./utils/media/telescope.png" />
 Trouble
 <img src="./utils/media/trouble.png" />
 Statusline
 <img src="./utils/media/custom_statusline.png" />
-LSP
-<img src="./utils/media/lsp.png" />
 Completion
 <img src="./utils/media/cmp.png" />
 
