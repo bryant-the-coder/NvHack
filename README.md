@@ -48,8 +48,6 @@ Telescope
 <img src="./utils/media/telescope.png" />
 Trouble
 <img src="./utils/media/trouble.png" />
-Completion
-<img src="./utils/media/cmp.png" />
 
 ## CREDITS
 Thanks to these wonderful people. Their config guided me into making my config.
