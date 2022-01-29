@@ -47,7 +47,7 @@
 Dashboard
 <img src="./utils/media/startscreen.png" />
 NvimTree
-<img src="./utils/media/file_explorea.pngr" />
+<img src="./utils/media/file_explorea.png" />
 Telescope
 <img src="./utils/media/telescope.png" />
 Trouble
