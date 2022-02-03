@@ -1,5 +1,5 @@
 require("themer").setup({
-	colorscheme = "darknight",
+	colorscheme = "tokyodark",
 	transparent = false,
 	term_colors = true,
 	dim_inactive = false,
@@ -7,7 +7,7 @@ require("themer").setup({
 		["function"] = { style = "italic" },
 		functionBuiltIn = { style = "italic" },
 		comment = { style = "bold" },
-    number = { style = "italic" },
+		number = { style = "italic" },
 		constant = { style = "bold" },
 		diagnostic = {
 			underline = {

@@ -30,4 +30,5 @@ require("lsp-colors").setup({
 
 -- Impatient
 require("impatient")
+require'impatient'.enable_profile()
 

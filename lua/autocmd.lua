@@ -48,6 +48,13 @@ cmd([[
   augroup END
 ]])
 
+cmd([[
+  augroup _auto_resize
+    autocmd!
+    autocmd VimResized * tabdo wincmd =
+  augroup end
+]])
+
 -- Reload the contents of file if changed outside of nvim
 cmd([[
   augroup auto_reload_file
@@ -55,7 +62,9 @@ cmd([[
     autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim'})
     autocmd FocusGained,CursorHold * if getcmdwintype() == '' | checktime | endif
   augroup END
+]])
 
+cmd([[
   augroup numbertoggle
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif

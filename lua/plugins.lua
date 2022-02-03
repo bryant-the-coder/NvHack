@@ -26,13 +26,15 @@ return require("packer").startup({
 		-- Theme
 		use({
 			"themercorp/themer.lua",
+			branch = "dev",
 		})
 
-		-- Impatient
-		use({ "lewis6991/impatient.nvim" })
-
 		-- Explorer menu
-		use({ "kyazdani42/nvim-tree.lua", config = [[require("plugins.nvim-tree")]] })
+		use({
+			"kyazdani42/nvim-tree.lua",
+			cmd = "NvimTreeToggle",
+			config = [[require("plugins.nvim-tree")]],
+		})
 
 		-- Treesitter
 		use({
@@ -42,13 +44,10 @@ return require("packer").startup({
 				"p00f/nvim-ts-rainbow",
 				"nvim-treesitter/playground",
 				"windwp/nvim-ts-autotag",
-				{ "windwp/nvim-autopairs", config = [[require("plugins.autopairs")]] },
+				{ "windwp/nvim-autopairs", event = "InsertEnter", config = [[require("plugins.autopairs")]] },
 			},
 			config = [[require("plugins.treesitter")]],
 		})
-
-		-- Statusline
-		-- use({ "nvim-lualine/lualine.nvim", config = [[require("plugins.lualine")]] })
 
 		-- Telescope
 		use({
@@ -60,7 +59,11 @@ return require("packer").startup({
 		use({ "glepnir/dashboard-nvim", config = [[require("plugins.dashboard")]] })
 
 		-- Bufferline
-		use({ "akinsho/bufferline.nvim", config = [[require("plugins.bufferline")]] })
+		use({
+			"akinsho/bufferline.nvim",
+			after = "nvim-web-devicons",
+			config = [[require("plugins.bufferline")]],
+		})
 
 		-- Colorizer
 		use({
@@ -69,14 +72,18 @@ return require("packer").startup({
 		})
 
 		-- LSP
-		use({ "neovim/nvim-lspconfig", config = [[require("plugins.lsp")]] })
+		use({
+			"neovim/nvim-lspconfig",
+			event = "BufRead",
+			config = [[require("plugins.lsp")]],
+		})
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
-				"hrsh7th/cmp-vsnip",
 				"hrsh7th/cmp-nvim-lsp",
+				"L3MON4D3/LuaSnip",
 				"onsails/lspkind-nvim",
-				{ "hrsh7th/vim-vsnip", after = "nvim-cmp" },
+				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -87,6 +94,7 @@ return require("packer").startup({
 
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
+			event = "BufRead",
 			config = [[require("plugins.null-ls")]],
 		})
 
@@ -130,12 +138,13 @@ return require("packer").startup({
 			config = [[require("plugins.trouble")]],
 		})
 
-    -- Neogen
-    use { "danymat/neogen" }
+		-- Neogen
+		use({ "danymat/neogen" })
 
 		-- Git
 		use({
 			"lewis6991/gitsigns.nvim",
+			event = "BufRead",
 			config = function()
 				vim.cmd([[highlight GitSignsCurrentLineBlame gui=bold,italic guifg=#938f8f]])
 				require("gitsigns").setup({
@@ -181,7 +190,22 @@ return require("packer").startup({
 			end,
 		})
 
-		use("LudoPinelli/comment-box.nvim")
+		-- Better performance :)
+		use("lewis6991/impatient.nvim")
+		use("nathom/filetype.nvim")
+
+		-- Smooth escaping
+		use({
+			"max397574/better-escape.nvim",
+			event = { "InsertEnter" },
+			config = function()
+				require("better_escape").setup({
+					mapping = { "ii", "jj", "jk", "kj" },
+					timeout = vim.o.timeoutlen,
+					keys = "<ESC>",
+				})
+			end,
+		})
 	end,
 	config = {
 		profile = {
