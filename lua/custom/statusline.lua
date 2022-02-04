@@ -61,9 +61,9 @@ M.current_modes = function(self)
 	return string.format(" %s ", self.modes[current_modes]):upper()
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                   Git status (gitsigns)                  │
--- ╰──────────────────────────────────────────────────────────╯
+---Git status
+---@param self function
+---@return string
 M.git_status = function(self)
 	local signs = vim.b.gitsigns_status_dict or { head = "", added = 0, changed = 0, removed = 0 }
 	local is_head_empty = signs.head ~= ""
@@ -75,17 +75,16 @@ M.git_status = function(self)
 	return is_head_empty and string.format(" שׂ %s ", signs.head) or ""
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                     Getting filename                     │
--- ╰──────────────────────────────────────────────────────────╯
+---Getting filename
+---@return osdate
 M.filename = function()
+	---Getting filename
 	local filename = fn.expand("%:t")
 	return filename == "" and "" or filename
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                            LSP                           │
--- ╰──────────────────────────────────────────────────────────╯
+---LSP diagnostic
+---@return function
 M.lsp_diagnostics = function()
 	local count = {}
 	local levels = {
@@ -100,6 +99,8 @@ M.lsp_diagnostics = function()
 	return string.format("%s:E %s:W ", count["errors"] or 0, count["warnings"] or 0)
 end
 
+---Creating a clock
+---@return function
 M.clock = function()
 	return os.date(" %a | %H:%M:%S ")
 end
@@ -124,11 +125,9 @@ M.set_active = function(self)
 	})
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                    Inactive statusline                   │
--- ╰──────────────────────────────────────────────────────────╯
----
----@param self string
+---Setting inactive statusline
+---@param self function
+---@return boolean
 M.set_inactive = function(self)
 	return table.concat({
 		center,

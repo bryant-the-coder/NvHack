@@ -28,7 +28,8 @@ return require("packer").startup({
 			"themercorp/themer.lua",
 			branch = "dev",
 		})
-		use("rktjmp/paperplanes.nvim")
+		use({ "srcery-colors/srcery-vim", as = "srcery" })
+		use("williamboman/nvim-lsp-installer")
 		-- Explorer menu
 		use({
 			"kyazdani42/nvim-tree.lua",
@@ -205,6 +206,11 @@ return require("packer").startup({
 					keys = "<ESC>",
 				})
 			end,
+		})
+
+		use({
+			"rktjmp/paperplanes.nvim",
+			event = "BufEnter",
 		})
 	end,
 	config = {
