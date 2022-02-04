@@ -1,6 +1,7 @@
 require("themer").setup({
-	colorscheme = "onedark",
+	colorscheme = "gruvbox-material-dark-soft",
 	transparent = false,
+	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 	term_colors = true,
 	dim_inactive = false,
 	styles = {

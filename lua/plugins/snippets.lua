@@ -75,16 +75,12 @@ local css = [[
 </html>
 ]]
 
-local print = {
-	js = [[console.log(${0});]],
-	lua = [[print(${0})]],
-}
+local print = [[console.log(${0});]]
 
 ls.snippets = {
 	lua = {
 		parse({ trig = "M" }, modules),
 		parse({ trig = "map" }, map),
-		parse({ trig = "print" }, print.lua),
 	},
 	git = {
 		parse({ trig = "stylua" }, stylua),
@@ -94,6 +90,6 @@ ls.snippets = {
 		parse({ trig = "css" }, css),
 	},
 	js = {
-		parse({ trig = "console" }, print.js),
+		parse({ trig = "log" }, print),
 	},
 }

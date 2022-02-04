@@ -26,10 +26,9 @@ return require("packer").startup({
 		-- Theme
 		use({
 			"themercorp/themer.lua",
-			branch = "dev",
 		})
 		use({ "srcery-colors/srcery-vim", as = "srcery" })
-		use("williamboman/nvim-lsp-installer")
+
 		-- Explorer menu
 		use({
 			"kyazdani42/nvim-tree.lua",
@@ -77,12 +76,12 @@ return require("packer").startup({
 			"neovim/nvim-lspconfig",
 			config = [[require("plugins.lsp")]],
 		})
-
+		use("williamboman/nvim-lsp-installer")
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				"L3MON4D3/LuaSnip",
+				{ "L3MON4D3/LuaSnip", config = [[require("plugins.snippets")]] },
 				"onsails/lspkind-nvim",
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
@@ -208,6 +207,7 @@ return require("packer").startup({
 			end,
 		})
 
+		-- Show ppl code in url
 		use({
 			"rktjmp/paperplanes.nvim",
 			event = "BufEnter",
