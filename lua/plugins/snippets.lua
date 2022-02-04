@@ -81,19 +81,19 @@ local print = {
 }
 
 ls.snippets = {
-  lua = {
-    parse({ trig = "M" }, modules),
-    parse({ trig = "map" }, map),
-    parse({ trig = "print" }, print.lua)
-  },
-  git = {
-    parse({ trig = "stylua" }, stylua)
-  },
-  html = {
-    parse({ trig = "scss" }, scss),
-    parse({ trig = "css" }, css)
-  },
-  js = {
-    parse({ trig = "print" }, print.js)
-  }
+	lua = {
+		parse({ trig = "M" }, modules),
+		parse({ trig = "map" }, map),
+		parse({ trig = "print" }, print.lua),
+	},
+	git = {
+		parse({ trig = "stylua" }, stylua),
+	},
+	html = {
+		parse({ trig = "scss" }, scss),
+		parse({ trig = "css" }, css),
+	},
+	js = {
+		parse({ trig = "console" }, print.js),
+	},
 }

@@ -75,9 +75,9 @@ return require("packer").startup({
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
-			event = "BufRead",
 			config = [[require("plugins.lsp")]],
 		})
+
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
