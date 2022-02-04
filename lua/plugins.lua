@@ -28,7 +28,7 @@ return require("packer").startup({
 			"themercorp/themer.lua",
 			branch = "dev",
 		})
-
+		use("rktjmp/paperplanes.nvim")
 		-- Explorer menu
 		use({
 			"kyazdani42/nvim-tree.lua",

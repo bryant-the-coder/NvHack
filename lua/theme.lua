@@ -1,5 +1,5 @@
 require("themer").setup({
-	colorscheme = "tokyodark",
+	colorscheme = "onedark",
 	transparent = false,
 	term_colors = true,
 	dim_inactive = false,
