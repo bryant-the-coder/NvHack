@@ -85,6 +85,9 @@ map("n", "<leader>tt", "<cmd>Trouble<CR>")
 map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 map("i", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 
+-- Neogen
+map("n", "<leader>ng", "<cmd>Neogen<CR>")
+
 -- Packer
 map("n", "<leader>pi", "<cmd>PackerInstall<CR>")
 map("n", "<leader>pu", "<cmd>PackerUpdate<CR>")

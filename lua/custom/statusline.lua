@@ -6,7 +6,8 @@ local center = "%="
 local right_sep = ""
 local left_sep = ""
 
--- Setting the length of each characters
+--- Setting the length of each characters
+---@return boolean
 M.trunc_width = setmetatable({
 	git_status = 20,
 	filename = 50,
@@ -25,6 +26,8 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                       Settings mode                      │
 -- ╰──────────────────────────────────────────────────────────╯
+--- Shows mode in statusline
+---@return string
 M.modes = setmetatable({
 	["n"] = "NORMAL",
 	["no"] = "NORMAL",
@@ -53,9 +56,9 @@ M.modes = setmetatable({
 	end,
 })
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                   Getting current mode                   │
--- ╰──────────────────────────────────────────────────────────╯
+---Return current modes
+---@param self string
+---@return string
 M.current_modes = function(self)
 	local current_modes = api.nvim_get_mode().mode
 	return string.format(" %s ", self.modes[current_modes]):upper()
@@ -108,6 +111,9 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                     Active statusline                    │
 -- ╰──────────────────────────────────────────────────────────╯
+--- Show active statusline
+---@param self boolean
+---@return boolean
 M.set_active = function(self)
 	return table.concat({
 		self:current_modes(),
@@ -136,9 +142,8 @@ M.set_inactive = function(self)
 	})
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                 Setting name for NvimTree                │
--- ╰──────────────────────────────────────────────────────────╯
+--- Show nvimtree
+---@return string
 M.set_explorer = function()
 	return table.concat({
 		"%=",

@@ -4,20 +4,25 @@ if not present then
 end
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
--- local feedkey = function(key, mode)
--- 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
--- end
+local neogen = require("neogen")
+local t = function(str)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+local check_back_space = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
+end
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -49,27 +54,37 @@ cmp.setup({
 				feedkey("<Plug>(vsnip-jump-prev)", "")
 			end
 		end, { "i", "s" }), ]]
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback()
+			end
+			if neogen.jumpable() then
+				vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_next()<CR>"), "")
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+			if neogen.jumpable(-1) then
+				vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_prev()<CR>"), "")
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	},
 	formatting = {
 		-- fields = { "kind", "abbr", "menu" },
@@ -92,7 +107,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "lspkind" },
 		-- { name = "vsnip" },
-    { name = 'luasnip' },
+		{ name = "luasnip" },
 		{ name = "buffer", keyword_length = 2 },
 		{ name = "npm", keyword_length = 2 },
 	}),
