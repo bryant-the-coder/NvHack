@@ -81,9 +81,9 @@ return require("packer").startup({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				{ "L3MON4D3/LuaSnip", config = [[require("plugins.snippets")]] },
+				"hrsh7th/cmp-vsnip",
 				"onsails/lspkind-nvim",
-				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+				{ "hrsh7th/vim-vsnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -155,32 +155,30 @@ return require("packer").startup({
 						ignore_whitespace = false,
 					},
 					current_line_blame = true,
-					signs = {
-						add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-						change = {
-							hl = "GitSignsChange",
-							text = "│",
-							numhl = "GitSignsChangeNr",
-							linehl = "GitSignsChangeLn",
-						},
-						delete = {
-							hl = "GitSignsDelete",
-							text = "│",
-							numhl = "GitSignsDeleteNr",
-							linehl = "GitSignsDeleteLn",
-						},
-						topdelete = {
-							hl = "GitSignsDelete",
-							text = "│",
-							numhl = "GitSignsDeleteNr",
-							linehl = "GitSignsDeleteLn",
-						},
-						changedelete = {
-							hl = "GitSignsChange",
-							text = "│",
-							numhl = "GitSignsChangeNr",
-							linehl = "GitSignsChangeLn",
-						},
+					add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+					change = {
+						hl = "GitSignsChange",
+						text = "│",
+						numhl = "GitSignsChangeNr",
+						linehl = "GitSignsChangeLn",
+					},
+					delete = {
+						hl = "GitSignsDelete",
+						text = "│",
+						numhl = "GitSignsDeleteNr",
+						linehl = "GitSignsDeleteLn",
+					},
+					topdelete = {
+						hl = "GitSignsDelete",
+						text = "│",
+						numhl = "GitSignsDeleteNr",
+						linehl = "GitSignsDeleteLn",
+					},
+					changedelete = {
+						hl = "GitSignsChange",
+						text = "│",
+						numhl = "GitSignsChangeNr",
+						linehl = "GitSignsChangeLn",
 					},
 					current_line_blame_formatter_opts = {
 						relative_time = true,

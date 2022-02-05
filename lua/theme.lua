@@ -1,9 +1,9 @@
 require("themer").setup({
-	colorscheme = "onedark",
+	colorscheme = "darknight",
 	transparent = false,
 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 	term_colors = true,
-	dim_inactive = true,
+	dim_inactive = false,
 	styles = {
 		["function"] = { style = "italic" },
 		functionBuiltIn = { style = "italic" },
