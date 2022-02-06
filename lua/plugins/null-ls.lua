@@ -18,7 +18,7 @@ null_ls.setup({
 	-- 		vim.cmd([[
 	--            augroup LspFormatting
 	--                autocmd! * <buffer>
-	--                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+	--                autocmd BufWritePre <buffer> vim.lsp.buf.formatting_sync(nil, 2000)
 	--            augroup END
 	--            ]])
 	-- 	end
