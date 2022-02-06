@@ -28,6 +28,7 @@ return require("packer").startup({
 			"themercorp/themer.lua",
 		})
 		use({ "srcery-colors/srcery-vim", as = "srcery" })
+		use("LunarVim/onedarker.nvim")
 
 		-- Explorer menu
 		use({
