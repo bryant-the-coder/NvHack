@@ -5,9 +5,10 @@
   > Or not create a folder called as nvim
 2. Run `git clone https://github.com/bryant-the-coder/NvHack.git`
 3. Run `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
-4. Run `nvim` then type `:PackerInstall`
-5. Run `:checkhealth`
-6. TADA~ Your done and setup
+4. Now run `nvim` and `:e lua/plugins.lua`
+5. Then type `:source %` and run `:PackerSync`
+6. Run `:checkhealth`
+7. TADA~ Your done and setup
 
 ### Theme
 1. [Themer](https://github.com/ThemerCorp/themer.lua)
