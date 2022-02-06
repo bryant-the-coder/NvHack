@@ -7,3 +7,4 @@ require("custom.statusline")
 require("neogen").setup({
 	enabled = true,
 })
+require("astron")
