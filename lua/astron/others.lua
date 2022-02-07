@@ -4,8 +4,8 @@ local others = {
   TelescopeResultsTitle = { fg = C.green, style = "italic" },
   TelescopePromptTitle = { fg = C.blue },
   TelescopePreviewTitle = { fg = C.purple },
-  TelescopeResultsBorder = { fg = C.grey_2 },
-  TelescopePromptBorder = { fg = C.darker_black },
+  TelescopeResultsBorder = { fg = C.fg },
+  TelescopePromptBorder = { fg = C.fg },
   TelescopePreviewBorder = { fg = C.fg },
   TelescopeSelectionCaret = { fg = C.red },
   TelescopeMatching = { fg = C.yellow },
@@ -107,7 +107,7 @@ local others = {
   -- Dashboard
   DashboardHeader = { fg = C.cyan },
   DashboardShortcut = { fg = C.yellow },
-  DashboardFooter = { fg = C.cyan },
+  DashboardFooter = { fg = C.purple, style = "italic" },
   DashboardCenter = { fg = C.blue },
 
   -- WhichKey

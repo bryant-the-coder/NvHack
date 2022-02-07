@@ -5,6 +5,30 @@ if not present then
 	return
 end
 
+g.nvim_tree_indent_markers = 1
+
+g.nvim_tree_icons = {
+	default = "",
+	symlink = "",
+	git = {
+		deleted = "",
+		ignored = "◌",
+		renamed = "➜",
+		staged = "✓",
+		unmerged = "",
+		unstaged = "✗",
+		untracked = "★",
+	},
+	folder = {
+		default = "",
+		empty = "",
+		empty_open = "",
+		open = "",
+		symlink = "",
+		symlink_open = "",
+	},
+}
+
 tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -19,7 +43,7 @@ tree.setup({
 		auto_open = true,
 	},
 	diagnostics = {
-		enable = true,
+		enable = false,
 		icons = {
 			hint = " ",
 			info = " ",
@@ -55,27 +79,3 @@ tree.setup({
 		require_confirm = true,
 	},
 })
-g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "✗",
-		staged = "✓",
-		unmerged = "",
-		renamed = "➜",
-		untracked = "★",
-		deleted = "",
-		ignored = "◌",
-	},
-	folder = {
-		arrow_open = "",
-		arrow_closed = "",
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-		symlink_open = "",
-	},
-}
-g.nvim_tree_indent_markers = 1

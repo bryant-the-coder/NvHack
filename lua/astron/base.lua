@@ -77,6 +77,14 @@ local base = {
   EndOfBuffer = { fg = C.bg, bg = C.none },
   FloatBorder = { bg = C.none },
   MatchParen = { fg = C.none, bg = C.grey_5 },
+
+  -- Markdown
+  markdownH1 ={ fg = C.red_1, style = "bold,italic" },
+  markdownH2 ={ fg = C.green, style = "bold" },
+  markdownH3 ={ fg = C.blue, style = "bold" },
+  markdownH4 ={ fg = C.orange, style = "bold" },
+  markdownH5 ={ fg = C.yellow_1, style = "bold" },
+  markdownH6 ={ fg = C.yellow_1, style = "bold" },
 }
 
 return base

@@ -25,7 +25,7 @@ return require("packer").startup({
 
 		-- Theme
 		use({
-			"themercorp/themer.lua",
+			"ThemerCorp/themer.lua",
 		})
 		use({ "srcery-colors/srcery-vim", as = "srcery" })
 		use("LunarVim/onedarker.nvim")
@@ -82,9 +82,11 @@ return require("packer").startup({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-vsnip",
+				-- "hrsh7th/cmp-vsnip",
+				-- { "hrsh7th/vim-vsnip", after = "nvim-cmp" },
+				"L3MON4D3/LuaSnip",
 				"onsails/lspkind-nvim",
-				{ "hrsh7th/vim-vsnip", after = "nvim-cmp" },
+				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -125,22 +127,26 @@ return require("packer").startup({
 
 		-- Disturbance free writing
 		use({
-			"folke/twilight.nvim",
-			config = [[require("plugins.twilight")]],
-		})
-
-		use({
-			"folke/zen-mode.nvim",
-			config = [[require("plugins.zen-mode")]],
+      "folke/zen-mode.nvim",
+      config = [[require("plugins.zen-mode")]],
+      event = "BufEnter"
 		})
 
 		use({
 			"folke/trouble.nvim",
+			cmd = {
+				"Trouble",
+				"TroubleRefresh",
+				"TroubleClose",
+				"TroubleToggle",
+			},
 			config = [[require("plugins.trouble")]],
 		})
 
 		-- Neogen
-		use({ "danymat/neogen" })
+		use({
+			"danymat/neogen",
+		})
 
 		-- Git
 		use({
@@ -190,7 +196,9 @@ return require("packer").startup({
 		})
 
 		-- Better performance :)
-		use("lewis6991/impatient.nvim")
+		use({
+			"lewis6991/impatient.nvim",
+		})
 		use("nathom/filetype.nvim")
 
 		-- Smooth escaping

@@ -406,3 +406,89 @@ times in msec
 467.893  000.006: before starting main loop
 471.582  003.689: first screen update
 471.591  000.009: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.021  000.021: --- NVIM STARTING ---
+014.861  014.841: locale set
+015.681  000.820: inits 1
+015.964  000.283: window checked
+020.285  004.320: parsing arguments
+020.380  000.095: expanding arguments
+020.429  000.049: inits 2
+022.845  002.416: init highlight
+022.850  000.004: waiting for UI
+030.749  007.899: done waiting for UI
+030.830  000.081: init screen for UI
+030.865  000.035: init default mappings
+031.147  000.282: init default autocommands
+037.022  000.127  000.127: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\ftplugin.vim
+038.011  000.101  000.101: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\indent.vim
+097.849  059.439  059.439: sourcing C:\Users\User\AppData\Local\nvim\init.lua
+097.893  007.079: sourcing vimrc file(s)
+098.441  000.084  000.084: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\filetype.nvim\filetype.vim
+099.721  000.142  000.142: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\filetype.lua
+099.998  000.055  000.055: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\filetype.vim
+101.501  000.156  000.156: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\syntax\synload.vim
+101.686  001.339  001.182: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\syntax\syntax.vim
+108.298  000.063  000.063: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\gzip.vim
+108.543  000.064  000.064: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\health.vim
+108.770  000.051  000.051: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\man.vim
+109.014  000.069  000.069: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\matchit.vim
+109.236  000.055  000.055: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\matchparen.vim
+109.475  000.061  000.061: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\netrwPlugin.vim
+109.693  000.053  000.053: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\rplugin.vim
+110.011  000.143  000.143: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\shada.vim
+110.287  000.102  000.102: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\spellfile.vim
+110.534  000.064  000.064: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\tarPlugin.vim
+110.761  000.058  000.058: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\tohtml.vim
+111.022  000.083  000.083: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\tutor.vim
+111.258  000.067  000.067: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\plugin\zipPlugin.vim
+232.628  000.104  000.104: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-web-devicons\plugin\nvim-web-devicons.vim
+235.537  123.721  123.618: sourcing C:\Users\User\AppData\Local\nvim\plugin\packer_compiled.lua
+236.110  011.945: loading rtp plugins
+240.472  000.382  000.382: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\plugin\dashboard.vim
+241.546  000.085  000.085: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\harpoon\plugin\mark.vim
+243.051  000.497  000.497: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\indent-blankline.nvim\plugin\indent_blankline.vim
+244.390  000.517  000.517: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\lsp-colors.nvim\plugin\lsp-colors.vim
+245.850  000.439  000.439: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\LuaSnip\plugin\luasnip.vim
+247.983  000.839  000.839: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-cmp\plugin\cmp.lua
+248.796  000.138  000.138: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-colorizer.lua\plugin\colorizer.vim
+249.865  000.202  000.202: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-lsp-installer\plugin\nvim-lsp-installer.vim
+250.941  000.193  000.193: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-lspconfig\plugin\lspconfig.vim
+252.950  000.845  000.845: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\plugin\nvim-treesitter.vim
+254.443  000.626  000.626: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-ts-autotag\plugin\nvim-ts-autotag.vim
+255.678  000.312  000.312: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-ts-context-commentstring\plugin\ts_context_commentstring.vim
+256.895  000.337  000.337: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-ts-rainbow\plugin\rainbow.vim
+257.852  000.063  000.063: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\nvim-web-devicons\plugin\nvim-web-devicons.vim
+259.619  000.471  000.471: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\playground\plugin\nvim-treesitter-playground.vim
+260.627  000.148  000.148: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\plenary.nvim\plugin\plenary.vim
+262.020  000.328  000.328: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\telescope.nvim\plugin\telescope.vim
+263.318  000.388  000.388: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\themer.lua\plugin\scroll.vim
+264.088  000.180  000.180: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\themer.lua\plugin\themer.lua
+264.849  000.146  000.146: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\toggleterm.nvim\plugin\toggleterm.vim
+265.392  022.145: loading packages
+275.660  000.178  000.178: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\cmp-nvim-lsp\after\plugin\cmp_nvim_lsp.lua
+276.565  000.306  000.306: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\opt\cmp-path\after\plugin\cmp_path.lua
+277.375  000.297  000.297: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\opt\cmp_luasnip\after\plugin\cmp_luasnip.lua
+278.460  000.574  000.574: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\opt\cmp-buffer\after\plugin\cmp_buffer.lua
+278.476  011.730: loading after plugins
+278.525  000.048: inits 3
+282.334  003.810: reading ShaDa
+283.840  001.506: opening buffers
+291.738  000.106  000.106: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\opt\paperplanes.nvim\plugin\paperplanes.vim
+307.754  023.808: BufEnter autocommands
+307.762  000.008: editing files in windows
+309.963  000.233  000.233: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard.vim
+310.904  000.099  000.099: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard\utils.vim
+311.673  000.274  000.274: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\autoload\dashboard\section.vim
+348.025  034.842  034.842: sourcing D:\nvim-win64-unstable\Neovim\share\nvim\runtime\autoload\provider\clipboard.vim
+358.470  000.160  000.160: sourcing C:\Users\User\AppData\Local\nvim-data\site\pack\packer\start\dashboard-nvim\syntax\dashboard.vim
+364.763  021.393: VimEnter autocommands
+364.771  000.008: UIEnter autocommands
+364.776  000.005: before starting main loop
+367.666  002.890: first screen update
+367.673  000.007: --- NVIM STARTED ---
