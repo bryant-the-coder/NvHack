@@ -94,14 +94,6 @@ map("n", "<leader>pu", "<cmd>PackerUpdate<CR>")
 map("n", "<leader>pc", "<cmd>PackerClean<CR>")
 map("n", "<leader>ps", "<cmd>PackerSync<CR>")
 
--- Comment box
-map("n", "<leader>bb", "<cmd>CBcbox<CR>")
-map("v", "<leader>bb", "<cmd>CBcbox<CR>")
-map("n", "<leader>bl", "<cmd>CBlbox<CR>")
-map("v", "<leader>bl", "<cmd>CBlbox<CR>")
-map("n", "<leader>bu", "<cmd>CBline<CR>")
-map("v", "<leader>bu", "<cmd>CBline<CR>")
-
 -- LSP
 map("n", "<leader>lr", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
 map("n", "<leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]])
@@ -134,5 +126,6 @@ map("n", "<leader>fm", [[<cmd>lua require'telescope.builtin'.current_buffer_fuzz
 map("n", "<leader>ft", [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]])
 map("n", "<leader>fd", [[<cmd>lua require'telescope.builtin'.diagnostics()<CR>]])
 map("n", "<leader>fds", [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]])
-
+vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("i", "<C-Q>", "<Plug>luasnip-prev-choice", {})
 -- map("n", "<leader>ffp", "<cmd>lua require('telescope.builtin').find_files({cwd='E:/coding_journey/cyber.nvim/'})<cr>") -- opening telescope in projects dir

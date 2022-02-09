@@ -77,15 +77,15 @@ return require("packer").startup({
 			"neovim/nvim-lspconfig",
 			config = [[require("plugins.lsp")]],
 		})
-		use("williamboman/nvim-lsp-installer")
+		use({
+			"williamboman/nvim-lsp-installer",
+		})
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				-- "hrsh7th/cmp-vsnip",
-				-- { "hrsh7th/vim-vsnip", after = "nvim-cmp" },
-				"L3MON4D3/LuaSnip",
 				"onsails/lspkind-nvim",
+				{ "L3MON4D3/LuaSnip", config = [[require("plugins.snippets")]] },
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
@@ -94,6 +94,10 @@ return require("packer").startup({
 			},
 			config = [[require("plugins.cmp")]],
 		})
+		use({
+      "rafamadriz/friendly-snippets",
+      config = [[require("plugins.snippets")]]
+    })
 
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
@@ -127,9 +131,9 @@ return require("packer").startup({
 
 		-- Disturbance free writing
 		use({
-      "folke/zen-mode.nvim",
-      config = [[require("plugins.zen-mode")]],
-      event = "BufEnter"
+			"folke/zen-mode.nvim",
+			config = [[require("plugins.zen-mode")]],
+			event = "BufEnter",
 		})
 
 		use({
@@ -214,7 +218,7 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Show ppl code in url
+		-- Show ppl code in url form
 		use({
 			"rktjmp/paperplanes.nvim",
 			event = "BufEnter",
