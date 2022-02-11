@@ -33,7 +33,17 @@ return require("packer").startup({
 		-- Explorer menu
 		use({
 			"kyazdani42/nvim-tree.lua",
-			cmd = "NvimTreeToggle",
+			cmd = {
+				"NvimTreeClipboard",
+				"NvimTreeClose",
+				"NvimTreeFindFile",
+				"NvimTreeFindFileToggle",
+				"NvimTreeFocus",
+				"NvimTreeOpen",
+				"NvimTreeRefresh",
+				"NvimTreeResize",
+				"NvimTreeToggle",
+			},
 			config = [[require("plugins.nvim-tree")]],
 		})
 
@@ -95,9 +105,9 @@ return require("packer").startup({
 			config = [[require("plugins.cmp")]],
 		})
 		use({
-      "rafamadriz/friendly-snippets",
-      config = [[require("plugins.snippets")]]
-    })
+			"rafamadriz/friendly-snippets",
+			config = [[require("plugins.snippets")]],
+		})
 
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
