@@ -4,7 +4,8 @@
 1. cd into the directory of your nvim folder
   > Or not create a folder called as nvim
 2. Run `git clone https://github.com/bryant-the-coder/NvHack.git`
-3. Run `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+3. Run `git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"` for windows users
+  > `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim` for unix users
 4. Now run `nvim` and `:e lua/plugins.lua`
 5. Then type `:source %` and run `:PackerSync`
 6. Run `:checkhealth`

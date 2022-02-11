@@ -72,7 +72,7 @@ cmp.setup({
 		{ name = "lspkind" },
 		-- { name = "vsnip" },
     { name = "luasnip" },
-		{ name = "buffer", keyword_length = 2 },
+		{ name = "buffer", keyword_length = 5 },
 		{ name = "npm", keyword_length = 2 },
 	}),
 })
