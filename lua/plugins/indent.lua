@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- See :h indent_blankline.txt
-vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
+vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile", "help" }
 vim.g.indent_blankline_filetype_exclude = {
 	"help",
 	"dashboard",
