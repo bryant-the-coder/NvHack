@@ -105,7 +105,7 @@ map("n", "<C-j>", [[<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>]
 map("n", "<leader>ss", "[[<cmd>lua vim.lsp.buf.formatting_sync()<CR>]]")
 
 -- Harpooon
-map("n", "<A-p>", [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]])
+map("n", "<leader>lp", [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]])
 map("n", "<leader>lf", [[<cmd>lua require("harpoon.mark").add_file()<CR>]])
 map("n", "<leader>l;", [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]])
 map("n", "<leader>ll", [[<cmd>lua require("harpoon.ui").nav_next()<CR>]])
