@@ -64,14 +64,6 @@ cmd([[
   augroup END
 ]])
 
-cmd([[
-  augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-  augroup END
-]])
-
 -- Highlight when yanking :)
 cmd([[
   augroup yank_with_highlight
@@ -79,6 +71,15 @@ cmd([[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]])
+
+-- Hide last run command after 10 sec
+-- Make the screen clean :)
+-- cmd([[
+--   augroup _cmdline
+--     autocmd!
+--     autocmd CmdlineLeave : lua vim.defer_fn(function() vim.cmd('echo ""')end, 10000)
+--   augroup END
+-- ]])
 
 -----------------------------------
 --           Plugins             --
