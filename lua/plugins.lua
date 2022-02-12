@@ -16,58 +16,20 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
 	function(use)
-		-- Packer can manage itself
+		-- Packer can managee itself
 		use("wbthomason/packer.nvim")
+
+		-- Better performance :)
+		use({
+			"lewis6991/impatient.nvim",
+		})
 
 		-- Dependencies
 		use("nvim-lua/plenary.nvim")
 		use("kyazdani42/nvim-web-devicons")
 
 		-- Theme
-		use({
-			"ThemerCorp/themer.lua",
-		})
-		use({ "srcery-colors/srcery-vim", as = "srcery" })
-		use("LunarVim/onedarker.nvim")
-
-		-- Explorer menu
-		use({
-			"kyazdani42/nvim-tree.lua",
-			cmd = {
-				"NvimTreeClipboard",
-				"NvimTreeClose",
-				"NvimTreeFindFile",
-				"NvimTreeFindFileToggle",
-				"NvimTreeFocus",
-				"NvimTreeOpen",
-				"NvimTreeRefresh",
-				"NvimTreeResize",
-				"NvimTreeToggle",
-			},
-			config = [[require("plugins.nvim-tree")]],
-		})
-
-		-- Treesitter
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-			requires = {
-				"p00f/nvim-ts-rainbow",
-				"nvim-treesitter/playground",
-				"windwp/nvim-ts-autotag",
-				{ "windwp/nvim-autopairs", event = "InsertEnter", config = [[require("plugins.autopairs")]] },
-			},
-			config = [[require("plugins.treesitter")]],
-		})
-
-		-- Telescope
-		use({
-			"nvim-telescope/telescope.nvim",
-			config = [[require("plugins.telescope")]],
-		})
-
-		-- Dashboard
-		use({ "glepnir/dashboard-nvim", config = [[require("plugins.dashboard")]] })
+		use({ "ThemerCorp/themer.lua" })
 
 		-- Bufferline
 		use({
@@ -76,10 +38,36 @@ return require("packer").startup({
 			config = [[require("plugins.bufferline")]],
 		})
 
-		-- Colorizer
+		-- Explorer menu
 		use({
-			"norcalli/nvim-colorizer.lua",
-			config = [[require("plugins.other")]],
+			"kyazdani42/nvim-tree.lua",
+			cmd = "NvimTreeToggle",
+			config = [[require("plugins.nvim-tree")]],
+		})
+
+		-- Treesitter
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			config = [[require("plugins.treesitter")]],
+		})
+		use({
+			"p00f/nvim-ts-rainbow",
+			after = "nvim-treesitter",
+		})
+		use({
+			"windwp/nvim-ts-autotag",
+			event = "InsertEnter",
+			ft = { "html", "tsx" },
+		})
+		use({
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = [[require("plugins.autopairs")]],
+		})
+		use({
+			"nvim-treesitter/playground",
+			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
 		})
 
 		-- LSP
@@ -90,12 +78,15 @@ return require("packer").startup({
 		use({
 			"williamboman/nvim-lsp-installer",
 		})
+
+		-- Completion
 		use({
 			"hrsh7th/nvim-cmp",
+			module = "cmp",
+			event = { "InsertEnter", "CmdLineEnter" },
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
 				"onsails/lspkind-nvim",
-				{ "L3MON4D3/LuaSnip", config = [[require("plugins.snippets")]] },
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
@@ -105,7 +96,11 @@ return require("packer").startup({
 			config = [[require("plugins.cmp")]],
 		})
 		use({
-			"rafamadriz/friendly-snippets",
+			"L3MON4D3/LuaSnip",
+			requires = {
+				"rafamadriz/friendly-snippets",
+				after = "LuaSnip",
+			},
 			config = [[require("plugins.snippets")]],
 		})
 
@@ -115,18 +110,40 @@ return require("packer").startup({
 			config = [[require("plugins.null-ls")]],
 		})
 
+		-- Telescope
+		use({
+			"nvim-telescope/telescope.nvim",
+			config = [[require("plugins.telescope")]],
+		})
+
+		-- Colorizer
+		use({
+			"norcalli/nvim-colorizer.lua",
+			event = "BufRead",
+		})
+
+		-- Dashboard
+		use({ "glepnir/dashboard-nvim", config = [[require("plugins.dashboard")]] })
+
 		-- LSP highlight
 		use({ "folke/lsp-colors.nvim", config = [[require("plugins.other")]] })
 
 		-- Indentation
 		use({
 			"lukas-reineke/indent-blankline.nvim",
+			event = "BufWinEnter",
 			config = [[require("plugins.indent")]],
 		})
 
 		-- Auto-comment
 		use({
 			"numToStr/Comment.nvim",
+			keys = {
+				"gcc",
+				"gc",
+				"gcb",
+				"gb",
+			},
 			requires = {
 				"JoosepAlviste/nvim-ts-context-commentstring",
 			},
@@ -134,18 +151,27 @@ return require("packer").startup({
 		})
 
 		-- Terminal
-		use({ "akinsho/toggleterm.nvim", config = [[require("plugins.toggleterm")]] })
+		use({
+			"akinsho/toggleterm.nvim",
+			event = "InsertEnter",
+			config = [[require("plugins.toggleterm")]],
+		})
 
 		-- Harpoon
-		use("ThePrimeagen/harpoon")
+		use({
+			"ThePrimeagen/harpoon",
+			event = "InsertEnter",
+		})
 
 		-- Disturbance free writing
 		use({
 			"folke/zen-mode.nvim",
 			config = [[require("plugins.zen-mode")]],
+			cmd = "ZenMode",
 			event = "BufEnter",
 		})
 
+		-- Finding errors easily
 		use({
 			"folke/trouble.nvim",
 			cmd = {
@@ -154,6 +180,7 @@ return require("packer").startup({
 				"TroubleClose",
 				"TroubleToggle",
 			},
+			event = { "InsertEnter" },
 			config = [[require("plugins.trouble")]],
 		})
 
@@ -209,12 +236,6 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Better performance :)
-		use({
-			"lewis6991/impatient.nvim",
-		})
-		use("nathom/filetype.nvim")
-
 		-- Smooth escaping
 		use({
 			"max397574/better-escape.nvim",
@@ -232,6 +253,7 @@ return require("packer").startup({
 		use({
 			"rktjmp/paperplanes.nvim",
 			event = "BufEnter",
+			cmd = "PP",
 		})
 	end,
 	config = {
