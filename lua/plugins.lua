@@ -118,8 +118,7 @@ return require("packer").startup({
 
 		-- Colorizer
 		use({
-			"norcalli/nvim-colorizer.lua",
-			event = "BufRead",
+			"norcalli/nvim-colorizer.lua"
 		})
 
 		-- Dashboard
