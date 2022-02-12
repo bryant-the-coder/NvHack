@@ -1,6 +1,6 @@
 local ls = require("luasnip")
 local parse = ls.parser.parse_snippet
-require("luasnip.loaders.from_vscode").load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local module = [[
 local M = {}
