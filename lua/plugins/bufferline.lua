@@ -11,7 +11,7 @@ bufferline.setup({
 		middle_mouse_command = "vertical sbuffer %d",
 		indicator_icon = "▎",
 		buffer_close_icon = "",
-		modified_icon = "●",
+		modified_icon = "",
 		close_icon = "",
 		left_trunc_marker = "",
 		right_trunc_marker = "",
@@ -21,9 +21,9 @@ bufferline.setup({
 		view = "multiwindow",
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = true,
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			return "(" .. count .. ")"
-		end,
+		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+		-- 	return "(" .. count .. ")"
+		-- end,
 		offsets = { { filetype = "NvimTree", text = "" } },
 		separator_style = "thin",
 		show_buffer_icons = true,
