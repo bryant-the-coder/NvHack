@@ -37,8 +37,8 @@ telescope.setup({
 		file_ignore_patterns = { "__pycache__", "node_modules", ".jpg", ".jpeg", ".png", ".ico" },
 		mappings = {
 			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
+				["<TAB>"] = actions.move_selection_next,
+				["<S-TAB>"] = actions.move_selection_previous,
 				["<esc>"] = actions.close,
 			},
 			n = {

@@ -72,15 +72,6 @@ cmd([[
   augroup end
 ]])
 
--- Hide last run command after 10 sec
--- Make the screen clean :)
--- cmd([[
---   augroup _cmdline
---     autocmd!
---     autocmd CmdlineLeave : lua vim.defer_fn(function() vim.cmd('echo ""')end, 10000)
---   augroup END
--- ]])
-
 -----------------------------------
 --           Plugins             --
 -----------------------------------
@@ -105,6 +96,31 @@ cmd([[
 ]])
 
 -- Nvim-lsp
--- Credits to @max397574
+-- code from @max397574
 cmd([[au CursorHold  * lua vim.diagnostic.open_float()]])
 cmd([[hi DiagnosticHeader gui=bold guifg=#2cb27f]])
+
+-- Treesitter
+-- Code from abzcoding
+cmd([[
+  function! DisableSyntaxTreesitter()
+  echo("Big file, disabling syntax, treesitter and folding")
+  if exists(':TSBufDisable')
+    exec 'TSBufDisable autotag'
+    exec 'TSBufDisable highlight'
+  endif
+  set foldmethod=manual
+  syntax clear
+  syntax off
+  filetype off
+  set noundofile
+  set noswapfile
+  set noloadplugins
+  set lazyredraw
+  endfunction
+
+  augroup BigFileDisable
+  autocmd!
+  autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
+  augroup END
+]])

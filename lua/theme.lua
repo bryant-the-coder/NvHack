@@ -1,4 +1,4 @@
-require("themer").setup({
+--[[ require("themer").setup({
 	colorscheme = "darknight",
 	transparent = false,
 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
@@ -21,4 +21,6 @@ require("themer").setup({
 			},
 		},
 	},
-})
+}) ]]
+
+-- testing

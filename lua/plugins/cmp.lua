@@ -50,7 +50,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	},
 	formatting = {
-		-- fields = { "kind", "abbr", "menu" },
+		-- fields = { "kind", "menu", "abbr" },
 		format = lspkind.cmp_format({
 			with_text = true,
 			menu = {
@@ -59,7 +59,7 @@ cmp.setup({
 				nvim_lua = "[API]",
 				path = "[PATH]",
 				-- vsnip = "[SNIP]",
-        luasnip = "[SNIP]",
+				luasnip = "[SNIP]",
 				npm = "[NPM]",
 			},
 		}),
@@ -71,7 +71,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "lspkind" },
 		-- { name = "vsnip" },
-    { name = "luasnip" },
+		{ name = "luasnip" },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "npm", keyword_length = 2 },
 	}),

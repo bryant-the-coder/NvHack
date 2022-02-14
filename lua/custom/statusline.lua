@@ -23,9 +23,6 @@ M.is_truncated = function(_, width)
 	return current_width < width
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                       Settings mode                      │
--- ╰──────────────────────────────────────────────────────────╯
 --- Shows mode in statusline
 ---@return string
 M.modes = setmetatable({
@@ -108,9 +105,6 @@ M.clock = function()
 	return os.date(" %a | %H:%M:%S ")
 end
 
--- ╭──────────────────────────────────────────────────────────╮
--- │                     Active statusline                    │
--- ╰──────────────────────────────────────────────────────────╯
 --- Show active statusline
 ---@param self boolean
 ---@return boolean
