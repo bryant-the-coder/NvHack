@@ -17,7 +17,10 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup({
 	function(use)
 		-- Packer can managee itself
-		use("wbthomason/packer.nvim")
+		use({
+      "wbthomason/packer.nvim",
+      commit = "c5e98e3ca84843dbae47cd8f3a76bc38c6404241",
+    })
 
 		-- Better performance :)
 		use({
@@ -30,7 +33,10 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
-		use({ "bryant-the-coder/astron.nvim" })
+		use({
+			"catppuccin/nvim",
+			as = "catppuccin",
+		})
 
 		-- Bufferline
 		use({
