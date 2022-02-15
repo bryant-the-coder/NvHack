@@ -18,9 +18,8 @@ return require("packer").startup({
 	function(use)
 		-- Packer can managee itself
 		use({
-      "wbthomason/packer.nvim",
-      commit = "c5e98e3ca84843dbae47cd8f3a76bc38c6404241",
-    })
+			"wbthomason/packer.nvim",
+		})
 
 		-- Better performance :)
 		use({
@@ -33,10 +32,6 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
-		use({
-			"catppuccin/nvim",
-			as = "catppuccin",
-		})
 
 		-- Bufferline
 		use({
@@ -120,6 +115,8 @@ return require("packer").startup({
 		-- Telescope
 		use({
 			"nvim-telescope/telescope.nvim",
+			module = "telescope",
+			event = "BufEnter",
 			config = [[require("plugins.telescope")]],
 		})
 

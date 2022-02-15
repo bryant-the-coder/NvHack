@@ -1,5 +1,5 @@
 require("themer").setup({
-	colorscheme = "rose_pine",
+	colorscheme = "catppuccin",
 	transparent = false,
 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 	term_colors = true,
