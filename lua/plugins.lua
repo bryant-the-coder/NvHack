@@ -32,6 +32,7 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
+		use({ "ellisonleao/gruvbox.nvim" })
 
 		-- Bufferline
 		use({
