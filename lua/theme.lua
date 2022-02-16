@@ -22,5 +22,3 @@ require("themer").setup({
 		},
 	},
 })
-
--- testing
