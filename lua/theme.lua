@@ -23,4 +23,4 @@
 -- 	},
 -- })
 
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme astron]])
