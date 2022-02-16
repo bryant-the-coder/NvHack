@@ -54,20 +54,24 @@ return require("packer").startup({
 			run = ":TSUpdate",
 			config = [[require("plugins.treesitter")]],
 		})
+
 		use({
 			"p00f/nvim-ts-rainbow",
 			after = "nvim-treesitter",
 		})
+
 		use({
 			"windwp/nvim-ts-autotag",
 			event = "InsertEnter",
 			ft = { "html", "tsx" },
 		})
+
 		use({
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = [[require("plugins.autopairs")]],
 		})
+
 		use({
 			"nvim-treesitter/playground",
 			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
@@ -218,6 +222,10 @@ return require("packer").startup({
 			"rktjmp/paperplanes.nvim",
 			event = "BufEnter",
 			cmd = "PP",
+		})
+
+		use({
+			"ggandor/lightspeed.nvim",
 		})
 	end,
 	config = {
