@@ -8,5 +8,3 @@ require("neogen").setup({
 	enabled = true,
 })
 -- require("astron")
-
--- test
