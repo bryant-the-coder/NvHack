@@ -2,7 +2,7 @@ local present, telescope = pcall(require, "telescope")
 if not present then
 	return
 end
-
+local ts = {}
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -47,30 +47,43 @@ telescope.setup({
 			},
 		},
 	},
-	pickers = {
-		find_files = {
-			prompt_title = " [ FIND FILES ]",
-		},
-		live_grep = {
-			path_display = { "shorten" },
-			prompt_title = "並 [ FIND A SPECIFIC LINE ] ",
-		},
-		file_browser = {
-			prompt_title = " [ NVIM-TREE CLONE :D] ",
-		},
-		colorscheme = {
-			prompt_title = " [ CHANGE COLORSCHEME ]",
-		},
-		oldfiles = {
-			prompt_title = " [ GO THROUGH OLDFILES ]",
-		},
-		keymaps = {
-			prompt_title = " [ FIND YOUR KEYMAPS ]",
-		},
-		current_buffer_fuzzy_find = {
-			prompt_title = " [ FIND WORD IN CURRENT FILE ]",
-		},
-	},
+	-- pickers = {
+	-- 	find_files = {
+	-- 		prompt_title = " [ FIND FILES ]",
+	-- 	},
+	-- 	live_grep = {
+	-- 		path_display = { "shorten" },
+	-- 		prompt_title = "並 [ FIND A SPECIFIC LINE ] ",
+	-- 	},
+	-- 	file_browser = {
+	-- 		prompt_title = " [ NVIM-TREE CLONE :D] ",
+	-- 	},
+	-- 	colorscheme = {
+	-- 		prompt_title = " [ CHANGE COLORSCHEME ]",
+	-- 	},
+	-- 	oldfiles = {
+	-- 		prompt_title = " [ GO THROUGH OLDFILES ]",
+	-- 	},
+	-- 	keymaps = {
+	-- 		prompt_title = " [ FIND YOUR KEYMAPS ]",
+	-- 	},
+	-- 	current_buffer_fuzzy_find = {
+	-- 		prompt_title = " [ FIND WORD IN CURRENT FILE ]",
+	-- 	},
+	-- },
 })
 
 require("telescope").load_extension("themes")
+
+local M = {}
+M.find_files = function()
+	local opts = {
+		prompt_title = " [ FIND FILES ]",
+		results_title = "Results!",
+		layout_config = {
+			prompt_position = "top",
+		},
+	}
+	require("telescope.builtin").find_files(opts)
+end
+return M
