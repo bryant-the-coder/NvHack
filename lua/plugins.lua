@@ -22,9 +22,9 @@ return require("packer").startup({
 		})
 
 		-- Better performance :)
-		use({
-			"lewis6991/impatient.nvim",
-		})
+        use({
+          "lewis6991/impatient.nvim",
+        })
 
 		-- Dependencies
 		use("nvim-lua/plenary.nvim")
