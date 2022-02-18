@@ -1,5 +1,5 @@
 indent_width = 2
 indent_type = 'Tabs'
-quote_style = 'AutoPreferSingle'
 line_endings = "Unix"
-no_call_parentheses = true
+quote_style = "AutoPreferDouble"
+no_call_parentheses = false
