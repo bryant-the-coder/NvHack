@@ -81,12 +81,15 @@ map("n", "<leader>zm", "<cmd>ZenMode<CR>")
 -- Trouble
 map("n", "<leader>tt", "<cmd>Trouble<CR>")
 
+-- Neogen
+map("n", "<leader>ng", "<cmd>Neogen<CR>")
+
+-- ToggleTerm
+map("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>")
+
 -- TSPlayground
 map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 map("i", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
-
--- Neogen
-map("n", "<leader>ng", "<cmd>Neogen<CR>")
 
 -- Packer
 map("n", "<leader>pi", "<cmd>PackerInstall<CR>")

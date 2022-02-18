@@ -3,6 +3,10 @@ if not present then
 	return
 end
 
+--This is for custom command
+local Terminal = require('toggleterm.terminal').Terminal
+
+
 toggleterm.setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
@@ -24,3 +28,13 @@ toggleterm.setup({
 		height = 50,
 	},
 })
+
+
+-- Custom command
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
