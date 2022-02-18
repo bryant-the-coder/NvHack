@@ -1,4 +1,4 @@
-local fn = vim.fn
+  local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
@@ -22,9 +22,9 @@ return require("packer").startup({
 		})
 
 		-- Better performance :)
-        use({
-          "lewis6991/impatient.nvim",
-        })
+    use({
+      "lewis6991/impatient.nvim",
+    })
 
 		-- Dependencies
 		use("nvim-lua/plenary.nvim")
