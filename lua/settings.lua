@@ -55,10 +55,6 @@ o.ignorecase = true
 -- Python
 g.python3_host_prog = "C:/Python310/python.exe"
 
--- Shell (:h shell-powershell)
--- Checking for the DE
-o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
-
 -- Builtin plugins
 g.loaded_gzip = 1
 g.loaded_zip = 1
