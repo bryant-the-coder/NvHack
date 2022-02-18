@@ -4,8 +4,7 @@ if not present then
 end
 
 --This is for custom command
-local Terminal = require('toggleterm.terminal').Terminal
-
+local Terminal = require("toggleterm.terminal").Terminal
 
 toggleterm.setup({
 	size = 20,
@@ -29,10 +28,9 @@ toggleterm.setup({
 	},
 })
 
-
 -- Custom command
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 function _lazygit_toggle()
-  lazygit:toggle()
+	lazygit:toggle()
 end
