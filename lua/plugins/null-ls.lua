@@ -13,9 +13,9 @@ null_ls.setup({
 		formatting.stylua,
 	},
 	-- Format on save (laggy)
-	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
-		end
-	end,
+	-- on_attach = function(client)
+	-- 	if client.resolved_capabilities.document_formatting then
+	-- 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
+	-- 	end
+	-- end,
 })
