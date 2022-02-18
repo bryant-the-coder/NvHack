@@ -11,6 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 	print("Packer installed")
 end
+
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
