@@ -20,7 +20,7 @@ toggleterm.setup({
 	shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
 	float_opts = {
 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		winblend = 15,
+		winblend = 5,
 		highlights = {
 			border = "FloatBorder",
 			background = "NormalFloat",
@@ -37,4 +37,3 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
