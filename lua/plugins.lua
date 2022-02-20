@@ -33,7 +33,9 @@ return require("packer").startup({
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
 		use({ "ellisonleao/gruvbox.nvim" })
-		use({ "bryant-the-coder/astron.nvim" })
+		use({
+			"folke/tokyonight.nvim",
+		})
 
 		-- Bufferline
 		use({

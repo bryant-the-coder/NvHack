@@ -1,5 +1,5 @@
 -- require("themer").setup({
--- 	colorscheme = "gruvbox",
+-- 	colorscheme = "tokyodark",
 -- 	transparent = false,
 -- 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 -- 	term_colors = true,
@@ -7,7 +7,7 @@
 -- 	styles = {
 -- 		["function"] = { style = "italic" },
 -- 		functionBuiltIn = { style = "italic" },
--- 		comment = { style = "italic" },
+-- 		comment = { style = "italic,bold" },
 -- 		number = { style = "italic" },
 -- 		constant = { style = "bold" },
 -- 		diagnostic = {
@@ -23,4 +23,8 @@
 -- 	},
 -- })
 
-vim.cmd([[colorscheme astron]])
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_italic_keywords = false
+
+vim.cmd([[colorscheme tokyonight]])

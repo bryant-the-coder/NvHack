@@ -7,7 +7,7 @@ local incremental_selection = require("nvim-treesitter.incremental_selection")
 
 require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
-	ensure_installed = { "html", "javascript", "lua", "scss" },
+	ensure_installed = { "html", "javascript", "lua", "scss", "json" },
 	sync_install = false,
 	incremental_selection = {
 		enable = true,
