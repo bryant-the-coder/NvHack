@@ -41,9 +41,10 @@ M.setup = function()
 		underline = true,
 		severity_sort = true,
 		update_in_insert = true,
-		virtual_text = {
-			prefix = "ﱢ",
-		},
+		-- virtual_text = {
+		-- 	prefix = "ﱢ",
+		-- },
+		virtual_text = false,
 
 		float = {
 			focusable = false,
