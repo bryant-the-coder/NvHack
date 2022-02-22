@@ -36,6 +36,7 @@ return require("packer").startup({
 		use({
 			"folke/tokyonight.nvim",
 		})
+		use({ "bryant-the-coder/astron.nvim" })
 
 		-- Bufferline
 		use({
@@ -73,9 +74,9 @@ return require("packer").startup({
 		})
 
 		use({
-			"windwp/nvim-autopairs",
+			"ZhiyuanLck/smart-pairs",
 			event = "InsertEnter",
-			config = [[require("plugins.autopairs")]],
+			config = [[require('plugins.smartpairs')]],
 		})
 
 		use({
@@ -232,6 +233,10 @@ return require("packer").startup({
 
 		use({
 			"ggandor/lightspeed.nvim",
+		})
+
+		use({
+			"andweeb/presence.nvim",
 		})
 	end,
 	config = {
