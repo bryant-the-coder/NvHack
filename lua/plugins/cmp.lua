@@ -5,7 +5,7 @@ end
 
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
-
+local kind = cmp.lsp.CompletionItemKind
 -- luasnip
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -26,7 +26,11 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping(function(fallback)
+			if not cmp.confirm({ select = false }) then
+				require("pairs.enter").type()
+			end
+		end),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -81,3 +85,12 @@ cmp.setup.cmdline("/", {
 		{ name = "buffer" },
 	},
 })
+
+cmp.event:on("confirm_done", function(event)
+	local item = event.entry:get_completion_item()
+	local parensDisabled = item.data and item.data.funcParensDisabled or false
+	if not parensDisabled and (item.kind == kind.Method or item.kind == kind.Function) then
+		print("pairs are now active")
+		require("pairs.bracket").type_left("(")
+	end
+end)
