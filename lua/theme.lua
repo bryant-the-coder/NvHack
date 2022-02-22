@@ -1,5 +1,5 @@
 -- require("themer").setup({
--- 	colorscheme = "tokyodark",
+-- 	colorscheme = "astron",
 -- 	transparent = false,
 -- 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 -- 	term_colors = true,
@@ -27,4 +27,4 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_italic_keywords = false
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme astron]])
