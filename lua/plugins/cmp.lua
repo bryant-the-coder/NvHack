@@ -3,6 +3,11 @@ if not present then
 	return
 end
 
+local present, neogen = pcall(require, "neogen")
+if not present then
+	return
+end
+
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local kind = cmp.lsp.CompletionItemKind
@@ -41,6 +46,11 @@ cmp.setup({
 			else
 				fallback()
 			end
+			if require("neogen").jumpable() then
+				require("neogen").jump_next()
+			else
+				fallback()
+			end
 		end, { "i", "s" }),
 
 		["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -48,6 +58,11 @@ cmp.setup({
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
+			else
+				fallback()
+			end
+			if require("neogen").jumpable(true) then
+				require("neogen").jump_prev()
 			else
 				fallback()
 			end
@@ -71,6 +86,11 @@ cmp.setup({
 	documentation = {
 		border = "rounded",
 	},
+	-- Will reconsider
+	--[[ experimental = {
+		ghost_text = true,
+		native = true,
+	}, ]]
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "lspkind" },

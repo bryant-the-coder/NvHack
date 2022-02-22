@@ -202,6 +202,9 @@ return require("packer").startup({
 		-- Neogen
 		use({
 			"danymat/neogen",
+			config = function()
+				require("neogen").setup({})
+			end,
 		})
 
 		-- Git
