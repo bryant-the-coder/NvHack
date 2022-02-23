@@ -46,11 +46,6 @@ cmp.setup({
 			else
 				fallback()
 			end
-			if require("neogen").jumpable() then
-				require("neogen").jump_next()
-			else
-				fallback()
-			end
 		end, { "i", "s" }),
 
 		["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -61,12 +56,21 @@ cmp.setup({
 			else
 				fallback()
 			end
+		end, { "i", "s" }),
+		["<C-q>"] = cmp.mapping(function(fallback)
+			if require("neogen").jumpable() then
+				require("neogen").jump_next()
+			else
+				fallback()
+			end
+		end),
+		["<C-h>"] = cmp.mapping(function(fallback)
 			if require("neogen").jumpable(true) then
 				require("neogen").jump_prev()
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
+		end),
 	},
 	formatting = {
 		-- fields = { "kind", "menu", "abbr" },

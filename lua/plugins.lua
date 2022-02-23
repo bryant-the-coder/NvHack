@@ -137,8 +137,9 @@ return require("packer").startup({
 			"norcalli/nvim-colorizer.lua",
 		})
 
-		-- Dashboard
+		-- Welcome screen
 		use({ "glepnir/dashboard-nvim", config = [[require("plugins.dashboard")]] })
+		use("startup-nvim/startup.nvim")
 
 		-- LSP highlight
 		use({ "folke/lsp-colors.nvim", config = [[require("plugins.other")]] })
@@ -220,7 +221,7 @@ return require("packer").startup({
 			event = { "InsertEnter" },
 			config = function()
 				require("better_escape").setup({
-					mapping = { "ii", "jj", "jk", "kj" },
+					mapping = { "jj", "jk", "kj" },
 					timeout = vim.o.timeoutlen,
 					keys = "<ESC>",
 				})

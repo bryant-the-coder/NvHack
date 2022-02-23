@@ -1,29 +1,21 @@
-local status_ok, heirline = pcall(require, "heirline")
-if not status_ok then
-	return
-end
+-- credits for icons go to https://github.com/tamton-aquib/staline.nvim/blob/49915550f77353f3134036d566ed359587f2d71b/lua/staline/config.lua
+local conditions = require("heirline.conditions")
 local utilities = require("heirline.utils")
 local utils = require("heirline.utils")
-local conditions = require("heirline.conditions")
 local align = { provider = "%=" }
-local space = { " " }
+local space = { provider = " " }
 
 local use_dev_icons = false
 
-local highlights = {
-	fg = "#abb2bf",
-	bg = "#262930",
-	red = "#f2525f",
-	orange = "#ff9640",
-	yellow = "#edbf6a",
-	cyan = "#55d6cf",
-	green = "#b2ff00",
-	purple = "#c678dd",
-	white = "#fcfcfc ",
-}
+local function word_counter()
+	local wc = vim.api.nvim_eval("wordcount()")
+	if wc["visual_words"] then
+		return wc["visual_words"]
+	else
+		return wc["words"]
+	end
+end
 
--- Defining own icons
--- Code from max397574
 local file_icons = {
 	typescript = " ",
 	ts = " ",
@@ -54,69 +46,55 @@ local file_icons = {
 	txt = " ",
 }
 
-local mode = {
-	init = function(self)
-		self.mode = vim.fn.mode(1)
-	end,
-	static = {
-		mode_details = {
-			["n"] = "NORMAL",
-			["no"] = "NORMAL",
-			["nov"] = "NORMAL",
-			["noV"] = "NORMAL",
-			["no"] = "NORMAL",
-			["niI"] = "NORMAL",
-			["niR"] = "NORMAL",
-			["niV"] = "NORMAL",
+local mode_colors = {
+	n = vim.g.terminal_color_1,
+	i = vim.g.terminal_color_2,
+	v = vim.g.terminal_color_5,
+	V = vim.g.terminal_color_5,
+	["^V"] = vim.g.terminal_color_5,
+	c = vim.g.terminal_color_4,
+	s = vim.g.terminal_color_3,
+	S = vim.g.terminal_color_3,
+	["^S"] = vim.g.terminal_color_3,
+	R = vim.g.terminal_color_4,
+	r = vim.g.terminal_color_4,
+	["!"] = vim.g.terminal_color_1,
+	t = vim.g.terminal_color_1,
+}
 
-			["i"] = "INSERT",
-			["ic"] = "INSERT",
-			["ix"] = "INSERT",
-			["s"] = "INSERT",
-			["S"] = "INSERT",
-
-			["v"] = "VISUAL",
-			["V"] = "VISUAL",
-			[""] = "VISUAL",
-			["r"] = "REPLACE",
-			["r?"] = "REPLACE",
-			["R"] = "REPLACE",
-			["c"] = "COMMAND",
-			["t"] = "TERMINAL",
-		},
-		mode_highlights = {
-			n = highlights.white,
-			i = highlights.green,
-			v = highlights.cyan,
-			V = highlights.cyan,
-			["^V"] = highlights.cyan,
-			c = highlights.orange,
-			s = highlights.red,
-			S = highlights.red,
-			["^S"] = highlights.red,
-			R = highlights.orange,
-			r = highlights.orange,
-			["!"] = highlights.purple,
-			t = highlights.purple,
-		},
-	},
-	provider = function(self)
-		return "%2(" .. self.mode_details[self.mode] .. "%)"
-	end,
-	-- Same goes for the highlight. Now the foreground will change according to the current mode.
-	hl = function(self)
-		local mode = self.mode:sub(1, 1) -- get only the first mode character
-		return { fg = self.mode_highlights[mode], style = "bold" }
-	end,
+local colors = {
+	blue = "",
+	orange = "",
+	green = "",
+	red = "",
 }
 
 local FileNameBlock = {
 	-- let's first set up some attributes needed by this component and it's children
 	init = function(self)
 		self.filename = vim.api.nvim_buf_get_name(0)
+		self.mode = vim.fn.mode(1)
 	end,
 }
 -- We can now define some children separately and add them later
+
+local HelpFileName = {
+	condition = function()
+		return vim.bo.filetype == "help"
+	end,
+	provider = function()
+		local filename = vim.api.nvim_buf_get_name(0)
+		return vim.fn.fnamemodify(filename, ":t")
+	end,
+	hl = { fg = colors.blue },
+}
+
+local FileType = {
+	provider = function()
+		return string.upper(vim.bo.filetype)
+	end,
+	hl = { fg = utils.get_highlight("Type").fg, style = "italic" },
+}
 
 local FileIcon = {
 	init = function(self)
@@ -137,7 +115,7 @@ local FileIcon = {
 			return { fg = self.icon_color }
 		else
 			local mode = self.mode:sub(1, 1) -- get only the first mode character
-			return { fg = highlights.fg }
+			return { fg = mode_colors[mode] }
 		end
 	end,
 }
@@ -146,7 +124,7 @@ local FileName = {
 	provider = function(self)
 		-- first, trim the pattern relative to the current directory. For other
 		-- options, see :h filename-modifers
-		local filename = vim.fn.fnamemodify(self.filename, ":.")
+		local filename = vim.fn.fnamemodify(self.filename, ":t")
 		if filename == "" then
 			return "[No Name]"
 		end
@@ -155,19 +133,26 @@ local FileName = {
 		if not conditions.width_percent_below(#filename, 0.25) then
 			filename = vim.fn.pathshorten(filename)
 		end
-		return filename
+		return filename .. " "
 	end,
-	hl = { fg = highlights.purple },
+	-- hl = { fg = utils.get_highlight("Directory").fg },
+	hl = function(self)
+		local mode = self.mode:sub(1, 1) -- get only the first mode character
+		return { fg = mode_colors[mode] }
+	end,
 }
 
 local FileFlags = {
 	{
 		provider = function()
 			if vim.bo.modified then
-				return "[+]"
+				return " "
 			end
 		end,
-		hl = { fg = highlights.green },
+		hl = function(self)
+			local mode = self.mode:sub(1, 1) -- get only the first mode character
+			return { fg = mode_colors[mode] }
+		end,
 	},
 	{
 		provider = function()
@@ -175,31 +160,152 @@ local FileFlags = {
 				return ""
 			end
 		end,
-		hl = { fg = highlights.orange },
+		hl = function(self)
+			local mode = self.mode:sub(1, 1) -- get only the first mode character
+			return { fg = mode_colors[mode] }
+		end,
 	},
 }
 
-local FileNameModifer = {
-	hl = function()
-		if vim.bo.modified then
-			-- use `force` because we need to override the child's hl foreground
-			return { fg = highlights.cyan, style = "bold", force = true }
-		end
-	end,
-}
+-- Now, let's say that we want the filename color to change if the buffer is
+-- modified. Of course, we could do that directly using the FileName.hl field,
+-- but we'll see how easy it is to alter existing components using a "modifier"
+-- component
 
 -- let's add the children to our FileNameBlock component
 FileNameBlock = utils.insert(
 	FileNameBlock,
 	FileIcon,
-	utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
+	FileName,
 	unpack(FileFlags), -- A small optimisation, since their parent does nothing
 	{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 )
 
--- Progress bar
+local git = {
+	condition = conditions.is_git_repo,
+
+	init = function(self)
+		self.status_dict = vim.b.gitsigns_status_dict
+		self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
+	end,
+
+	hl = { fg = colors.orange },
+
+	{ -- git branch name
+		provider = function(self)
+			return " " .. self.status_dict.head .. " "
+		end,
+	},
+	-- You could handle delimiters, icons and counts similar to Diagnostics
+	{
+		provider = function(self)
+			local count = self.status_dict.added or 0
+			return count > 0 and (" " .. count)
+		end,
+		hl = { fg = colors.green },
+	},
+	{
+		provider = function(self)
+			local count = self.status_dict.removed or 0
+			return count > 0 and (" " .. count)
+		end,
+		hl = { fg = colors.red },
+	},
+	{
+		provider = function(self)
+			local count = self.status_dict.changed or 0
+			return count > 0 and (" " .. count)
+		end,
+		hl = { fg = colors.orange },
+	},
+}
+
+local WorkDir = {
+	provider = function()
+		local icon = "  "
+		local cwd = vim.fn.getcwd(0)
+		cwd = vim.fn.fnamemodify(cwd, ":~")
+		if not conditions.width_percent_below(#cwd, 0.25) then
+			cwd = vim.fn.pathshorten(cwd)
+		end
+		local trail = cwd:sub(-1) == "/" and "" or "/"
+		return icon .. cwd .. trail
+	end,
+	hl = { fg = colors.blue },
+}
+
+local mode_icon = {
+	init = function(self)
+		self.mode = vim.fn.mode(1)
+	end,
+
+	static = {
+		mode_icons = {
+			["n"] = "  ",
+			["i"] = "  ",
+			["s"] = "  ",
+			["S"] = "  ",
+			[""] = "  ",
+
+			["v"] = "  ",
+			["V"] = "  ",
+			[""] = "  ",
+			["r"] = " ﯒ ",
+			["r?"] = "  ",
+			["c"] = "  ",
+			["t"] = "  ",
+			["!"] = "  ",
+			["R"] = "  ",
+		},
+		mode_names = { -- change the strings if yow like it vvvvverbose!
+			n = "N",
+			no = "N?",
+			nov = "N?",
+			noV = "N?",
+			["no"] = "N?",
+			niI = "Ni",
+			niR = "Nr",
+			niV = "Nv",
+			nt = "Nt",
+			v = "V",
+			vs = "Vs",
+			V = "V_",
+			Vs = "Vs",
+			[""] = "",
+			["s"] = "",
+			s = "S",
+			S = "S_",
+			[""] = "",
+			i = "I",
+			ic = "Ic",
+			ix = "Ix",
+			R = "R",
+			Rc = "Rc",
+			Rx = "Rx",
+			Rv = "Rv",
+			Rvc = "Rv",
+			Rvx = "Rv",
+			c = "C",
+			cv = "Ex",
+			r = "...",
+			rm = "M",
+			["r?"] = "?",
+			["!"] = "!",
+			t = "T",
+		},
+	},
+	hl = function(self)
+		local mode = self.mode:sub(1, 1) -- get only the first mode character
+		return { fg = mode_colors[mode] }
+	end,
+	provider = function(self)
+		return "%2(" .. self.mode_icons[self.mode:sub(1, 1)] .. "%)"
+		--         .. self.mode_names[self.mode]
+	end,
+}
+
 local function progress_bar()
-	local sbar = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+	local sbar = { "▁", "▂", "▃", "▄", "▅", "▆", "▇" }
 	local curr_line = vim.api.nvim_win_get_cursor(0)[1]
 	local lines = vim.api.nvim_buf_line_count(0)
 	local i = math.floor(curr_line / lines * (#sbar - 1)) + 1
@@ -213,10 +319,12 @@ local progress = {
 	init = function(self)
 		self.mode = vim.fn.mode(1)
 	end,
-	hl = { fg = highlights.cyan },
+	hl = function(self)
+		local mode = self.mode:sub(1, 1) -- get only the first mode character
+		return { fg = mode_colors[mode] }
+	end,
 }
 
--- LSP
 local diagnostics = {
 
 	condition = conditions.has_diagnostics,
@@ -224,11 +332,15 @@ local diagnostics = {
 	static = {
 		error_icon = " ",
 		warn_icon = " ",
+		info_icon = " ",
+		hint_icon = " ",
 	},
 
 	init = function(self)
 		self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 		self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+		self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+		self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 	end,
 
 	{
@@ -244,68 +356,141 @@ local diagnostics = {
 		end,
 		hl = { fg = utils.get_highlight("DiagnosticWarn").fg },
 	},
-}
-
--- GIT
-local git = {
-	condition = conditions.is_git_repo,
-
-	init = function(self)
-		self.status_dict = vim.b.gitsigns_status_dict
-	end,
-
-	hl = { fg = highlights.orange },
-
-	{ -- git branch name
+	{
 		provider = function(self)
-			return " " .. self.status_dict.head .. " "
+			return self.info > 0 and (self.info_icon .. self.info .. " ")
 		end,
+		hl = { fg = utils.get_highlight("DiagnosticInfo").fg },
+	},
+	{
+		provider = function(self)
+			return self.hints > 0 and (self.hint_icon .. self.hints)
+		end,
+		hl = { fg = utils.get_highlight("DiagnosticHint").fg },
 	},
 }
 
--- Show the name of the helpfile you're in
-local HelpFileName = {
+local Snippets = {
+	-- check that we are in insert or select mode
 	condition = function()
-		return vim.bo.filetype == "help"
+		return vim.tbl_contains({ "s", "i" }, vim.fn.mode())
 	end,
 	provider = function()
-		local filename = vim.api.nvim_buf_get_name(0)
-		return vim.fn.fnamemodify(filename, ":t")
+		local luasnip = require("luasnip")
+		--   elseif luasnip.jumpable(-1) then
+		print(luasnip.jumpable(-1))
+		local forward = luasnip.jumpable(1) and " " or ""
+		local backward = luasnip.jumpable(-1) and " " or ""
+		return backward .. forward
 	end,
-	hl = { fg = highlights.blue },
+	hl = { fg = colors.red, syle = "bold" },
 }
 
--- Clock xD
-local clock = {
-	os.date(" %a | %H:%M:%S "),
+local coords = {
+	-- %l = current line number
+	-- %L = number of lines in the buffer
+	-- %c = column number
+	-- %P = percentage through file of displayed window
+	provider = function()
+		-- return "%7(%l/%3L%):%2c %P " .. progress_bar() .. " "
+		return "%4(%l%):%2c"
+	end,
+	init = function(self)
+		self.mode = vim.fn.mode(1)
+	end,
+	hl = function(self)
+		local mode = self.mode:sub(1, 1) -- get only the first mode character
+		return { fg = mode_colors[mode] }
+	end,
+}
+local word_count = {
+	init = function(self)
+		self.mode = vim.fn.mode(1)
+	end,
+	provider = function()
+		return "%5(" .. word_counter() .. "%) "
+	end,
+	hl = function(self)
+		local mode = self.mode:sub(1, 1) -- get only the first mode character
+		return { fg = mode_colors[mode] }
+	end,
+	condition = conditions.is_active(),
 }
 
-local DefaultStatusline = {
-	mode,
+WorkDir = utilities.surround({ "", "" }, colors.lightbg, WorkDir)
+FileNameBlock = utilities.surround({ "", "" }, colors.lightbg, FileNameBlock)
+
+local inactive_statusline = {
+	condition = function()
+		return not conditions.is_active()
+	end,
+	WorkDir,
+	space,
+	FileNameBlock,
+	align,
+}
+
+local default_statusline = {
+	condition = conditions.is_active,
+	WorkDir,
+	space,
+	FileNameBlock,
 	space,
 	git,
+	-- branch,
+	-- git_diff,
 	align,
-	FileName,
 	diagnostics,
+	space,
+	-- utilities.surround({ "", "" }, colors.lightbg, coords),
+	-- space,
+	utilities.surround({ "", "" }, colors.lightbg, mode_icon),
+	space,
+	utilities.surround({ "", "" }, colors.lightbg, progress),
+	space,
+	-- Snippets,
+	-- space,
+	utilities.surround({ "", "" }, colors.lightbg, word_count),
 }
-local StatusLines = {
 
-	hl = function()
-		if conditions.is_active() then
-			return {
-				fg = utils.get_highlight("StatusLine").fg,
-				bg = utils.get_highlight("StatusLine").bg,
-			}
-		else
-			return {
-				fg = utils.get_highlight("StatusLineNC").fg,
-				bg = utils.get_highlight("StatusLineNC").bg,
-			}
-		end
+local help_file_line = {
+	condition = function()
+		return conditions.buffer_matches({
+			buftype = { "help", "quickfix" },
+		})
 	end,
+	FileType,
+	space,
+	align,
+	HelpFileName,
+	align,
+	utilities.surround({ "", "" }, colors.lightbg, progress),
+}
 
+local startup_nvim_statusline = {
+	condition = function()
+		return conditions.buffer_matches({
+			filetype = { "startup", "TelescopePrompt" },
+		})
+	end,
+	align,
+	-- utilities.surround({ "", "" }, colors.lightbg, {
+	--     provider = function()
+	--         return "Startup"
+	--     end,
+	--     hl = { fg = colors.red },
+	-- }),
+	provider = "",
+	align,
+}
+
+local statuslines = {
 	init = utils.pick_child_on_condition,
 
-	DefaultStatusline,
+	startup_nvim_statusline,
+	help_file_line,
+	inactive_statusline,
+	default_statusline,
 }
-heirline.setup(StatusLines)
+
+require("heirline").setup(statuslines)

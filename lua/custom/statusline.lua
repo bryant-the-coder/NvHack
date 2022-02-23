@@ -6,6 +6,39 @@ local center = "%="
 local right_sep = ""
 local left_sep = ""
 
+M.colors = {
+	active = "%#StatusLine#",
+	inactive = "%#StatuslineNC#",
+	mode = "%#Mode#",
+	git = "%#Git#",
+	filetype = "%#Filetype#",
+}
+
+--- Setting highlights options
+---@param group string
+---@param options string
+local set_hl = function(group, options)
+	local bg = options.bg == nil and "" or "guibg=" .. options.bg
+	local fg = options.fg == nil and "" or "guifg=" .. options.fg
+	local gui = options.gui == nil and "" or "gui=" .. options.gui
+
+	vim.cmd(string.format("hi %s %s %s %s", group, bg, fg, gui))
+end
+
+-- you can of course pick whatever colour you want, I picked these colours
+-- because I use Gruvbox and I like them
+local highlights = {
+	{ "StatusLine", { fg = "#15171c", bg = "#dedede" } },
+	{ "StatusLineNC", { fg = "#3C3836", bg = "#928374" } },
+	{ "Mode", { bg = "#928374", fg = "#1D2021", gui = "italic,bold" } },
+	{ "Git", { bg = "#504945", fg = "#FFFFFF" } },
+	{ "Filename", { bg = "#504945", fg = "#EBDBB2" } },
+}
+
+for _, highlight in ipairs(highlights) do
+	set_hl(highlight[1], highlight[2])
+end
+
 --- Setting the length of each characters
 ---@return boolean
 M.trunc_width = setmetatable({
@@ -109,11 +142,16 @@ end
 ---@param self boolean
 ---@return boolean
 M.set_active = function(self)
+	local colors = self.colors
+	local mode = colors.mode .. self:current_modes()
+	local git = colors.git .. self:git_status()
+
 	return table.concat({
-		self:current_modes(),
+		colors.active,
+		mode,
 		right_sep,
 		padding,
-		self:git_status(),
+		git,
 		center,
 		self:filename(),
 		center,
