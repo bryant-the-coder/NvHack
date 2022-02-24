@@ -42,7 +42,9 @@ return require("packer").startup({
 		use({
 			"akinsho/bufferline.nvim",
 			after = "nvim-web-devicons",
-			config = [[require("plugins.bufferline")]],
+			config = function()
+				require("plugins.config.bufferline")
+			end,
 		})
 
 		-- Statusline
@@ -52,14 +54,18 @@ return require("packer").startup({
 		use({
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
-			config = [[require("plugins.nvim-tree")]],
+			config = function()
+				require("plugins.config.nvim-tree")
+			end,
 		})
 
 		-- Treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
-			config = [[require("plugins.treesitter")]],
+			config = function()
+				require("plugins.config.treesitter")
+			end,
 		})
 
 		use({
@@ -82,7 +88,9 @@ return require("packer").startup({
 		use({
 			"ZhiyuanLck/smart-pairs",
 			event = "InsertEnter",
-			config = [[require('plugins.smartpairs')]],
+			config = function()
+				require("plugins.config.smartpairs")
+			end,
 		})
 
 		use({
@@ -93,7 +101,9 @@ return require("packer").startup({
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
-			config = [[require("plugins.lsp")]],
+			config = function()
+				require("plugins.config.lsp")
+			end,
 		})
 		use({
 			"williamboman/nvim-lsp-installer",
@@ -113,7 +123,9 @@ return require("packer").startup({
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 				{ "David-Kunz/cmp-npm", after = "nvim-cmp" },
 			},
-			config = [[require("plugins.cmp")]],
+			config = function()
+				require("plugins.config.cmp")
+			end,
 		})
 		use({
 			"L3MON4D3/LuaSnip",
@@ -121,13 +133,18 @@ return require("packer").startup({
 				"rafamadriz/friendly-snippets",
 				after = "LuaSnip",
 			},
-			config = [[require("plugins.snippets")]],
+			module = "luasnip",
+			config = function()
+				require("plugins.config.snippets")
+			end,
 		})
 
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			event = "BufRead",
-			config = [[require("plugins.null-ls")]],
+			config = function()
+				require("plugins.config.null-ls")
+			end,
 		})
 
 		-- Telescope
@@ -135,7 +152,9 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			event = "BufEnter",
-			config = [[require("plugins.telescope")]],
+			config = function()
+				require("plugins.config.telescope")
+			end,
 		})
 
 		-- Colorizer
@@ -144,20 +163,32 @@ return require("packer").startup({
 		})
 
 		-- Welcome screen
-		use({ "glepnir/dashboard-nvim", config = [[require("plugins.dashboard")]] })
+		use({
+			"glepnir/dashboard-nvim",
+			config = function()
+				require("plugins.config.dashboard")
+			end,
+		})
 		-- use({
 		-- 	"startup-nvim/startup.nvim",
 		-- 	config = [[require("plugins.startup")]],
 		-- })
 
 		-- LSP highlight
-		use({ "folke/lsp-colors.nvim", config = [[require("plugins.other")]] })
+		use({
+			"folke/lsp-colors.nvim",
+			config = function()
+				require("plugins.config.other")
+			end,
+		})
 
 		-- Indentation
 		use({
 			"lukas-reineke/indent-blankline.nvim",
 			event = "BufWinEnter",
-			config = [[require("plugins.indent")]],
+			config = function()
+				require("plugins.config.indent")
+			end,
 		})
 
 		-- Auto-comment
@@ -172,14 +203,18 @@ return require("packer").startup({
 			requires = {
 				"JoosepAlviste/nvim-ts-context-commentstring",
 			},
-			config = [[require("plugins.comment")]],
+			config = function()
+				require("plugins.config.comment")
+			end,
 		})
 
 		-- Terminal
 		use({
 			"akinsho/toggleterm.nvim",
 			event = "InsertEnter",
-			config = [[require("plugins.toggleterm")]],
+			config = function()
+				require("plugins.config.toggleterm")
+			end,
 		})
 
 		-- Harpoon
@@ -191,9 +226,11 @@ return require("packer").startup({
 		-- Disturbance free writing
 		use({
 			"folke/zen-mode.nvim",
-			config = [[require("plugins.zen-mode")]],
 			cmd = "ZenMode",
 			event = "BufEnter",
+			config = function()
+				require("plugins.config.zen-mode")
+			end,
 		})
 
 		-- Finding errors easily
@@ -206,7 +243,9 @@ return require("packer").startup({
 				"TroubleToggle",
 			},
 			event = { "InsertEnter" },
-			config = [[require("plugins.trouble")]],
+			config = function()
+				require("plugins.config.trouble")
+			end,
 		})
 
 		-- Neogen
@@ -221,7 +260,9 @@ return require("packer").startup({
 		use({
 			"lewis6991/gitsigns.nvim",
 			event = "BufRead",
-			config = [[require("plugins.gitsigns")]],
+			config = function()
+				require("plugins.config.gitsigns")
+			end,
 		})
 
 		-- Smooth escaping

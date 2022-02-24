@@ -118,7 +118,7 @@ map("n", "<A-3>", [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]])
 map("n", "<A-4>", [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]])
 
 -- Telescope
-map("n", "<leader>ff", [[<cmd>lua require'plugins.telescope'.find_files()<CR>]])
+map("n", "<leader>ff", [[<cmd>lua require'plugins.config.telescope'.find_files()<CR>]])
 map("n", "<leader>fb", [[<cmd>lua require'telescope.builtin'.buffers()<CR>]])
 map("n", "<leader>fw", [[<cmd>lua require'telescope.builtin'.live_grep()<CR>]])
 map("n", "<leader>fp", [[<cmd>lua require'telescope.builtin'.file_browser()<CR>]])
