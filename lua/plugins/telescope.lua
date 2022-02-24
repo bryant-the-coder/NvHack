@@ -54,7 +54,7 @@ local M = {}
 M.find_files = function()
 	local opts = {
 		prompt_title = " [ FIND FILES ]",
-		results_title = "Results!",
+		results_title = "~ Results ~",
 		layout_config = {
 			prompt_position = "top",
 		},
