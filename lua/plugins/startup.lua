@@ -1,4 +1,4 @@
-local present, welcome = pcall(require, "welcome")
+local present, startup = pcall(require, "startup")
 if not present then
 	return
 end
@@ -17,7 +17,7 @@ local ascii = {
 	"                                                       ",
 }
 
-welcome.setup({
+startup.setup({
 	header = {
 		type = "text",
 		oldfiles_directory = false,
@@ -27,9 +27,8 @@ welcome.setup({
 		margin = 5,
 		content = ascii,
 		highlight = "Statement",
-		default_color = "",
-		oldfiles_amount = 0,
 	},
+	-- name which will be displayed and command
 	body = {
 		type = "mapping",
 		oldfiles_directory = false,
@@ -60,8 +59,27 @@ welcome.setup({
 			"┌─ Today is " .. datetime .. " ─┐",
 			"└─ " .. plugins_count .. " plugins in total ─┘",
 		},
-		highlight = "Number",
+		highlight = "Function",
 		default_color = "",
 		oldfiles_amount = 0,
 	},
+	options = {
+		mapping_keys = true,
+		cursor_column = 0.5,
+		empty_lines_between_mappings = true,
+		disable_statuslines = true,
+		paddings = { 1, 3, 3, 0 },
+	},
+	mappings = {
+		execute_command = "<CR>",
+		open_file = "o",
+		open_file_split = "<c-o>",
+		open_section = "<TAB>",
+		open_help = "?",
+	},
+	colors = {
+		background = "#1f2227",
+		folded_section = "#56b6c2",
+	},
+	parts = { "header", "body", "footer" },
 })
