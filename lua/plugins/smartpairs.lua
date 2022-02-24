@@ -4,5 +4,4 @@ require("pairs"):setup({
 			{ "<", ">" },
 		},
 	},
-	enable_smart_space = true,
 })

@@ -32,7 +32,7 @@ cmp.setup({
 			c = cmp.mapping.close(),
 		}),
 		["<CR>"] = cmp.mapping(function(fallback)
-			if not cmp.confirm({ select = false }) then
+			if not cmp.confirm({ select = true }) then
 				require("pairs.enter").type()
 			end
 		end),
