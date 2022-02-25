@@ -3,10 +3,11 @@ local parse = ls.parser.parse_snippet
 require("luasnip.loaders.from_vscode").lazy_load()
 local module = [[
 local M = {}
-$1
+
+${1:code}
+
 return M
 ]]
-
 local mappings = [[
 map("$1", "$2", "<cmd>$0<CR>")
 ]]
@@ -27,19 +28,19 @@ local scss_template = [[
         <!--sass --no-source-map --watch scss:css-->
 
         <!-- title -->
-        <title></title>
+        <title>${1:title}</title>
 
         <!-- description -->
-        <meta name="description" content="This is my first homepage" />
+        <meta name="description" content="${2:desc}" />
 
         <!-- icon -->
-        <link rel="shortcut icon" type="image/ico" href="icon/favicon.ico" />
+        <link rel="shortcut icon" type="image/ico" href="${3:path}" />
 
         <!-- stylesheet -->
-        <link rel="stylesheet" href="dist/css/style.css" />
+        <link rel="stylesheet" href="${4:path2}" />
 
         <!-- js -->
-        <script type="text/javascript" src="${1:location}"></script>
+        <script type="text/javascript" src="${5:location}"></script>
     </head>
 
     <body>
@@ -57,16 +58,16 @@ local css_template = [[
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- title -->
-        <title>$1</title>
+        <title>${1:title}</title>
 
         <!-- description -->
-        <meta name="description" content="$2" />
+        <meta name="description" content="${2:desc}" />
 
         <!-- icon -->
-        <link rel="shortcut icon" type="image/ico" href="$3" />
+        <link rel="shortcut icon" type="image/ico" href="${3:path1}" />
 
         <!-- stylesheet -->
-        <link rel="stylesheet" href="$4" />
+        <link rel="stylesheet" href="${4:path2}" />
 
         <!-- js -->
         <script type="text/javascript" src="${5:location}"></script>

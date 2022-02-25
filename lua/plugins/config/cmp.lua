@@ -8,14 +8,14 @@ if not present then
 	return
 end
 
-local luasnip = require("luasnip")
-local lspkind = require("lspkind")
-local kind = cmp.lsp.CompletionItemKind
 -- luasnip
+local luasnip = require("luasnip")
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
+
+local kind = cmp.lsp.CompletionItemKind
 
 cmp.setup({
 	snippet = {
@@ -41,60 +41,71 @@ cmp.setup({
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
+			elseif neogen.jumpable() then
+				neogen.jump_next()
 			elseif has_words_before() then
 				cmp.complete()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
+			elseif neogen.jumpable(true) then
+				neogen.jump_prev()
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-q>"] = cmp.mapping(function(fallback)
-			if require("neogen").jumpable() then
-				require("neogen").jump_next()
-			else
-				fallback()
-			end
-		end),
-		["<C-h>"] = cmp.mapping(function(fallback)
-			if require("neogen").jumpable(true) then
-				require("neogen").jump_prev()
-			else
-				fallback()
-			end
-		end),
 	},
 	formatting = {
 		-- fields = { "kind", "menu", "abbr" },
-		format = lspkind.cmp_format({
-			with_text = true,
-			menu = {
+		format = function(entry, vim_item)
+			local kind_icons = {
+				Text = "",
+				Method = "",
+				Function = "",
+				Constructor = "",
+				Field = "ﰠ",
+				Variable = "",
+				Class = "ﴯ",
+				Interface = "",
+				Module = "",
+				Property = "ﰠ",
+				Unit = "塞",
+				Value = "",
+				Enum = "",
+				Keyword = "",
+				Snippet = "",
+				Color = "",
+				File = "",
+				Reference = "",
+				Folder = "",
+				EnumMember = "",
+				Constant = "",
+				Struct = "פּ",
+				Event = "",
+				Operator = "",
+				TypeParameter = "",
+			}
+			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+			vim_item.menu = ({
 				buffer = "[BUF]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[API]",
 				path = "[PATH]",
-				-- vsnip = "[SNIP]",
 				luasnip = "[SNIP]",
 				npm = "[NPM]",
-			},
-		}),
+			})[entry.source.name]
+			return vim_item
+		end,
 	},
 	documentation = {
 		border = "rounded",
 	},
-	-- Will reconsider
-	--[[ experimental = {
-		ghost_text = true,
-		native = true,
-	}, ]]
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "lspkind" },

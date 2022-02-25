@@ -1,3 +1,8 @@
+-- RULES TO FOLLOW
+-- 1. use ({})
+-- 2. lazy load ( see :h events )
+-- 3. add comment or sections
+
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -32,7 +37,6 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
-		use({ "ellisonleao/gruvbox.nvim" })
 		use({
 			"folke/tokyonight.nvim",
 		})
@@ -42,13 +46,14 @@ return require("packer").startup({
 		use({
 			"akinsho/bufferline.nvim",
 			after = "nvim-web-devicons",
+			event = "BufWinEnter",
 			config = function()
 				require("plugins.config.bufferline")
 			end,
 		})
 
 		-- Statusline
-		use("rebelot/heirline.nvim")
+		-- use("rebelot/heirline.nvim")
 
 		-- Explorer menu
 		use({
@@ -62,6 +67,7 @@ return require("packer").startup({
 		-- Treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter",
+			event = "BufRead",
 			run = ":TSUpdate",
 			config = function()
 				require("plugins.config.treesitter")
@@ -71,6 +77,7 @@ return require("packer").startup({
 		use({
 			"p00f/nvim-ts-rainbow",
 			after = "nvim-treesitter",
+			event = "InsertEnter",
 		})
 
 		use({
@@ -96,11 +103,15 @@ return require("packer").startup({
 		use({
 			"nvim-treesitter/playground",
 			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+			after = "nvim-treesitter",
+			event = { "CursorMoved", "CursorMovedI" },
 		})
 
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
+			module = "lspconfig",
+			event = "BufRead",
 			config = function()
 				require("plugins.config.lsp")
 			end,
@@ -113,11 +124,10 @@ return require("packer").startup({
 		use({
 			"hrsh7th/nvim-cmp",
 			module = "cmp",
-			event = { "InsertEnter", "CmdLineEnter" },
+			event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
+			after = { "LuaSnip" },
 			requires = {
-				"hrsh7th/cmp-nvim-lsp",
-				"onsails/lspkind-nvim",
-				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+				{ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -127,13 +137,14 @@ return require("packer").startup({
 				require("plugins.config.cmp")
 			end,
 		})
+
 		use({
 			"L3MON4D3/LuaSnip",
 			requires = {
 				"rafamadriz/friendly-snippets",
-				after = "LuaSnip",
+				event = "InsertEnter",
 			},
-			module = "luasnip",
+			event = "InsertEnter",
 			config = function()
 				require("plugins.config.snippets")
 			end,
@@ -141,7 +152,7 @@ return require("packer").startup({
 
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
-			event = "BufRead",
+			event = { "BufRead", "InsertEnter" },
 			config = function()
 				require("plugins.config.null-ls")
 			end,
@@ -169,10 +180,7 @@ return require("packer").startup({
 				require("plugins.config.dashboard")
 			end,
 		})
-		-- use({
-		-- 	"startup-nvim/startup.nvim",
-		-- 	config = [[require("plugins.startup")]],
-		-- })
+		use("goolord/alpha-nvim")
 
 		-- LSP highlight
 		use({
@@ -251,6 +259,7 @@ return require("packer").startup({
 		-- Neogen
 		use({
 			"danymat/neogen",
+			after = "LuaSnip",
 			config = function()
 				require("neogen").setup({})
 			end,
