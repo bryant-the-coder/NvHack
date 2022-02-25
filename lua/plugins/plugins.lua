@@ -95,6 +95,7 @@ return require("packer").startup({
 		use({
 			"ZhiyuanLck/smart-pairs",
 			event = "InsertEnter",
+			after = "nvim-cmp",
 			config = function()
 				require("plugins.config.smartpairs")
 			end,
@@ -116,6 +117,7 @@ return require("packer").startup({
 				require("plugins.config.lsp")
 			end,
 		})
+
 		use({
 			"williamboman/nvim-lsp-installer",
 		})
