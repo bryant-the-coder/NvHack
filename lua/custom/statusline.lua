@@ -1,200 +1,137 @@
 local fn = vim.fn
 local api = vim.api
-local M = {}
-local padding = " "
-local center = "%="
-local right_sep = ""
-local left_sep = ""
 
-M.colors = {
-	active = "%#StatusLine#",
-	inactive = "%#StatuslineNC#",
-	mode = "%#Mode#",
-	git = "%#Git#",
-	filetype = "%#Filetype#",
-}
-
---- Setting highlights options
----@param group string
----@param options string
-local set_hl = function(group, options)
-	local bg = options.bg == nil and "" or "guibg=" .. options.bg
-	local fg = options.fg == nil and "" or "guifg=" .. options.fg
-	local gui = options.gui == nil and "" or "gui=" .. options.gui
-
-	vim.cmd(string.format("hi %s %s %s %s", group, bg, fg, gui))
-end
-
--- you can of course pick whatever colour you want, I picked these colours
--- because I use Gruvbox and I like them
-local highlights = {
-	{ "StatusLine", { fg = "#15171c", bg = "#dedede" } },
-	{ "StatusLineNC", { fg = "#3C3836", bg = "#928374" } },
-	{ "Mode", { bg = "#928374", fg = "#1D2021", gui = "italic,bold" } },
-	{ "Git", { bg = "#504945", fg = "#FFFFFF" } },
-	{ "Filename", { bg = "#504945", fg = "#EBDBB2" } },
-}
-
-for _, highlight in ipairs(highlights) do
-	set_hl(highlight[1], highlight[2])
-end
-
---- Setting the length of each characters
----@return boolean
-M.trunc_width = setmetatable({
-	git_status = 20,
-	filename = 50,
-}, {
-	__index = function()
-		return 80
-	end,
-})
-
--- Works with the above func
-M.is_truncated = function(_, width)
-	local current_width = api.nvim_win_get_width(0)
-	return current_width < width
-end
-
---- Shows mode in statusline
----@return string
-M.modes = setmetatable({
+local modes = {
 	["n"] = "NORMAL",
 	["no"] = "NORMAL",
-	["nov"] = "NORMAL",
-	["noV"] = "NORMAL",
-	["no"] = "NORMAL",
-	["niI"] = "NORMAL",
-	["niR"] = "NORMAL",
-	["niV"] = "NORMAL",
+	["v"] = "VISUAL",
+	["V"] = "VISUAL LINE",
+	[""] = "VISUAL BLOCK",
+	["s"] = "SELECT",
+	["S"] = "SELECT LINE",
+	[""] = "SELECT BLOCK",
 	["i"] = "INSERT",
 	["ic"] = "INSERT",
-	["ix"] = "INSERT",
-	["s"] = "INSERT",
-	["S"] = "INSERT",
-	["v"] = "VISUAL",
-	["V"] = "VISUAL",
-	[""] = "VISUAL",
-	["r"] = "REPLACE",
-	["r?"] = "REPLACE",
 	["R"] = "REPLACE",
+	["Rv"] = "VISUAL REPLACE",
 	["c"] = "COMMAND",
+	["cv"] = "VIM EX",
+	["ce"] = "EX",
+	["r"] = "PROMPT",
+	["rm"] = "MOAR",
+	["r?"] = "CONFIRM",
+	["!"] = "SHELL",
 	["t"] = "TERMINAL",
-}, {
-	__index = function()
-		return "Unknown"
-	end,
-})
+}
 
----Return current modes
----@param self string
----@return string
-M.current_modes = function(self)
-	local current_modes = api.nvim_get_mode().mode
-	return string.format(" %s ", self.modes[current_modes]):upper()
+local function mode()
+	local current_mode = api.nvim_get_mode().mode
+	return string.format(" %s ", modes[current_mode]):upper()
 end
 
----Git status
----@param self function
----@return string
-M.git_status = function(self)
-	local signs = vim.b.gitsigns_status_dict or { head = "", added = 0, changed = 0, removed = 0 }
-	local is_head_empty = signs.head ~= ""
-
-	if self:is_truncated(self.trunc_width.git_status) then
-		return is_head_empty and string.format("  %s ", signs.head or "") or ""
+local function update_mode_colors()
+	local current_mode = api.nvim_get_mode().mode
+	local mode_color = "%#StatusLineAccent#"
+	if current_mode == "n" then
+		mode_color = "%#StatusNormal#"
+	elseif current_mode == "i" or current_mode == "ic" then
+		mode_color = "%#StatusInsert#"
+	elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+		mode_color = "%#StatusVisual#"
+	elseif current_mode == "R" then
+		mode_color = "%#StatusReplace#"
+	elseif current_mode == "c" then
+		mode_color = "%#StatusCommand#"
+	elseif current_mode == "t" then
+		mode_color = "%#StatusTerminal#"
 	end
-
-	return is_head_empty and string.format(" שׂ %s ", signs.head) or ""
+	return mode_color
 end
 
----Getting filename
----@return osdate
-M.filename = function()
-	---Getting filename
-	local filename = fn.expand("%:t")
-	return filename == "" and "" or filename
-end
-
----LSP diagnostic
----@return function
-M.lsp_diagnostics = function()
-	local count = {}
-	local levels = {
-		errors = "Error",
-		warnings = "Warn",
-	}
-
-	for k, level in pairs(levels) do
-		count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
+local function filename()
+	local fname = fn.expand("%:t")
+	if fname == "" then
+		return ""
 	end
-
-	return string.format("%s:E %s:W ", count["errors"] or 0, count["warnings"] or 0)
+	return fname .. " "
 end
 
----Creating a clock
----@return function
-M.clock = function()
-	return os.date(" %a | %H:%M:%S ")
-end
-
---- Show active statusline
----@param self boolean
----@return boolean
-M.set_active = function(self)
-	local colors = self.colors
-	local mode = colors.mode .. self:current_modes()
-	local git = colors.git .. self:git_status()
-
+local vcs = function()
+	local git_info = vim.b.gitsigns_status_dict
+	if not git_info or git_info.head == "" then
+		return ""
+	end
 	return table.concat({
-		colors.active,
-		mode,
-		right_sep,
-		padding,
-		git,
-		center,
-		self:filename(),
-		center,
-		self:lsp_diagnostics(),
-		padding,
-		left_sep,
-		padding,
-		self:clock(),
+		" ",
+		"%#Branch# ",
+		git_info.head,
+		" %#Normal#",
 	})
 end
 
----Setting inactive statusline
----@param self function
----@return boolean
-M.set_inactive = function(self)
-	return table.concat({
-		center,
-		self:filename(),
-		center,
-	})
+local modified = function()
+	if vim.bo.modified then
+		if vim.bo.readonly then
+			return "[-]"
+		end
+		return "[+]"
+	end
+	return ""
 end
 
---- Show nvimtree
----@return string
-M.set_explorer = function()
+local readonly = function()
+	if vim.bo.readonly then
+		return "RO"
+	end
+	return ""
+end
+
+local time = function()
+	return os.date("%a │ %H:%M ")
+end
+
+Statusline = {}
+
+Statusline.active = function()
 	return table.concat({
+		"%#Statusline#",
+		update_mode_colors(), -- Update mode colors
+		mode(), -- Show mode
+		"%#Normal#",
+		vcs(), -- Git branch info
 		"%=",
-		" NVIMTREE",
+		filename(), -- Show filename
+		modified(), -- Modified filetype
+		readonly(), -- Readonly filetype
+		"%=%#StatusLineExtra#",
+		"%#Clock#",
+		time(),
+	})
+end
+
+function Statusline.inactive()
+	return table.concat({
+		"%#StatusInactive#",
+		"%=",
+		filename(),
+		modified(),
+		readonly(),
 		"%=",
 	})
 end
 
-Statusline = setmetatable(M, {
-	__call = function(self, mode)
-		return self["set_" .. mode](self)
-	end,
-})
+function Statusline.short()
+	return "%#StatusLineNC#   NvimTree"
+end
 
-vim.cmd([[
+api.nvim_exec(
+	[[
   augroup Statusline
   au!
-  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline('active')
-  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline('inactive')
-  au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline('explorer')
+  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+  au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
   augroup END
-]])
+]],
+	false
+)

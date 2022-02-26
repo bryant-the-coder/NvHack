@@ -23,4 +23,8 @@ M.fg_bg = function(group, fgcol, bgcol)
 	cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
+function M.is_git_repo()
+	return vim.b.gitsigns_head or vim.b.gitsigns_status_dict
+end
+
 return M
