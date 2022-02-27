@@ -24,7 +24,7 @@
 -- })
 
 local base16 = require("base16")
-base16(base16.themes("gruvchad"), true)
+base16(base16.themes("onedark"), true)
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true

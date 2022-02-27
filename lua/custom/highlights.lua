@@ -1,7 +1,7 @@
 local fg = require("core.utils").fg
 local bg = require("core.utils").bg
 local fg_bg = require("core.utils").fg_bg
-local colors = require("hl_themes.gruvchad")
+local colors = require("hl_themes.onedark")
 -- Code from nvchad
 local black = colors.black
 local black2 = colors.black2
@@ -74,3 +74,9 @@ fg("DiagnosticHint", purple)
 fg("DiagnosticError", red)
 fg("DiagnosticWarn", yellow)
 fg("DiagnosticInformation", green)
+
+-- Dashboard
+fg("DashboardCenter", grey_fg)
+fg("DashboardFooter", grey_fg)
+fg("DashboardHeader", grey_fg)
+fg("DashboardShortcut", grey_fg)
