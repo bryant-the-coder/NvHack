@@ -2,7 +2,7 @@ local fg = require("core.utils").fg
 local bg = require("core.utils").bg
 local fg_bg = require("core.utils").fg_bg
 local colors = require("hl_themes.gruvchad")
-
+-- Code from nvchad
 local black = colors.black
 local black2 = colors.black2
 local blue = colors.blue
