@@ -86,8 +86,24 @@ local readonly = function()
 	return ""
 end
 
-local time = function()
-	return os.date("%a │ %H:%M ")
+local function lsp()
+	local count = {}
+	local space = " "
+	local levels = {
+		errors = "Error",
+	}
+
+	for k, level in pairs(levels) do
+		count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
+	end
+
+	local errors = ""
+
+	if count["errors"] ~= 0 then
+		errors = " %#LspDiagnosticsSignError# " .. count["errors"]
+	end
+
+	return errors .. space .. "%#Error#"
 end
 
 Statusline = {}
@@ -104,8 +120,7 @@ Statusline.active = function()
 		modified(), -- Modified filetype
 		readonly(), -- Readonly filetype
 		"%=%#StatusLineExtra#",
-		"%#Clock#",
-		time(),
+		lsp(),
 	})
 end
 

@@ -1,4 +1,4 @@
--- RULES TO FOLLOW
+-- ULES TO FOLLOW
 -- 1. use ({})
 -- 2. lazy load ( see :h events )
 -- 3. add comment or sections
@@ -37,16 +37,13 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
-		use({
-			"folke/tokyonight.nvim",
-		})
-		use({ "bryant-the-coder/astron.nvim" })
+		use("NvChad/nvim-base16.lua")
 
 		-- Bufferline
 		use({
 			"akinsho/bufferline.nvim",
 			after = "nvim-web-devicons",
-			event = "BufWinEnter",
+			event = "BufEnter",
 			config = function()
 				require("plugins.config.bufferline")
 			end,
@@ -263,7 +260,9 @@ return require("packer").startup({
 			"danymat/neogen",
 			after = "LuaSnip",
 			config = function()
-				require("neogen").setup({})
+				require("neogen").setup({
+					snippet_engine = "luasnip",
+				})
 			end,
 		})
 
