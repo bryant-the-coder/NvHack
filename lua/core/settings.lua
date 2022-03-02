@@ -34,6 +34,7 @@ o.hidden = true
 o.history = 300 -- Remember 300 lines of history
 o.updatetime = 200
 o.smd = false -- Don't show mode in cmdline
+o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
 
 -- Tabs / Indent
 o.expandtab = true
