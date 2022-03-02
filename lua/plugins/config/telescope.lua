@@ -53,8 +53,10 @@ telescope.setup({
 local M = {}
 M.find_files = function()
 	local opts = {
-		prompt_title = " [ FIND FILES ]",
-		results_title = "~ Results ~",
+		-- prompt_title = " [ FIND FILES ]",
+		prompt_title = "~ Find Files ~",
+		preview_title = "~ File Preview ~",
+		results_title = "~ Files ~",
 		layout_config = {
 			prompt_position = "top",
 		},

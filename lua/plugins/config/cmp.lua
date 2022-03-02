@@ -3,19 +3,13 @@ if not present then
 	return
 end
 
-local present, neogen = pcall(require, "neogen")
-if not present then
-	return
-end
-
 -- luasnip
-local luasnip = require("luasnip")
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local kind = cmp.lsp.CompletionItemKind
+local luasnip = require("luasnip")
 
 cmp.setup({
 	snippet = {
@@ -27,15 +21,12 @@ cmp.setup({
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-y>"] = cmp.config.disable,
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<CR>"] = cmp.mapping(function(fallback)
-			if not cmp.confirm({ select = true }) then
-				require("pairs.enter").type()
-			end
-		end),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -96,6 +87,7 @@ cmp.setup({
 				path = "[PATH]",
 				luasnip = "[SNIP]",
 				npm = "[NPM]",
+				neorg = "[NEORG]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -106,23 +98,16 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "lspkind" },
-		-- { name = "vsnip" },
 		{ name = "luasnip" },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "npm", keyword_length = 2 },
+		{ name = "neorg" },
 	}),
 })
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
 	sources = {
 		{ name = "buffer" },
 	},
 })
-
-cmp.event:on("confirm_done", function(event)
-	local item = event.entry:get_completion_item()
-	local parensDisabled = item.data and item.data.funcParensDisabled or false
-	if not parensDisabled and (item.kind == kind.Method or item.kind == kind.Function) then
-		print("pairs are now active")
-		require("pairs.bracket").type_left("(")
-	end
-end)
