@@ -32,6 +32,8 @@ cmd([[
   augroup END
 ]])
 
+-- cmd([[ autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
+
 -- Setting tabs for different filetypes
 cmd([[
   autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
