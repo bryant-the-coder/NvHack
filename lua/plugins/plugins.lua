@@ -26,9 +26,12 @@ return require("packer").startup({
 			"wbthomason/packer.nvim",
 		})
 
-		-- Better performance :)
+		-- Better performance
 		use({
 			"lewis6991/impatient.nvim",
+			config = function()
+				require("plugins.config.other")
+			end,
 		})
 
 		-- Dependencies
@@ -37,7 +40,9 @@ return require("packer").startup({
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
-		use("NvChad/nvim-base16.lua")
+		use({
+			"NvChad/nvim-base16.lua",
+		})
 
 		-- Bufferline
 		use({
@@ -49,8 +54,15 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Statusline
-		-- use("rebelot/heirline.nvim")
+		-- Neorg
+		use({
+			"nvim-neorg/neorg",
+			ft = "norg",
+			after = "nvim-treesitter",
+			config = function()
+				require("plugins.config.neorg")
+			end,
+		})
 
 		-- Explorer menu
 		use({
@@ -64,7 +76,8 @@ return require("packer").startup({
 		-- Treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter",
-			event = "BufRead",
+			event = { "BufRead", "BufNewFile" },
+			module = "nvim-treesitter",
 			run = ":TSUpdate",
 			config = function()
 				require("plugins.config.treesitter")
@@ -90,11 +103,11 @@ return require("packer").startup({
 		})
 
 		use({
-			"ZhiyuanLck/smart-pairs",
-			event = "InsertEnter",
+			"windwp/nvim-autopairs",
 			after = "nvim-cmp",
+			event = "InsertEnter",
 			config = function()
-				require("plugins.config.smartpairs")
+				require("plugins.config.autopairs")
 			end,
 		})
 
@@ -126,7 +139,10 @@ return require("packer").startup({
 			event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
 			after = { "LuaSnip" },
 			requires = {
-				{ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
+				{
+					"saadparwaiz1/cmp_luasnip",
+					after = { "nvim-cmp", "LuaSnip" },
+				},
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -143,6 +159,7 @@ return require("packer").startup({
 				"rafamadriz/friendly-snippets",
 				event = "InsertEnter",
 			},
+			module = "luasnip",
 			event = "InsertEnter",
 			config = function()
 				require("plugins.config.snippets")
@@ -170,6 +187,8 @@ return require("packer").startup({
 		-- Colorizer
 		use({
 			"norcalli/nvim-colorizer.lua",
+			module = "colorizer",
+			opt = true,
 		})
 
 		-- Welcome screen
@@ -179,20 +198,12 @@ return require("packer").startup({
 				require("plugins.config.dashboard")
 			end,
 		})
-		use("goolord/alpha-nvim")
-
-		-- LSP highlight
-		use({
-			"folke/lsp-colors.nvim",
-			config = function()
-				require("plugins.config.other")
-			end,
-		})
 
 		-- Indentation
 		use({
 			"lukas-reineke/indent-blankline.nvim",
 			event = "BufWinEnter",
+			opt = true,
 			config = function()
 				require("plugins.config.indent")
 			end,
@@ -298,15 +309,17 @@ return require("packer").startup({
 		use({
 			"ggandor/lightspeed.nvim",
 			event = "CmdLineEnter",
-		})
-
-		use({
-			"andweeb/presence.nvim",
+			opt = true,
+			keys = { "s", "S" },
 		})
 
 		use({
 			"shift-d/scratch.nvim",
 			command = "ScratchEval",
+			event = {
+				"InsertEnter",
+				"CmdLineEnter",
+			},
 		})
 	end,
 	config = {
@@ -319,5 +332,6 @@ return require("packer").startup({
 			done_sym = "",
 			error_syn = "×",
 		},
+		max_jobs = 6,
 	},
 })

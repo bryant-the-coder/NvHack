@@ -2,6 +2,7 @@ local fg = require("core.utils").fg
 local bg = require("core.utils").bg
 local fg_bg = require("core.utils").fg_bg
 local colors = require("hl_themes.onedark")
+
 -- Code from nvchad
 local black = colors.black
 local black2 = colors.black2
@@ -36,47 +37,69 @@ fg_bg("FileName", "#181a1f", "#E06C75")
 fg("Branch", "#ffcc00")
 bg("error", "#FF0000")
 
--- Floating borders
+-----------------------------------
+--           Basic               --
+-----------------------------------
+-- Line number
+fg("cursorlinenr", white)
+
+-- same it bg, so it doesn't appear
+fg("EndOfBuffer", black)
+
+-- For floating windows
 fg("FloatBorder", blue)
 bg("NormalFloat", darker_black)
 
--- Make the bg same so it doesnt show
-fg("EndOfBuffer", black)
+-- inactive statuslines as thin lines
+fg("StatusLineNC", one_bg3 .. " gui=underline")
 
--- Telescope
-fg_bg("TelescopeBorder", darker_black, darker_black)
-fg_bg("TelescopePromptBorder", black2, black2)
-fg_bg("TelescopePromptNormal", white, black2)
-fg_bg("TelescopePromptPrefix", red, black2)
-bg("TelescopeNormal", darker_black)
-fg_bg("TelescopePreviewTitle", black, green)
-fg_bg("TelescopePromptTitle", black, red)
-fg_bg("TelescopeResultsTitle", darker_black, darker_black)
-bg("TelescopeSelection", black2)
+fg("LineNr", grey)
+fg("NvimInternalError", red)
+fg("VertSplit", one_bg2)
 
--- NvimTree
-fg("NvimTreeEmptyFolderName", folder_bg)
-fg("NvimTreeEndOfBuffer", darker_black)
-fg("NvimTreeFolderIcon", folder_bg)
-fg("NvimTreeFolderName", folder_bg)
-fg("NvimTreeGitDirty", red)
-fg("NvimTreeIndentMarker", one_bg2)
-bg("NvimTreeNormal", darker_black)
-bg("NvimTreeNormalNC", darker_black)
-fg("NvimTreeOpenedFolderName", folder_bg)
-fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
-fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
-fg_bg("NvimTreeVertSplit", darker_black, darker_black)
-fg_bg("NvimTreeWindowPicker", red, black2)
+fg("Comment", light_grey .. " gui=italic")
 
+-----------------------------------
+--           Plugins             --
+-----------------------------------
 -- Lsp diagnostics
 fg("DiagnosticHint", purple)
 fg("DiagnosticError", red)
 fg("DiagnosticWarn", yellow)
 fg("DiagnosticInformation", green)
 
--- Dashboard
-fg("DashboardCenter", grey_fg)
-fg("DashboardFooter", grey_fg)
-fg("DashboardHeader", grey_fg)
-fg("DashboardShortcut", grey_fg)
+-- Pmenu
+bg("Pmenu", one_bg)
+bg("PmenuSbar", one_bg2)
+bg("PmenuSel", pmenu_bg)
+bg("PmenuThumb", nord_blue)
+fg("CmpItemAbbr", white)
+fg("CmpItemAbbrMatch", white)
+fg("CmpItemKind", white)
+fg("CmpItemMenu", white)
+
+-- Telescope
+bg("TelescopeNormal", darker_black)
+bg("TelescopeSelection", black2)
+fg_bg("TelescopeBorder", darker_black, darker_black)
+fg_bg("TelescopePromptBorder", black2, black2)
+fg_bg("TelescopePromptNormal", white, black2)
+fg_bg("TelescopePromptPrefix", red, black2)
+fg_bg("TelescopePreviewTitle", black, green)
+fg_bg("TelescopePromptTitle", black, red .. " gui=italic")
+fg_bg("TelescopeResultsTitle", black, blue)
+
+-- NvimTree
+bg("NvimTreeNormal", darker_black)
+bg("NvimTreeNormalNC", darker_black)
+fg("NvimTreeEmptyFolderName", folder_bg)
+fg("NvimTreeEndOfBuffer", darker_black)
+fg("NvimTreeFolderIcon", folder_bg)
+fg("NvimTreeFolderName", folder_bg)
+fg("NvimTreeGitDirty", red)
+fg("NvimTreeIndentMarker", one_bg2)
+fg("NvimTreeOpenedFolderName", folder_bg)
+fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
+fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
+fg_bg("NvimTreeVertSplit", darker_black, darker_black)
+fg_bg("NvimTreeWindowPicker", red, black2)

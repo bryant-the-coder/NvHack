@@ -25,9 +25,3 @@
 
 local base16 = require("base16")
 base16(base16.themes("onedark"), true)
-
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_keywords = false
-
--- vim.cmd([[colorscheme aston]])
