@@ -15,15 +15,8 @@ map("n", "<C-q>", "<cmd>q<CR>")
 -- Buffer
 map("n", "<leader>dd", "<cmd>bdelete<CR>")
 
--- ESC key
-map("i", "jk", "<Esc>")
-map("i", "JK", "<Esc>")
-map("v", "jk", "<Esc>")
-
--- ESC to clear all highlights
-map("i", "<Esc>", "<cmd>noh<CR>")
-map("v", "<Esc>", "<cmd>noh<CR>")
-map("n", "<Esc>", "<cmd>noh<CR>")
+-- Pasting stuff
+map("v", "p", "p:let @+=@0<CR>")
 
 -- Terminal ESC key
 map("t", "<ESC>", [[<C-\><C-n>]])
@@ -35,6 +28,20 @@ map("v", "d", '"_d')
 -- Don't yank text on cut
 map("n", "x", '"_x')
 map("n", "x", '"_x')
+
+-- Indenting
+map("v", ">", ">gv")
+map("v", "<", "<gv")
+
+-- ESC key
+map("i", "jk", "<Esc>")
+map("i", "JK", "<Esc>")
+map("v", "jk", "<Esc>")
+
+-- ESC to clear all highlights
+map("i", "<Esc>", "<cmd>noh<CR>")
+map("v", "<Esc>", "<cmd>noh<CR>")
+map("n", "<Esc>", "<cmd>noh<CR>")
 
 -- Saving the traditional way
 map("n", "<C-s>", "<cmd>w<CR>")
@@ -53,10 +60,6 @@ map("n", "J", "<C-w><C-j>")
 map("n", "K", "<C-w><C-k>")
 map("n", "L", "<C-w><C-l>")
 map("n", "H", "<C-w><C-h>")
-
--- Yanking mayb?
-map("v", ">", ">gv")
-map("v", "<", "<gv")
 
 -- Buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>")
@@ -102,10 +105,11 @@ map("n", "<leader>lr", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
 map("n", "<leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]])
 map("n", "<leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]])
 map("n", "<leader>lh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
+map("n", "<leader>ss", "[[<cmd>lua vim.lsp.buf.formatting_sync()<CR>]]")
+map("n", "<leader>qf", "[[<cmd>lua vim.diagnostic.setqflist()<CR>]]")
 map("n", "<C-a>", [[<cmd>lua vim.lsp.buf.references()<CR>]])
 map("n", "<C-k>", [[<cmd>lua vim.diagnostic.goto_prev({border = "rounded"})<CR>]])
 map("n", "<C-j>", [[<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>]])
-map("n", "<leader>ss", "[[<cmd>lua vim.lsp.buf.formatting_sync()<CR>]]")
 
 -- Harpooon
 map("n", "<leader>lp", [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]])
