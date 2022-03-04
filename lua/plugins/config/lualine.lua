@@ -49,8 +49,8 @@ local config = {
 		component_separators = "",
 		section_separators = "",
 		theme = {
-			normal = { c = { fg = colors.fg, bg = colors.bg } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg } },
+			normal = { c = { fg = one_bg, bg = one_bg } },
+			inactive = { c = { fg = one_bg, bg = one_bg } },
 		},
 	},
 	sections = {
