@@ -68,6 +68,7 @@ return require("packer").startup({
 		use({
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
+			opt = true,
 			config = function()
 				require("plugins.config.nvim-tree")
 			end,
@@ -178,6 +179,7 @@ return require("packer").startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
+			opt = true,
 			event = "BufEnter",
 			config = function()
 				require("plugins.config.telescope")
@@ -218,6 +220,8 @@ return require("packer").startup({
 				"gcb",
 				"gb",
 			},
+			opt = true,
+			event = "BufEnter",
 			requires = {
 				"JoosepAlviste/nvim-ts-context-commentstring",
 			},
@@ -229,6 +233,7 @@ return require("packer").startup({
 		-- Terminal
 		use({
 			"akinsho/toggleterm.nvim",
+			opt = true,
 			event = "InsertEnter",
 			config = function()
 				require("plugins.config.toggleterm")
@@ -239,6 +244,7 @@ return require("packer").startup({
 		use({
 			"ThePrimeagen/harpoon",
 			event = "InsertEnter",
+			opt = true,
 		})
 
 		-- Disturbance free writing
@@ -260,6 +266,7 @@ return require("packer").startup({
 				"TroubleClose",
 				"TroubleToggle",
 			},
+			opt = true,
 			event = { "InsertEnter" },
 			config = function()
 				require("plugins.config.trouble")
@@ -281,6 +288,7 @@ return require("packer").startup({
 		use({
 			"lewis6991/gitsigns.nvim",
 			event = "BufRead",
+			opt = true,
 			config = function()
 				require("plugins.config.gitsigns")
 			end,
@@ -290,6 +298,7 @@ return require("packer").startup({
 		use({
 			"max397574/better-escape.nvim",
 			event = { "InsertEnter" },
+			opt = true,
 			config = function()
 				require("better_escape").setup({
 					mapping = { "jj", "jk", "kj" },
@@ -304,6 +313,7 @@ return require("packer").startup({
 			"rktjmp/paperplanes.nvim",
 			event = "BufEnter",
 			cmd = "PP",
+			opt = true,
 		})
 
 		use({
@@ -320,6 +330,7 @@ return require("packer").startup({
 				"InsertEnter",
 				"CmdLineEnter",
 			},
+			opt = true,
 		})
 	end,
 	config = {
