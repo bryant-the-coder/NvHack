@@ -64,10 +64,10 @@ tree.setup({
 		enable = false,
 	},
 	view = {
-		width = 24,
+		width = 30,
 		height = 30,
 		hide_root_folder = false,
-		side = "left",
+		side = "right",
 		auto_resize = true,
 		mappings = {
 			custom_only = false,
@@ -77,5 +77,17 @@ tree.setup({
 	trash = {
 		cmd = "trash",
 		require_confirm = true,
+	},
+	open_file = {
+		quit_on_open = true,
+		resize_window = false,
+		window_picker = {
+			enable = true,
+			chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+			exclude = {
+				filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+				buftype = { "nofile", "terminal", "help" },
+			},
+		},
 	},
 })
