@@ -53,31 +53,18 @@ local function filename()
 	if fname == "" then
 		return ""
 	end
-	return fname .. " "
+	return " " .. fname .. " "
 end
 
-local vcs = function()
-	local git_info = vim.b.gitsigns_status_dict
-	if not git_info or git_info.head == "" then
-		return ""
-	end
-	return table.concat({
-		" ",
-		"%#Branch# ",
-		git_info.head,
-		" %#Normal#",
-	})
-end
-
-local modified = function()
-	if vim.bo.modified then
-		if vim.bo.readonly then
-			return "[-]"
-		end
-		return "[+]"
-	end
-	return ""
-end
+-- local modified = function()
+-- 	if vim.bo.modified then
+-- 		if vim.bo.readonly then
+-- 			return "[-]"
+-- 		end
+-- 		return "[+]"
+-- 	end
+-- 	return ""
+-- end
 
 local readonly = function()
 	if vim.bo.readonly then
@@ -86,24 +73,16 @@ local readonly = function()
 	return ""
 end
 
-local function lsp()
-	local count = {}
-	local space = " "
-	local levels = {
-		errors = "Error",
-	}
-
-	for k, level in pairs(levels) do
-		count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
+local vcs = function()
+	local git_info = vim.b.gitsigns_status_dict
+	if not git_info or git_info.head == "" then
+		return ""
 	end
-
-	local errors = ""
-
-	if count["errors"] ~= 0 then
-		errors = " %#LspDiagnosticsSignError# " .. count["errors"]
-	end
-
-	return errors .. space .. "%#Error#"
+	return table.concat({
+		"%#Branch#  ",
+		git_info.head,
+		" ",
+	})
 end
 
 Statusline = {}
@@ -114,13 +93,12 @@ Statusline.active = function()
 		update_mode_colors(), -- Update mode colors
 		mode(), -- Show mode
 		"%#Normal#",
-		vcs(), -- Git branch info
-		"%=",
+		vcs(),
+		"%#Filename#",
 		filename(), -- Show filename
-		modified(), -- Modified filetype
+		-- modified(), -- Modified filetype
 		readonly(), -- Readonly filetype
-		"%=%#StatusLineExtra#",
-		lsp(),
+		"%#Normal#",
 	})
 end
 
@@ -129,7 +107,6 @@ function Statusline.inactive()
 		"%#StatusInactive#",
 		"%=",
 		filename(),
-		modified(),
 		readonly(),
 		"%=",
 	})

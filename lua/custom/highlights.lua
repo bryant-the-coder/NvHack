@@ -1,7 +1,7 @@
 local fg = require("core.utils").fg
 local bg = require("core.utils").bg
 local fg_bg = require("core.utils").fg_bg
-local colors = require("hl_themes.onedark")
+local colors = require("hl_themes.gruvchad")
 
 -- Code from nvchad
 local black = colors.black
@@ -25,17 +25,16 @@ local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
 
-bg("StatusInactive", "#282c34")
-bg("StatusLineNC", "#15171c")
-fg_bg("StatusNormal", "#181a1f", "#98c379")
-fg_bg("StatusReplace", "#181a1f", "#E5C07B")
-fg_bg("StatusInsert", "#181a1f", "#61AFEF")
-fg_bg("StatusCommand", "#181a1f", "#56B6C2")
-fg_bg("StatusVisual", "#181a1f", "#C678DD")
-fg_bg("StatusTerminal", "#181a1f", "#E06C75")
-fg_bg("FileName", "#181a1f", "#E06C75")
-fg("Branch", "#ffcc00")
-bg("error", "#FF0000")
+bg("StatusInactive", line)
+bg("StatusLineNC", darker_black)
+fg_bg("StatusNormal", darker_black, green)
+fg_bg("StatusReplace", darker_black, blue)
+fg_bg("StatusInsert", darker_black, yellow)
+fg_bg("StatusCommand", darker_black, purple)
+fg_bg("StatusVisual", darker_black, purple)
+fg_bg("StatusTerminal", darker_black, red)
+fg_bg("FileName", darker_black, red)
+fg_bg("Branch", darker_black, nord_blue)
 
 -----------------------------------
 --           Basic               --
