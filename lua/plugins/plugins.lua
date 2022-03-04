@@ -35,8 +35,12 @@ return require("packer").startup({
 		})
 
 		-- Dependencies
-		use("nvim-lua/plenary.nvim")
-		use("kyazdani42/nvim-web-devicons")
+		use({
+			"nvim-lua/plenary.nvim",
+		})
+		use({
+			"kyazdani42/nvim-web-devicons",
+		})
 
 		-- Theme
 		use({ "ThemerCorp/themer.lua" })
@@ -89,10 +93,12 @@ return require("packer").startup({
 			"p00f/nvim-ts-rainbow",
 			after = "nvim-treesitter",
 			event = "InsertEnter",
+			opt = true,
 		})
 
 		use({
 			"windwp/nvim-ts-autotag",
+			opt = true,
 			event = "InsertEnter",
 			ft = { "html", "tsx" },
 		})
@@ -101,12 +107,14 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			after = "nvim-treesitter",
 			event = "InsertEnter",
+			opt = true,
 		})
 
 		use({
 			"windwp/nvim-autopairs",
 			after = "nvim-cmp",
 			event = "InsertEnter",
+			opt = true,
 			config = function()
 				require("plugins.config.autopairs")
 			end,
@@ -116,6 +124,7 @@ return require("packer").startup({
 			"nvim-treesitter/playground",
 			cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
 			after = "nvim-treesitter",
+			opt = true,
 			event = { "CursorMoved", "CursorMovedI" },
 		})
 
