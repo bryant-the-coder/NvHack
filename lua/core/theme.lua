@@ -1,5 +1,5 @@
 -- require("themer").setup({
--- 	colorscheme = "astron",
+-- 	colorscheme = "gruvhad",
 -- 	transparent = false,
 -- 	disable_telescope_themes = { "ayu", "rose_pine_dawn" },
 -- 	term_colors = true,

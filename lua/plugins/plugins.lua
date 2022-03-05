@@ -43,7 +43,10 @@ return require("packer").startup({
 		})
 
 		-- Theme
-		use({ "ThemerCorp/themer.lua" })
+		use({
+			"ThemerCorp/themer.lua",
+			branch = "dev",
+		})
 		use({
 			"NvChad/nvim-base16.lua",
 		})
@@ -252,7 +255,6 @@ return require("packer").startup({
 		-- Harpoon
 		use({
 			"ThePrimeagen/harpoon",
-			event = "InsertEnter",
 			opt = true,
 		})
 
@@ -327,9 +329,8 @@ return require("packer").startup({
 
 		use({
 			"ggandor/lightspeed.nvim",
-			event = "CmdLineEnter",
+			event = "BufEnter",
 			opt = true,
-			keys = { "s", "S" },
 		})
 
 		use({
