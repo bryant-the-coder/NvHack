@@ -1,6 +1,7 @@
 local ls = require("luasnip")
 local parse = ls.parser.parse_snippet
 require("luasnip.loaders.from_vscode").lazy_load()
+
 local module = [[
 local M = {}
 
@@ -8,6 +9,7 @@ ${1:code}
 
 return M
 ]]
+
 local mappings = [[
 map("$1", "$2", "<cmd>$0<CR>")
 ]]

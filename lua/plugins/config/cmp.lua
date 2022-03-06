@@ -96,16 +96,14 @@ cmp.setup({
 		border = "rounded",
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "lspkind" },
-		{ name = "luasnip" },
+		{ name = "nvim_lsp", priority = "9" },
+		{ name = "luasnip", priority = "8" },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "npm", keyword_length = 2 },
 		{ name = "neorg" },
 	}),
 })
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
 	sources = {
 		{ name = "buffer" },

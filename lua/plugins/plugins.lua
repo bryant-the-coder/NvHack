@@ -6,7 +6,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
+	PACKER_BOOTSTRAP = fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -14,11 +14,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
-	print("Packer installed")
+	print("Cloning packer...\nSetup NvHack")
+	vim.cmd([[packadd packer.nvim]])
 end
-
-vim.cmd([[packadd packer.nvim]])
-vim.cmd([[packadd telescope.nvim]])
 
 return require("packer").startup({
 	function(use)
@@ -193,9 +191,6 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
-			-- config = function()
-			-- 	require("plugins.config.telescope")
-			-- end,
 		})
 
 		-- Colorizer
