@@ -9,3 +9,7 @@
 
 * this is a task
   - [x] making own statusline
+  - [ ] this is not a task
+
+#contexts tseting
+- [ ] this is a task

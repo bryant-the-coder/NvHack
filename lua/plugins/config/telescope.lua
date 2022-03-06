@@ -3,8 +3,9 @@ if not present then
 	return
 end
 local actions = require("telescope.actions")
+local theme = require("telescope.themes")
 
-require("telescope").load_extension("themes")
+telescope.load_extension("themes")
 
 telescope.setup({
 	defaults = {
@@ -52,7 +53,6 @@ telescope.setup({
 
 local M = {}
 
-local theme = require("telescope.themes")
 M.find_files = function()
 	local opts = {
 		-- prompt_title = " [ FIND FILES ]",
@@ -70,7 +70,6 @@ M.live_grep = function()
 	local opts = {
 		preview_title = "~ Location Preview ~ ",
 		prompt_title = "~ Find String ~",
-		results_title = "~ Occurrences ~",
 		border = true,
 		disable_coordinates = true,
 		file_ignore_patterns = {
@@ -88,11 +87,10 @@ M.live_grep = function()
 end
 
 M.diag = function()
-	local opts = theme.get_ivy({
+	local opts = {
 		prompt_title = "~ Diagnostics ~",
 		preview_title = "~ Diagnostics Preview ~",
-		results_title = "~ List ~",
-	})
+	}
 	require("telescope.builtin").diagnostics(opts)
 end
 

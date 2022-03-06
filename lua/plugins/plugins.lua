@@ -18,6 +18,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd([[packadd packer.nvim]])
+vim.cmd([[packadd telescope.nvim]])
 
 return require("packer").startup({
 	function(use)
@@ -192,10 +193,9 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
-			event = "BufEnter",
-			config = function()
-				require("plugins.config.telescope")
-			end,
+			-- config = function()
+			-- 	require("plugins.config.telescope")
+			-- end,
 		})
 
 		-- Colorizer
@@ -255,7 +255,21 @@ return require("packer").startup({
 		-- Harpoon
 		use({
 			"ThePrimeagen/harpoon",
+			module = "harpoon",
 			opt = true,
+			after = "telescope.nvim",
+			config = function()
+				require("harpoon").setup({
+					global_settings = {
+						save_on_toggle = false,
+						save_on_change = true,
+						enter_on_sendcmd = false,
+						tmux_autoclose_windows = false,
+						excluded_filetypes = { "harpoon" },
+					},
+				})
+				require("telescope").load_extension("harpoon")
+			end,
 		})
 
 		-- Disturbance free writing

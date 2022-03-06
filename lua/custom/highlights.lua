@@ -96,7 +96,7 @@ fg_bg("TelescopePromptNormal", white, black2)
 fg_bg("TelescopePromptPrefix", red, black2)
 fg_bg("TelescopePreviewTitle", black, green .. " gui=italic")
 fg_bg("TelescopePromptTitle", black, red .. " gui=italic")
-fg_bg("TelescopeResultsTitle", black, blue .. " gui=italic")
+fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 
 -- NvimTree
 bg("NvimTreeNormal", darker_black)
