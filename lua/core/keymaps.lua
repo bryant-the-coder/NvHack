@@ -21,6 +21,9 @@ map("v", "p", "p:let @+=@0<CR>")
 -- Terminal ESC key
 map("t", "<ESC>", [[<C-\><C-n>]])
 
+-- Folding
+map("n", "<space>", "za")
+
 -- Don't yank text upon delete (good mapping btw)
 map("n", "d", '"_d')
 map("v", "d", '"_d')

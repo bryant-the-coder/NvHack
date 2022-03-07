@@ -41,16 +41,18 @@ return require("packer").startup({
 			"kyazdani42/nvim-web-devicons",
 		})
 
-		-- Theme
+		-- Theme{{{
 		use({
 			"ThemerCorp/themer.lua",
-			branch = "dev",
+			branch = "0.7",
 		})
 		use({
 			"NvChad/nvim-base16.lua",
 		})
+		use({ "bryant-the-coder/astron.nvim" })
+		-- }}}
 
-		-- Bufferline
+		-- Bufferline {{{
 		use({
 			"akinsho/bufferline.nvim",
 			after = "nvim-web-devicons",
@@ -59,8 +61,9 @@ return require("packer").startup({
 				require("plugins.config.bufferline")
 			end,
 		})
+		-- }}}
 
-		-- Neorg
+		-- Neorg{{{
 		use({
 			"nvim-neorg/neorg",
 			ft = "norg",
@@ -69,8 +72,9 @@ return require("packer").startup({
 				require("plugins.config.neorg")
 			end,
 		})
+		--}}}
 
-		-- Explorer menu
+		-- Explorer menu {{{
 		use({
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
@@ -79,8 +83,9 @@ return require("packer").startup({
 				require("plugins.config.nvim-tree")
 			end,
 		})
+		-- }}}
 
-		-- Treesitter
+		-- Treesitter {{{
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
@@ -129,8 +134,9 @@ return require("packer").startup({
 			opt = true,
 			event = { "CursorMoved", "CursorMovedI" },
 		})
+		--}}}
 
-		-- LSP
+		-- LSP {{{
 		use({
 			"neovim/nvim-lspconfig",
 			module = "lspconfig",
@@ -144,7 +150,16 @@ return require("packer").startup({
 			"williamboman/nvim-lsp-installer",
 		})
 
-		-- Completion
+		use({
+			"jose-elias-alvarez/null-ls.nvim",
+			event = { "BufRead", "InsertEnter" },
+			config = function()
+				require("plugins.config.null-ls")
+			end,
+		})
+		--}}}
+
+		-- Completion {{{
 		use({
 			"hrsh7th/nvim-cmp",
 			module = "cmp",
@@ -177,21 +192,15 @@ return require("packer").startup({
 				require("plugins.config.snippets")
 			end,
 		})
+		--}}}
 
-		use({
-			"jose-elias-alvarez/null-ls.nvim",
-			event = { "BufRead", "InsertEnter" },
-			config = function()
-				require("plugins.config.null-ls")
-			end,
-		})
-
-		-- Telescope
+		-- Telescope {{{
 		use({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
 		})
+		--}}}
 
 		-- Colorizer
 		use({

@@ -22,7 +22,7 @@ o.smartcase = true -- Don't ignore when uppercase search
 o.wrap = false -- Don't wrap
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.completeopt = "menuone,noselect,menu"
-o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldmethod = "marker"
 o.fillchars = { eob = " " } -- Fillchars
 o.lazyredraw = true -- Don't redraw screen while processing macros
 o.termguicolors = true
