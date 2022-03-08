@@ -1,6 +1,7 @@
 require("core.settings")
 require("core.keymaps")
 require("core.autocmd")
+-- require("core.autocommand")
 require("core.theme")
 require("custom.highlights")
 require("custom.statusline")
