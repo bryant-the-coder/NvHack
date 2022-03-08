@@ -51,7 +51,7 @@ return require("packer").startup({
 		})
 		-- }}}
 
-		-- Bufferline {{{
+		-- Bufferline
 		use({
 			"akinsho/bufferline.nvim",
 			after = "nvim-web-devicons",
@@ -60,9 +60,9 @@ return require("packer").startup({
 				require("plugins.config.bufferline")
 			end,
 		})
-		-- }}}
+		--
 
-		-- Neorg{{{
+		-- Neorg
 		use({
 			"nvim-neorg/neorg",
 			ft = "norg",
@@ -71,9 +71,8 @@ return require("packer").startup({
 				require("plugins.config.neorg")
 			end,
 		})
-		--}}}
 
-		-- Explorer menu {{{
+		-- Explorer menu
 		use({
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
@@ -82,9 +81,9 @@ return require("packer").startup({
 				require("plugins.config.nvim-tree")
 			end,
 		})
-		-- }}}
+		--
 
-		-- Treesitter {{{
+		-- Treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
@@ -133,9 +132,8 @@ return require("packer").startup({
 			opt = true,
 			event = { "CursorMoved", "CursorMovedI" },
 		})
-		--}}}
 
-		-- LSP {{{
+		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
 			module = "lspconfig",
@@ -156,9 +154,8 @@ return require("packer").startup({
 				require("plugins.config.null-ls")
 			end,
 		})
-		--}}}
 
-		-- Completion {{{
+		-- Completion
 		use({
 			"hrsh7th/nvim-cmp",
 			module = "cmp",
@@ -191,15 +188,13 @@ return require("packer").startup({
 				require("plugins.config.snippets")
 			end,
 		})
-		--}}}
 
-		-- Telescope {{{
+		-- Telescope
 		use({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
 		})
-		--}}}
 
 		-- Colorizer
 		use({
