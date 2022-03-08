@@ -20,7 +20,12 @@ local NoWhitespace = exec(
 exec([[au BufWritePre * call NoWhitespace()]], false)
 
 -- Disable autocommenting in new lines (kinda annoying)
-exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
+-- exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	desc = "Disable autocommenting in new lines",
+	command = "set fp-=c fo-=r fo-=o",
+})
 
 -- Terminal
 cmd([[
@@ -58,6 +63,12 @@ cmd([[
 ]])
 
 -- Reload the contents of file if changed outside of nvim
+local status_ok, notify = pcall(require, "notify")
+if not status_ok then
+	return
+end
+
+vim.notify = notify
 cmd([[
   augroup auto_reload_file
     autocmd!

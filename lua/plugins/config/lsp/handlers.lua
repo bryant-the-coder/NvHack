@@ -81,6 +81,43 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		border = border,
 	})
+
+	local notify = require("notify")
+	vim.lsp.handlers["window/showMessage"] = function(_, result, ctx)
+		local client = vim.lsp.get_client_by_id(ctx.client_id)
+		local lvl = ({
+			"ERROR",
+			"WARN",
+			"INFO",
+			"DEBUG",
+		})[result.type]
+		notify({ result.message }, lvl, {
+			title = "LSP | " .. client.name,
+			timeout = 10000,
+			keep = function()
+				return lvl == "ERROR" or lvl == "WARN"
+			end,
+		})
+	end
+end
+
+local function lsp_highlight_document(client)
+	if client.resolved_capabilities.document_highlight then
+		vim.api.nvim_exec(
+			[[
+            augroup lsp_document_highlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+      ]],
+			false
+		)
+
+		vim.api.nvim_set_hl(0, "LspReferenceText", { nocombine = true, reverse = false, underline = true })
+		vim.api.nvim_set_hl(0, "LspReferenceRead", { nocombine = true, reverse = false, underline = true })
+		vim.api.nvim_set_hl(0, "LspReferenceWrite", { nocombine = true, reverse = false, underline = true })
+	end
 end
 
 M.on_attach = function(client, bufnr)
@@ -100,6 +137,8 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
+
+	lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

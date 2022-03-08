@@ -47,9 +47,8 @@ return require("packer").startup({
 			branch = "0.7",
 		})
 		use({
-			"NvChad/nvim-base16.lua",
+			"bryant-the-coder/nvim-base16.lua",
 		})
-		use({ "bryant-the-coder/astron.nvim" })
 		-- }}}
 
 		-- Bufferline {{{
@@ -359,6 +358,16 @@ return require("packer").startup({
 				"CmdLineEnter",
 			},
 			opt = true,
+		})
+
+		use({
+			"rcarriga/nvim-notify",
+			opt = true,
+			module = "notify",
+			event = "BufEnter",
+			config = function()
+				require("plugins.config.notify")
+			end,
 		})
 	end,
 	config = {
