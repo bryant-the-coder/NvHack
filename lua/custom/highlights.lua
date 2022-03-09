@@ -62,7 +62,7 @@ bg("NormalFloat", darker_black)
 -- inactive statuslines as thin lines
 fg("StatusLineNC", one_bg3 .. " gui=underline")
 
-fg("LineNr", grey)
+fg("LineNr", light_grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 

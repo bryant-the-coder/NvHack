@@ -25,6 +25,3 @@
 
 local base16 = require("base16")
 base16(base16.themes("onedark"))
-
--- vim.g.astron_italic_comments = false
--- vim.cmd([[colorscheme astron]])
