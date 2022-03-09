@@ -39,9 +39,10 @@ return require("packer").startup({
 		})
 		use({
 			"kyazdani42/nvim-web-devicons",
+			after = "nvim-base16.lua",
 		})
 
-		-- Theme{{{
+		-- Theme
 		use({
 			"ThemerCorp/themer.lua",
 			branch = "0.7",
@@ -49,7 +50,6 @@ return require("packer").startup({
 		use({
 			"bryant-the-coder/nvim-base16.lua",
 		})
-		-- }}}
 
 		-- Bufferline
 		use({
@@ -194,6 +194,7 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
+			event = "BufEnter",
 		})
 
 		-- Colorizer

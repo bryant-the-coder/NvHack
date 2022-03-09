@@ -1,7 +1,7 @@
 local fg = require("core.utils").fg
 local bg = require("core.utils").bg
 local fg_bg = require("core.utils").fg_bg
-local colors = require("hl_themes.onedark")
+local colors = require("core.utils").get()
 
 -- Code from nvchad
 local black = colors.black

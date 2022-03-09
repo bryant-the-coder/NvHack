@@ -23,4 +23,9 @@ M.fg_bg = function(group, fgcol, bgcol)
 	cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
+M.get = function()
+	local theme = "onedark"
+	return require("hl_themes." .. theme)
+end
+
 return M
