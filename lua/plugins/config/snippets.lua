@@ -60,19 +60,19 @@ local css_template = [[
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- title -->
-        <title>${1:title}</title>
+        <title>$1</title>
 
         <!-- description -->
-        <meta name="description" content="${2:desc}" />
+        <meta name="description" content="$2" />
 
         <!-- icon -->
-        <link rel="shortcut icon" type="image/ico" href="${3:path1}" />
+        <link rel="shortcut icon" type="image/ico" href="$3" />
 
         <!-- stylesheet -->
-        <link rel="stylesheet" href="${4:path2}" />
+        <link rel="stylesheet" href="$4" />
 
         <!-- js -->
-        <script type="text/javascript" src="${5:location}"></script>
+        <script type="text/javascript" src="$5"></script>
     </head>
 
     <body>

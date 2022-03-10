@@ -194,13 +194,14 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
 			opt = true,
-			event = "BufEnter",
+			cmd = "Telescope",
 		})
 
 		-- Colorizer
 		use({
 			"norcalli/nvim-colorizer.lua",
 			module = "colorizer",
+			ft = { "css", "scss", "html", "js", "jsx" },
 			opt = true,
 		})
 
