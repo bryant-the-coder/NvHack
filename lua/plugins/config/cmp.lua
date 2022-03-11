@@ -11,7 +11,41 @@ end
 
 local luasnip = require("luasnip")
 
+local border = {
+	{ "┏", "FloatBorder" },
+	{ "━", "FloatBorder" },
+	{ "┓", "FloatBorder" },
+	{ "┃", "FloatBorder" },
+	{ "┛", "FloatBorder" },
+	{ "━", "FloatBorder" },
+	{ "┗", "FloatBorder" },
+	{ "┃", "FloatBorder" },
+}
+
+-- local border = {
+-- 	{ "╔", "FloatBorder" },
+-- 	{ "═", "FloatBorder" },
+-- 	{ "╗", "FloatBorder" },
+-- 	{ "║", "FloatBorder" },
+-- 	{ "╝", "FloatBorder" },
+-- 	{ "═", "FloatBorder" },
+-- 	{ "╚", "FloatBorder" },
+-- 	{ "║", "FloatBorder" },
+-- }
+
 cmp.setup({
+	window = {
+		completion = {
+			border = border,
+			scrollbar = "┃",
+			-- scrollbar = "║",
+		},
+		documentation = {
+			border = border,
+			-- scrollbar = "║",
+			scrollbar = "┃",
+		},
+	},
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -92,9 +126,6 @@ cmp.setup({
 			return vim_item
 		end,
 	},
-	documentation = {
-		border = "rounded",
-	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", priority = "9" },
 		{ name = "luasnip", priority = "8" },
@@ -107,5 +138,11 @@ cmp.setup({
 cmp.setup.cmdline("/", {
 	sources = {
 		{ name = "buffer" },
+	},
+})
+
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
 	},
 })

@@ -159,6 +159,7 @@ return require("packer").startup({
 		use({
 			"hrsh7th/nvim-cmp",
 			module = "cmp",
+			branch = "dev",
 			event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
 			after = { "LuaSnip" },
 			requires = {
