@@ -3,14 +3,13 @@ local augroup = vim.api.nvim_create_augroup
 
 augroup("_terminal", {})
 
--- Disable autocommenting {{{
+-- Disable autocommenting
 cmd("BufEnter", {
 	desc = "Disable autocommenting in new lines",
 	command = "set fp-=c fo-=r fo-=o",
 })
---}}}
 
--- Terminal settings {{{
+-- Terminal settings
 cmd("TermOpen", {
 	desc = "Terminal settings",
 	group = "_terminal",
@@ -22,10 +21,10 @@ cmd("TermOpen", {
 	group = "_terminal",
 	command = "setlocal nonumber norelativenumber",
 })
--- }}}
+--
 
 augroup("_buffer", {})
--- Trim whitespace {{{
+-- Trim whitespace
 local NoWhitespace = vim.api.nvim_exec(
 	[[
     function! NoWhitespace()
@@ -43,9 +42,8 @@ cmd("BufWritePre", {
 	group = "_buffer",
 	command = [[call NoWhitespace()]],
 })
---}}}
 
--- Cursor position {{{
+-- Cursor position
 cmd("BufReadPost", {
 	desc = "Restore cursor position upon reopening the file",
 	group = "_buffer",
@@ -53,9 +51,8 @@ cmd("BufReadPost", {
        if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
     ]],
 })
---}}}
 
--- Highlight while yanking{{{
+-- Highlight while yanking
 cmd("TextYankPost", {
 	desc = "Highlight while yanking",
 	group = "_buffer",
@@ -63,16 +60,8 @@ cmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "Visual" })
 	end,
 })
---}}}
 
--- Nofity when file change {{{
-
-local status_ok, notify = pcall(require, "notify")
-if not status_ok then
-	return
-end
-
-vim.notify = notify
+-- Nofity when file change
 augroup("auto_reload_file", {})
 cmd("FileChangedShellPost", {
 	desc = "Actions when the file is changed outside of Neovim",
@@ -85,4 +74,3 @@ cmd({ "FocusGained", "CursorHold" }, {
 	group = "auto_reload_file",
 	command = [[if getcmdwintype() == '' | checktime | endif]],
 })
---}}}
