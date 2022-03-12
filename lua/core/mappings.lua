@@ -1,10 +1,19 @@
-local function map(mode, lhs, rhs, opts)
-	local default_options = { noremap = true, silent = true }
-	if opts then
-		default_options = vim.tbl_extend("force", default_options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, default_options)
-end
+--- Defining normal & insert mode keymaps
+---@param lhs string Keymaps
+---@param rhs string Command
+---@param opts string Options
+-- local function nimap(lhs, rhs, opts)
+-- 	local default_options = { noremap = true, silent = true }
+-- 	if opts then
+-- 		default_options = vim.tbl_extend("force", default_options, opts)
+-- 	end
+-- 	vim.keymap.set({ "n", "i" }, lhs, rhs, default_options)
+-- end
+
+-- local nimap = require("core.utils").normal_insert()
+
+local opts = { noremap = true, silent = true }
+local map = vim.keymap.set
 
 -----------------------------------
 --           BASIC               --
@@ -25,8 +34,7 @@ map("t", "<ESC>", [[<C-\><C-n>]])
 map("n", "<space>", "za")
 
 -- Don't yank text upon delete (good mapping btw)
-map("n", "d", '"_d')
-map("v", "d", '"_d')
+map("v", "d", '"_d"')
 
 -- Don't yank text on cut
 map("n", "x", '"_x')
@@ -36,20 +44,16 @@ map("v", ">", ">gv")
 map("v", "<", "<gv")
 
 -- ESC key
-map("i", "jk", "<Esc>")
-map("i", "JK", "<Esc>")
-map("v", "jk", "<Esc>")
+map({ "i", "v" }, "jk", "<Esc>")
+map({ "i", "v" }, "JK", "<ESC>")
 
 -- ESC to clear all highlights
-map("i", "<Esc>", "<cmd>noh<CR>")
-map("v", "<Esc>", "<cmd>noh<CR>")
-map("n", "<Esc>", "<cmd>noh<CR>")
+map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
 
 -- Saving the traditional way
-map("n", "<C-s>", "<cmd>w<CR>")
-map("i", "<C-s>", "<cmd>w<CR>")
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
+-- nimap("<C-s>", "<cmd>w<CR>")
 map("n", "<leader>sf", "<cmd>source % <CR>")
-map("n", "<leader>fs", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>")
 
 -- Resizing windows
 map("n", "<A-up>", "<C-w>+")
@@ -90,7 +94,9 @@ map("n", "<leader>tt", "<cmd>Trouble<CR>")
 map("n", "<leader>ng", "<cmd>Neogen<CR>")
 
 -- ToggleTerm
-map("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>")
+map("n", "<ledaer>lg>", function()
+	return _lazygit_toggle()
+end)
 
 -- TSPlayground
 map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
@@ -103,25 +109,37 @@ map("n", "<leader>pc", "<cmd>PackerClean<CR>")
 map("n", "<leader>ps", "<cmd>PackerSync<CR>")
 
 -- LSP
-map("n", "<leader>lr", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
-map("n", "<leader>ld", [[<cmd>lua vim.lsp.buf.definition()<CR>]])
-map("n", "<leader>lt", [[<cmd>lua vim.lsp.buf.type_definition()<CR>]])
-map("n", "<leader>lh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
-map("n", "<leader>ss", "[[<cmd>lua vim.lsp.buf.formatting_sync()<CR>]]")
-map("n", "<leader>qf", "[[<cmd>lua vim.diagnostic.setqflist()<CR>]]")
-map("n", "<C-a>", [[<cmd>lua vim.lsp.buf.references()<CR>]])
-map("n", "<C-k>", [[<cmd>lua vim.diagnostic.goto_prev({border = "rounded"})<CR>]])
-map("n", "<C-j>", [[<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>]])
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename variables" })
+map("n", "<leader>ld", vim.lsp.buf.definition)
+map("n", "<leader>lt", vim.lsp.buf.type_definition)
+map("n", "<leader>lh", vim.lsp.buf.signature_help)
+map("n", "<leader>ss", vim.lsp.buf.formatting_sync)
+map("n", "<leader>qf", vim.diagnostic.setqflist)
+map("n", "<C-a>", vim.lsp.buf.references)
+-- map("n", "<C-k>", vim.diagnostic.goto_prev({ border = "rounded" }))
+-- map("n", "<C-j>", vim.diagnostic.goto_next({ border = "rounded" }))
+map("n", "<C-k>", vim.diagnostic.goto_prev)
+map("n", "<C-j>", vim.diagnostic.goto_next)
 
 -- Harpooon
-map("n", "<A-p>", [[<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]])
-map("n", "<leader>af", [[<cmd>lua require("harpoon.mark").add_file()<CR>]])
-map("n", "<leader>lp", [[<cmd>lua require("harpoon.ui").nav_prev()<CR>]])
-map("n", "<leader>ln", [[<cmd>lua require("harpoon.ui").nav_next()<CR>]])
-map("n", "<A-1>", [[<cmd>lua require("harpoon.ui").nav_file(1)<CR>]])
-map("n", "<A-2>", [[<cmd>lua require("harpoon.ui").nav_next(2)<CR>]])
-map("n", "<A-3>", [[<cmd>lua require("harpoon.ui").nav_next(3)<CR>]])
-map("n", "<A-4>", [[<cmd>lua require("harpoon.ui").nav_next(4)<CR>]])
+map("n", "<A-p>", function()
+	return require("harpoon.ui").toggle_quick_menu()
+end)
+map("n", "<leader>af", function()
+	return require("harpoon.mark").add_file()
+end)
+map("n", "<A-1>", function()
+	return require("harpoon.mark").nav_file(1)
+end)
+map("n", "<A-2>", function()
+	return require("harpoon.mark").nav_file(2)
+end)
+map("n", "<A-3>", function()
+	return require("harpoon.mark").nav_file(3)
+end)
+map("n", "<A-4>", function()
+	return require("harpoon.mark").nav_file(4)
+end)
 
 -- Telescope
 map("n", "<leader>ff", [[<cmd>lua require'plugins.config.telescope'.find_files()<CR>]])
@@ -135,6 +153,11 @@ map("n", "<leader>fm", [[<cmd>lua require'telescope.builtin'.current_buffer_fuzz
 map("n", "<leader>ft", [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]])
 map("n", "<leader>fd", [[<cmd>lua require'plugins.config.telescope'.diag()<CR>]])
 map("n", "<leader>fds", [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]])
-vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("i", "<C-Q>", "<Plug>luasnip-prev-choice", {})
 -- map("n", "<leader>ffp", "<cmd>lua require('telescope.builtin').find_files({cwd='E:/coding_journey/cyber.nvim/'})<cr>") -- opening telescope in projects dir
+
+map("n", "<leader>ff", function()
+	return require("plugins.config.telescope").find_files()
+end)
+map("n", "<leader>fb", function()
+	return require("plugins.config.telescope").live_grep()
+end)

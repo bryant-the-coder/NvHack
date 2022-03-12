@@ -18,13 +18,22 @@ toggleterm.setup({
 	close_on_exit = true,
 	shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
 	float_opts = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		winblend = 5,
+		-- border = "shadow",
+		border = {
+			"╔",
+			"═",
+			"╗",
+			"║",
+			"╝",
+			"═",
+			"╚",
+			"║",
+		},
+		winblend = 0,
 		highlights = {
 			border = "FloatBorder",
 			background = "NormalFloat",
 		},
-		height = 50,
 	},
 })
 

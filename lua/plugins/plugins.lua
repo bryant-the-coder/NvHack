@@ -81,7 +81,6 @@ return require("packer").startup({
 				require("plugins.config.nvim-tree")
 			end,
 		})
-		--
 
 		-- Treesitter
 		use({

@@ -49,7 +49,7 @@ bufferline.setup({
 		buffer_selected = {
 			guifg = default.colors.white,
 			guibg = default.colors.black,
-			gui = "bold,italic",
+			gui = "bold",
 		},
 		buffer_visible = {
 			guifg = default.colors.light_grey,

@@ -1,5 +1,6 @@
 require("core.settings")
-require("core.keymaps")
+-- require("core.keymaps")
+require("core.mappings")
 require("core.autocmd")
 -- require("core.autocommand")
 require("core.theme")
