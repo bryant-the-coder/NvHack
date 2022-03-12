@@ -38,6 +38,11 @@ map("v", "d", '"_d"')
 -- Don't yank text on cut
 map("n", "x", '"_x')
 
+-- Swap booleans
+map("n", "<leader>sb", function()
+	return require("core.utils").swap_boolean()
+end)
+
 -- Indenting
 map("v", ">", ">gv")
 map("v", "<", "<gv")
@@ -53,6 +58,16 @@ map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
 -- nimap("<C-s>", "<cmd>w<CR>")
 map("n", "<leader>sf", "<cmd>source % <CR>")
+
+-- Go to url
+-- Windows user
+map("n", "<leader>tu", function()
+	return require("core.utils").url("start")
+end)
+-- Mac or linux user
+--[[ map("n", "<leader>tu", function()
+	return require("core.utils").go_to_url()
+end) ]]
 
 -- Resizing windows
 map("n", "<A-up>", "<C-w>+")
