@@ -35,7 +35,8 @@ local one_bg3 = colors.one_bg3
 -- fg_bg("StatusTerminal", darker_black, red)
 -- fg_bg("FileName", darker_black, red)
 -- fg_bg("Branch", darker_black, nord_blue)
-bg("StatusInactive", "#282c34")
+-- fg_bg("Error", darker_black, red)
+-- bg("StatusInactive", "#282c34")
 bg("StatusLineNC", "#15171c")
 fg_bg("StatusNormal", "#181a1f", "#98c379")
 fg_bg("StatusReplace", "#181a1f", "#E5C07B")
@@ -43,8 +44,11 @@ fg_bg("StatusInsert", "#181a1f", "#61AFEF")
 fg_bg("StatusCommand", "#181a1f", "#56B6C2")
 fg_bg("StatusVisual", "#181a1f", "#C678DD")
 fg_bg("StatusTerminal", "#181a1f", "#E06C75")
--- fg_bg("FileName", "#181a1f", "#E06C75")
+fg("FileName", "#a9b1d6")
 fg_bg("Branch", "#181a1f", "#ff69b4")
+fg_bg("Error", "#18171F", "#EE6D85" .. " gui=bold")
+fg_bg("Warning", "#18171F", "#D7A65F" .. " gui=bold")
+fg_bg("Clock", "#18171F", "#41a6b5")
 
 -----------------------------------
 --           Basic               --

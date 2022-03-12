@@ -1,6 +1,7 @@
 local fn = vim.fn
 local api = vim.api
 
+--Modes {{{
 local modes = {
 	["n"] = "NORMAL",
 	["no"] = "NORMAL",
@@ -47,7 +48,9 @@ local function update_mode_colors()
 	end
 	return mode_color
 end
+--}}}
 
+-- Filename {{{
 local function filename()
 	local fname = fn.expand("%:t")
 	if fname == "" then
@@ -84,6 +87,69 @@ local vcs = function()
 		" ",
 	})
 end
+-- }}}
+
+-- LSP that didnt show up {{{
+-- local fmt = string.format
+-- local function get_diagnostic(prefix, severity)
+-- 	local count
+-- 	if vim.fn.has("nvim-0.6") == 0 then
+-- 		count = vim.lsp.diagnostic.get_count(0, severity)
+-- 	else
+-- 		local severities = {
+-- 			["Warning"] = vim.diagnostic.severity.WARN,
+-- 			["Error"] = vim.diagnostic.severity.ERROR,
+-- 		}
+-- 		count = #vim.diagnostic.get(0, { severity = severities[severity] })
+-- 	end
+-- 	if count < 1 then
+-- 		return ""
+-- 	end
+-- 	return fmt("%s:%d", prefix, count)
+-- end
+
+-- local function get_error()
+-- 	return get_diagnostic("E", "Error")
+-- end
+
+-- local function get_warning()
+-- 	return get_diagnostic(" W", "Warning")
+-- end
+-- }}}
+
+-- Clock {{{
+local function clock()
+	return "羽 " .. os.date("%H:%M ")
+end
+--}}}
+
+-- LSP {{{
+local error = function()
+	local result = {}
+	local levels = {
+		errors = "Error",
+	}
+
+	for k, level in pairs(levels) do
+		result[k] = vim.lsp.diagnostic.get_count(0, level)
+	end
+
+	return string.format(" E:%s ", result["errors"] or 0)
+end
+
+local warning = function()
+	local result = {}
+	local levels = {
+		errors = "Error",
+	}
+
+	for k, level in pairs(levels) do
+		result[k] = vim.lsp.diagnostic.get_count(0, level)
+	end
+
+	return string.format(" W:%s ", result["warnings"] or 0)
+end
+-- }}}
 
 Statusline = {}
 
@@ -99,6 +165,14 @@ Statusline.active = function()
 		-- modified(), -- Modified filetype
 		readonly(), -- Readonly filetype
 		"%#Normal#",
+		"%=",
+		"%#Error#",
+		error(),
+		"%#Normal#",
+		"%#Warning#",
+		warning(),
+		"%#Clock#",
+		clock(),
 	})
 end
 

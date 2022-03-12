@@ -28,11 +28,4 @@ M.get = function()
 	return require("hl_themes." .. theme)
 end
 
-M.normal_insert = function(lhs, rhs, opts)
-	local default_options = { noremap = true, silent = true }
-	if opts then
-		default_options = vim.tbl_extend("force", default_options, opts)
-	end
-	vim.keymap.set({ "n", "i" }, lhs, rhs, default_options)
-end
 return M
