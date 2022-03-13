@@ -55,19 +55,6 @@ Telescope
 Trouble
 <img src="./utils/media/trouble.png" />
 
-## CREDITS
-
-Thanks to these wonderful people. Their config guided me into making my config.
-
-- [max397574](https://github.com/max397574/NeovimConfig)
-  > Complicated config but you will find it very useful.
-- [abzcoding](https://github.com/abzcoding/lvim)
-  > amazing config. recommend to check it out.
-- [tamton-aquib](https://github.com/tamton-aquib/nvim)
-  > Remember to check his plugin. [staline](https://github.com/tamton-aquib/staline.nvim)
-- [vsedov](https://github.com/vsedov/nvim)
-- [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
-
 ```
 nvim
 ├─ .git
@@ -121,20 +108,23 @@ nvim
 │     └─ plugins.lua
 ├─ README.md
 ├─ spell
-│  ├─ en.utf-8.add
-│  └─ en.utf-8.add.spl
 ├─ stylua.toml
 ├─ todos
 │  ├─ inbox.norg
 │  └─ index.norg
 └─ utils
-   └─ media
-      ├─ cmp.png
-      ├─ custom_statusline.png
-      ├─ file_explorer.png
-      ├─ lsp.png
-      ├─ startscreen.png
-      ├─ telescope.png
-      └─ trouble.png
 
 ```
+
+## CREDITS
+
+Thanks to these wonderful people. Their config guided me into making my config.
+
+- [max397574](https://github.com/max397574/NeovimConfig)
+  > Complicated config but you will find it very useful.
+- [abzcoding](https://github.com/abzcoding/lvim)
+  > amazing config. recommend to check it out.
+- [tamton-aquib](https://github.com/tamton-aquib/nvim)
+  > Remember to check his plugin. [staline](https://github.com/tamton-aquib/staline.nvim)
+- [vsedov](https://github.com/vsedov/nvim)
+- [tjdevseries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
