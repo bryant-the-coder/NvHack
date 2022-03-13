@@ -61,7 +61,7 @@ cmd("TextYankPost", {
 	end,
 })
 
--- Nofity when file change
+-- Nofity when file changes
 augroup("auto_reload_file", {})
 cmd("FileChangedShellPost", {
 	desc = "Actions when the file is changed outside of Neovim",

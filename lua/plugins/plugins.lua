@@ -356,6 +356,15 @@ return require("packer").startup({
 			},
 			opt = true,
 		})
+
+		use({
+			"rcarriga/nvim-notify",
+			opt = true,
+			event = "BufEnter",
+			config = function()
+				require("plugins.config.notify")
+			end,
+		})
 	end,
 	config = {
 		profile = {

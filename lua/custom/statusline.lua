@@ -89,7 +89,7 @@ local vcs = function()
 end
 -- }}}
 
--- LSP that didnt show up {{{
+-- LSP {{{
 local fmt = string.format
 
 --- Getting diagnostic
@@ -104,29 +104,35 @@ local function get_diagnostic(prefix, severity)
 		local severities = {
 			["Warning"] = vim.diagnostic.severity.WARN,
 			["Error"] = vim.diagnostic.severity.ERROR,
+			["Info"] = vim.diagnostic.severity.INFO,
+			["Hint"] = vim.diagnostic.severity.HINT,
 		}
 		count = #vim.diagnostic.get(0, { severity = severities[severity] })
 	end
-	if count < 1 then
-		return ""
-	end
-	return fmt("%s:%d", prefix, count)
+	return fmt(" %s:%d ", prefix, count)
 end
 
 local function get_error()
-	return get_diagnostic(" E", "Error")
+	return get_diagnostic("X", "Error")
 end
 local function get_warning()
-	return get_diagnostic(" W", "Warning")
+	return get_diagnostic("W", "Warning")
 end
+-- local function get_info()
+-- 	return get_diagnostic("I", "Info")
+-- end
+-- local function get_hint()
+-- 	return get_diagnostic("H", "Hint")
+-- end
 -- }}}
 
 -- Clock {{{
 local function clock()
-	return "羽 " .. os.date("%H:%M ")
+	return " 羽 " .. os.date("%H:%M ")
 end
 --}}}
 
+-- Main content {{{
 Statusline = {}
 
 Statusline.active = function()
@@ -165,6 +171,7 @@ end
 function Statusline.short()
 	return "%#StatusLineNC#   NvimTree"
 end
+-- }}}
 
 api.nvim_exec(
 	[[

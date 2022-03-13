@@ -63,12 +63,12 @@ cmd([[
 ]])
 
 -- Reload the contents of file if changed outside of nvim
--- local status_ok, notify = pcall(require, "notify")
--- if not status_ok then
--- 	return
--- end
+local status_ok, notify = pcall(require, "notify")
+if not status_ok then
+	return
+end
 
--- vim.notify = notify
+vim.notify = notify
 cmd([[
   augroup auto_reload_file
     autocmd!
