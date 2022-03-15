@@ -49,7 +49,17 @@ bufferline.setup({
 		buffer_selected = {
 			guifg = default.colors.white,
 			guibg = default.colors.black,
-			gui = "bold",
+			gui = "bold,italic",
+		},
+		duplicate_selected = {
+			guifg = default.colors.white,
+			guibg = default.colors.black,
+			gui = "bold,italic",
+		},
+		duplicate_visible = {
+			guifg = default.colors.white,
+			guibg = default.colors.black,
+			gui = "bold,italic",
 		},
 		buffer_visible = {
 			guifg = default.colors.light_grey,
@@ -120,6 +130,10 @@ bufferline.setup({
 		tab = {
 			guifg = default.colors.light_grey,
 			guibg = default.colors.one_bg3,
+		},
+		duplicate = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
 		},
 		tab_selected = {
 			guifg = default.colors.black2,
