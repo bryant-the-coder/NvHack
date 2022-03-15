@@ -61,11 +61,20 @@ cmd("TextYankPost", {
 	end,
 })
 
+cmd("FileType", {
+	desc = "Quit with q in this filetypes",
+	group = "_buffer",
+	pattern = "qf,help,man,lspinfo,startuptime,Trouble",
+	callback = function()
+		vim.keymap.set("n", "q", "<CMD>close<CR>")
+	end,
+})
+
 -- Nofity when file changes
-augroup("auto_reload_file", {})
+augroup("_auto_reload_file", {})
 cmd("FileChangedShellPost", {
 	desc = "Actions when the file is changed outside of Neovim",
-	group = "auto_reload_file",
+	group = "_auto_reload_file",
 	callback = function()
 		vim.notify("The file has been changed, reloading the buffer", vim.log.levels.WARN)
 	end,
@@ -73,12 +82,13 @@ cmd("FileChangedShellPost", {
 
 cmd({ "FocusGained", "CursorHold" }, {
 	desc = "Actions when the file is changed outside of Neovim",
-	group = "auto_reload_file",
+	group = "_auto_reload_file",
 	command = [[if getcmdwintype() == '' | checktime | endif]],
 })
 
-augroup("lsp", {})
+augroup("_lsp", {})
 cmd({ "CursorHold" }, {
-	group = "lsp",
+	desc = "Open float when there is diagnostics",
+	group = "_lsp",
 	callback = vim.diagnostic.open_float,
 })
