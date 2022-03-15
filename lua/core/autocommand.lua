@@ -66,11 +66,19 @@ augroup("auto_reload_file", {})
 cmd("FileChangedShellPost", {
 	desc = "Actions when the file is changed outside of Neovim",
 	group = "auto_reload_file",
-	command = [[call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'info', {'title': 'File'})]],
+	callback = function()
+		vim.notify("The file has been changed, reloading the buffer", vim.log.levels.WARN)
+	end,
 })
 
 cmd({ "FocusGained", "CursorHold" }, {
 	desc = "Actions when the file is changed outside of Neovim",
 	group = "auto_reload_file",
 	command = [[if getcmdwintype() == '' | checktime | endif]],
+})
+
+augroup("lsp", {})
+cmd({ "CursorHold" }, {
+	group = "lsp",
+	callback = vim.diagnostic.open_float,
 })

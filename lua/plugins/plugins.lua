@@ -319,20 +319,6 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Smooth escaping
-		use({
-			"max397574/better-escape.nvim",
-			event = { "InsertEnter" },
-			opt = true,
-			config = function()
-				require("better_escape").setup({
-					mapping = { "jj", "jk", "kj" },
-					timeout = vim.o.timeoutlen,
-					keys = "<ESC>",
-				})
-			end,
-		})
-
 		-- Show ppl code in url form
 		use({
 			"rktjmp/paperplanes.nvim",
@@ -363,6 +349,19 @@ return require("packer").startup({
 			event = "BufEnter",
 			config = function()
 				require("plugins.config.notify")
+			end,
+		})
+
+		use({
+			"ThePrimeagen/refactoring.nvim",
+			opt = true,
+		})
+
+		use({
+			"andweeb/presence.nvim",
+			opt = true,
+			config = function()
+				require("plugins.config.presence")
 			end,
 		})
 	end,

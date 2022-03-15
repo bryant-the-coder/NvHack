@@ -1,25 +1,32 @@
-local status_ok, notify = pcall(require, "notify")
-if not status_ok then
-	return
-end
+local notify = require("notify")
+local default = {
+	stages = "fade_in_slide_out",
+	render = "default",
+	timeout = 2000,
+	background_colour = function()
+		local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+		if group_bg == "" or group_bg == "none" then
+			group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
+			if group_bg == "" or group_bg == "none" then
+				return "#000000"
+			end
+		end
+		return group_bg
+	end,
 
-notify.setup({
-	stages = "fade",
-	on_open = nil,
-	on_close = nil,
-	render = "minimal",
-	timeout = 4500,
-	max_width = nil,
-	max_height = nil,
-	background_colour = "Normal",
-	minimum_width = 60,
+	minimum_width = 10,
 	icons = {
-		ERROR = " ",
-		WARN = " ",
-		INFO = " ",
-		DEBUG = " ",
-		TRACE = "✎ ",
+		ERROR = "",
+		WARN = "",
+		INFO = "",
+		DEBUG = "",
+		TRACE = "✎",
 	},
-})
+}
 
+notify.setup(default)
+
+vim.notify = function(msg, level, opts)
+	notify(msg, level, opts)
+end
 -- There is a notify in autocommand.lua & handlers.lua

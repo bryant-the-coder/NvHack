@@ -23,8 +23,7 @@ M.fg_bg = function(group, fgcol, bgcol)
 	cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
---- Getting colorscheme from base16
----@return string hl_themes.onedark
+--- Getting color from base16
 M.get = function()
 	local theme = "onedark"
 	return require("hl_themes." .. theme)

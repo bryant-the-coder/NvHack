@@ -50,32 +50,7 @@ local function update_mode_colors()
 end
 --}}}
 
--- Filename {{{
-local function filename()
-	local fname = fn.expand("%:t")
-	if fname == "" then
-		return ""
-	end
-	return " " .. fname .. " "
-end
-
--- local modified = function()
--- 	if vim.bo.modified then
--- 		if vim.bo.readonly then
--- 			return "[-]"
--- 		end
--- 		return "[+]"
--- 	end
--- 	return ""
--- end
-
-local readonly = function()
-	if vim.bo.readonly then
-		return "RO"
-	end
-	return ""
-end
-
+-- Git Branch {{{
 local vcs = function()
 	local git_info = vim.b.gitsigns_status_dict
 	if not git_info or git_info.head == "" then
@@ -132,6 +107,54 @@ local function clock()
 end
 --}}}
 
+-- Filename {{{
+local function get_name()
+	local fname = fn.expand("%:t")
+	if fname == "" then
+		return ""
+	end
+	return " " .. fname .. " "
+end
+
+local function get_readonly()
+	if vim.bo.readonly then
+		return "[RO]"
+	end
+	return ""
+end
+
+local function get_modified()
+	if vim.bo.modified then
+		return "[+]"
+	end
+	if not vim.bo.modifiable then
+		return "[-]"
+	end
+	return ""
+end
+
+local function filename()
+	local name = get_name()
+	local flags = table.concat({ get_readonly(), get_modified() })
+	if flags ~= "" then
+		flags = " " .. flags
+	end
+	return table.concat({ name, flags })
+end
+-- }}}
+
+-- local function get_file_icon(filename, ext)
+-- 	local status, icons = pcall(require, "nvim-web-devicons")
+-- 	if not status then
+-- 		return
+-- 	end
+-- 	return icons.get_icon(filename, ext, { default = true })
+-- end
+
+-- local function file_icon(filename, extension)
+-- 	require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+-- end
+
 -- Main content {{{
 Statusline = {}
 
@@ -144,8 +167,6 @@ Statusline.active = function()
 		vcs(),
 		"%#Filename#",
 		filename(), -- Show filename
-		-- modified(), -- Modified filetype
-		readonly(), -- Readonly filetype
 		"%#Normal#",
 		"%=",
 		"%#Error#",
@@ -163,7 +184,7 @@ function Statusline.inactive()
 		"%#StatusInactive#",
 		"%=",
 		filename(),
-		readonly(),
+
 		"%=",
 	})
 end
