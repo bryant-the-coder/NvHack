@@ -206,12 +206,12 @@ return require("packer").startup({
 		})
 
 		-- Welcome screen
-		use({
-			"glepnir/dashboard-nvim",
-			config = function()
-				require("plugins.config.dashboard")
-			end,
-		})
+		-- use({
+		-- 	"glepnir/dashboard-nvim",
+		-- 	config = function()
+		-- 		require("plugins.config.dashboard")
+		-- 	end,
+		-- })
 
 		-- Indentation
 		use({
