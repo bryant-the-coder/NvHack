@@ -47,7 +47,7 @@ hl(0, "EndOfBuffer", { fg = black })
 
 -- For floating windows
 hl(0, "FloatBorder", { fg = blue })
-hl(0, "NormalFloat", { fg = darker_black })
+hl(0, "NormalFloat", { bg = darker_black })
 
 -- Inactive statuslines as thin lines
 hl(0, "StatuslineNC", { fg = one_bg3 })
