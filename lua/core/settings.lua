@@ -23,10 +23,11 @@ o.wrap = false -- Don't wrap
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.completeopt = "menuone,noselect,menu"
 o.foldmethod = "marker"
-o.fillchars = { eob = " " } -- Fillchars
 o.lazyredraw = true -- Don't redraw screen while processing macros
 o.termguicolors = true
 o.signcolumn = "yes:2"
+o.shortmess:append("I") -- Less and shorter messages in command line
+o.fillchars = { eob = " " } -- Fillchars
 
 -- CMD line
 o.cmdheight = 1 -- CMD height
