@@ -1,6 +1,6 @@
 local notify = require("notify")
 local default = {
-	stages = "fade_in_slide_out",
+	stages = "fade",
 	render = "default",
 	timeout = 2000,
 	background_colour = function()
@@ -14,7 +14,7 @@ local default = {
 		return group_bg
 	end,
 
-	minimum_width = 10,
+	minimum_width = 50,
 	icons = {
 		ERROR = "",
 		WARN = "",
@@ -29,4 +29,6 @@ notify.setup(default)
 vim.notify = function(msg, level, opts)
 	notify(msg, level, opts)
 end
+
+vim.notify = require("notify")
 -- There is a notify in autocommand.lua & handlers.lua
