@@ -196,6 +196,11 @@ return require("packer").startup({
 			opt = true,
 			cmd = "Telescope",
 		})
+		use({
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make",
+			after = "telescope.nvim",
+		})
 
 		-- Colorizer
 		use({
