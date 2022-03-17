@@ -25,7 +25,7 @@ end
 
 --- Getting color from base16
 M.get = function()
-	local theme = "onedark"
+	local theme = "everforest"
 	return require("hl_themes." .. theme)
 end
 

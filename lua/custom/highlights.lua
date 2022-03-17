@@ -60,11 +60,13 @@ fg("cursorlinenr", white)
 fg("EndOfBuffer", black)
 
 -- For floating windows
-fg("FloatBorder", blue)
+fg("FloatBorder", light_grey)
 bg("NormalFloat", darker_black)
 
 -- inactive statuslines as thin lines
 fg("StatusLineNC", one_bg3 .. " gui=underline")
+
+bg("Visual", light_grey)
 
 fg("LineNr", light_grey)
 fg("NvimInternalError", red)
