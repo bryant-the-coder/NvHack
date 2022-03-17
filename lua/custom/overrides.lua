@@ -23,6 +23,44 @@ local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
 
+-- Define bg color
+-- @param group Group
+-- @param color Color
+local function bg(group, color, args)
+	local arg = {}
+	if args then
+		vim.tbl_extend("keep", arg, args)
+	end
+	arg["bg"] = color
+	vim.api.nvim_set_hl(0, group, arg)
+end
+
+-- Define fg color
+-- @param group Group
+-- @param color Color
+local function fg(group, color, args)
+	local arg = {}
+	if args then
+		arg = args
+	end
+	arg["fg"] = color
+	vim.api.nvim_set_hl(0, group, arg)
+end
+
+-- Define bg and fg color
+-- @param group Group
+-- @param fgcol Fg Color
+-- @param bgcol Bg Color
+local function fg_bg(group, fgcol, bgcol, args)
+	local arg = {}
+	if args then
+		arg = args
+	end
+	arg["fg"] = bgcol
+	arg["bg"] = fgcol
+	vim.api.nvim_set_hl(0, group, arg)
+end
+
 hl(0, "StatuslineNC", { bg = "#15171C" })
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
 hl(0, "StatusReplace", { fg = "#181a1f", bg = "#E5C07B" })
@@ -40,81 +78,89 @@ hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 --           Basic               --
 -----------------------------------
 -- Line Number
-hl(0, "cursorlinenr", { fg = white })
+fg("cursorlinenr", white)
 
 -- Same as bg, so it doesn't appear
-hl(0, "EndOfBuffer", { fg = black })
+fg("EndOfBuffer", black)
 
 -- For floating windows
-hl(0, "FloatBorder", { fg = blue })
-hl(0, "NormalFloat", { bg = darker_black })
+-- fg("FloatBorder", blue)
+bg("NormalFloat", darker_black)
+
+-- testing
+fg("FloatBorder", light_grey)
 
 -- Inactive statuslines as thin lines
-hl(0, "StatuslineNC", { fg = one_bg3 })
-hl(0, "LineNr", { fg = light_grey })
-hl(0, "NvimInternalError", { fg = red })
-hl(0, "VertSplit", { fg = one_bg2 })
+fg("StatuslineNC", one_bg3)
+fg("LineNr", light_grey)
+fg("NvimInternalError", red)
+fg("VertSplit", one_bg2)
+
+-- testing
+fg("Visual", light_grey)
 
 -- Comments
-hl(0, "Comment", { fg = grey, italic = true, bold = true })
+fg("Comment", light_grey, { italic = true, bold = true })
 
 -----------------------------------
 --           Plugins             --
 -----------------------------------
 -- Lsp diagnostics
-hl(0, "DiagnosticHint", { fg = purple })
-hl(0, "DiagnosticError", { fg = red })
-hl(0, "DiagnosticWarn", { fg = yellow })
-hl(0, "DiagnosticInformation", { fg = green })
-hl(0, "DiagnosticHeader", { fg = "#2cb27f", bold = true, italic = true })
+fg("DiagnosticHint", purple)
+fg("DiagnosticError", red)
+fg("DiagnosticWarn", yellow)
+fg("DiagnosticInformation", green)
+fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
 
 -- Pmenu
-hl(0, "Pmenu", { bg = one_bg })
-hl(0, "PmenuSbar", { bg = one_bg2 })
-hl(0, "PmenuSel", { bg = pmenu_bg })
-hl(0, "PmenuThumb", { bg = nord_blue })
+bg("Pmenu", one_bg)
+bg("PmenuSbar", one_bg2)
+bg("PmenuThumb", nord_blue)
+bg("PmenuSel", pmenu_bg)
 
 -- CMP
-hl(0, "CmpItemAbbrDeprecated", { fg = "#808080", strikethrough = true })
-hl(0, "CmpItemAbbr", { fg = white })
+fg("CmpItemAbbrDeprecated", "#808080", { strikethrough = true })
+fg("CmpItemAbbr", white)
 
-hl(0, "CmpItemAbbrMatch", { fg = "#569CD6" })
-hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#569CD6" })
+fg("CmpItemAbbrMatch", "#569CD6")
+fg("CmpItemAbbrMatchFuzzy", "#569CD6")
 
-hl(0, "CmpItemKIndVariable", { fg = "#9CDCFE" })
-hl(0, "CmpItemMenuInterface", { fg = "#9CDCFE" })
-hl(0, "CmpItemMenuText", { fg = "#9CDCFE" })
+fg("CmpItemKindVariable", "#9CDCFE")
+fg("CmpItemMenuInterface", "#9CDCFE")
+fg("CmpItemMenuText", "#9CDCFE")
 
-hl(0, "CmpItemKindFunction", { fg = "#C586C0" })
-hl(0, "CmpItemKindMethod", { fg = "#C586C0" })
+fg("CmpItemKindFunction", "#C586C0")
+fg("CmpItemKindMethod", "#C586C0")
 
-hl(0, "CmpItemKindKeyword", { fg = "#D4D4D4" })
-hl(0, "CmpItemKindProperty", { fg = "#D4D4D4" })
-hl(0, "CmpItemKindUnit", { fg = "#D4D4D4" })
+fg("CmpItemKindKeyword", "#D4D4D4")
+fg("CmpItemKindProperty", "#D4D4D4")
+fg("CmpItemKindUnit", "#D4D4D4")
+
+fg("CmpCompletionWindowBorder", light_grey)
+fg("CmpDocumentationWindowBorder", light_grey)
 
 -- Telescope
-hl(0, "TelescopeNormal", { bg = darker_black })
-hl(0, "TelescopeSelection", { bg = black2 })
-hl(0, "TelescopeBorder", { bg = darker_black, fg = darker_black })
-hl(0, "TelescopePromptBorder", { bg = black2, fg = black2 })
-hl(0, "TelescopePromptNormal", { fg = white, bg = black2 })
-hl(0, "TelescopePromptNormal", { fg = white, bg = black2 })
-hl(0, "TelescopePromptPrefix", { fg = red, bg = black2 })
-hl(0, "TelescopePreviewTitle", { fg = black, bg = green, italic = true })
-hl(0, "TelescopePromptTitle", { fg = black, bg = red, italic = true })
-hl(0, "TelescopeResultsTitle", { fg = darker_black, bg = darker_black })
+bg("TelescopeNormal", darker_black)
+bg("TelescopeSelection", black2)
+fg_bg("TelescopeBorder", darker_black, darker_black)
+fg_bg("TelescopePromptBorder", black2, black2)
+fg_bg("TelescopePromptNormal", black2, white)
+fg_bg("TelescopePromptPrefix", black2, red)
+fg_bg("TelescopePreviewTitle", green, black, { italic = true })
+fg_bg("TelescopePromptTitle", red, black, { italic = true })
+fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 
 -- Nvim-Tree
-hl(0, "NvimTreeNormal", { bg = darker_black })
-hl(0, "NvimTreeNormalNC", { bg = darker_black })
-hl(0, "NvimTreeEmptyFolderName", { fg = folder_bg })
-hl(0, "NvimTreeFolderName", { fg = folder_bg })
-hl(0, "NvimTreeFolderIcon", { fg = folder_bg })
-hl(0, "NvimTreeOpenedFolderName", { fg = folder_bg })
-hl(0, "NvimTreeEndOfBuffer", { fg = darker_black })
-hl(0, "NvimTreeGitDirty", { fg = red })
-hl(0, "NvimTreeIndentMarker", { fg = one_bg2 })
-hl(0, "NvimTreeRootFolder", { fg = red, underline = true })
-hl(0, "NvimTreeStatuslineNc", { fg = darker_black, bg = darker_black })
-hl(0, "NvimTreeVertSplit", { fg = darker_black, bg = darker_black })
-hl(0, "NvimTreeWindowPicker", { fg = red, bg = black2 })
+bg("NvimTreeNormal", darker_black)
+bg("NvimTreeNormalNC", darker_black)
+fg("NvimTreeEmptyFolderName", folder_bg)
+fg("NvimTreeFolderName", folder_bg)
+fg("NvimTreeFolderIcon", folder_bg)
+fg("NvimTreeOpenedFolderName", folder_bg)
+fg("NvimTreeEndOfBuffer", darker_black)
+fg("NvimTreeGitDirty", red)
+fg("NvimTreeIndentMarker", one_bg2)
+fg("NvimTreeRootFolder", red, { underline = true })
+fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
+fg_bg("NvimTreeVertSplit", darker_black, darker_black)
+fg_bg("NvimTreeWindowPicker", red, black2)
