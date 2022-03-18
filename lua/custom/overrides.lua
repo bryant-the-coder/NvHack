@@ -78,7 +78,7 @@ hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 --           Basic               --
 -----------------------------------
 -- Line Number
-fg("cursorlinenr", white)
+fg("cursorlinenr", grey)
 
 -- Same as bg, so it doesn't appear
 fg("EndOfBuffer", black)
@@ -89,6 +89,7 @@ bg("NormalFloat", darker_black)
 
 -- testing
 fg("FloatBorder", light_grey)
+fg("WinSeparator", blue)
 
 -- Inactive statuslines as thin lines
 fg("StatuslineNC", one_bg3)
@@ -97,7 +98,7 @@ fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
 -- testing
-fg("Visual", light_grey)
+fg("Visual", blue)
 
 -- Comments
 fg("Comment", light_grey, { italic = true, bold = true })
@@ -149,6 +150,7 @@ fg_bg("TelescopePromptPrefix", black2, red)
 fg_bg("TelescopePreviewTitle", green, black, { italic = true })
 fg_bg("TelescopePromptTitle", red, black, { italic = true })
 fg_bg("TelescopeResultsTitle", darker_black, darker_black)
+bg("TelescopePreviewLine", "#353b45")
 
 -- Nvim-Tree
 bg("NvimTreeNormal", darker_black)

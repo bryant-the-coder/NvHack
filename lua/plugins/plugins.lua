@@ -332,6 +332,7 @@ return require("packer").startup({
 			opt = true,
 		})
 
+		-- Fast speed
 		use({
 			"ggandor/lightspeed.nvim",
 			event = "BufEnter",
@@ -348,6 +349,7 @@ return require("packer").startup({
 			opt = true,
 		})
 
+		-- Notifications
 		use({
 			"rcarriga/nvim-notify",
 			opt = true,
@@ -362,9 +364,10 @@ return require("packer").startup({
 			opt = true,
 		})
 
+		-- Discord rich presence
 		use({
 			"andweeb/presence.nvim",
-			opt = true,
+			event = "BufEnter",
 			config = function()
 				require("plugins.config.presence")
 			end,
