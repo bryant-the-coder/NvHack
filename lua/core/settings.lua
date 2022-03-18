@@ -5,37 +5,52 @@ local o = vim.opt
 -- Non-blinking in normal & visual mode
 -- Blink in insert mode
 o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+o.cursorline = false -- Shows cursorline
 
 -- Mappings
 g.mapleader = "," -- Setting map leader
 o.mouse = "a" -- Enabling mouse mode in all modes
 
+-- Theme
+o.termguicolors = true
+
 -- Basics
 o.number = true -- Shows numbers
 o.relativenumber = true -- Shows relative numbers
-o.showmatch = true -- Shows show match
-o.cursorline = false -- Shows cursorline
+o.signcolumn = "yes:2"
 o.scrolloff = 200 -- Stop scrolling on the number set
+
+-- Splits
 o.splitright = true
 o.splitbelow = true
-o.smartcase = true -- Don't ignore when uppercase search
+
+-- Editor
 o.wrap = false -- Don't wrap
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.completeopt = "menuone,noselect,menu"
 o.foldmethod = "marker"
+o.completeopt = "menuone,noselect,menu"
 o.lazyredraw = true -- Don't redraw screen while processing macros
-o.termguicolors = true
-o.signcolumn = "yes:2"
-o.shortmess:append("I") -- Less and shorter messages in command line
-o.fillchars = { eob = " " } -- Fillchars
 
--- CMD line
+-- Command line
+o.shortmess:append("I") -- Less and shorter messages in command line
 o.cmdheight = 1 -- CMD height
 o.hidden = true
 o.history = 300 -- Remember 300 lines of history
 o.updatetime = 200
 o.smd = false -- Don't show mode in cmdline
--- o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+
+-- Statusline
+o.laststatus = 3
+o.fillchars = {
+	eob = " ",
+	vert = "║",
+	horiz = "═",
+	horizup = "╩",
+	horizdown = "╦",
+	vertleft = "╣",
+	vertright = "╠",
+	verthoriz = "╬",
+}
 
 -- Tabs / Indent
 o.expandtab = true
@@ -54,6 +69,8 @@ o.swapfile = false -- Don't write swapfile
 o.hlsearch = true
 o.incsearch = true
 o.ignorecase = true
+o.showmatch = true -- Shows show match
+o.smartcase = true -- Don't ignore when uppercase search
 
 -- Python
 g.python3_host_prog = "C:/Python310/python.exe"
