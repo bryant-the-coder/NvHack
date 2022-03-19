@@ -103,7 +103,7 @@ end
 
 -- Clock {{{
 local function clock()
-	return " 羽 " .. os.date("%H:%M ")
+	return " 什 " .. os.date("%H:%M ")
 end
 --}}}
 
