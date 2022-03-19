@@ -48,6 +48,17 @@ map("n", "<leader>sb", function()
 	return require("core.utils").swap_boolean()
 end)
 
+-- Disable arrow keys
+map({ "n", "v" }, "<Up>", "<nop>")
+map({ "n", "v" }, "<Down>", "<nop>")
+map({ "n", "v" }, "<Left>", "<nop>")
+map({ "n", "v" }, "<Right>", "<nop>")
+
+--  j = gj
+-- k = gk
+map({ "n", "v" }, "j", "gj")
+map({ "n", "v" }, "k", "gk")
+
 -- Indenting
 map("v", ">", ">gv")
 map("v", "<", "<gv")
