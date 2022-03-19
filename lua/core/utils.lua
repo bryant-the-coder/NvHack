@@ -25,8 +25,9 @@ end
 
 --- Getting color from base16
 M.get = function()
-	local theme = "everforest"
-	return require("hl_themes." .. theme)
+	local everforest = "everforest"
+	local onedark = "onedark"
+	return require("hl_themes." .. everforest)
 end
 
 --- Go to url
