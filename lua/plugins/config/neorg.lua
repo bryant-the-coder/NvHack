@@ -21,6 +21,9 @@ neorg.setup({
 		["core.gtd.base"] = {
 			config = { -- Note that this table is optional and doesn't need to be provided
 				workspace = "gtd",
+				default_lists = {
+					inbox = "todo.norg",
+				},
 			},
 		},
 		["core.norg.concealer"] = {
@@ -51,6 +54,13 @@ neorg.setup({
 						},
 					},
 				},
+			},
+		},
+		["core.keybinds"] = {
+			config = {
+				hook = function(keybinds)
+					keybinds.remap_event("norg", "n", "ct", "core.norg.qol.todo_items.todo.task_cycle")
+				end,
 			},
 		},
 	},
