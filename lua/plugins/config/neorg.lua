@@ -10,7 +10,9 @@ neorg.setup({
 			config = {
 				workspaces = {
 					gtd = "C:/Users/User/AppData/Local/nvim/todos/",
+					homework = "E:/",
 				},
+				open_last_workspace = false,
 			},
 		},
 		["core.norg.completion"] = {
@@ -59,8 +61,14 @@ neorg.setup({
 		["core.keybinds"] = {
 			config = {
 				hook = function(keybinds)
-					keybinds.remap_event("norg", "n", "ct", "core.norg.qol.todo_items.todo.task_cycle")
+					keybinds.remap_event("norg", "n", "lp", "core.norg.qol.todo_items.todo.task_cycle")
 				end,
+			},
+		},
+		["core.norg.journal"] = {
+			config = {
+				workspace = "homework",
+				strategy = "flat",
 			},
 		},
 	},

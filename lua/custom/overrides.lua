@@ -61,6 +61,12 @@ local function fg_bg(group, fgcol, bgcol, args)
 	vim.api.nvim_set_hl(0, group, arg)
 end
 
+-- Toggle transparency / ui right here :D
+local ui = {
+	transparency = false,
+	italic = true,
+}
+
 hl(0, "StatuslineNC", { bg = "#15171C" })
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
 hl(0, "StatusReplace", { fg = "#181a1f", bg = "#E5C07B" })
@@ -73,6 +79,19 @@ hl(0, "Branch", { fg = "#181a1f", bg = "#ff69b4" })
 hl(0, "Error", { fg = "#181a1f", bg = "#EE6D85", bold = true })
 hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
+
+if ui.italic then
+	fg("Comment", light_grey, { italic = true, bold = true })
+	fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
+	fg_bg("TelescopePreviewTitle", green, black, { italic = true })
+	fg_bg("TelescopePromptTitle", red, black, { italic = true })
+	fg_bg("TelescopeResultsTitle", darker_black, darker_black)
+else
+	fg("Comment", light_grey, { bold = true })
+	fg("DiagnosticHeader", "#2cb27f", { bold = true })
+	fg_bg("TelescopePreviewTitle", green, black)
+	fg_bg("TelescopePromptTitle", red, black)
+end
 
 -----------------------------------
 --           Basic               --
@@ -100,9 +119,6 @@ fg("VertSplit", one_bg2)
 -- testing
 fg("Visual", blue)
 
--- Comments
-fg("Comment", light_grey, { italic = true, bold = true })
-
 -----------------------------------
 --           Plugins             --
 -----------------------------------
@@ -111,7 +127,6 @@ fg("DiagnosticHint", purple)
 fg("DiagnosticError", red)
 fg("DiagnosticWarn", yellow)
 fg("DiagnosticInformation", green)
-fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
 
 -- Pmenu
 bg("Pmenu", one_bg)
@@ -147,8 +162,6 @@ fg_bg("TelescopeBorder", darker_black, darker_black)
 fg_bg("TelescopePromptBorder", black2, black2)
 fg_bg("TelescopePromptNormal", black2, white)
 fg_bg("TelescopePromptPrefix", black2, red)
-fg_bg("TelescopePreviewTitle", green, black, { italic = true })
-fg_bg("TelescopePromptTitle", red, black, { italic = true })
 fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 bg("TelescopePreviewLine", "#353b45")
 

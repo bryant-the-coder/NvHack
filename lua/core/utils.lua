@@ -25,9 +25,14 @@ end
 
 --- Getting color from base16
 M.get = function()
-	local everforest = "everforest"
-	local onedark = "onedark"
-	return require("hl_themes." .. everforest)
+	local theme
+	local time = os.date("*t")
+	if time.hour < 6 or time.hour >= 23 then
+		theme = "onedark"
+	else
+		theme = "everforest"
+	end
+	return require("hl_themes." .. theme)
 end
 
 --- Go to url
