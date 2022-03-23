@@ -9,10 +9,14 @@ neorg.setup({
 		["core.norg.dirman"] = {
 			config = {
 				workspaces = {
-					gtd = "C:/Users/User/AppData/Local/nvim/todos/",
-					homework = "E:/",
+					homework = "E:/neorg/",
 				},
 				open_last_workspace = false,
+			},
+		},
+		["core.export.markdown"] = {
+			config = {
+				extensions = "all",
 			},
 		},
 		["core.norg.completion"] = {
@@ -22,10 +26,7 @@ neorg.setup({
 		},
 		["core.gtd.base"] = {
 			config = { -- Note that this table is optional and doesn't need to be provided
-				workspace = "gtd",
-				default_lists = {
-					inbox = "todo.norg",
-				},
+				workspace = "homework",
 			},
 		},
 		["core.norg.concealer"] = {
