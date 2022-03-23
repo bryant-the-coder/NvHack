@@ -76,7 +76,7 @@ cmd("FileChangedShellPost", {
 	desc = "Actions when the file is changed outside of Neovim",
 	group = "_auto_reload_file",
 	callback = function()
-		vim.notify("The file has been changed, reloading the buffer", vim.log.levels.WARN)
+		vim.notify("File changed, reloading the buffer", vim.log.levels.ERROR)
 	end,
 })
 
@@ -85,7 +85,6 @@ cmd({ "FocusGained", "CursorHold" }, {
 	group = "_auto_reload_file",
 	command = [[if getcmdwintype() == '' | checktime | endif]],
 })
-
 augroup("_lsp", {})
 cmd({ "CursorHold" }, {
 	desc = "Open float when there is diagnostics",
