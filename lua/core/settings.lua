@@ -2,6 +2,7 @@
 local g = vim.g
 local o = vim.opt
 
+o.conceallevel = 2
 -- Non-blinking in normal & visual mode
 -- Blink in insert mode
 o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
