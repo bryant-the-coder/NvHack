@@ -114,31 +114,40 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
+	local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer", "clangd" }
+	if client.name == servers then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
-	if client.name == "jsonls" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
-	if client.name == "html" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
-	if client.name == "sumneko_lua" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
-	if client.name == "rust_analyzer" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
-
+	-- if client.name == "tsserver" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
+	-- if client.name == "jsonls" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
+	-- if client.name == "html" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
+	-- if client.name == "sumneko_lua" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
+	-- if client.name == "rust_analyzer" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
+	-- if client.name == "clangd" then
+	-- 	client.resolved_capabilities.document_formatting = false
+	-- 	client.resolved_capabilities.document_range_formatting = false
+	-- end
 	lsp_highlight_document(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" } or { "utf-8" }
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
@@ -146,5 +155,7 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
+-- Utility functions shared between progress reports for LSP and DAP
 
 return M

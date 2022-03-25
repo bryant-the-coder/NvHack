@@ -21,7 +21,7 @@ parser_configs.norg_table = {
 		branch = "main",
 	},
 }
-require("nvim-treesitter.install").compilers = { "clang" }
+require("nvim-treesitter.install").compilers = { "clang", "gcc" }
 treesitter.setup({
 	ensure_installed = { "html", "javascript", "lua", "scss", "json", "norg", "norg_meta", "norg_table" },
 	sync_install = false,
