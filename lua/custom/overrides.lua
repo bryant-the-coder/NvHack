@@ -122,6 +122,9 @@ fg("Visual", blue)
 -----------------------------------
 --           Plugins             --
 -----------------------------------
+-- Neorg
+bg("NeorgCodeBlock", darker_black)
+
 -- Lsp diagnostics
 fg("DiagnosticHint", purple)
 fg("DiagnosticError", red)
