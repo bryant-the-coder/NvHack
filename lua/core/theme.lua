@@ -24,13 +24,14 @@
 -- })
 
 local base16 = require("base16")
-base16(base16.themes("everforest"))
 
 local theme
 local time = os.date("*t")
+
+-- When its 8am or is equal or more than 9pm = everforest
 if time.hour < 8 or time.hour >= 21 then
-	theme = "onedark"
-else
 	theme = "everforest"
+else
+	theme = "everblush"
 end
 return base16(base16.themes(theme))
