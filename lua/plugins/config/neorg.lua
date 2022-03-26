@@ -14,6 +14,11 @@ neorg.setup({
 				open_last_workspace = false,
 			},
 		},
+		["core.norg.esupports.metagen"] = {
+			config = {
+				type = "auto",
+			},
+		},
 		["core.export.markdown"] = {
 			config = {
 				extensions = "all",
