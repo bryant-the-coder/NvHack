@@ -33,35 +33,13 @@ tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
-	ignore_ft_on_setup = {},
-	auto_close = false,
+	auto_close = true,
 	open_on_tab = true,
 	hijack_cursor = false,
 	update_cwd = false,
 	update_to_buf_dir = {
 		enable = false,
 		auto_open = true,
-	},
-	diagnostics = {
-		enable = false,
-		icons = {
-			hint = " ",
-			info = " ",
-			warning = " ",
-			error = " ",
-		},
-	},
-	update_focused_file = {
-		enable = true,
-		update_cwd = true,
-		ignore_list = {},
-	},
-	filters = {
-		dotfiles = false,
-		custom = { ".git", ".gitattributes", "node_module", "package-lock.json" },
-	},
-	git = {
-		enable = false,
 	},
 	view = {
 		width = 30,
@@ -73,6 +51,27 @@ tree.setup({
 			custom_only = false,
 			list = {},
 		},
+	},
+	hijack_directories = {
+		enable = true,
+		auto_open = true,
+	},
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+		ignore_list = {},
+	},
+	ignore_ft_on_setup = {},
+	system_open = {
+		cmd = nil,
+		args = {},
+	},
+	filters = {
+		dotfiles = false,
+		custom = { ".git", ".gitattributes", "node_module", "package-lock.json" },
+	},
+	git = {
+		enable = false,
 	},
 	trash = {
 		cmd = "trash",
