@@ -25,14 +25,14 @@
 
 local base16 = require("base16")
 
-local theme
-local time = os.date("*t")
-
--- Theme choices
+-- Theme that i like
 -- A) onedark
 -- B) everforest
 -- C) everblush
 -- D) gruvchad
+
+local theme
+local time = os.date("*t")
 
 -- When its 8am or is equal or more than 9pm = everforest
 if time.hour < 8 or time.hour >= 21 then
