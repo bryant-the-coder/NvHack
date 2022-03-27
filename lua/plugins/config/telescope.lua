@@ -38,7 +38,17 @@ telescope.setup({
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-		file_ignore_patterns = { "__pycache__", "node_modules", ".jpg", ".jpeg", ".png", ".ico" },
+		file_ignore_patterns = {
+			"__pycache__",
+			"node_modules",
+			".jpg",
+			".jpeg",
+			".png",
+			".ico",
+			".scm",
+			".add",
+			".add.spl",
+		},
 		mappings = {
 			i = {
 				["<TAB>"] = actions.move_selection_next,

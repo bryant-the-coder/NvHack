@@ -20,7 +20,7 @@ end
 
 return require("packer").startup({
 	function(use)
-		-- Packer can managee itself
+		-- Packer can manage itself
 		use({
 			"wbthomason/packer.nvim",
 		})
@@ -194,7 +194,6 @@ return require("packer").startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			module = "telescope",
-			opt = true,
 			cmd = "Telescope",
 		})
 		use({
