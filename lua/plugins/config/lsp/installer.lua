@@ -18,5 +18,10 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
+	if server.name == "clangd" then
+		local clang_opts = require("plugins.config.lsp.settings.clang")
+		opts = vim.tbl_deep_extend("force", clang_opts, opts)
+	end
+
 	server:setup(opts)
 end)

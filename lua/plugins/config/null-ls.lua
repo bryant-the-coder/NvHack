@@ -12,6 +12,7 @@ null_ls.setup({
 		}),
 		formatting.stylua,
 		formatting.rustfmt,
+		formatting.clang_format,
 	},
 	-- Format on save (laggy)
 	on_attach = function(client)

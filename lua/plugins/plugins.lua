@@ -25,6 +25,10 @@ return require("packer").startup({
 			"wbthomason/packer.nvim",
 		})
 
+		use({
+			"p00f/clangd_extensions.nvim",
+		})
+
 		-- Better performance
 		use({
 			"lewis6991/impatient.nvim",
@@ -60,7 +64,6 @@ return require("packer").startup({
 				require("plugins.config.bufferline")
 			end,
 		})
-		--
 
 		-- Neorg
 		use({
@@ -159,7 +162,7 @@ return require("packer").startup({
 			"hrsh7th/nvim-cmp",
 			module = "cmp",
 			branch = "dev",
-			commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8",
+			commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8", -- There is conflicts in dev branch
 			event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
 			after = { "LuaSnip" },
 			requires = {
