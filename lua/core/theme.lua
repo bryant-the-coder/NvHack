@@ -26,9 +26,9 @@
 local base16 = require("base16")
 
 -- Theme that i like
--- A) onedark
+-- A) everblush
 -- B) everforest
--- C) everblush
+-- C) onedark
 -- D) gruvchad
 
 local theme
