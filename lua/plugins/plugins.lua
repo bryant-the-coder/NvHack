@@ -25,10 +25,6 @@ return require("packer").startup({
 			"wbthomason/packer.nvim",
 		})
 
-		use({
-			"p00f/clangd_extensions.nvim",
-		})
-
 		-- Better performance
 		use({
 			"lewis6991/impatient.nvim",
