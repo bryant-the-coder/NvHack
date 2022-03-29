@@ -27,9 +27,10 @@ local base16 = require("base16")
 
 -- Theme that i like
 -- A) everblush
--- B) everforest
--- C) onedark
--- D) gruvchad
+-- B) UWU
+-- C) everforest
+-- D) onedark
+-- E) gruvchad
 
 local theme
 local time = os.date("*t")
