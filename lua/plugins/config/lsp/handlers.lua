@@ -142,12 +142,13 @@ M.on_attach = function(client, bufnr)
 	if client.name == "clangd" then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
+		client.offset_encoding = "utf-16"
 	end
 	lsp_highlight_document(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }--[[  or { "utf-8" } ]]
+-- capabilities.offsetEncoding = { "utf-16" } or { "utf-8" }
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
