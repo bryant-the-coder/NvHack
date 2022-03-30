@@ -63,11 +63,9 @@ end
 
 -- Toggle transparency / ui right here :D
 local ui = {
-	transparency = false,
+	transparency = true,
 	italic = true,
 }
-
-hl(0, "StatuslineNC", { bg = "#15171C" })
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
 hl(0, "StatusReplace", { fg = "#181a1f", bg = "#E5C07B" })
 hl(0, "StatusInsert", { fg = "#181a1f", bg = "#61AFEF" })
@@ -91,6 +89,13 @@ else
 	fg("DiagnosticHeader", "#2cb27f", { bold = true })
 	fg_bg("TelescopePreviewTitle", green, black)
 	fg_bg("TelescopePromptTitle", red, black)
+end
+
+if ui.transparency then
+	bg("Normal", "none")
+	hl(0, "StatuslineNC", { bg = "none" })
+else
+	hl(0, "StatusLineNC", { bg = "#15171c" })
 end
 
 -----------------------------------
