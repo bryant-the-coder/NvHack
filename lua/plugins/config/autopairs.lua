@@ -14,9 +14,11 @@ npairs.setup({
 })
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
--- Add spaces between parentheses
 npairs.add_rules({
-	-- Alternative version
+	-- CPP < >
+	Rule("<", ">", "cpp"),
+
+	-- Alternative version of add space in parentheses
 	Rule(" ", " ")
 		:with_pair(function(opts)
 			local pair = opts.line:sub(opts.col - 1, opts.col)
@@ -55,7 +57,7 @@ npairs.add_rules({
 		:use_key("]"),
 
 	-- Arror key in js
-	Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
+	Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript", "react" })
 		:use_regex(true)
 		:set_end_pair_length(2),
 
