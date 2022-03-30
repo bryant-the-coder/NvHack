@@ -167,7 +167,7 @@ Statusline.active = function()
 		vcs(),
 		"%#Filename#",
 		filename(), -- Show filename
-		"%#Normal#",
+		"%#Statusline#",
 		"%=",
 		"%#Error#",
 		get_error(),
