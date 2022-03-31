@@ -164,7 +164,7 @@ return require("packer").startup({
 			requires = {
 				{
 					"saadparwaiz1/cmp_luasnip",
-					after = { "nvim-cmp", "LuaSnip" },
+					after = { "nvim-cmp" },
 				},
 				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
