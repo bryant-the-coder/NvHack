@@ -63,7 +63,7 @@ end
 
 -- Toggle transparency / ui right here :D
 local ui = {
-	transparency = true,
+	transparency = false,
 	italic = true,
 }
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
@@ -81,12 +81,14 @@ hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 if ui.italic then
 	fg("Comment", light_grey, { italic = true, bold = true })
 	fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
+	fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
 	fg_bg("TelescopePreviewTitle", green, black, { italic = true })
 	fg_bg("TelescopePromptTitle", red, black, { italic = true })
 	fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 else
 	fg("Comment", light_grey, { bold = true })
 	fg("DiagnosticHeader", "#2cb27f", { bold = true })
+	fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
 	fg_bg("TelescopePreviewTitle", green, black)
 	fg_bg("TelescopePromptTitle", red, black)
 end
@@ -141,6 +143,12 @@ bg("Pmenu", one_bg)
 bg("PmenuSbar", one_bg2)
 bg("PmenuThumb", nord_blue)
 bg("PmenuSel", pmenu_bg)
+
+-- GitSigns
+fg("GitSignsAdd", green)
+fg("GitSignsChange", orange)
+fg("GitSignsDelete", red)
+fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
 
 -- CMP
 fg("CmpItemAbbrDeprecated", "#808080", { strikethrough = true })

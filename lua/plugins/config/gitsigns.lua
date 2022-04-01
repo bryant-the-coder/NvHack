@@ -36,10 +36,19 @@ gitsigns.setup({
 			linehl = "GitSignsChangeLn",
 		},
 	},
+	current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+	current_line_blame_opts = {
+		virt_text = true,
+		virt_text_pos = "eol",
+		delay = 1000,
+		ignore_whitespace = false,
+	},
+	current_line_blame_formatter = "  : <author> | <author_time:%m-%d-%Y | %X> | <summary>",
 })
 
-vim.cmd([[
-highlight GitSignsAdd guifg=#9ece6a
-highlight GitSignsChange guifg=#d39b47
-highlight GitSignsDelete guifg=#d63131
-]])
+-- vim.cmd([[
+--     highlight GitSignsAdd guifg=#9ece6a
+--     highlight GitSignsChange guifg=#d39b47
+--     highlight GitSignsDelete guifg=#d63131
+--     highlight GitSignsCurrentLineBlame guifg=#FFFFFF
+-- ]])
