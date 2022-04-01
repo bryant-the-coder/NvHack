@@ -20,7 +20,7 @@ telescope.setup({
 		},
 
 		-- Transparency settings
-		-- winblend = 10,
+		-- winblend = 20,
 
 		find_command = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
 		prompt_prefix = "  ",
@@ -45,7 +45,6 @@ telescope.setup({
 			".jpeg",
 			".png",
 			".ico",
-			".scm",
 			".add",
 			".add.spl",
 		},
