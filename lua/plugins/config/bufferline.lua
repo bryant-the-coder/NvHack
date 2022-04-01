@@ -38,7 +38,6 @@ bufferline.setup({
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 	},
-
 	highlights = {
 		background = {
 			guifg = default.colors.grey_fg,
