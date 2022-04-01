@@ -22,12 +22,6 @@ cmd("TermOpen", {
 	command = "setlocal nonumber norelativenumber",
 })
 
-cmd("TermOpen", {
-	desc = "ESC key to escape",
-	group = "_terminal",
-	command = [[tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>]],
-})
-
 augroup("_buffer", {})
 -- Trim whitespace
 local NoWhitespace = vim.api.nvim_exec(
