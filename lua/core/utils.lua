@@ -34,9 +34,9 @@ M.get = function()
 	local theme
 	local time = os.date("*t")
 	if time.hour < 7 or time.hour >= 21 then
-		theme = "everblush"
+		theme = "onedark"
 	else
-		theme = "uwu"
+		theme = "everblush"
 	end
 	return require("hl_themes." .. theme)
 end
