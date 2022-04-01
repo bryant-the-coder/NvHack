@@ -249,8 +249,6 @@ return require("packer").startup({
 		-- Terminal
 		use({
 			"akinsho/toggleterm.nvim",
-			opt = true,
-			event = "InsertEnter",
 			config = function()
 				require("plugins.config.toggleterm")
 			end,
