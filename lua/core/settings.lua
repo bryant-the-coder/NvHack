@@ -76,6 +76,7 @@ o.smartcase = true -- Don't ignore when uppercase search
 -- Python
 g.python3_host_prog = "C:/Python310/python.exe"
 o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+
 -- Builtin plugins
 g.loaded_gzip = 1
 g.loaded_zip = 1
