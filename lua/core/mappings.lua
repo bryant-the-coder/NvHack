@@ -32,7 +32,7 @@ map("n", "<leader>dd", "<cmd>bdelete<CR>")
 map("v", "p", "p:let @+=@0<CR>")
 
 -- Terminal ESC key
-map("t", "<ESC>", [[<C-\><C-n>]])
+map("n", "<leader>vs", "<cmd>90 vsp | :term<CR>")
 
 -- Folding
 map("n", "<space>", "za")
