@@ -37,7 +37,7 @@ local time = os.date("*t")
 
 -- When its 8am or is equal or more than 9pm = everforest
 if time.hour < 7 or time.hour >= 21 then
-	theme = "everforest"
+	theme = "onedark"
 else
 	theme = "everblush"
 end
