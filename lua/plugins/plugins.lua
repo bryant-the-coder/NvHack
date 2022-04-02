@@ -391,5 +391,3 @@ return require("packer").startup({
 		max_jobs = 6,
 	},
 })
-
-
