@@ -1,5 +1,10 @@
 -- Colorizer
-require("colorizer").setup({
+
+local status_ok, color = pcall(require, "colorizer")
+if not status_ok then
+	return
+end
+color.setup({
 	"css",
 	"scss",
 	"javascript",
@@ -26,3 +31,4 @@ require("impatient").enable_profile()
 
 -- Filetype.nvim
 vim.g.did_load_filetypes = 1
+
