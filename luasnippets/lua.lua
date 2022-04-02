@@ -15,20 +15,18 @@ return {
 	parse({ trig = "map" }, mappings),
 
 	s({ trig = "Ses" }, {
-		t({ "Session " }),
-		i(1, "1"),
+		t({ "-- TODO: " }),
+		i(1, "By who?"),
 		f(function()
 			local input = vim.fn.input(" Enter time in HH:MM or MM format: ")
 			local plus_hour, plus_min
 			if input:find(":") == nil then
-				-- if there is no : then add it as minutes
 				plus_hour = 00
 				plus_min = input
 			else
 				plus_hour, plus_min = input:match("(%d+):(%d+)")
 			end
 
-			-- Taking the current date
 			local t = os.date("%H:%M")
 			local h = tonumber(string.sub(t, 1, 2))
 			local m = tonumber(string.sub(t, 4, 5))
@@ -72,7 +70,9 @@ return {
 			return " [" .. added_time .. "]" .. "(" .. current_12_hour .. " -> " .. session_12_hour .. ")"
 		end, {}),
 		t({ "{" }),
-		i(3, "topic"),
+		i(2, "topic"),
 		t({ "}" }),
 	}),
 }
+
+-- TODO: aloof [2:00 H](2:37 PM -> 4:37 PM){topic}
