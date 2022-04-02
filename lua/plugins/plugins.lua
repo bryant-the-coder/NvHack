@@ -17,6 +17,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	print("Cloning packer...\nSetup NvHack")
 	vim.cmd([[packadd packer.nvim]])
 end
+-- local user_settings = require("user_settings").settings()
 
 return require("packer").startup({
 	function(use)
@@ -31,6 +32,7 @@ return require("packer").startup({
 			config = function()
 				require("plugins.config.other")
 			end,
+			-- disable = user_settings.impatient,
 		})
 
 		-- Dependencies
@@ -252,6 +254,8 @@ return require("packer").startup({
 			config = function()
 				require("plugins.config.toggleterm")
 			end,
+			opt = true,
+			disable = true,
 		})
 
 		-- Harpoon
@@ -282,6 +286,7 @@ return require("packer").startup({
 			config = function()
 				require("plugins.config.zen-mode")
 			end,
+			disable = true,
 		})
 
 		-- Finding errors easily
@@ -327,6 +332,7 @@ return require("packer").startup({
 			event = "BufEnter",
 			cmd = "PP",
 			opt = true,
+			disable = true,
 		})
 
 		-- Fast speed
@@ -344,6 +350,7 @@ return require("packer").startup({
 				"CmdLineEnter",
 			},
 			opt = true,
+			disable = true,
 		})
 
 		-- Notifications
@@ -359,6 +366,7 @@ return require("packer").startup({
 		use({
 			"ThePrimeagen/refactoring.nvim",
 			opt = true,
+			disable = true,
 		})
 
 		-- Discord rich presence
@@ -383,3 +391,5 @@ return require("packer").startup({
 		max_jobs = 6,
 	},
 })
+
+
