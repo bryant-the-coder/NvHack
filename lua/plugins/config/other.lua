@@ -31,4 +31,3 @@ require("impatient").enable_profile()
 
 -- Filetype.nvim
 vim.g.did_load_filetypes = 1
-
