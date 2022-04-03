@@ -43,6 +43,10 @@ return require("packer").startup({
 			"kyazdani42/nvim-web-devicons",
 			after = "nvim-base16.lua",
 		})
+		use({
+			"MunifTanjim/nui.nvim",
+			after = "nvim-base16.lua",
+		})
 
 		-- Theme
 		use({
@@ -81,6 +85,15 @@ return require("packer").startup({
 			config = function()
 				require("plugins.config.nvim-tree")
 			end,
+		})
+
+		use({
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v2.x",
+			config = function()
+				require("plugins.config.explorer")
+			end,
+			disable = true,
 		})
 
 		-- Treesitter
@@ -391,5 +404,3 @@ return require("packer").startup({
 		max_jobs = 6,
 	},
 })
-
-
