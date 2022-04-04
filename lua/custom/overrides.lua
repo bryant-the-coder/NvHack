@@ -150,6 +150,13 @@ fg("GitSignsChange", orange)
 fg("GitSignsDelete", red)
 fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
 
+-- Neotree
+fg("NeoTreeDirectoryIcon", folder_bg)
+fg("NeoTreeDirectoryName", folder_bg)
+fg("NeoTreeRootName", red, { underline = true })
+fg("NeoTreeDirectoryName", folder_bg)
+fg("NeoTreeFileNameOpened", folder_bg)
+
 -- CMP
 fg("CmpItemAbbrDeprecated", "#808080", { strikethrough = true })
 fg("CmpItemAbbr", white)

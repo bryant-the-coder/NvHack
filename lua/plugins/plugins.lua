@@ -45,13 +45,13 @@ return require("packer").startup({
 		})
 		use({
 			"MunifTanjim/nui.nvim",
-			after = "nvim-base16.lua",
 		})
 
 		-- Theme
 		use({
 			"ThemerCorp/themer.lua",
 			branch = "0.7",
+			disable = true,
 		})
 		use({
 			"bryant-the-coder/nvim-base16.lua",
@@ -85,15 +85,33 @@ return require("packer").startup({
 			config = function()
 				require("plugins.config.nvim-tree")
 			end,
+			disable = true,
 		})
-
 		use({
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
+			cmd = {
+				"NeoTreeClose",
+				"NeoTreeFloat",
+				"NeoTreeFloatToggle",
+				"NeoTreeFocus",
+				"NeoTreeFocusToggle",
+				"NeoTreeLogs",
+				"NeoTreePasteConfig",
+				"NeoTreeReveal",
+				"NeoTreeRevealInSplit",
+				"NeoTreeRevealInSplitToggle",
+				"NeoTreeRevealToggle",
+				"NeoTreeSetLogLevel",
+				"NeoTreeShow",
+				"NeoTreeShowInSplit",
+				"NeoTreeShowInSplitToggle",
+				"NeoTreeShowToggle",
+				"Neotree",
+			},
 			config = function()
 				require("plugins.config.explorer")
 			end,
-			disable = true,
 		})
 
 		-- Treesitter
