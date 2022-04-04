@@ -7,8 +7,6 @@ local actions = require("telescope.actions")
 local theme = require("telescope.themes")
 local load_ext = telescope.load_extension
 
-telescope.load_extension("themes")
-
 telescope.setup({
 	defaults = {
 		layout_config = {
