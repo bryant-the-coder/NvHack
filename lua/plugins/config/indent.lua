@@ -11,6 +11,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"packer",
 	"NvimTree",
 	"Trouble",
+	"neo-tree",
 }
 vim.g.indentLine_enabled = 1
 vim.g.indent_blankline_char = "▏"
