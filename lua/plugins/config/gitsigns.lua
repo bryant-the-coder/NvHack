@@ -43,7 +43,8 @@ gitsigns.setup({
 		delay = 1000,
 		ignore_whitespace = false,
 	},
-	current_line_blame_formatter = "  : <author> | <author_time:%m-%d-%Y | %X> | <summary>",
+	-- current_line_blame_formatter = "  : <author> | <author_time:%m-%d-%Y | %X> | <summary>",
+	current_line_blame_formatter = "<author> | <author_time:%m-%d-%Y | %X> | <summary>",
 })
 
 -- vim.cmd([[
