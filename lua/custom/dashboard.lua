@@ -120,10 +120,10 @@ function M.display()
   local default = {
     colors = require("core.utils").get(),
   }
-  -- vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange })
-  -- vim.api.nvim_set_hl(0, "Blue", { fg = default.colors.blue, italic = true, bold = true })
-  vim.fn.matchadd("ErrorMsg", "[██]")
-  vim.fn.matchadd("Boolean", "Bryant")
+  vim.api.nvim_set_hl(0, "Grey", { fg = default.colors.folder_bg })
+  vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
+  vim.fn.matchadd("Grey", "[██]")
+  vim.fn.matchadd("Orange", "Bryant")
   vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>q!<CR>", { noremap = true, silent = true })
 end
 
