@@ -103,7 +103,7 @@ function M.display()
     elseif time.hour == 12 or time.hour <= 17 then
         vim.api.nvim_put(center(afternoon), "l", true, true)
         vim.api.nvim_put(center(username), "l", true, true)
-    elseif time.hour == 18 or time.hour <= 22 then
+    elseif time.hour == 18 or time.hour <= 21 then
         vim.api.nvim_put(center(night), "l", true, true)
         vim.api.nvim_put(center(username), "l", true, true)
     else
