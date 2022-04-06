@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local exec = vim.api.nvim_exec
 
 local NoWhitespace = exec(
-	[[
+  [[
     function! NoWhitespace()
         let l:save = winsaveview()
         keeppatterns %s/\s\+$//e
@@ -10,7 +10,7 @@ local NoWhitespace = exec(
     endfunction
     call NoWhitespace()
     ]],
-	true
+  true
 )
 
 -----------------------------------
@@ -23,73 +23,73 @@ exec([[au BufWritePre * call NoWhitespace()]], false)
 -- exec([[au BufEnter * set fo-=c fo-=r fo-=o]], false)
 
 vim.api.nvim_create_autocmd("BufEnter", {
-	desc = "Disable autocommenting in new lines",
-	command = "set fp-=c fo-=r fo-=o",
+  desc = "Disable autocommenting in new lines",
+  command = "set fp-=c fo-=r fo-=o",
 })
 
 -- Terminal
-cmd([[
+cmd [[
   augroup terminal
     autocmd!
     autocmd TermOpen * startinsert
     autocmd TermOpen * setlocal nonumber norelativenumber
     au TermOpen * tnoremap <Esc> <c-\><c-n> <cmd>bd!<CR>
   augroup END
-]])
+]]
 
 -- cmd([[ autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
 
 -- Setting tabs for different filetypes
-cmd([[
+cmd [[
   autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
   autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
   autocmd Filetype scss setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-]])
+]]
 
 -- Restore cursor last position upon reopening the file
-cmd([[
+cmd [[
   augroup last_cursor_position
     autocmd!
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
   augroup END
-]])
+]]
 
-cmd([[
+cmd [[
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd =
   augroup end
-]])
+]]
 
 -- Reload the contents of file if changed outside of nvim
 local status_ok, notify = pcall(require, "notify")
 if not status_ok then
-	return
+  return
 end
 
 vim.notify = notify
-cmd([[
+cmd [[
   augroup auto_reload_file
     autocmd!
     autocmd FileChangedShellPost * call v:lua.vim.notify("File changed on your device. Buffer reload!. Process completed!", 'warn', {'title': 'nvim'})
     autocmd FocusGained,CursorHold * if getcmdwintype() == '' | checktime | endif
   augroup END
-]])
+]]
 
 -- Highlight when yanking :)
-cmd([[
+cmd [[
   augroup yank_with_highlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]])
+]]
 
 -----------------------------------
 --           Plugins             --
 -----------------------------------
 -- Nvim-cmp
-cmd([[
+cmd [[
   " gray
   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
   " blue
@@ -106,16 +106,16 @@ cmd([[
   highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-]])
+]]
 
 -- Nvim-lsp
 -- code from @max397574
-cmd([[au CursorHold  * lua vim.diagnostic.open_float()]])
-cmd([[hi DiagnosticHeader gui=bold guifg=#2cb27f]])
+cmd [[au CursorHold  * lua vim.diagnostic.open_float()]]
+cmd [[hi DiagnosticHeader gui=bold guifg=#2cb27f]]
 
 -- Treesitter
 -- Code from abzcoding
-cmd([[
+cmd [[
   function! DisableSyntaxTreesitter()
   echo("Big file, disabling syntax, treesitter and folding")
   if exists(':TSBufDisable')
@@ -136,4 +136,4 @@ cmd([[
   autocmd!
   autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
   augroup END
-]])
+]]
