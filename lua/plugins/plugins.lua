@@ -3,6 +3,8 @@
 -- 2. lazy load ( see :h events )
 -- 3. add comment or sections
 
+-- Install wilder and get rid of nvim-cmp cmd line
+
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -91,22 +93,6 @@ return require("packer").startup({
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
 			cmd = {
-				"NeoTreeClose",
-				"NeoTreeFloat",
-				"NeoTreeFloatToggle",
-				"NeoTreeFocus",
-				"NeoTreeFocusToggle",
-				"NeoTreeLogs",
-				"NeoTreePasteConfig",
-				"NeoTreeReveal",
-				"NeoTreeRevealInSplit",
-				"NeoTreeRevealInSplitToggle",
-				"NeoTreeRevealToggle",
-				"NeoTreeSetLogLevel",
-				"NeoTreeShow",
-				"NeoTreeShowInSplit",
-				"NeoTreeShowInSplitToggle",
-				"NeoTreeShowToggle",
 				"Neotree",
 			},
 			config = function()
@@ -291,7 +277,7 @@ return require("packer").startup({
 
 		-- Harpoon
 		use({
-			"ThePrimeagen/harpoon",
+			"bryant-the-coder/harpoon",
 			module = "harpoon",
 			opt = true,
 			after = "telescope.nvim",
@@ -316,6 +302,20 @@ return require("packer").startup({
 			event = "BufEnter",
 			config = function()
 				require("plugins.config.zen-mode")
+			end,
+			disable = true,
+		})
+		use({
+			"folke/twilight.nvim",
+			cmd = {
+				"Twilight",
+				"TwilightEnable",
+				"TwilightDisable",
+			},
+			event = "BufEnter",
+			after = "nvim-cmp",
+			config = function()
+				require("plugins.config.twilight")
 			end,
 			disable = true,
 		})
@@ -363,7 +363,7 @@ return require("packer").startup({
 			event = "BufEnter",
 			cmd = "PP",
 			opt = true,
-			disable = true,
+			-- disable = true,
 		})
 
 		-- Fast speed
@@ -415,7 +415,7 @@ return require("packer").startup({
 			threshold = 0.0001,
 		},
 		display = {
-			title = "Packer",
+			title = "Downloading / Updating",
 			done_sym = "",
 			error_syn = "×",
 		},
