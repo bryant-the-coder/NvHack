@@ -31,7 +31,7 @@ bufferline.setup({
 		-- 	return "(" .. count .. ")"
 		-- end,
 		offsets = { { filetype = "NvimTree", text = "" } },
-		separator_style = "padded_slant",
+		separator_style = "thin",
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
 		show_close_icon = true,
@@ -43,17 +43,19 @@ bufferline.setup({
 		background = {
 			guifg = default.colors.grey_fg,
 			guibg = default.colors.black2,
-			-- guibg = default.colors.black,
 		},
 
 		-- buffers
 		buffer_selected = {
 			guifg = default.colors.white,
-			guibg = default.colors.grey,
-			-- guibg = default.colors.black,
+			guibg = default.colors.black,
 			gui = "bold,italic",
 		},
-
+		buffer_visible = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+			gui = "bold,italic",
+		},
 		duplicate_selected = {
 			guifg = default.colors.white,
 			-- guibg = default.colors.black,
@@ -64,17 +66,6 @@ bufferline.setup({
 			guifg = default.colors.white,
 			guibg = default.colors.black2,
 			gui = "bold,italic",
-		},
-		buffer_visible = {
-			guifg = default.colors.white,
-			-- guibg = default.colors.black2,
-			guibg = default.colors.black2,
-		},
-
-		buffer = {
-			guifg = default.colors.white,
-			-- guibg = default.colors.black2,
-			guibg = default.colors.black2,
 		},
 
 		-- for diagnostics = "nvim_lsp"
@@ -98,14 +89,14 @@ bufferline.setup({
 		},
 		close_button_selected = {
 			guifg = default.colors.red,
-			guibg = default.colors.grey,
+			guibg = default.colors.black,
 		},
 		fill = {
-			guifg = default.colors.grey,
-			guibg = default.colors.darker_black,
+			guifg = default.colors.grey_fg,
+			guibg = default.colors.black2,
 		},
 		indicator_selected = {
-			guifg = default.colors.black2,
+			guifg = default.colors.black,
 			guibg = default.colors.black,
 		},
 
@@ -120,25 +111,21 @@ bufferline.setup({
 		},
 		modified_selected = {
 			guifg = default.colors.green,
-			guibg = default.colors.grey,
+			guibg = default.colors.black,
 		},
 
 		-- separators
 		separator = {
-			-- guifg = default.colors.green,
-			-- guifg = "",
-			guifg = default.colors.darker_black,
+			guifg = default.colors.black2,
 			guibg = default.colors.black2,
 		},
 		separator_visible = {
-			-- guifg = default.colors.green,
-			guifg = default.colors.darker_black,
+			guifg = default.colors.black2,
 			guibg = default.colors.black2,
 		},
 		separator_selected = {
-			-- guifg = default.colors.green,
-			guifg = default.colors.darker_black,
-			guibg = default.colors.grey,
+			guifg = default.colors.black2,
+			guibg = default.colors.black2,
 		},
 
 		-- tabs
@@ -146,17 +133,13 @@ bufferline.setup({
 			guifg = default.colors.light_grey,
 			guibg = default.colors.one_bg3,
 		},
-		duplicate = {
-			guifg = default.colors.light_grey,
-			guibg = default.colors.black2,
-		},
 		tab_selected = {
 			guifg = default.colors.black2,
 			guibg = default.colors.nord_blue,
 		},
 		tab_close = {
 			guifg = default.colors.red,
-			guibg = default.colors.darker_black,
+			guibg = default.colors.black,
 		},
 	},
 })
