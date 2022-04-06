@@ -37,7 +37,7 @@ local time = os.date "*t"
 
 -- When its 7am or is equal or more than 9pm = onedark
 if time.hour < 7 or time.hour >= 21 then
-  theme = "onedark"
+  theme = "uwu"
 else
   theme = "everblush"
 end
