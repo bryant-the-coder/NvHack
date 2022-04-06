@@ -3,5 +3,5 @@ console.log("$1")
 ]]
 
 return {
-	parse({ trig = "console" }, print),
+  parse({ trig = "console" }, print),
 }

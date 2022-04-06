@@ -11,6 +11,6 @@ map("$1", "$2", "<cmd>$0<CR>")
 ]]
 
 return {
-	parse({ trig = "M" }, module),
-	parse({ trig = "map" }, mappings),
+  parse({ trig = "M" }, module),
+  parse({ trig = "map" }, mappings),
 }

@@ -106,9 +106,9 @@ function M.display()
   end
 
   vim.cmd [[1]]
-  vim.cmd  -- DONT EVER USE AUTOCHDIR! USE IT AT YOUR OWN RISK!
-  -- autochdir = auto change directory
-  -- [[silent! setlocal nonu nornu autochdir ft=dashboard nocul laststatus=0 nowrap]]
+  vim
+    .cmd -- DONT EVER USE AUTOCHDIR! USE IT AT YOUR OWN RISK!    -- autochdir = auto change directory
+    -- [[silent! setlocal nonu nornu autochdir ft=dashboard nocul laststatus=0 nowrap]]
  [[silent! setlocal nonu nornu ft=dashboard nocul nowrap]]
 
   local default = {
