@@ -33,7 +33,7 @@ o.completeopt = "menuone,noselect,menu"
 o.lazyredraw = true -- Don't redraw screen while processing macros
 
 -- Command line
-o.shortmess:append "I" -- Less and shorter messages in command line
+o.shortmess:append("I") -- Less and shorter messages in command line
 o.cmdheight = 1 -- CMD height
 o.hidden = true
 o.history = 300 -- Remember 300 lines of history
@@ -43,14 +43,14 @@ o.smd = false -- Don't show mode in cmdline
 -- Statusline
 o.laststatus = 3
 o.fillchars = {
-  eob = " ",
-  vert = "║",
-  horiz = "═",
-  horizup = "╩",
-  horizdown = "╦",
-  vertleft = "╣",
-  vertright = "╠",
-  verthoriz = "╬",
+    eob = " ",
+    vert = "║",
+    horiz = "═",
+    horizup = "╩",
+    horizdown = "╦",
+    vertleft = "╣",
+    vertright = "╠",
+    verthoriz = "╬",
 }
 
 -- Tabs / Indent
