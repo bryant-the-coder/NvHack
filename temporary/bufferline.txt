@@ -1,0 +1,121 @@
+
+	highlights = {
+		background = {
+			guifg = default.colors.grey_fg,
+			guibg = default.colors.black2,
+			-- guibg = default.colors.black,
+		},
+
+		-- buffers
+		buffer_selected = {
+			guifg = default.colors.white,
+			guibg = default.colors.grey,
+			-- guibg = default.colors.black,
+			gui = "bold,italic",
+		},
+
+		duplicate_selected = {
+			guifg = default.colors.white,
+			-- guibg = default.colors.black,
+			guibg = default.colors.grey,
+			gui = "bold,italic",
+		},
+		duplicate_visible = {
+			guifg = default.colors.white,
+			guibg = default.colors.black2,
+			gui = "bold,italic",
+		},
+		buffer_visible = {
+			guifg = default.colors.white,
+			-- guibg = default.colors.black2,
+			guibg = default.colors.black2,
+		},
+
+		buffer = {
+			guifg = default.colors.white,
+			-- guibg = default.colors.black2,
+			guibg = default.colors.black2,
+		},
+
+		-- for diagnostics = "nvim_lsp"
+		error = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+		},
+		error_diagnostic = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+		},
+
+		-- close buttons
+		close_button = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+		},
+		close_button_visible = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+		},
+		close_button_selected = {
+			guifg = default.colors.red,
+			guibg = default.colors.grey,
+		},
+		fill = {
+			guifg = default.colors.grey,
+			guibg = default.colors.darker_black,
+		},
+		indicator_selected = {
+			guifg = default.colors.black2,
+			guibg = default.colors.black,
+		},
+
+		-- modified
+		modified = {
+			guifg = default.colors.red,
+			guibg = default.colors.black2,
+		},
+		modified_visible = {
+			guifg = default.colors.red,
+			guibg = default.colors.black2,
+		},
+		modified_selected = {
+			guifg = default.colors.green,
+			guibg = default.colors.grey,
+		},
+
+		-- separators
+		separator = {
+			-- guifg = default.colors.green,
+			-- guifg = "",
+			guifg = default.colors.darker_black,
+			guibg = default.colors.black2,
+		},
+		separator_visible = {
+			-- guifg = default.colors.green,
+			guifg = default.colors.darker_black,
+			guibg = default.colors.black2,
+		},
+		separator_selected = {
+			-- guifg = default.colors.green,
+			guifg = default.colors.darker_black,
+			guibg = default.colors.grey,
+		},
+
+		-- tabs
+		tab = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.one_bg3,
+		},
+		duplicate = {
+			guifg = default.colors.light_grey,
+			guibg = default.colors.black2,
+		},
+		tab_selected = {
+			guifg = default.colors.black2,
+			guibg = default.colors.nord_blue,
+		},
+		tab_close = {
+			guifg = default.colors.red,
+			guibg = default.colors.darker_black,
+		},
+	},
