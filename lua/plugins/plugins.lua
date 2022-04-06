@@ -196,13 +196,6 @@ return require("packer").startup({
         })
 
         use({
-            "gelguy/wilder.nvim",
-            config = function()
-                require("plgusin.config.wilder")
-            end,
-        })
-
-        use({
             "L3MON4D3/LuaSnip",
             requires = {
                 "rafamadriz/friendly-snippets",
