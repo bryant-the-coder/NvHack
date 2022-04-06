@@ -1,16 +1,16 @@
-local notify = require "notify"
+local notify = require("notify")
 local default = {
-  stages = "fade",
-  render = "default",
-  timeout = 2000,
-  minimum_width = 60,
-  icons = {
-    ERROR = "",
-    WARN = "",
-    INFO = "",
-    DEBUG = "",
-    TRACE = "",
-  },
+    stages = "fade",
+    render = "default",
+    timeout = 2000,
+    minimum_width = 60,
+    icons = {
+        ERROR = "",
+        WARN = "",
+        INFO = "",
+        DEBUG = "",
+        TRACE = "",
+    },
 }
 
 vim.opt.termguicolors = true
@@ -18,12 +18,12 @@ vim.opt.termguicolors = true
 notify.setup(default)
 
 vim.notify = function(msg, level, opts)
-  notify(msg, level, opts)
+    notify(msg, level, opts)
 end
 
 function _G.P(...)
-  print(vim.inspect(...))
-  return ...
+    print(vim.inspect(...))
+    return ...
 end
 
-vim.notify = require "notify"
+vim.notify = require("notify")

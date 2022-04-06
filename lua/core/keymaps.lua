@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-  local default_options = { noremap = true, silent = true }
-  if opts then
-    default_options = vim.tbl_extend("force", default_options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, default_options)
+    local default_options = { noremap = true, silent = true }
+    if opts then
+        default_options = vim.tbl_extend("force", default_options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, default_options)
 end
 
 -----------------------------------

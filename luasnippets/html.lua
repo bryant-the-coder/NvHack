@@ -62,6 +62,6 @@ local css_template = [[
 ]]
 
 return {
-  parse({ trig = "scss" }, scss_template),
-  parse({ trig = "css" }, css_template),
+    parse({ trig = "scss" }, scss_template),
+    parse({ trig = "css" }, css_template),
 }

@@ -27,24 +27,24 @@ local one_bg3 = colors.one_bg3
 -- @param group Group
 -- @param color Color
 local function bg(group, color, args)
-  local arg = {}
-  if args then
-    vim.tbl_extend("keep", arg, args)
-  end
-  arg["bg"] = color
-  vim.api.nvim_set_hl(0, group, arg)
+    local arg = {}
+    if args then
+        vim.tbl_extend("keep", arg, args)
+    end
+    arg["bg"] = color
+    vim.api.nvim_set_hl(0, group, arg)
 end
 
 -- Define fg color
 -- @param group Group
 -- @param color Color
 local function fg(group, color, args)
-  local arg = {}
-  if args then
-    arg = args
-  end
-  arg["fg"] = color
-  vim.api.nvim_set_hl(0, group, arg)
+    local arg = {}
+    if args then
+        arg = args
+    end
+    arg["fg"] = color
+    vim.api.nvim_set_hl(0, group, arg)
 end
 
 -- Define bg and fg color
@@ -52,19 +52,19 @@ end
 -- @param fgcol Fg Color
 -- @param bgcol Bg Color
 local function fg_bg(group, fgcol, bgcol, args)
-  local arg = {}
-  if args then
-    arg = args
-  end
-  arg["fg"] = bgcol
-  arg["bg"] = fgcol
-  vim.api.nvim_set_hl(0, group, arg)
+    local arg = {}
+    if args then
+        arg = args
+    end
+    arg["fg"] = bgcol
+    arg["bg"] = fgcol
+    vim.api.nvim_set_hl(0, group, arg)
 end
 
 -- Toggle transparency / ui right here :D
 local ui = {
-  transparency = false,
-  italic = true,
+    transparency = false,
+    italic = true,
 }
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
 hl(0, "StatusReplace", { fg = "#181a1f", bg = "#E5C07B" })
@@ -79,26 +79,26 @@ hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 
 if ui.italic then
-  fg("Comment", light_grey, { italic = true, bold = true })
-  fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
-  fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
-  fg_bg("TelescopePreviewTitle", green, black, { italic = true })
-  fg_bg("TelescopePromptTitle", red, black, { italic = true })
-  fg("CmpItemAbbr", white, { italic = true })
+    fg("Comment", light_grey, { italic = true, bold = true })
+    fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
+    fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
+    fg_bg("TelescopePreviewTitle", green, black, { italic = true })
+    fg_bg("TelescopePromptTitle", red, black, { italic = true })
+    fg("CmpItemAbbr", white, { italic = true })
 else
-  fg("Comment", light_grey, { bold = true })
-  fg("DiagnosticHeader", "#2cb27f", { bold = true })
-  fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
-  fg_bg("TelescopePreviewTitle", green, black)
-  fg_bg("TelescopePromptTitle", red, black)
-  fg("CmpItemAbbr", white)
+    fg("Comment", light_grey, { bold = true })
+    fg("DiagnosticHeader", "#2cb27f", { bold = true })
+    fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
+    fg_bg("TelescopePreviewTitle", green, black)
+    fg_bg("TelescopePromptTitle", red, black)
+    fg("CmpItemAbbr", white)
 end
 
 if ui.transparency then
-  bg("Normal", "none")
-  hl(0, "StatuslineNC", { bg = "none" })
+    bg("Normal", "none")
+    hl(0, "StatuslineNC", { bg = "none" })
 else
-  hl(0, "StatusLineNC", { bg = "#15171c" })
+    hl(0, "StatusLineNC", { bg = "#15171c" })
 end
 
 -----------------------------------

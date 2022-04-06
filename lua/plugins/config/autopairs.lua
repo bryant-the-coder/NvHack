@@ -1,18 +1,18 @@
 local status_ok, npairs = pcall(require, "nvim-autopairs")
 if not status_ok then
-  return
+    return
 end
 
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local cmp = require "cmp"
-local Rule = require "nvim-autopairs.rule"
-local cond = require "nvim-autopairs.conds"
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require("cmp")
+local Rule = require("nvim-autopairs.rule")
+local cond = require("nvim-autopairs.conds")
 
-npairs.setup {
-  check_ts = true,
-  -- enable_check_bracket_line = true,
-}
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+npairs.setup({
+    check_ts = true,
+    -- enable_check_bracket_line = true,
+})
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 -- npairs.add_rules({
 -- 	-- CPP < >

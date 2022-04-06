@@ -1,12 +1,12 @@
-require "core.settings"
+require("core.settings")
 -- require("core.keymaps")
-require "core.mappings"
+require("core.mappings")
 -- require("core.autocmd")
-require "core.autocommand"
-require "core.theme"
+require("core.autocommand")
+require("core.theme")
 -- require("custom.highlights")
 -- require("custom.dashboard")
-require "custom.abbrev"
-require "custom.overrides"
-require "custom.statusline"
-require "plugins.plugins"
+require("custom.abbrev")
+require("custom.overrides")
+require("custom.statusline")
+require("plugins.plugins")
