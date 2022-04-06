@@ -120,7 +120,7 @@ function M.display()
   local default = {
     colors = require("core.utils").get(),
   }
-  vim.api.nvim_set_hl(0, "Grey", { fg = default.colors.folder_bg })
+  vim.api.nvim_set_hl(0, "Grey", { fg = default.colors.light_grey })
   vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
   vim.fn.matchadd("Grey", "[██]")
   vim.fn.matchadd("Orange", "Bryant")
