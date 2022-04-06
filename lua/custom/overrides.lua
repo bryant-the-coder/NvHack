@@ -84,13 +84,14 @@ if ui.italic then
 	fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
 	fg_bg("TelescopePreviewTitle", green, black, { italic = true })
 	fg_bg("TelescopePromptTitle", red, black, { italic = true })
-	fg_bg("TelescopeResultsTitle", darker_black, darker_black)
+	fg("CmpItemAbbr", white, { italic = true })
 else
 	fg("Comment", light_grey, { bold = true })
 	fg("DiagnosticHeader", "#2cb27f", { bold = true })
 	fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
 	fg_bg("TelescopePreviewTitle", green, black)
 	fg_bg("TelescopePromptTitle", red, black)
+	fg("CmpItemAbbr", white)
 end
 
 if ui.transparency then
@@ -159,7 +160,6 @@ fg("NeoTreeFileNameOpened", folder_bg)
 
 -- CMP
 fg("CmpItemAbbrDeprecated", "#808080", { strikethrough = true })
-fg("CmpItemAbbr", white)
 
 fg("CmpItemAbbrMatch", "#569CD6")
 fg("CmpItemAbbrMatchFuzzy", "#569CD6")
