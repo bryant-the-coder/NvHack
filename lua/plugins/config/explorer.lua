@@ -1,7 +1,11 @@
+vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 require("neo-tree").setup({
+	-- log_level = "trace",
+	-- log_to_file = true,
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
 	enable_git_status = true,
+	async_directory_scan = false,
 	enable_diagnostics = true,
 	default_component_configs = {
 		indent = {
