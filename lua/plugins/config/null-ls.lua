@@ -14,6 +14,7 @@ null_ls.setup({
         formatting.rustfmt,
         formatting.clang_format,
     },
+
     -- Format on save (laggy)
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
