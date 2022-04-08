@@ -165,6 +165,22 @@ return require("packer").startup({
         })
 
         use({
+            "kosayoda/nvim-lightbulb",
+            after = "nvim-lspconfig",
+            event = "BufEnter",
+            config = function()
+                require("plugins.config.lightbulb")
+            end,
+        })
+
+        use({
+            "weilbith/nvim-code-action-menu",
+            cmd = "CodeActionMenu",
+            event = "BufEnter",
+            after = "nvim-lspconfig",
+        })
+
+        use({
             "jose-elias-alvarez/null-ls.nvim",
             event = { "BufRead", "InsertEnter" },
             config = function()
