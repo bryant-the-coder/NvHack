@@ -27,3 +27,14 @@ function _G.P(...)
 end
 
 vim.notify = require("notify")
+
+vim.cmd([[
+highlight link NotifyERRORBody Normal
+highlight link NotifyWARNBody Normal
+highlight link NotifyINFOBody Normal
+highlight link NotifyDEBUGBody Normal
+highlight link NotifyTRACEBody Normal
+]])
+
+-- This is a command i got from a repo. Will test it out soon
+-- vim.api.nvim_command('highlight LightBulbFloatWin ctermfg= ctermbg= guifg= guibg=')
