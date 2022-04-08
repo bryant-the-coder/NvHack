@@ -31,13 +31,6 @@ map("n", "<leader>dd", "<cmd>bdelete<CR>")
 -- Pasting stuff
 map("v", "p", "p:let @+=@0<CR>")
 
--- Terminal ESC key
--- map("n", "<leader>vs", "<cmd>90 vsp | :term<CR>")
-map("n", "<leader>v", "<cmd>vsp | :term<CR>")
-map("n", "<leader>h", "<cmd>17 sp | :term<CR>")
-map("t", "jk", "<C-\\><C-n>")
-map("t", "<Esc>", "<C-\\><C-n> <cmd>bd!<CR>")
-
 -- Folding
 map("n", "<space>", "za")
 
@@ -52,11 +45,13 @@ map("n", "<leader>sb", function()
     return require("core.utils").swap_boolean()
 end)
 
--- Disable arrow keys
-map({ "n", "v" }, "<Up>", "<nop>")
-map({ "n", "v" }, "<Down>", "<nop>")
-map({ "n", "v" }, "<Left>", "<nop>")
-map({ "n", "v" }, "<Right>", "<nop>")
+-- ESC to clear all highlights
+map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
+
+-- Saving the traditional way
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
+-- nimap("<C-s>", "<cmd>w<CR>")
+map("n", "<leader>sf", "<cmd>source % <CR>")
 
 --  j = gj
 -- k = gk
@@ -71,13 +66,8 @@ map("v", "<", "<gv")
 map({ "i", "v" }, "jk", "<Esc>")
 map({ "i", "v" }, "JK", "<ESC>")
 
--- ESC to clear all highlights
-map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
-
--- Saving the traditional way
-map({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
--- nimap("<C-s>", "<cmd>w<CR>")
-map("n", "<leader>sf", "<cmd>source % <CR>")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- Go to url
 -- Windows user
@@ -88,6 +78,19 @@ end)
 --[[ map("n", "<leader>tu", function()
 	return require("core.utils").go_to_url()
 end) ]]
+
+-- Disable arrow keys
+map({ "n", "v" }, "<Up>", "<nop>")
+map({ "n", "v" }, "<Down>", "<nop>")
+map({ "n", "v" }, "<Left>", "<nop>")
+map({ "n", "v" }, "<Right>", "<nop>")
+
+-- Terminal ESC key
+-- map("n", "<leader>vs", "<cmd>90 vsp | :term<CR>")
+map("n", "<leader>v", "<cmd>vsp | :term<CR>")
+map("n", "<leader>h", "<cmd>17 sp | :term<CR>")
+map("t", "jk", "<C-\\><C-n>")
+map("t", "<Esc>", "<C-\\><C-n> <cmd>bd!<CR>")
 
 -- Resizing windows
 map("n", "<A-up>", "<C-w>+")
