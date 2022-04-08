@@ -93,7 +93,7 @@ bufferline.setup({
         },
         fill = {
             guifg = default.colors.grey_fg,
-            guibg = default.colors.black2,
+            guibg = "NONE",
         },
         indicator_selected = {
             guifg = default.colors.black,
