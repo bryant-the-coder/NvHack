@@ -63,7 +63,7 @@ end
 
 -- Toggle transparency / ui right here :D
 local ui = {
-    transparency = false,
+    transparency = true,
     italic = true,
 }
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
@@ -106,6 +106,7 @@ end
 -----------------------------------
 -- Line Number
 fg("cursorlinenr", grey)
+fg("LineNr", light_grey)
 
 -- Same as bg, so it doesn't appear
 fg("EndOfBuffer", black)
@@ -120,7 +121,6 @@ fg("WinSeparator", blue)
 
 -- Inactive statuslines as thin lines
 fg("StatuslineNC", one_bg3)
-fg("LineNr", light_grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
