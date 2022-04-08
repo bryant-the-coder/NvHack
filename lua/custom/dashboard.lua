@@ -1,5 +1,9 @@
 local M = {}
 
+local default = {
+    colors = require("core.utils").get(),
+}
+
 -- Change this to your own name
 -- Another username can be found at line 124
 local username = {
@@ -74,7 +78,7 @@ local mid_night = {
     "",
     "",
     [[███████ ██      ███████ ███████ ██████  ██ ██ ]],
-    [[██      ██      ██      ██      ██   ██ ██ ██ ]],
+    [[██      ██      ██      ██      ██  ██  ██ ██ ]],
     [[███████ ██      █████   █████   ██████  ██ ██ ]],
     [[     ██ ██      ██      ██      ██            ]],
     [[███████ ███████ ███████ ███████ ██      ██ ██ ]],
@@ -117,12 +121,9 @@ function M.display()
     -- [[silent! setlocal nonu nornu autochdir ft=dashboard nocul laststatus=0 nowrap]]
     vim.cmd([[silent! setlocal nonu nornu ft=dashboard nocul nowrap]])
 
-    local default = {
-        colors = require("core.utils").get(),
-    }
-    vim.api.nvim_set_hl(0, "Grey", { fg = default.colors.light_grey })
+    vim.api.nvim_set_hl(0, "Red", { fg = default.colors.green })
     vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
-    vim.fn.matchadd("Grey", "[██]")
+    vim.fn.matchadd("Red", "[██]")
     vim.fn.matchadd("Orange", "Bryant")
     vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>q!<CR>", { noremap = true, silent = true })
 end
