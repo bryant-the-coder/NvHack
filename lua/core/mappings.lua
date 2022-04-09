@@ -20,9 +20,6 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, expr = false }
 )
 
-map("n", "<C-r>", function()
-    return require("core.utils").rename()
-end)
 -----------------------------------
 --           BASIC               --
 -----------------------------------
@@ -51,6 +48,11 @@ end)
 
 -- ESC to clear all highlights
 map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
+
+-- Rename (easy way)
+map("n", "<A-r>", function()
+    return require("core.utils").rename()
+end)
 
 -- Saving the traditional way
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>")

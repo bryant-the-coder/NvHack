@@ -79,13 +79,13 @@ M.rename = function()
     }
     local function post(rename_old)
         vim.cmd("stopinsert!")
-        local new = vim.api.nvim_get_current_line()
+        local rename_new = vim.api.nvim_get_current_line()
         vim.schedule(function()
             vim.api.nvim_win_close(0, true)
-            vim.lsp.buf.rename(vim.trim(new))
+            vim.lsp.buf.rename(vim.trim(rename_new))
         end)
         -- Use notify.nvim, logs notification as warn, title as Variable Rename
-        vim.notify(rename_old .. "  " .. new, vim.log.levels.WARN, { title = "Variable Rename" })
+        vim.notify(rename_old .. "  " .. rename_new, vim.log.levels.WARN, { title = "Variable Rename" })
     end
     local rename_old = vim.fn.expand("<cword>")
     local created_buffer = vim.api.nvim_create_buf(false, true)
