@@ -66,4 +66,48 @@ M.swap_boolean = function()
     vim.api.nvim_set_current_line(subs)
 end
 
+M.rename = function()
+    local border = {
+        { "┏", "FloatBorder" },
+        { "━", "FloatBorder" },
+        { "┓", "FloatBorder" },
+        { "┃", "FloatBorder" },
+        { "┛", "FloatBorder" },
+        { "━", "FloatBorder" },
+        { "┗", "FloatBorder" },
+        { "┃", "FloatBorder" },
+    }
+    local function post(rename_old)
+        vim.cmd("stopinsert!")
+        local new = vim.api.nvim_get_current_line()
+        vim.schedule(function()
+            vim.api.nvim_win_close(0, true)
+            vim.lsp.buf.rename(vim.trim(new))
+        end)
+        -- Use notify.nvim, logs notification as warn, title as Variable Rename
+        vim.notify(rename_old .. "  " .. new, vim.log.levels.WARN, { title = "Variable Rename" })
+    end
+    local rename_old = vim.fn.expand("<cword>")
+    local created_buffer = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_open_win(created_buffer, true, {
+        relative = "cursor",
+        style = "minimal",
+        border = border,
+        row = 1,
+        col = 0,
+        width = 30,
+        height = 1,
+    })
+    vim.cmd("startinsert")
+
+    vim.keymap.set("i", "<ESC>", function()
+        vim.cmd("q")
+        vim.cmd("stopinsert")
+    end, { buffer = created_buffer })
+
+    vim.keymap.set("i", "<CR>", function()
+        return post(rename_old)
+    end, { buffer = created_buffer })
+end
+
 return M
