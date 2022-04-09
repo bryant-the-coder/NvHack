@@ -69,13 +69,24 @@ M.setup = function()
                 end
                 return i .. "/" .. total .. " " .. icon .. "  ", highlight
             end,
-            -- format = function(d)
-            -- 	local t = vim.deepcopy(d)
-            -- 	local code = d.code or d.user_data.lsp.code
-            -- 	if code then
-            -- 		t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
-            -- 	end
-            -- 	return t.message
+            -- Code from TJ
+            format = function(d)
+                local t = vim.deepcopy(d)
+                local code = d.code or d.user_data.lsp.code
+                if code then
+                    t.message = string.format("%s -> (%s)", t.message, code):gsub("1. ", "")
+                end
+                return t.message
+            end,
+
+            -- Code from santigo-zero
+            -- format = function(diagnostic)
+            --     return string.format(
+            --         "%s (%s) [%s]",
+            --         diagnostic.message,
+            --         diagnostic.source,
+            --         diagnostic.code or diagnostic.user_data.lsp.code
+            --     )
             -- end,
         },
     }
@@ -157,6 +168,31 @@ end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
--- Utility functions shared between progress reports for LSP and DAP
+local completion = capabilities.textDocument.completion.completionItem
+completion.commitCharactersSupport = true
+completion.deprecatedSupport = true
+completion.insertReplaceSupport = true
+completion.labelDetailsSupport = true
+completion.preselectSupport = true
+completion.resolveSupport = { properties = { "documentation", "detail", "additionalTextEdits" } }
+completion.tagSupport = { valueSet = { 1 } }
+
+capabilities.textDocument.codeAction = {
+    dynamicRegistration = false,
+    codeActionLiteralSupport = {
+        codeActionKind = {
+            valueSet = {
+                "",
+                "quickfix",
+                "refactor",
+                "refactor.extract",
+                "refactor.inline",
+                "refactor.rewrite",
+                "source",
+                "source.organizeImports",
+            },
+        },
+    },
+}
 
 return M
