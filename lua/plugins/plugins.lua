@@ -34,7 +34,6 @@ return require("packer").startup({
             config = function()
                 require("plugins.config.other")
             end,
-            -- disable = user_settings.impatient,
         })
 
         -- Dependencies
@@ -171,6 +170,7 @@ return require("packer").startup({
             config = function()
                 require("plugins.config.lightbulb")
             end,
+            disable = true,
         })
 
         use({
@@ -178,6 +178,7 @@ return require("packer").startup({
             cmd = "CodeActionMenu",
             event = "BufEnter",
             after = "nvim-lspconfig",
+            disable = true,
         })
 
         use({
