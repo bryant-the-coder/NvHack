@@ -53,6 +53,34 @@ o.fillchars = {
     verthoriz = "╬",
 }
 
+local function window_separator(separators)
+    if separators then
+        o.fillchars = {
+            eob = " ",
+            vert = "║",
+            horiz = "═",
+            horizup = "╩",
+            horizdown = "╦",
+            vertleft = "╣",
+            vertright = "╠",
+            verthoriz = "╬",
+        }
+    else
+        o.fillchars = {
+            eob = " ",
+            horiz = " ",
+            horizup = " ",
+            horizdown = " ",
+            vert = " ",
+            vertleft = " ",
+            vertright = " ",
+            verthoriz = " ",
+        }
+    end
+end
+
+window_separator(true)
+
 -- Tabs / Indent
 o.expandtab = true
 o.tabstop = 4
@@ -80,7 +108,10 @@ o.smartcase = true -- Don't ignore when uppercase search
 g.python3_host_prog = "C:/Python310/python.exe"
 
 -- Add if else statements so linux/mac users can use
-o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+
+if vim.fn.has("windows") == 1 then
+    o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+end
 
 -- Builtin plugins
 g.loaded_gzip = 1
