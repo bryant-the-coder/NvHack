@@ -19,6 +19,10 @@ vim.api.nvim_set_keymap(
     [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
     { noremap = true, silent = true, expr = false }
 )
+
+map("n", "<C-r>", function()
+    return require("core.utils").rename()
+end)
 -----------------------------------
 --           BASIC               --
 -----------------------------------
