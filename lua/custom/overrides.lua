@@ -79,23 +79,25 @@ hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 
 if ui.italic then
+    -- local light_grey = "#a9a9a9"
     fg("Comment", light_grey, { italic = true, bold = true })
     fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
+    fg("CmpItemAbbr", white, { italic = true })
     fg_bg("TelescopePreviewTitle", green, black, { italic = true })
     fg_bg("TelescopePromptTitle", red, black, { italic = true })
-    fg("CmpItemAbbr", white, { italic = true })
 else
     fg("Comment", light_grey, { bold = true })
     fg("DiagnosticHeader", "#2cb27f", { bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
+    fg("CmpItemAbbr", white)
     fg_bg("TelescopePreviewTitle", green, black)
     fg_bg("TelescopePromptTitle", red, black)
-    fg("CmpItemAbbr", white)
 end
 
 if ui.transparency then
-    bg("Normal", "none")
+    -- bg("Normal", "none")
+    hl(0, "Normal", { bg = "none", sp = "none" })
     hl(0, "StatuslineNC", { bg = "none" })
 else
     hl(0, "StatusLineNC", { bg = "#15171c" })
@@ -149,7 +151,6 @@ bg("PmenuSel", pmenu_bg)
 fg("GitSignsAdd", green)
 fg("GitSignsChange", orange)
 fg("GitSignsDelete", red)
-fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
 
 -- Neotree
 fg("NeoTreeDirectoryIcon", folder_bg)

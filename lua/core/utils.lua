@@ -34,7 +34,7 @@ M.get = function()
     local theme
     local time = os.date("*t")
     if time.hour < 7 or time.hour >= 21 then
-        theme = "everforest"
+        theme = "onedark"
     else
         theme = "everblush"
     end
@@ -60,12 +60,15 @@ M.url = function(cmd)
     -- vim.cmd(':silent !'..(cmd or "xdg-open")..' '..url..' 1>/dev/null')
 end
 
+--- Swap between booleans with ease
 M.swap_boolean = function()
     local c = vim.api.nvim_get_current_line()
     local subs = c:match("true") and c:gsub("true", "false") or c:gsub("false", "true")
     vim.api.nvim_set_current_line(subs)
 end
 
+--- Rename a variable (simple)
+---@return string
 M.rename = function()
     local border = {
         { "┏", "FloatBorder" },
