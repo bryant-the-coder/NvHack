@@ -11,16 +11,16 @@ end
 
 local luasnip = require("luasnip")
 
-local border = {
-    { "┏", "FloatBorder" },
-    { "━", "FloatBorder" },
-    { "┓", "FloatBorder" },
-    { "┃", "FloatBorder" },
-    { "┛", "FloatBorder" },
-    { "━", "FloatBorder" },
-    { "┗", "FloatBorder" },
-    { "┃", "FloatBorder" },
-}
+-- local border = {
+--     { "┏", "FloatBorder" },
+--     { "━", "FloatBorder" },
+--     { "┓", "FloatBorder" },
+--     { "┃", "FloatBorder" },
+--     { "┛", "FloatBorder" },
+--     { "━", "FloatBorder" },
+--     { "┗", "FloatBorder" },
+--     { "┃", "FloatBorder" },
+-- }
 
 -- local border = {
 -- 	{ "╔", "FloatBorder" },
@@ -33,6 +33,16 @@ local border = {
 -- 	{ "║", "FloatBorder" },
 -- }
 
+local border = {
+    { "╭", "CmpBorder" },
+    { "─", "CmpBorder" },
+    { "╮", "CmpBorder" },
+    { "│", "CmpBorder" },
+    { "╯", "CmpBorder" },
+    { "─", "CmpBorder" },
+    { "╰", "CmpBorder" },
+    { "│", "CmpBorder" },
+}
 cmp.setup({
     window = {
         completion = {

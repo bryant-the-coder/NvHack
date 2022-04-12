@@ -2,16 +2,16 @@ local M = {}
 
 -- Taken from max. Thanks max
 
-local border = {
-    { "┏", "FloatBorder" },
-    { "━", "FloatBorder" },
-    { "┓", "FloatBorder" },
-    { "┃", "FloatBorder" },
-    { "┛", "FloatBorder" },
-    { "━", "FloatBorder" },
-    { "┗", "FloatBorder" },
-    { "┃", "FloatBorder" },
-}
+-- local border = {
+--     { "┏", "FloatBorder" },
+--     { "━", "FloatBorder" },
+--     { "┓", "FloatBorder" },
+--     { "┃", "FloatBorder" },
+--     { "┛", "FloatBorder" },
+--     { "━", "FloatBorder" },
+--     { "┗", "FloatBorder" },
+--     { "┃", "FloatBorder" },
+-- }
 
 -- local border = {
 -- 	{ "╔", "FloatBorder" },
@@ -23,6 +23,17 @@ local border = {
 -- 	{ "╚", "FloatBorder" },
 -- 	{ "║", "FloatBorder" },
 -- }
+
+local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+}
 
 -- TODO: backfill this to template
 M.setup = function()
@@ -126,10 +137,15 @@ end
 
 M.on_attach = function(client, bufnr)
     -- local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer", "clangd" }
-    -- if client.name == servers then
-    -- 	client.resolved_capabilities.document_formatting = false
-    -- 	client.resolved_capabilities.document_range_formatting = false
+    -- if servers[client.name] then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
     -- end
+
+    -- if client.name == "clangd" then
+    --     client.offset_encoding = "utf-16"
+    -- end
+
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
@@ -169,14 +185,18 @@ end
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 local completion = capabilities.textDocument.completion.completionItem
-completion.commitCharactersSupport = true
-completion.deprecatedSupport = true
-completion.insertReplaceSupport = true
-completion.labelDetailsSupport = true
-completion.preselectSupport = true
-completion.resolveSupport = { properties = { "documentation", "detail", "additionalTextEdits" } }
-completion.tagSupport = { valueSet = { 1 } }
-
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = {
+    valueSet = { 1 },
+}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = { "documentation", "detail", "additionalTextEdits" },
+}
 capabilities.textDocument.codeAction = {
     dynamicRegistration = false,
     codeActionLiteralSupport = {
@@ -194,5 +214,4 @@ capabilities.textDocument.codeAction = {
         },
     },
 }
-
 return M
