@@ -108,10 +108,10 @@ bufferline.setup({
             guifg = default.colors.red,
             guibg = default.colors.black,
         },
-        -- fill = {
-        --     guifg = default.colors.grey_fg,
-        --     guibg = "NONE",
-        -- },
+        fill = {
+            guifg = default.colors.grey_fg,
+            guibg = "NONE",
+        },
         indicator_selected = {
             guifg = default.colors.black,
             guibg = default.colors.black,
