@@ -36,10 +36,13 @@ neorg.setup({
         },
         ["core.norg.concealer"] = {
             config = {
-                markup_preset = "dimmed",
-                icon_preset = "diamond",
+                -- markup_preset = "dimmed",
+                markup_preset = "conceal",
+                -- icon_preset = "diamond",
+                -- icon_preset = "varied",
                 icons = {
                     marker = {
+                        enabled = true,
                         icon = " ",
                     },
                     todo = {
@@ -59,6 +62,29 @@ neorg.setup({
                         },
                         cancelled = {
                             icon = "",
+                        },
+                    },
+                    heading = {
+                        enabled = true,
+                        level_1 = {
+                            icon = "◈",
+                        },
+
+                        level_2 = {
+                            icon = " ◇",
+                        },
+
+                        level_3 = {
+                            icon = "  ◆",
+                        },
+                        level_4 = {
+                            icon = "   ❖",
+                        },
+                        level_5 = {
+                            icon = "    ⟡",
+                        },
+                        level_6 = {
+                            icon = "     ⋄",
                         },
                     },
                 },
