@@ -61,7 +61,7 @@ gitsigns.setup({
         border = "rounded",
     },
     current_line_blame = true,
-    current_line_blame_formatter = " : <author> | <author_time:%Y-%m-%d> | <summary>",
+    current_line_blame_formatter = " : <author> | <author_time:%m-%d-%Y | %X> | <summary>",
     current_line_blame_formatter_opts = {
         relative_time = true,
     },
