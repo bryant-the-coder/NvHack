@@ -2,8 +2,7 @@
 -- 1. use ({})
 -- 2. lazy load ( see :h events )
 -- 3. add comment or sections
-
--- Install wilder and get rid of nvim-cmp cmd line
+-- 4. add disable option
 
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -31,6 +30,7 @@ return require("packer").startup({
         -- Better performance
         use({
             "lewis6991/impatient.nvim",
+            disable = false,
             config = function()
                 require("plugins.config.other")
             end,
@@ -39,13 +39,16 @@ return require("packer").startup({
         -- Dependencies
         use({
             "nvim-lua/plenary.nvim",
+            disable = false,
         })
         use({
             "kyazdani42/nvim-web-devicons",
             after = "nvim-base16.lua",
+            disable = false,
         })
         use({
             "MunifTanjim/nui.nvim",
+            disable = false,
         })
 
         -- Theme
@@ -56,6 +59,7 @@ return require("packer").startup({
         })
         use({
             "bryant-the-coder/nvim-base16.lua",
+            disable = false,
         })
 
         -- Bufferline
@@ -63,6 +67,7 @@ return require("packer").startup({
             "akinsho/bufferline.nvim",
             after = "nvim-web-devicons",
             event = "BufEnter",
+            disable = false,
             config = function()
                 require("plugins.config.bufferline")
             end,
@@ -73,6 +78,7 @@ return require("packer").startup({
             "nvim-neorg/neorg",
             ft = "norg",
             after = "nvim-treesitter",
+            disable = false,
             config = function()
                 require("plugins.config.neorg")
             end,
@@ -94,6 +100,7 @@ return require("packer").startup({
             cmd = {
                 "Neotree",
             },
+            disable = false,
             config = function()
                 require("plugins.config.explorer")
             end,
@@ -104,6 +111,7 @@ return require("packer").startup({
             "nvim-treesitter/nvim-treesitter",
             event = { "BufRead", "BufNewFile" },
             module = "nvim-treesitter",
+            disable = false,
             run = ":TSUpdate",
             config = function()
                 require("plugins.config.treesitter")
@@ -115,6 +123,7 @@ return require("packer").startup({
             after = "nvim-treesitter",
             event = "InsertEnter",
             opt = true,
+            disable = false,
         })
 
         use({
@@ -122,6 +131,7 @@ return require("packer").startup({
             opt = true,
             event = "InsertEnter",
             ft = { "html", "tsx" },
+            disable = false,
         })
 
         use({
@@ -129,6 +139,7 @@ return require("packer").startup({
             after = "nvim-treesitter",
             event = "InsertEnter",
             opt = true,
+            disable = false,
         })
 
         use({
@@ -136,6 +147,7 @@ return require("packer").startup({
             after = "nvim-cmp",
             event = "InsertEnter",
             opt = true,
+            disable = false,
             config = function()
                 require("plugins.config.autopairs")
             end,
@@ -147,6 +159,7 @@ return require("packer").startup({
             after = "nvim-treesitter",
             opt = true,
             event = { "CursorMoved", "CursorMovedI" },
+            disable = false,
         })
 
         -- LSP
@@ -154,6 +167,7 @@ return require("packer").startup({
             "neovim/nvim-lspconfig",
             module = "lspconfig",
             event = "BufRead",
+            disable = false,
             config = function()
                 require("plugins.config.lsp")
             end,
@@ -161,6 +175,14 @@ return require("packer").startup({
 
         use({
             "williamboman/nvim-lsp-installer",
+            disable = false,
+        })
+
+        use({
+            "b0o/schemastore.nvim",
+            after = "nvim-lspconfig",
+            event = "InsertEnter",
+            disable = false,
         })
 
         use({
@@ -184,6 +206,7 @@ return require("packer").startup({
         use({
             "jose-elias-alvarez/null-ls.nvim",
             event = { "BufRead", "InsertEnter" },
+            disable = false,
             config = function()
                 require("plugins.config.null-ls")
             end,
@@ -197,6 +220,7 @@ return require("packer").startup({
             commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8", -- There is conflicts in dev branch
             event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
             after = { "LuaSnip" },
+            disable = false,
             requires = {
                 {
                     "saadparwaiz1/cmp_luasnip",
@@ -220,6 +244,7 @@ return require("packer").startup({
             },
             module = "luasnip",
             event = "InsertEnter",
+            disable = false,
             config = function()
                 require("plugins.config.snippets")
             end,
@@ -228,18 +253,21 @@ return require("packer").startup({
         -- Telescope
         use({
             "nvim-telescope/telescope.nvim",
+            disable = false,
             module = "telescope",
             cmd = "Telescope",
         })
         use({
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
+            disable = false,
             after = "telescope.nvim",
         })
 
         -- Colorizer
         use({
             "norcalli/nvim-colorizer.lua",
+            disable = false,
             module = "colorizer",
             ft = { "css", "scss", "html", "js", "jsx" },
             opt = true,
@@ -257,6 +285,7 @@ return require("packer").startup({
         use({
             "lukas-reineke/indent-blankline.nvim",
             event = "BufWinEnter",
+            disable = false,
             opt = true,
             config = function()
                 require("plugins.config.indent")
@@ -273,10 +302,11 @@ return require("packer").startup({
                 "gb",
             },
             opt = true,
-            event = "BufEnter",
             requires = {
                 "JoosepAlviste/nvim-ts-context-commentstring",
+                event = "InsertEnter",
             },
+            disable = false,
             config = function()
                 require("plugins.config.comment")
             end,
@@ -298,6 +328,7 @@ return require("packer").startup({
             module = "harpoon",
             opt = true,
             after = "telescope.nvim",
+            disable = false,
             config = function()
                 require("harpoon").setup({
                     global_settings = {
@@ -348,6 +379,7 @@ return require("packer").startup({
             },
             opt = true,
             event = { "InsertEnter" },
+            disable = false,
             config = function()
                 require("plugins.config.trouble")
             end,
@@ -357,6 +389,7 @@ return require("packer").startup({
         use({
             "danymat/neogen",
             after = "LuaSnip",
+            disable = false,
             config = function()
                 require("neogen").setup({
                     snippet_engine = "luasnip",
@@ -369,6 +402,7 @@ return require("packer").startup({
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
             opt = true,
+            disable = false,
             config = function()
                 require("plugins.config.gitsigns")
             end,
@@ -380,6 +414,7 @@ return require("packer").startup({
             event = "BufEnter",
             cmd = "PP",
             opt = true,
+            disable = false,
             -- disable = true,
         })
 
@@ -388,6 +423,7 @@ return require("packer").startup({
             "ggandor/lightspeed.nvim",
             event = "BufEnter",
             opt = true,
+            disable = false,
         })
 
         use({
@@ -406,6 +442,7 @@ return require("packer").startup({
             "rcarriga/nvim-notify",
             opt = true,
             event = "BufEnter",
+            disable = false,
             config = function()
                 require("plugins.config.notify")
             end,
@@ -421,6 +458,7 @@ return require("packer").startup({
         use({
             "andweeb/presence.nvim",
             event = "BufEnter",
+            disable = false,
             config = function()
                 require("plugins.config.presence")
             end,
