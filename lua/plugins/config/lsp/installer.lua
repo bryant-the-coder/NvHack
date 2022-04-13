@@ -5,13 +5,13 @@ end
 
 local servers = {
     "clangd",
-    "cssls",
-    "emmet_ls",
-    "html",
+    -- "cssls",
+    -- "emmet_ls",
+    -- "html",
     "jsonls",
     "rust_analyzer",
     "sumneko_lua",
-    "tsserver",
+    -- "tsserver",
 }
 
 for _, name in pairs(servers) do
@@ -23,6 +23,7 @@ for _, name in pairs(servers) do
 end
 
 local enhance_server_opts = {
+    -- Lua server
     ["sumneko_lua"] = function(opts)
         opts.settings = {
             Lua = {
@@ -35,6 +36,14 @@ local enhance_server_opts = {
                         [vim.fn.stdpath("config") .. "/lua"] = true,
                     },
                 },
+            },
+        }
+    end,
+    -- JSON server
+    ["jsonls"] = function(opts)
+        opts.settings = {
+            json = {
+                schemas = require("schemastore").json.schemas(),
             },
         }
     end,

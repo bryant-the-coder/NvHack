@@ -5,5 +5,3 @@ end
 
 require("plugins.config.lsp.installer")
 require("plugins.config.lsp.handlers").setup()
-
-_.clangd.setup({})
