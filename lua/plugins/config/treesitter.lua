@@ -23,7 +23,18 @@ parser_configs.norg_table = {
 }
 require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
-    ensure_installed = { "html", "javascript", "lua", "scss", "json", "norg", "norg_meta", "norg_table" },
+    ensure_installed = {
+        "html",
+        "javascript",
+        "lua",
+        "scss",
+        "json",
+        "rust",
+        "norg",
+        "norg_meta",
+        "norg_table",
+        "toml",
+    },
     sync_install = false,
     incremental_selection = {
         enable = true,
