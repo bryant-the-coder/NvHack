@@ -1,3 +1,6 @@
+-- Setting theme from here as global var
+_G.theme = "bruv"
+
 require("core.settings")
 -- require("core.keymaps")
 require("core.mappings")

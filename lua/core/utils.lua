@@ -31,13 +31,13 @@ end
 -- D) onedark
 -- E) gruvchad
 M.get = function()
-    local theme
-    local time = os.date("*t")
-    if time.hour < 7 or time.hour >= 21 then
-        theme = "onedark"
-    else
-        theme = "everblush"
-    end
+    local theme = _G.theme
+    -- local time = os.date("*t")
+    -- if time.hour < 7 or time.hour >= 21 then
+    --     theme = "onedark"
+    -- else
+    --     theme = "everblush"
+    -- end
     return require("hl_themes." .. theme)
 end
 
