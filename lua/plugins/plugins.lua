@@ -18,7 +18,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     print("Cloning packer...\nSetup NvHack")
     vim.cmd([[packadd packer.nvim]])
 end
--- local user_settings = require("user_settings").settings()
 
 return require("packer").startup({
     function(use)
