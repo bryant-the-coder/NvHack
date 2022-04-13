@@ -19,6 +19,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd([[packadd packer.nvim]])
 end
 
+-- For future packer
+-- local border = {
+--     { "╭", "CmpBorder" },
+--     { "─", "CmpBorder" },
+--     { "╮", "CmpBorder" },
+--     { "│", "CmpBorder" },
+--     { "╯", "CmpBorder" },
+--     { "─", "CmpBorder" },
+--     { "╰", "CmpBorder" },
+--     { "│", "CmpBorder" },
+-- }
+
 return require("packer").startup({
     function(use)
         -- Packer can manage itself
@@ -469,9 +481,12 @@ return require("packer").startup({
             threshold = 0.0001,
         },
         display = {
-            title = "Downloading / Updating",
+            title = "Downloading / Updating", -- Packer, Installing
             done_sym = "",
             error_syn = "×",
+            -- open_fn = function()
+            --     return require("packer.util").float({ border = border })
+            -- end,
         },
         max_jobs = 6,
     },
