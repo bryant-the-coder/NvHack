@@ -26,19 +26,20 @@
 local base16 = require("base16")
 
 -- Theme that i like
--- A) everblush
--- B) UWU
--- C) everforest
+-- A) everforest
+-- B) everblush
+-- C) UWU
 -- D) onedark
 -- E) gruvchad
 
-local theme
+local theme = _G.theme
 local time = os.date("*t")
 
--- When its 8am or is equal or more than 9pm = everforest
-if time.hour < 7 or time.hour >= 21 then
-	theme = "onedark"
-else
-	theme = "everblush"
-end
+-- When its 7am or is equal or more than 9pm = onedark
+-- if time.hour < 7 or time.hour >= 21 then
+--     theme = "onedark"
+-- else
+--     theme = "everblush"
+-- end
+
 return base16(base16.themes(theme))

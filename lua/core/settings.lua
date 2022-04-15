@@ -6,7 +6,10 @@ o.conceallevel = 2
 -- Non-blinking in normal & visual mode
 -- Blink in insert mode
 o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
-o.cursorline = false -- Shows cursorline
+-- Cursorline
+-- See :h 'cursorlineopt'
+o.cursorline = true
+o.cursorlineopt = { "number" } -- Highlighting the number where the cursor is on
 
 -- Mappings
 g.mapleader = "," -- Setting map leader
@@ -42,23 +45,44 @@ o.smd = false -- Don't show mode in cmdline
 
 -- Statusline
 o.laststatus = 3
-o.fillchars = {
-	eob = " ",
-	vert = "║",
-	horiz = "═",
-	horizup = "╩",
-	horizdown = "╦",
-	vertleft = "╣",
-	vertright = "╠",
-	verthoriz = "╬",
-}
+
+local function window_separator(separators)
+    if separators then
+        o.fillchars = {
+            eob = " ",
+            vert = "║",
+            horiz = "═",
+            horizup = "╩",
+            horizdown = "╦",
+            vertleft = "╣",
+            vertright = "╠",
+            verthoriz = "╬",
+        }
+    else
+        o.fillchars = {
+            eob = " ",
+            horiz = " ",
+            horizup = " ",
+            horizdown = " ",
+            vert = " ",
+            vertleft = " ",
+            vertright = " ",
+            verthoriz = " ",
+        }
+    end
+end
+
+window_separator(true)
 
 -- Tabs / Indent
 o.expandtab = true
-o.shiftwidth = 4
 o.tabstop = 4
+o.shiftwidth = 4
 o.smartindent = true
+o.autoindent = true
 o.smarttab = true
+o.linebreak = true
+o.breakindent = true
 
 -- Backups / Undo
 o.backup = false -- Don't backup files
@@ -75,7 +99,12 @@ o.smartcase = true -- Don't ignore when uppercase search
 
 -- Python
 g.python3_host_prog = "C:/Python310/python.exe"
-o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+
+-- Add if else statements so linux/mac users can use
+
+if vim.fn.has("windows") == 1 then
+    o.shell = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+end
 
 -- Builtin plugins
 g.loaded_gzip = 1
