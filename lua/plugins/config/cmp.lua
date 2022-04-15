@@ -49,11 +49,13 @@ cmp.setup({
             border = border,
             scrollbar = "┃",
             -- scrollbar = "║",
+            winhighlight = "Normal:LineNr,FloatBorder:FloatBorder,CursorLine:Pmenu,Search:None",
         },
         documentation = {
             border = border,
             -- scrollbar = "║",
             scrollbar = "┃",
+            winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
         },
     },
     snippet = {
@@ -70,6 +72,7 @@ cmp.setup({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
+
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
