@@ -6,7 +6,10 @@ o.conceallevel = 2
 -- Non-blinking in normal & visual mode
 -- Blink in insert mode
 o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
-o.cursorline = false -- Shows cursorline
+-- Cursorline
+-- See :h 'cursorlineopt'
+o.cursorline = true
+o.cursorlineopt = { "number" } -- Highlighting the number where the cursor is on
 
 -- Mappings
 g.mapleader = "," -- Setting map leader
@@ -42,16 +45,6 @@ o.smd = false -- Don't show mode in cmdline
 
 -- Statusline
 o.laststatus = 3
-o.fillchars = {
-    eob = " ",
-    vert = "║",
-    horiz = "═",
-    horizup = "╩",
-    horizdown = "╦",
-    vertleft = "╣",
-    vertright = "╠",
-    verthoriz = "╬",
-}
 
 local function window_separator(separators)
     if separators then
