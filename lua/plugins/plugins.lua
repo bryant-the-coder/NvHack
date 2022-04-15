@@ -227,8 +227,8 @@ return require("packer").startup({
         use({
             "hrsh7th/nvim-cmp",
             module = "cmp",
-            branch = "dev",
-            commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8", -- There is conflicts in dev branch
+            -- branch = "dev",
+            -- commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8", -- There is conflicts in dev branch
             event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
             after = { "LuaSnip" },
             disable = false,
@@ -347,7 +347,7 @@ return require("packer").startup({
                         save_on_change = true,
                         enter_on_sendcmd = false,
                         tmux_autoclose_windows = false,
-                        excluded_filetypes = { "harpoon" },
+                        excluded_filetypes = { "harpoon", "package.lock.json" },
                     },
                 })
                 require("telescope").load_extension("harpoon")
