@@ -15,7 +15,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
         "https://github.com/wbthomason/packer.nvim",
         install_path,
     })
-    print("Cloning packer...\nSetup NvHack")
+    print("Cloning packer...\nSettting up NvHack")
     vim.cmd([[packadd packer.nvim]])
 end
 
