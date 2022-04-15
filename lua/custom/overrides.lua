@@ -79,7 +79,7 @@ hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 
 if ui.italic then
-    -- local light_grey = "#a9a9a9"
+    local light_grey = "#a9a9a9"
     fg("Comment", light_grey, { italic = true, bold = true })
     fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
@@ -107,7 +107,7 @@ end
 --           Basic               --
 -----------------------------------
 -- Line Number
-fg("cursorlinenr", grey)
+fg("CursorLineNr", yellow)
 fg("LineNr", light_grey)
 
 -- Same as bg, so it doesn't appear
@@ -118,7 +118,7 @@ fg("EndOfBuffer", black)
 bg("NormalFloat", darker_black)
 
 -- testing
-fg("FloatBorder", light_grey)
+fg("FloatBorder", grey_fg)
 fg("WinSeparator", blue)
 
 -- Inactive statuslines as thin lines
@@ -176,8 +176,8 @@ fg("CmpItemKindKeyword", "#D4D4D4")
 fg("CmpItemKindProperty", "#D4D4D4")
 fg("CmpItemKindUnit", "#D4D4D4")
 
-fg("CmpCompletionWindowBorder", light_grey)
-fg("CmpDocumentationWindowBorder", light_grey)
+fg("CmpCompletionWindowBorder", grey)
+fg("CmpDocumentationWindowBorder", grey)
 
 -- Telescope
 bg("TelescopeNormal", darker_black)
