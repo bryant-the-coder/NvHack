@@ -25,11 +25,15 @@ local modes = {
     ["t"] = "TERMINAL",
 }
 
+-- Making the modes name UPPERCASE
 local function mode()
     local current_mode = api.nvim_get_mode().mode
     return string.format(" %s ", modes[current_mode]):upper()
 end
 
+-- Change the color base on the modes
+--- Mode colors
+---@return any modes | colors
 local function update_mode_colors()
     local current_mode = api.nvim_get_mode().mode
     local mode_color = "%#StatusLineAccent#"
@@ -51,6 +55,8 @@ end
 --}}}
 
 -- Git Branch {{{
+--- Using gitsigns for git
+---@return string
 local vcs = function()
     local git_info = vim.b.gitsigns_status_dict
     if not git_info or git_info.head == "" then
@@ -102,12 +108,16 @@ end
 -- }}}
 
 -- Clock {{{
+--- Creating a working clock
+---@return string + icon
 local function clock()
     return " 什 " .. os.date("%H:%M ")
 end
 --}}}
 
--- Filename {{{
+-- File {{{
+--- Shorten filename
+---@return string filename
 local function get_name()
     local fname = fn.expand("%:t")
     if fname == "" then
@@ -116,6 +126,8 @@ local function get_name()
     return " " .. fname .. " "
 end
 
+--- Readonly icon
+---@return string readonly
 local function get_readonly()
     if vim.bo.readonly then
         return "[RO]"
@@ -123,6 +135,8 @@ local function get_readonly()
     return ""
 end
 
+--- Edited file icon
+---@return string save / written
 local function get_modified()
     if vim.bo.modified then
         return "[+]"
@@ -155,7 +169,7 @@ end
 -- 	require("nvim-web-devicons").get_icon(filename, extension, { default = true })
 -- end
 
--- Main content {{{
+-- Main function {{{
 Statusline = {}
 
 Statusline.active = function()
@@ -189,11 +203,14 @@ function Statusline.inactive()
     })
 end
 
+--- NvimTree text
+---@return string <icon> NvimTree
 function Statusline.short()
     return "%#StatusLineNC#   NvimTree"
 end
 -- }}}
 
+-- Setting autocmd
 api.nvim_exec(
     [[
   augroup Statusline
