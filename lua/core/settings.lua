@@ -46,6 +46,7 @@ o.smd = false -- Don't show mode in cmdline
 -- Statusline
 o.laststatus = 3
 
+-- See :h fillchars
 local function window_separator(separators)
     if separators then
         o.fillchars = {
