@@ -1,5 +1,5 @@
 -- Setting theme from here as global var
-_G.theme = "gruvbox"
+_G.theme = "everblush"
 
 require("core.settings")
 -- require("core.keymaps")
