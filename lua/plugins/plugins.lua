@@ -85,6 +85,7 @@ return require("packer").startup({
         })
 
         -- Neorg
+        -- Notes taking
         use({
             "nvim-neorg/neorg",
             ft = "norg",
@@ -111,7 +112,7 @@ return require("packer").startup({
             cmd = {
                 "Neotree",
             },
-            disable = false,
+            disable = true,
             config = function()
                 require("plugins.config.explorer")
             end,
@@ -129,6 +130,7 @@ return require("packer").startup({
             end,
         })
 
+        -- Vscode like rainbow parenthesis
         use({
             "p00f/nvim-ts-rainbow",
             after = "nvim-treesitter",
@@ -137,6 +139,7 @@ return require("packer").startup({
             disable = false,
         })
 
+        -- Auto complete tag
         use({
             "windwp/nvim-ts-autotag",
             opt = true,
@@ -153,6 +156,7 @@ return require("packer").startup({
             disable = false,
         })
 
+        -- Complete pairs automatically
         use({
             "windwp/nvim-autopairs",
             after = "nvim-cmp",
@@ -184,11 +188,13 @@ return require("packer").startup({
             end,
         })
 
+        -- LSP installer
         use({
             "williamboman/nvim-lsp-installer",
             disable = false,
         })
 
+        -- JSON
         use({
             "b0o/schemastore.nvim",
             after = "nvim-lspconfig",
@@ -214,6 +220,7 @@ return require("packer").startup({
             disable = true,
         })
 
+        -- Formatting
         use({
             "jose-elias-alvarez/null-ls.nvim",
             event = { "BufRead", "InsertEnter" },
@@ -247,6 +254,7 @@ return require("packer").startup({
             end,
         })
 
+        -- Snippet
         use({
             "L3MON4D3/LuaSnip",
             requires = {
@@ -262,6 +270,7 @@ return require("packer").startup({
         })
 
         -- Telescope
+        -- Fuzzy-finder
         use({
             "nvim-telescope/telescope.nvim",
             disable = false,
@@ -303,7 +312,7 @@ return require("packer").startup({
             end,
         })
 
-        -- Auto-comment
+        -- Comment
         use({
             "numToStr/Comment.nvim",
             keys = {
@@ -408,7 +417,7 @@ return require("packer").startup({
             end,
         })
 
-        -- Git
+        -- Git intergrations
         use({
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
@@ -419,7 +428,7 @@ return require("packer").startup({
             end,
         })
 
-        -- Show ppl code in url form
+        -- Share code
         use({
             "rktjmp/paperplanes.nvim",
             event = "BufEnter",
@@ -429,7 +438,7 @@ return require("packer").startup({
             -- disable = true,
         })
 
-        -- Fast speed
+        -- Faster movement
         use({
             "ggandor/lightspeed.nvim",
             event = "BufEnter",
@@ -459,6 +468,7 @@ return require("packer").startup({
             end,
         })
 
+        -- Refactoring purposes
         use({
             "ThePrimeagen/refactoring.nvim",
             opt = true,
