@@ -12,6 +12,7 @@ local fn = vim.fn
 bufferline.setup({
     options = {
         numbers = "none",
+        themable = true,
         close_command = "bdelete! %d",
         right_mouse_command = "sbuffer %d",
         middle_mouse_command = "vertical sbuffer %d",
