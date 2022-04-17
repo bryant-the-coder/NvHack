@@ -67,7 +67,7 @@ tree.setup({
     },
     filters = {
         dotfiles = false,
-        custom = { ".git", ".gitattributes", "node_module", "package-lock.json" },
+        custom = { ".git", ".gitattributes", "node_module", "package.lock.json" },
     },
     git = {
         enable = false,
