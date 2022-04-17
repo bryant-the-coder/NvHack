@@ -79,7 +79,7 @@ hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 
 if ui.italic then
-    -- local light_grey = "#a9a9a9"
+    local light_grey = "#a9a9a9"
     fg("Comment", light_grey, { italic = true, bold = true })
     fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
