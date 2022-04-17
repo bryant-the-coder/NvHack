@@ -145,7 +145,7 @@ return require("packer").startup({
             opt = true,
             event = "InsertEnter",
             ft = { "html", "tsx" },
-            disable = false,
+            disable = true,
         })
 
         use({
@@ -500,7 +500,7 @@ return require("packer").startup({
             done_sym = "",
             error_syn = "×",
             -- open_fn = function()
-            --     return require("packer.util").float({ border = border })
+            --     require("packer.util").float({ border = border })
             -- end,
         },
         max_jobs = 6,
