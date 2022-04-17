@@ -19,7 +19,6 @@ vim.api.nvim_set_keymap(
     [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
     { noremap = true, silent = true, expr = false }
 )
-
 -----------------------------------
 --           BASIC               --
 -----------------------------------
@@ -43,7 +42,7 @@ map("n", "x", '"_x')
 
 -- Swap booleans
 map("n", "<leader>sb", function()
-    return require("core.utils").swap_boolean()
+    require("core.utils").swap_boolean()
 end)
 
 -- ESC to clear all highlights
@@ -51,7 +50,7 @@ map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
 
 -- Rename (easy way)
 map("n", "<A-r>", function()
-    return require("core.utils").rename()
+    require("core.utils").rename()
 end)
 
 -- Saving the traditional way
@@ -78,11 +77,11 @@ map("n", "N", "Nzzzv")
 -- Go to url
 -- Windows user
 map("n", "<leader>tu", function()
-    return require("core.utils").url("start")
+    require("core.utils").url("start")
 end)
 -- Mac or linux user
 --[[ map("n", "<leader>tu", function()
-	return require("core.utils").go_to_url()
+	require("core.utils").go_to_url()
 end) ]]
 
 -- Disable arrow keys
@@ -170,55 +169,55 @@ end)
 
 -- Harpooon
 map("n", "<A-p>", function()
-    return require("harpoon.ui").toggle_quick_menu()
+    require("harpoon.ui").toggle_quick_menu()
 end)
 map("n", "<A-=>", function()
-    return require("harpoon.mark").add_file()
+    require("harpoon.mark").add_file()
 end)
 map("n", "<A-1>", function()
-    return require("harpoon.ui").nav_file(1)
+    require("harpoon.ui").nav_file(1)
 end)
 map("n", "<A-2>", function()
-    return require("harpoon.ui").nav_file(1)
+    require("harpoon.ui").nav_file(1)
 end)
 map("n", "<A-3>", function()
-    return require("harpoon.ui").nav_file(3)
+    require("harpoon.ui").nav_file(3)
 end)
 map("n", "<A-4>", function()
-    return require("harpoon.ui").nav_file(4)
+    require("harpoon.ui").nav_file(4)
 end)
 
 -- Telescope
 map("n", "<leader>ff", function()
-    return require("plugins.config.telescope").find_files()
+    require("plugins.config.telescope").find_files()
 end)
 map("n", "<leader>fw", function()
-    return require("plugins.config.telescope").live_grep()
+    require("plugins.config.telescope").live_grep()
 end)
 map("n", "<leader>fd", function()
-    return require("plugins.config.telescope").diag()
+    require("plugins.config.telescope").diag()
 end)
 map("n", "<leader>fb", function()
-    return require("telescope.builtin").buffers()
+    require("telescope.builtin").buffers()
 end)
 map("n", "<leader>fp", function()
-    return require("telescope.builtin").file_browser()
+    require("telescope.builtin").file_browser()
 end)
 map("n", "<leader>fc", function()
-    return require("telescope.builtin").colorscheme()
+    require("telescope.builtin").colorscheme()
 end)
 map("n", "<leader>fo", function()
-    return require("telescope.builtin").oldfiles()
+    require("telescope.builtin").oldfiles()
 end)
 map("n", "<leader>fk", function()
-    return require("telescope.builtin").keymaps()
+    require("telescope.builtin").keymaps()
 end)
 map("n", "<leader>fm", function()
-    return require("telescope.builtin").current_buffer_fuzzy_find()
+    require("telescope.builtin").current_buffer_fuzzy_find()
 end)
 map("n", "<leader>ft", function()
-    return require("telescope.builtin").treesitter()
+    require("telescope.builtin").treesitter()
 end)
 map("n", "<leader>fds", function()
-    return require("telescope.built").lsp_document_symbols()
+    require("telescope.built").lsp_document_symbols()
 end)
