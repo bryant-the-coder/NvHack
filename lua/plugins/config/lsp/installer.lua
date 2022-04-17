@@ -4,14 +4,15 @@ if not status_ok then
 end
 
 local servers = {
-    "clangd",
-    -- "cssls",
-    -- "emmet_ls",
-    -- "html",
+    "emmet_ls",
+    "html",
+    "tsserver",
     "jsonls",
+    "cssls",
+    "clangd",
     "rust_analyzer",
     "sumneko_lua",
-    -- "tsserver",
+    "yamils",
 }
 
 for _, name in pairs(servers) do
@@ -39,6 +40,19 @@ local enhance_server_opts = {
             },
         }
     end,
+    -- ["sumneko_lua"] = function(opts)
+    --     return require("lua-dev").setup({
+    --         lspconfig = vim.tbl_deep_extend("force", opts, {
+    --             settings = {
+    --                 Lua = {
+    --                     diagnostics = {
+    --                         globals = { "P" },
+    --                     },
+    --                 },
+    --             },
+    --         }),
+    --     })
+    -- end,
     -- JSON server
     ["jsonls"] = function(opts)
         opts.settings = {

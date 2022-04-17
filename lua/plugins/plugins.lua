@@ -194,6 +194,11 @@ return require("packer").startup({
             disable = false,
         })
 
+        use({
+            "max397574/lua-dev.nvim",
+            after = "nvim-lspconfig",
+        })
+
         -- JSON
         use({
             "b0o/schemastore.nvim",
@@ -258,7 +263,7 @@ return require("packer").startup({
         use({
             "L3MON4D3/LuaSnip",
             requires = {
-                "rafamadriz/friendly-snippets",
+                "bryant-the-coder/friendly-snippets",
                 event = "InsertEnter",
             },
             module = "luasnip",
