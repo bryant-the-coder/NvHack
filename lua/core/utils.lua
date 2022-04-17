@@ -113,4 +113,16 @@ M.rename = function()
     end, { buffer = created_buffer })
 end
 
+M.open_term = function(cmd, direction, close)
+    local dir_cmds = { h = "split | enew!", v = "vsplit | enew!", t = "enew!" }
+    vim.cmd(dir_cmds[direction or "h"])
+    vim.fn.termopen(cmd, {
+        on_exit = function(_)
+            if close then
+                vim.cmd("bd")
+            end
+        end,
+    })
+end
+
 return M

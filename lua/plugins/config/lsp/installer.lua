@@ -41,17 +41,9 @@ local enhance_server_opts = {
         }
     end,
     -- ["sumneko_lua"] = function(opts)
-    --     return require("lua-dev").setup({
-    --         lspconfig = vim.tbl_deep_extend("force", opts, {
-    --             settings = {
-    --                 Lua = {
-    --                     diagnostics = {
-    --                         globals = { "P" },
-    --                     },
-    --                 },
-    --             },
-    --         }),
-    --     })
+    --     opts.settings = {
+    --         require("lua-dev").setup({}),
+    --     }
     -- end,
     -- JSON server
     ["jsonls"] = function(opts)
