@@ -6,6 +6,19 @@ end
 local incremental_selection = require("nvim-treesitter.incremental_selection")
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
+local langs = {
+    "lua",
+    "json",
+    "rust",
+    "norg",
+    "norg_meta",
+    "norg_table",
+    "toml",
+    -- "html",
+    -- "javascript",
+    -- "scss",
+}
+
 parser_configs.norg_meta = {
     install_info = {
         url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
@@ -23,18 +36,7 @@ parser_configs.norg_table = {
 }
 require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
-    ensure_installed = {
-        "lua",
-        "json",
-        "rust",
-        "norg",
-        "norg_meta",
-        "norg_table",
-        "toml",
-        -- "html",
-        -- "javascript",
-        -- "scss",
-    },
+    ensure_installed = langs,
     sync_install = false,
     incremental_selection = {
         enable = true,
@@ -97,4 +99,10 @@ treesitter.setup({
             },
         },
     },
+})
+
+require("treesitter-context").setup({
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+    throttle = true, -- Throttles plugin updates (may improve performance)
+    max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.
 })
