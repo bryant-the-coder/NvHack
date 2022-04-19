@@ -11,6 +11,34 @@ end
 
 local luasnip = require("luasnip")
 
+local kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "",
+    Interface = "",
+    Module = "",
+    Property = "",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+}
+
 -- local border = {
 --     { "┏", "FloatBorder" },
 --     { "━", "FloatBorder" },
@@ -73,7 +101,16 @@ cmp.setup({
             c = cmp.mapping.close(),
         }),
 
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping({
+            i = cmp.mapping.confirm({
+                select = true,
+                behavior = cmp.ConfirmBehavior.Insert,
+            }),
+            c = cmp.mapping.confirm({
+                select = false,
+                behavior = cmp.ConfirmBehavior.Select,
+            }),
+        }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -99,33 +136,6 @@ cmp.setup({
     formatting = {
         -- fields = { "kind", "menu", "abbr" },
         format = function(entry, vim_item)
-            local kind_icons = {
-                Text = "",
-                Method = "",
-                Function = "",
-                Constructor = "",
-                Field = "ﰠ",
-                Variable = "",
-                Class = "ﴯ",
-                Interface = "",
-                Module = "",
-                Property = "ﰠ",
-                Unit = "塞",
-                Value = "",
-                Enum = "",
-                Keyword = "",
-                Snippet = "",
-                Color = "",
-                File = "",
-                Reference = "",
-                Folder = "",
-                EnumMember = "",
-                Constant = "",
-                Struct = "פּ",
-                Event = "",
-                Operator = "",
-                TypeParameter = "",
-            }
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
             vim_item.menu = ({
                 buffer = "[BUF]",
@@ -139,6 +149,7 @@ cmp.setup({
             return vim_item
         end,
     },
+
     sources = cmp.config.sources({
         { name = "nvim_lsp", priority = "9" },
         { name = "luasnip", priority = "8" },
@@ -148,14 +159,37 @@ cmp.setup({
     }),
 })
 
-cmp.setup.cmdline("/", {
-    sources = {
-        { name = "buffer" },
-    },
-})
+-- cmp.setup.cmdline("/", {
+--     sources = {
+--         { name = "buffer" },
+--     },
+-- })
+
+-- cmp.setup.cmdline(":", {
+--     sources = {
+--         { name = "cmdline" },
+--     },
+-- })
 
 cmp.setup.cmdline(":", {
     sources = {
-        { name = "cmdline" },
+        { name = "cmdline", group_index = 1 },
+        -- { name = "cmdline" },
+        { name = "cmdline_history", group_index = 2 },
     },
+    view = {
+        entries = { name = "wildmenu", separator = " | " },
+    },
+    mapping = cmp.mapping.preset.cmdline(),
+})
+
+cmp.setup.cmdline("/", {
+    sources = {
+        { name = "cmdline_history" },
+        { name = "buffer" },
+    },
+    view = {
+        entries = { name = "wildmenu", separator = " | " },
+    },
+    mapping = cmp.mapping.preset.cmdline(),
 })
