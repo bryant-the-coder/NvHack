@@ -25,12 +25,12 @@
 
 local base16 = require("base16")
 
--- Theme that i like
+-- Theme that I like
 -- A) everforest
 -- B) everblush
 -- C) UWU
 -- D) onedark
--- E) gruvchad
+-- E) rose_pine
 
 _G.theme = "everblush"
 
