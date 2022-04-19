@@ -183,6 +183,7 @@ return require("packer").startup({
             module = "lspconfig",
             event = "BufRead",
             disable = false,
+            tag = "v0.1.3",
             config = function()
                 require("plugins.config.lsp")
             end,

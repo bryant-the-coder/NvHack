@@ -29,6 +29,7 @@ local enhance_server_opts = {
         opts.settings = {
             Lua = {
                 diagnostics = {
+                    -- Get the language server to recognize the `vim` global
                     globals = { "vim" },
                 },
                 workspace = {

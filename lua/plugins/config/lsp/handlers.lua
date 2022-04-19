@@ -141,7 +141,7 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    -- local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer", "clangd" }
+    local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer", "clangd" }
     -- if servers[client.name] then
     --     client.resolved_capabilities.document_formatting = false
     --     client.resolved_capabilities.document_range_formatting = false
@@ -150,30 +150,34 @@ M.on_attach = function(client, bufnr)
     -- if client.name == "clangd" then
     --     client.offset_encoding = "utf-16"
     -- end
+    for _, lsp in ipairs(servers) do
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end
 
-    if client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end
-    if client.name == "jsonls" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end
-    if client.name == "html" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end
-    if client.name == "sumneko_lua" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end
-    if client.name == "rust_analyzer" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end
+    -- if client.name == "tsserver" then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
+    -- end
+    -- if client.name == "jsonls" then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
+    -- end
+    -- if client.name == "html" then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
+    -- end
+    -- if client.name == "sumneko_lua" then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
+    -- end
+    -- if client.name == "rust_analyzer" then
+    --     client.resolved_capabilities.document_formatting = false
+    --     client.resolved_capabilities.document_range_formatting = false
+    -- end
     if client.name == "clangd" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        -- client.resolved_capabilities.document_formatting = false
+        -- client.resolved_capabilities.document_range_formatting = false
         client.offset_encoding = "utf-16"
     end
     lsp_highlight_document(client, bufnr)
