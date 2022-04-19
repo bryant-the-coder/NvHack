@@ -187,7 +187,7 @@ fg_bg("TelescopePromptBorder", black2, black2)
 fg_bg("TelescopePromptNormal", black2, white)
 fg_bg("TelescopePromptPrefix", black2, red)
 fg_bg("TelescopeResultsTitle", darker_black, darker_black)
-bg("TelescopePreviewLine", "#353b45")
+bg("TelescopePreviewLine", light_grey)
 
 -- Nvim-Tree
 bg("NvimTreeNormal", darker_black)
