@@ -141,7 +141,7 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer", "clangd" }
+    local servers = { "tsserver", "jsonls", "html", "sumneko_lua", "rust_analyzer" }
     -- if servers[client.name] then
     --     client.resolved_capabilities.document_formatting = false
     --     client.resolved_capabilities.document_range_formatting = false
@@ -176,8 +176,8 @@ M.on_attach = function(client, bufnr)
     --     client.resolved_capabilities.document_range_formatting = false
     -- end
     if client.name == "clangd" then
-        -- client.resolved_capabilities.document_formatting = false
-        -- client.resolved_capabilities.document_range_formatting = false
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
         client.offset_encoding = "utf-16"
     end
     lsp_highlight_document(client, bufnr)

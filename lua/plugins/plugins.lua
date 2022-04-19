@@ -177,6 +177,13 @@ return require("packer").startup({
             disable = false,
         })
 
+        use({
+            "lewis6991/nvim-treesitter-context",
+            after = "nvim-treesitter",
+            event = "InsertEnter",
+            cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
+        })
+
         -- LSP
         use({
             "neovim/nvim-lspconfig",
@@ -197,6 +204,7 @@ return require("packer").startup({
 
         use({
             "max397574/lua-dev.nvim",
+            module = "lua-dev",
             after = "nvim-lspconfig",
         })
 
