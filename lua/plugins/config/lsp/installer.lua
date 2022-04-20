@@ -13,6 +13,7 @@ local servers = {
     "rust_analyzer",
     "sumneko_lua",
     "yamils",
+    "ltex",
 }
 
 for _, name in pairs(servers) do
@@ -26,6 +27,7 @@ end
 local enhance_server_opts = {
     -- Lua server
     ["sumneko_lua"] = function(opts)
+        -- return require("lua-dev").setup({ lspconfig = opts })
         opts.settings = {
             Lua = {
                 diagnostics = {
@@ -41,19 +43,6 @@ local enhance_server_opts = {
             },
         }
     end,
-    -- ["sumneko_lua"] = function(opts)
-    --     return require("lua-dev").setup({
-    --         lspconfig = vim.tbl_deep_extend("force", opts, {
-    --             settings = {
-    --                 Lua = {
-    --                     diagnostics = {
-    --                         globals = { "P", "vim" },
-    --                     },
-    --                 },
-    --             },
-    --         }),
-    --     })
-    -- end,
     -- JSON server
     ["jsonls"] = function(opts)
         opts.settings = {
@@ -61,6 +50,7 @@ local enhance_server_opts = {
                 schemas = require("schemastore").json.schemas(),
             },
         }
+        -- return opts
     end,
 }
 
@@ -87,6 +77,7 @@ lsp_installer.on_server_ready(function(server)
     if enhance_server_opts[server.name] then
         -- Enhance the default opts with the server-specific ones
         enhance_server_opts[server.name](opts)
+        -- opts = enhance_server_opts[server.name](opts)
     end
 
     server:setup(opts)
