@@ -7,6 +7,7 @@ vim.cmd([[
     cnoreabbrev Wa wa
     cnoreabbrev wQ wq
     cnoreabbrev WQ wq
+    cnoreabbrev PoackerSync PackerSync
     cnoreabbrev vterm 90 vsp <bar> :term
 
     " Q / q to quit
