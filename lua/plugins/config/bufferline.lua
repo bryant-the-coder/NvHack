@@ -64,27 +64,27 @@ bufferline.setup({
         },
 
         -- buffers
-        buffer_selected = {
-            guifg = default.colors.white,
-            guibg = default.colors.black,
-            gui = "bold,italic",
-        },
-        buffer_visible = {
-            guifg = default.colors.light_grey,
-            guibg = default.colors.black2,
-            gui = "bold,italic",
-        },
-        duplicate_selected = {
-            guifg = default.colors.white,
-            -- guibg = default.colors.black,
-            guibg = default.colors.grey,
-            gui = "bold,italic",
-        },
-        duplicate_visible = {
-            guifg = default.colors.white,
-            guibg = default.colors.black2,
-            gui = "bold,italic",
-        },
+        -- buffer_selected = {
+        --     guifg = default.colors.white,
+        --     guibg = default.colors.black,
+        --     gui = "bold,italic",
+        -- },
+        -- buffer_visible = {
+        --     guifg = default.colors.light_grey,
+        --     guibg = default.colors.black2,
+        --     gui = "bold,italic",
+        -- },
+        -- duplicate_selected = {
+        --     guifg = default.colors.white,
+        --     -- guibg = default.colors.black,
+        --     guibg = default.colors.grey,
+        --     gui = "bold,italic",
+        -- },
+        -- duplicate_visible = {
+        --     guifg = default.colors.white,
+        --     guibg = default.colors.black2,
+        --     gui = "bold,italic",
+        -- },
 
         -- for diagnostics = "nvim_lsp"
         error = {
@@ -109,10 +109,10 @@ bufferline.setup({
             guifg = default.colors.red,
             guibg = default.colors.black,
         },
-        fill = {
-            guifg = default.colors.grey_fg,
-            guibg = "NONE",
-        },
+        -- fill = {
+        --     guifg = default.colors.grey_fg,
+        --     guibg = "NONE",
+        -- },
         indicator_selected = {
             guifg = default.colors.black,
             guibg = default.colors.black,
