@@ -56,8 +56,8 @@ local function fg_bg(group, fgcol, bgcol, args)
     if args then
         arg = args
     end
-    arg["fg"] = bgcol
-    arg["bg"] = fgcol
+    arg["fg"] = fgcol
+    arg["bg"] = bgcol
     vim.api.nvim_set_hl(0, group, arg)
 end
 
@@ -79,28 +79,38 @@ hl(0, "Warning", { fg = "#181a1f", bg = "#D7A65F", bold = true })
 hl(0, "Clock", { fg = "#181a1f", bg = "#41a6b5" })
 
 if ui.italic then
-    local light_grey = "#a9a9a9"
+    -- local light_grey = "#a9a9a9"
     fg("Comment", light_grey, { italic = true, bold = true })
     fg("DiagnosticHeader", "#2cb27f", { italic = true, bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { italic = true, bold = true })
     fg("CmpItemAbbr", white, { italic = true })
-    fg_bg("TelescopePreviewTitle", green, black, { italic = true })
-    fg_bg("TelescopePromptTitle", red, black, { italic = true })
+    fg_bg("TelescopePreviewTitle", black, green, { italic = true })
+    fg_bg("TelescopePromptTitle", black, red, { italic = true })
+    fg_bg("BufferlineBufferSelected", white, black, { italic = true, bold = true })
+    fg_bg("BufferlineBufferVisible", light_grey, black2, { italic = true, bold = true })
+    fg_bg("BufferlineDuplicateSelected", white, grey, { italic = true, bold = true })
+    fg_bg("BufferlineDuplicateVisible", white, black2, { italic = true, bold = true })
 else
     fg("Comment", light_grey, { bold = true })
     fg("DiagnosticHeader", "#2cb27f", { bold = true })
     fg("GitSignsCurrentLineBlame", light_grey, { bold = true })
     fg("CmpItemAbbr", white)
-    fg_bg("TelescopePreviewTitle", green, black)
-    fg_bg("TelescopePromptTitle", red, black)
+    fg_bg("TelescopePreviewTitle", black, green)
+    fg_bg("TelescopePromptTitle", black, red)
+    fg_bg("BufferlineBufferSelected", white, black, { bold = true })
+    fg_bg("BufferlineBufferVisible", light_grey, black2, { bold = true })
+    fg_bg("BufferlineDuplicateSelected", white, grey, { bold = true })
+    fg_bg("BufferlineDuplicateVisible", white, black2, { bold = true })
 end
 
 if ui.transparency then
     -- bg("Normal", "none")
-    hl(0, "Normal", { bg = "none", sp = "none" })
-    hl(0, "StatuslineNC", { bg = "none" })
+    hl(0, "Normal", { bg = "NONE", sp = "none" })
+    hl(0, "StatuslineNC", { bg = "NONE" })
+    hl(0, "BufferlineFill", { bg = "NONE", fg = grey_fg })
 else
     hl(0, "StatusLineNC", { bg = "#15171c" })
+    hl(0, "BufferlineFill", { bg = darker_black, fg = grey_fg })
 end
 
 -----------------------------------
@@ -184,8 +194,8 @@ bg("TelescopeNormal", darker_black)
 bg("TelescopeSelection", black2)
 fg_bg("TelescopeBorder", darker_black, darker_black)
 fg_bg("TelescopePromptBorder", black2, black2)
-fg_bg("TelescopePromptNormal", black2, white)
-fg_bg("TelescopePromptPrefix", black2, red)
+fg_bg("TelescopePromptNormal", white, black2)
+fg_bg("TelescopePromptPrefix", red, black2)
 fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 bg("TelescopePreviewLine", light_grey)
 
@@ -202,4 +212,4 @@ fg("NvimTreeIndentMarker", one_bg2)
 fg("NvimTreeRootFolder", red, { underline = true })
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
 fg_bg("NvimTreeVertSplit", darker_black, darker_black)
-fg_bg("NvimTreeWindowPicker", red, black2)
+fg_bg("NvimTreeWindowPicker", black2, red)
