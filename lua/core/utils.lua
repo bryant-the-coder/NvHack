@@ -70,15 +70,37 @@ end
 --- Rename a variable (simple)
 ---@return string
 M.rename = function()
+    -- local border = {
+    --     { "┏", "FloatBorder" },
+    --     { "━", "FloatBorder" },
+    --     { "┓", "FloatBorder" },
+    --     { "┃", "FloatBorder" },
+    --     { "┛", "FloatBorder" },
+    --     { "━", "FloatBorder" },
+    --     { "┗", "FloatBorder" },
+    --     { "┃", "FloatBorder" },
+    -- }
+
+    -- local border = {
+    -- 	{ "╔", "FloatBorder" },
+    -- 	{ "═", "FloatBorder" },
+    -- 	{ "╗", "FloatBorder" },
+    -- 	{ "║", "FloatBorder" },
+    -- 	{ "╝", "FloatBorder" },
+    -- 	{ "═", "FloatBorder" },
+    -- 	{ "╚", "FloatBorder" },
+    -- 	{ "║", "FloatBorder" },
+    -- }
+
     local border = {
-        { "┏", "FloatBorder" },
-        { "━", "FloatBorder" },
-        { "┓", "FloatBorder" },
-        { "┃", "FloatBorder" },
-        { "┛", "FloatBorder" },
-        { "━", "FloatBorder" },
-        { "┗", "FloatBorder" },
-        { "┃", "FloatBorder" },
+        { "╭", "CmpBorder" },
+        { "─", "CmpBorder" },
+        { "╮", "CmpBorder" },
+        { "│", "CmpBorder" },
+        { "╯", "CmpBorder" },
+        { "─", "CmpBorder" },
+        { "╰", "CmpBorder" },
+        { "│", "CmpBorder" },
     }
     local function post(rename_old)
         vim.cmd("stopinsert!")
