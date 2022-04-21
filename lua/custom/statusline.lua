@@ -1,5 +1,6 @@
 local fn = vim.fn
 local api = vim.api
+local space = " "
 
 --Modes {{{
 local modes = {
@@ -162,6 +163,15 @@ local function filename()
 end
 -- }}}
 
+local function word_counter()
+    local wc = vim.api.nvim_eval("wordcount()")
+    if wc["visual_words"] then
+        return wc["visual_words"]
+    else
+        return wc["words"]
+    end
+end
+
 -- Main function {{{
 Statusline = {}
 
@@ -176,6 +186,8 @@ Statusline.active = function()
         filename(), -- Show filename
         "%#Statusline#",
         "%=",
+        word_counter(),
+        space,
         "%#Error#",
         get_error(),
         "%#Warning#",
