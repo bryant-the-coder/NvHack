@@ -70,7 +70,6 @@ cmd("FileType", {
 })
 
 cmd({ "VimEnter" }, {
-    pattern = "*",
     callback = function()
         require("custom.dashboard").display()
     end,
