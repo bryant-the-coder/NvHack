@@ -126,6 +126,11 @@ local function get_name()
     return " " .. fname .. " "
 end
 
+local function get_icon()
+    local file_name, file_ext = fn.expand("%:t"), fn.expand("%:e")
+    local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
+    return string.format(" %s %s ", icon):lower()
+end
 --- Readonly icon
 ---@return string readonly
 local function get_readonly()
@@ -157,18 +162,6 @@ local function filename()
 end
 -- }}}
 
--- local function get_file_icon(filename, ext)
--- 	local status, icons = pcall(require, "nvim-web-devicons")
--- 	if not status then
--- 		return
--- 	end
--- 	return icons.get_icon(filename, ext, { default = true })
--- end
-
--- local function file_icon(filename, extension)
--- 	require("nvim-web-devicons").get_icon(filename, extension, { default = true })
--- end
-
 -- Main function {{{
 Statusline = {}
 
@@ -185,7 +178,6 @@ Statusline.active = function()
         "%=",
         "%#Error#",
         get_error(),
-        "%#Normal#",
         "%#Warning#",
         get_warning(),
         "%#Clock#",
@@ -204,7 +196,7 @@ function Statusline.inactive()
 end
 
 --- NvimTree text
----@return string <icon> NvimTree
+---@return string NvimTree
 function Statusline.short()
     return "%#StatusLineNC#   NvimTree"
 end
