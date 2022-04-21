@@ -22,6 +22,7 @@ local white = colors.white
 local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
+local teal = colors.teal
 
 -- Define bg color
 -- @param group Group
