@@ -99,8 +99,8 @@ return require("packer").startup({
         -- Explorer menu
         use({
             "kyazdani42/nvim-tree.lua",
-            cmd = "NvimTreeToggle",
             opt = true,
+            cmd = "NvimTreeToggle",
             config = function()
                 require("plugins.config.nvim-tree")
             end,
@@ -221,10 +221,10 @@ return require("packer").startup({
             "kosayoda/nvim-lightbulb",
             after = "nvim-lspconfig",
             event = "BufEnter",
+            disable = true,
             config = function()
                 require("plugins.config.lightbulb")
             end,
-            disable = true,
         })
 
         use({
@@ -249,8 +249,6 @@ return require("packer").startup({
         use({
             "hrsh7th/nvim-cmp",
             module = "cmp",
-            -- branch = "dev",
-            -- commit = "5cbce7907493be1d5d14027c7eb016f63b0252f8", -- There is conflicts in dev branch
             event = { "InsertEnter", "CmdLineEnter", "InsertCharPre" }, -- InsertCharPre Due to luasnip
             after = { "LuaSnip" },
             disable = false,
