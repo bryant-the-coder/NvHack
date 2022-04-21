@@ -47,6 +47,7 @@ end)
 
 -- ESC to clear all highlights
 map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
+map({ "n", "v" }, "<CR>", [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]], { silent = true, expr = true })
 
 -- Rename (easy way)
 map("n", "<A-r>", function()
