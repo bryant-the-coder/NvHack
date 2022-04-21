@@ -11,6 +11,8 @@ vim.cmd([[
     cnoreabbrev packersync PackerSync
     cnoreabbrev poackersync PackerSync
     cnoreabbrev pckersync PackerSync
+    cnoreabbrev sync PackerSync
+    cnoreabbrev Sync PackerSync
     cnoreabbrev vterm 90 vsp <bar> :term
 
     " Q / q to quit
