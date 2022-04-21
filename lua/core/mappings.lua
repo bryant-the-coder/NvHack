@@ -19,6 +19,9 @@ vim.api.nvim_set_keymap(
     [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
     { noremap = true, silent = true, expr = false }
 )
+
+map("n", "<leader>ta", [[<cmd>put! =repeat(nr2char(10), v:count1)<cr>'[]])
+
 -----------------------------------
 --           BASIC               --
 -----------------------------------
@@ -47,7 +50,6 @@ end)
 
 -- ESC to clear all highlights
 map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
-map({ "n", "v" }, "<CR>", [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]], { silent = true, expr = true })
 
 -- Rename (easy way)
 map("n", "<A-r>", function()
@@ -120,6 +122,14 @@ map("n", "<C-down>", "<cmd>m .+1<CR>==")
 map("n", "<C-up>", "<cmd>m .-2<CR>==")
 map("v", "<C-down>", "<cmd>m '>+1<CR>gv=gv")
 map("v", "<C-up>", "<cmd>m '<-2<CR>gv=gv")
+
+-- Insert a new line
+-- Code from max
+map("n", "<A-CR>", "O<ESC>k", { desc = "Empty line above" })
+map("n", "<CR>", "o<ESC>j", { desc = "Empty line below" })
+map("n", "<leader>lb", "i<CR><ESC>", { desc = "Line break at cursor" })
+map("n", "<leader>il", "i <ESC>l", { desc = "Space before" })
+map("n", "<leader>ih", "a <ESC>h", { desc = "Space after" })
 
 -----------------------------------
 --           Plugins             --
