@@ -53,6 +53,7 @@ cmd("BufReadPost", {
 
 -- Highlight while yanking
 cmd("TextYankPost", {
+    pattern = "*",
     desc = "Highlight while yanking",
     group = "_buffer",
     callback = function()
