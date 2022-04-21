@@ -125,8 +125,8 @@ map("v", "<C-up>", "<cmd>m '<-2<CR>gv=gv")
 
 -- Insert a new line
 -- Code from max
-map("n", "<A-CR>", "O<ESC>k", { desc = "Empty line above" })
-map("n", "<CR>", "o<ESC>j", { desc = "Empty line below" })
+map("n", "<A-CR>", "O<ESC>j", { desc = "Empty line above" })
+map("n", "<CR>", "o<ESC>k", { desc = "Empty line below" })
 map("n", "<leader>lb", "i<CR><ESC>", { desc = "Line break at cursor" })
 map("n", "<leader>il", "i <ESC>l", { desc = "Space before" })
 map("n", "<leader>ih", "a <ESC>h", { desc = "Space after" })
@@ -228,7 +228,4 @@ map("n", "<leader>fm", function()
 end)
 map("n", "<leader>ft", function()
     require("telescope.builtin").treesitter()
-end)
-map("n", "<leader>fds", function()
-    require("telescope.built").lsp_document_symbols()
 end)
