@@ -12,66 +12,17 @@
 6. Run `:checkhealth`
 7. TADA~ Your done and setup
 
-```
-nvim
-├─ .git
-├─ .gitattributes
-├─ .github
-├─ .gitignore
-├─ init.lua
-├─ lua
-│  ├─ core
-│  │  ├─ autocmd.lua
-│  │  ├─ autocommand.lua
-│  │  ├─ keymaps.lua
-│  │  ├─ mappings.lua
-│  │  ├─ settings.lua
-│  │  ├─ theme.lua
-│  │  └─ utils.lua
-│  ├─ custom
-│  │  ├─ highlights.lua
-│  │  └─ statusline.lua
-│  └─ plugins
-│     ├─ config
-│     │  ├─ alpha.lua
-│     │  ├─ autopairs.lua
-│     │  ├─ bufferline.lua
-│     │  ├─ cmp.lua
-│     │  ├─ comment.lua
-│     │  ├─ dashboard.lua
-│     │  ├─ gitsigns.lua
-│     │  ├─ indent.lua
-│     │  ├─ lsp
-│     │  │  ├─ handlers.lua
-│     │  │  ├─ init.lua
-│     │  │  ├─ installer.lua
-│     │  │  └─ settings
-│     │  │     ├─ jsonls.lua
-│     │  │     └─ sumneko_lua.lua
-│     │  ├─ lualine.lua
-│     │  ├─ neorg.lua
-│     │  ├─ notify.lua
-│     │  ├─ null-ls.lua
-│     │  ├─ nvim-tree.lua
-│     │  ├─ other.lua
-│     │  ├─ snippets.lua
-│     │  ├─ startup.lua
-│     │  ├─ telescope.lua
-│     │  ├─ toggleterm.lua
-│     │  ├─ treesitter.lua
-│     │  ├─ trouble.lua
-│     │  ├─ twilight.lua
-│     │  └─ zen-mode.lua
-│     └─ plugins.lua
-├─ README.md
-├─ spell
-├─ stylua.toml
-├─ todos
-│  ├─ inbox.norg
-│  └─ index.norg
-└─ utils
+## Showcase
 
-```
+Custom dashboard
+![image](https://user-images.githubusercontent.com/92417638/164396371-e8859c10-7436-432a-b1e6-09c7fdbb5f5c.png)
+
+Custom telescope
+![image](https://user-images.githubusercontent.com/92417638/164399112-1cd32c02-3539-4ea8-a72f-175d28c1eb3a.png)
+
+Base16 + Custom highlights for bufferline
+![image](https://user-images.githubusercontent.com/92417638/164400472-4d0c3f22-6bc3-424a-a70c-c9dd23ffcd02.png)
+
 
 ## CREDITS
 
