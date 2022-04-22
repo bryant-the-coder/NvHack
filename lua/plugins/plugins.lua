@@ -497,6 +497,19 @@ return require("packer").startup({
                 require("plugins.config.presence")
             end,
         })
+
+        -- Games during leisure times
+        use({
+            "kwakzalver/duckytype.nvim",
+            cmd = { "DuckType" },
+            opt = true,
+            config = function()
+                require("duckytype").setup({})
+                vim.api.nvim_create_user_command("DuckType", "lua require('duckytype').Start()", {
+                    force = true,
+                })
+            end,
+        })
     end,
     config = {
         profile = {
