@@ -54,6 +54,7 @@ local function window_separator(separators)
     if separators then
         o.fillchars = {
             eob = " ",
+            fold = " ",
             vert = "║",
             horiz = "═",
             horizup = "╩",
@@ -65,6 +66,7 @@ local function window_separator(separators)
     else
         o.fillchars = {
             eob = " ",
+            fold = " ",
             horiz = " ",
             horizup = " ",
             horizdown = " ",
@@ -133,3 +135,5 @@ g.loaded_netrwFileHandlers = 1
 g.loaded_matchparen = 1
 g.loaded_logiPat = 1
 g.loaded_rrhelper = 1
+g.did_load_filetypes = 0
+g.do_filetype_lua = 1
