@@ -23,6 +23,7 @@ local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
 local teal = colors.teal
+local grey_fg2 = colors.grey_fg2
 
 -- Define bg color
 -- @param group Group
@@ -62,7 +63,7 @@ local function fg_bg(group, fgcol, bgcol, args)
     vim.api.nvim_set_hl(0, group, arg)
 end
 
--- Toggle transparency / ui right here :D
+-- Toggle transparent / ui right here :D
 local ui = {
     transparency = true,
     italic = true,
@@ -106,12 +107,14 @@ end
 
 if ui.transparency then
     -- bg("Normal", "none")
-    hl(0, "Normal", { bg = "NONE", sp = "none" })
-    hl(0, "StatuslineNC", { bg = "NONE" })
-    hl(0, "BufferlineFill", { bg = "NONE", fg = grey_fg })
+    fg_bg("Normal", "NONE", "none")
+    bg("StatuslineNC", "NONE")
+    fg_bg("BufferlineFill", grey_fg, "NONE")
+    fg_bg("Folded", white, "NONE")
 else
-    hl(0, "StatusLineNC", { bg = "#15171c" })
-    hl(0, "BufferlineFill", { bg = darker_black, fg = grey_fg })
+    fg_bg("StatusLineNC", "#15171c")
+    fg_bg("BufferlineFill", grey_fg, darker_black)
+    fg_bg("Folded", black, white)
 end
 
 -----------------------------------
@@ -137,7 +140,7 @@ fg("StatuslineNC", one_bg3)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
--- testing
+-- Visual mode highlighting
 fg("Visual", blue)
 
 -----------------------------------
