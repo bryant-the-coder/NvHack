@@ -71,51 +71,6 @@ local vcs = function()
 end
 -- }}}
 
--- LSP {{{
-local fmt = string.format
-
---- Getting diagnostic
----@param prefix string Which is W as in warning
----@param severity number
----@return string W:1
-local function get_diagnostic(prefix, severity)
-    local count
-    if vim.fn.has("nvim-0.6") == 0 then
-        count = vim.lsp.diagnostic.get_count(0, severity)
-    else
-        local severities = {
-            ["Warning"] = vim.diagnostic.severity.WARN,
-            ["Error"] = vim.diagnostic.severity.ERROR,
-            ["Info"] = vim.diagnostic.severity.INFO,
-            ["Hint"] = vim.diagnostic.severity.HINT,
-        }
-        count = #vim.diagnostic.get(0, { severity = severities[severity] })
-    end
-    return fmt(" %s:%d ", prefix, count)
-end
-
-local function get_error()
-    return get_diagnostic("X", "Error")
-end
-local function get_warning()
-    return get_diagnostic("W", "Warning")
-end
--- local function get_info()
--- 	return get_diagnostic("I", "Info")
--- end
--- local function get_hint()
--- 	return get_diagnostic("H", "Hint")
--- end
--- }}}
-
--- Clock {{{
---- Creating a working clock
----@return string + icon
-local function clock()
-    return " 什 " .. os.date("%H:%M ")
-end
---}}}
-
 -- File {{{
 --- Shorten filename
 ---@return string filename
@@ -163,6 +118,7 @@ local function filename()
 end
 -- }}}
 
+-- Word counter {{{
 local function word_counter()
     local wc = vim.api.nvim_eval("wordcount()")
     if wc["visual_words"] then
@@ -171,6 +127,52 @@ local function word_counter()
         return wc["words"]
     end
 end
+-- }}}
+
+-- LSP {{{
+local fmt = string.format
+
+--- Getting diagnostic
+---@param prefix string Which is W as in warning
+---@param severity number
+---@return string W:1
+local function get_diagnostic(prefix, severity)
+    local count
+    if vim.fn.has("nvim-0.6") == 0 then
+        count = vim.lsp.diagnostic.get_count(0, severity)
+    else
+        local severities = {
+            ["Warning"] = vim.diagnostic.severity.WARN,
+            ["Error"] = vim.diagnostic.severity.ERROR,
+            ["Info"] = vim.diagnostic.severity.INFO,
+            ["Hint"] = vim.diagnostic.severity.HINT,
+        }
+        count = #vim.diagnostic.get(0, { severity = severities[severity] })
+    end
+    return fmt(" %s:%d ", prefix, count)
+end
+
+local function get_error()
+    return get_diagnostic("X", "Error")
+end
+local function get_warning()
+    return get_diagnostic("W", "Warning")
+end
+-- local function get_info()
+-- 	return get_diagnostic("I", "Info")
+-- end
+-- local function get_hint()
+-- 	return get_diagnostic("H", "Hint")
+-- end
+-- }}}
+
+-- Clock {{{
+--- Creating a working clock
+---@return string + icon
+local function clock()
+    return " 什 " .. os.date("%H:%M ")
+end
+--}}}
 
 -- Main function {{{
 Statusline = {}
