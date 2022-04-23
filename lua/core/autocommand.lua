@@ -97,3 +97,17 @@ cmd({ "CursorHold" }, {
     group = "_lsp",
     callback = vim.diagnostic.open_float,
 })
+
+augroup("git_repo_check", {})
+cmd({ "VimEnter", "DirChanged" }, {
+    group = "git_repo_check",
+    callback = function()
+        local is_git = vim.api.nvim_exec("!git rev-parse --is-inside-work-tree", true)
+        if is_git:match("true") then
+            vim.cmd("doautocmd User IsGit")
+            return true
+        else
+            return false
+        end
+    end,
+})
