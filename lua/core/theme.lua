@@ -32,7 +32,7 @@ local base16 = require("base16")
 -- D) onedark
 -- E) rose_pine
 
-_G.theme = "doom_one"
+_G.theme = "everblush"
 
 local theme = _G.theme
 local time = os.date("*t")
