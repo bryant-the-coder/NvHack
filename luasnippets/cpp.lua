@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local hello = [[
 #include <iostream>
 

@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local scss_template = [[
 <!DOCTYPE html>
 <html lang="en">
