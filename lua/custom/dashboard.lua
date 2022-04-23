@@ -86,6 +86,11 @@ local mid_night = {
     "",
 }
 
+local quotes = {
+    "",
+    "'Stand up for what's right. Back down for what's wrong'",
+}
+
 function M.display()
     if
         not (
@@ -115,6 +120,8 @@ function M.display()
         vim.api.nvim_put(center(username), "l", true, true)
     end
 
+    vim.api.nvim_put(center(quotes), "l", true, true)
+
     vim.cmd([[1]])
     -- DONT EVER USE AUTOCHDIR! USE IT AT YOUR OWN RISK!
     -- autochdir = auto change directory
@@ -123,8 +130,10 @@ function M.display()
 
     vim.api.nvim_set_hl(0, "Red", { fg = default.colors.green })
     vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
+    vim.api.nvim_set_hl(0, "Purple", { fg = default.colors.purple, italic = true, bold = true })
     vim.fn.matchadd("Red", "[██]")
     vim.fn.matchadd("Orange", "Bryant")
+    vim.fn.matchadd("Purple", "'Stand up for what's right. Back down for what's wrong'")
     vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>q!<CR>", { noremap = true, silent = true })
 end
 
