@@ -434,6 +434,7 @@ return require("packer").startup({
         use({
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
+            -- event = "User IsGit",
             opt = true,
             disable = false,
             config = function()
@@ -504,8 +505,13 @@ return require("packer").startup({
             cmd = { "DuckType" },
             opt = true,
             config = function()
-                require("duckytype").setup({})
-                vim.api.nvim_create_user_command("DuckType", "lua require('duckytype').Start()", {
+                require("duckytype").setup({
+                    expected = "cpp_keywords",
+                    number_of_words = 50,
+                    average_word_length = 5.8,
+                })
+
+                vim.api.nvim_create_user_command("DuckType", "lua require('duckytype').Start(cpp_keywords)", {
                     force = true,
                 })
             end,
