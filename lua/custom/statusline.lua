@@ -75,18 +75,13 @@ end
 --- Shorten filename
 ---@return string filename
 local function get_name()
-    local fname = fn.expand("%:t")
-    if fname == "" then
+    local filename = fn.expand("%:t")
+    if filename == "" then
         return ""
     end
-    return " " .. fname .. " "
+    return " " .. filename .. " "
 end
 
-local function get_icon()
-    local file_name, file_ext = fn.expand("%:t"), fn.expand("%:e")
-    local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
-    return string.format(" %s %s ", icon):lower()
-end
 --- Readonly icon
 ---@return string readonly
 local function get_readonly()
@@ -117,6 +112,19 @@ local function filename()
     return table.concat({ name, flags })
 end
 -- }}}
+
+-- FIletype {{{
+local function get_filetype()
+    local file_name, file_ext = fn.expand("%:t"), fn.expand("%:e")
+    local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
+    local filetype = vim.bo.filetype
+
+    if filetype == "" then
+        return ""
+    end
+    return string.format(" %s %s ", icon, filetype):lower()
+end
+---}}}
 
 -- Word counter {{{
 local function word_counter()
@@ -174,7 +182,7 @@ local function clock()
 end
 --}}}
 
--- Main function {{{
+-- Main {{{
 Statusline = {}
 
 Statusline.active = function()
