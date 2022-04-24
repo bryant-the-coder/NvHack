@@ -2,6 +2,7 @@ vim.cmd([[
     " Command line abbrev
     cnoreabbrev W! w!
     cnoreabbrev Q! q!
+    cnoreabbrev Q q
     cnoreabbrev Qall! qall!
     cnoreabbrev Wq wq
     cnoreabbrev Wa wa
@@ -11,6 +12,7 @@ vim.cmd([[
     cnoreabbrev packersync PackerSync
     cnoreabbrev poackersync PackerSync
     cnoreabbrev pckersync PackerSync
+    cnoreabbrev packerdsync PackerSync
     cnoreabbrev sync PackerSync
     cnoreabbrev Sync PackerSync
     cnoreabbrev vterm 90 vsp <bar> :term
