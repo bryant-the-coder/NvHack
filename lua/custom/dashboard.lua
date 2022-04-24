@@ -130,7 +130,7 @@ function M.display()
 
     vim.api.nvim_set_hl(0, "Red", { fg = default.colors.green })
     vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
-    vim.api.nvim_set_hl(0, "Purple", { fg = default.colors.purple, italic = true, bold = true })
+    vim.api.nvim_set_hl(0, "Purple", { fg = default.colors.purple, italic = true, bold = true, underline = true })
     vim.fn.matchadd("Red", "[██]")
     vim.fn.matchadd("Orange", "Bryant")
     vim.fn.matchadd("Purple", "'Stand up for what's right. Back down for what's wrong'")
