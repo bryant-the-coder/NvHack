@@ -59,7 +59,7 @@ return require("packer").startup({
         })
         use({
             "MunifTanjim/nui.nvim",
-            disable = false,
+            disable = true,
         })
 
         -- Theme
@@ -207,6 +207,7 @@ return require("packer").startup({
             "max397574/lua-dev.nvim",
             module = "lua-dev",
             after = "nvim-lspconfig",
+            disable = true,
         })
 
         -- JSON
@@ -260,7 +261,6 @@ return require("packer").startup({
                 { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
                 { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
                 { "hrsh7th/cmp-path", after = "nvim-cmp" },
-                { "David-Kunz/cmp-npm", after = "nvim-cmp" },
             },
             config = function()
                 require("plugins.config.cmp")
@@ -305,14 +305,6 @@ return require("packer").startup({
             ft = { "css", "scss", "html", "js", "jsx" },
             opt = true,
         })
-
-        -- Welcome screen
-        -- use({
-        -- 	"glepnir/dashboard-nvim",
-        -- 	config = function()
-        -- 		require("plugins.config.dashboard")
-        -- 	end,
-        -- })
 
         -- Indentation
         use({
