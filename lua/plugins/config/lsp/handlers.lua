@@ -35,14 +35,71 @@ local border = {
     { "│", "FloatBorder" },
 }
 
+-- Code from max
+local codes = {
+    no_matching_function = {
+        message = " Can't find a matching function",
+        "redundant-parameter",
+        "ovl_no_viable_function_in_call",
+    },
+    empty_block = {
+        message = " That shouldn't be empty here",
+        "empty-block",
+    },
+    missing_symbol = {
+        message = " Here should be a symbol",
+        "miss-symbol",
+    },
+    expected_semi_colon = {
+        message = " Please put the `;` or `,`",
+        "expected_semi_declaration",
+        "miss-sep-in-table",
+        "invalid_token_after_toplevel_declarator",
+    },
+    redefinition = {
+        message = " That variable was defined before",
+        "redefinition",
+        "redefined-local",
+    },
+    no_matching_variable = {
+        message = " Can't find that variable",
+        "undefined-global",
+        "reportUndefinedVariable",
+    },
+    trailing_whitespace = {
+        message = " Whitespaces are useless",
+        "trailing-whitespace",
+        "trailing-space",
+    },
+    unused_variable = {
+        message = " Don't define variables you don't use",
+        "unused-local",
+    },
+    unused_function = {
+        message = " Don't define functions you don't use",
+        "unused-function",
+    },
+    useless_symbols = {
+        message = " Remove that useless symbols",
+        "unknown-symbol",
+    },
+    wrong_type = {
+        message = " Try to use the correct types",
+        "init_conversion_failed",
+    },
+    undeclared_variable = {
+        message = " Have you delcared that variable somewhere?",
+        "undeclared_var_use",
+    },
+    lowercase_global = {
+        message = " Should that be a global? (if so make it uppercase)",
+        "lowercase-global",
+    },
+}
+
 -- TODO: backfill this to template
 M.setup = function()
     local signs = {
-        -- { name = "DiagnosticSignError", text = "" },
-        -- { name = "DiagnosticSignWarn", text = "" },
-        -- { name = "DiagnosticSignInfo", text = "" },
-        -- { name = "DiagnosticSignHint", text = "" },
-
         { name = "DiagnosticSignError", text = "" },
         { name = "DiagnosticSignWarn", text = "" },
         { name = "DiagnosticSignInfo", text = "" },
@@ -58,7 +115,7 @@ M.setup = function()
         severity_sort = true,
         update_in_insert = true,
         -- virtual_text = {
-        -- 	prefix = "ﱢ",
+        --     prefix = "ﱢ",
         -- },
         virtual_text = false,
 
@@ -85,15 +142,32 @@ M.setup = function()
                 end
                 return i .. "/" .. total .. " " .. icon .. "  ", highlight
             end,
-            -- Code from TJ
-            format = function(d)
-                local t = vim.deepcopy(d)
-                local code = d.code or d.user_data.lsp.code
-                if code then
-                    t.message = string.format("%s -> (%s)", t.message, code):gsub("1. ", "")
+            -- Code from max
+            format = function(diagnostic)
+                -- dump(diagnostic)
+                if diagnostic.user_data == nil then
+                    return diagnostic.message
+                elseif vim.tbl_isempty(diagnostic.user_data) then
+                    return diagnostic.message
                 end
-                return t.message
+                local code = diagnostic.user_data.lsp.code
+                for _, table in pairs(codes) do
+                    if vim.tbl_contains(table, code) then
+                        return table.message
+                    end
+                end
+                return diagnostic.message
             end,
+
+            -- Code from TJ
+            -- format = function(d)
+            --     local t = vim.deepcopy(d)
+            --     local code = d.code or d.user_data.lsp.code
+            --     if code then
+            --         t.message = string.format("%s -> (%s)", t.message, code):gsub("1. ", "")
+            --     end
+            --     return t.message
+            -- end,
 
             -- Code from santigo-zero
             -- format = function(diagnostic)
