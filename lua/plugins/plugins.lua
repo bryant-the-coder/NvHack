@@ -309,7 +309,8 @@ return require("packer").startup({
         -- Indentation
         use({
             "lukas-reineke/indent-blankline.nvim",
-            event = "BufWinEnter",
+            -- event = "BufWinEnter",
+            event = "InsertEnter",
             disable = false,
             opt = true,
             config = function()
@@ -426,7 +427,6 @@ return require("packer").startup({
         use({
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
-            -- event = "User IsGit",
             opt = true,
             disable = false,
             config = function()
@@ -482,32 +482,48 @@ return require("packer").startup({
         })
 
         -- Discord rich presence
-        use({
-            "andweeb/presence.nvim",
-            event = "BufEnter",
-            disable = false,
-            config = function()
-                require("plugins.config.presence")
-            end,
-        })
+        -- use({
+        --     "andweeb/presence.nvim",
+        --     event = "BufEnter",
+        --     disable = false,
+        --     config = function()
+        --         require("plugins.config.presence")
+        --     end,
+        -- })
 
         -- Games during leisure times
         use({
             "kwakzalver/duckytype.nvim",
-            cmd = { "DuckType" },
-            opt = true,
             config = function()
-                require("duckytype").setup({
-                    expected = "cpp_keywords",
-                    number_of_words = 50,
-                    average_word_length = 5.8,
-                })
-
-                vim.api.nvim_create_user_command("DuckType", "lua require('duckytype').Start(cpp_keywords)", {
+                require("duckytype").setup({})
+                vim.api.nvim_create_user_command("DuckType", function()
+                    local valid_types = {
+                        default = "english_common",
+                        lua = "lua_keywords",
+                        python = "python_keywords",
+                        rust = "rust_keywords",
+                        go = "go_keywords",
+                        cpp = "cpp_keywords",
+                        c = "cpp_keywords",
+                    }
+                    require("duckytype").Start(valid_types[vim.fn.input("Enter a Type >> ")] or "default")
+                end, {
                     force = true,
                 })
             end,
         })
+        -- use({
+        --     "kwakzalver/duckytype.nvim",
+        --     event = "BufEnter",
+        --     config = function()
+        --         require("duckytype").setup({
+        --             number_of_words = 10,
+        --             window_config = {
+        --                 border = "double",
+        --             },
+        --         })
+        --     end,
+        -- })
     end,
     config = {
         profile = {
