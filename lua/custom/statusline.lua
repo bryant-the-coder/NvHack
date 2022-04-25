@@ -192,6 +192,8 @@ Statusline.active = function()
         mode(), -- Show mode
         "%#Normal#",
         vcs(),
+        "%#Statusline#",
+        "%=",
         "%#Filename#",
         filename(), -- Show filename
         "%#Statusline#",
