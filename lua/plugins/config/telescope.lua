@@ -5,7 +5,6 @@ end
 
 local actions = require("telescope.actions")
 local theme = require("telescope.themes")
-local load_ext = telescope.load_extension
 
 telescope.setup({
     defaults = {
@@ -69,6 +68,8 @@ telescope.setup({
     },
 })
 
+require("telescope").load_extension("fzf")
+
 local M = {}
 
 M.find_files = function()
@@ -83,8 +84,6 @@ M.find_files = function()
     }
     require("telescope.builtin").find_files(opts)
 end
-
-load_ext("fzf")
 
 M.live_grep = function()
     local opts = {
