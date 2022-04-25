@@ -28,6 +28,3 @@ DEFAULT_OPTIONS = {
 -- Impatient
 require("impatient")
 require("impatient").enable_profile()
-
--- Filetype.nvim
-vim.g.did_load_filetypes = 1
