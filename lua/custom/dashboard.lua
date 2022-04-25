@@ -88,7 +88,7 @@ local mid_night = {
 
 local quotes = {
     "",
-    "'Stand up for what's right. Back down for what's wrong'",
+    "'Fight for what's right. No matter if it means standing all ALONE'",
 }
 
 function M.display()
@@ -130,10 +130,14 @@ function M.display()
 
     vim.api.nvim_set_hl(0, "Red", { fg = default.colors.green })
     vim.api.nvim_set_hl(0, "Orange", { fg = default.colors.orange, italic = true, bold = true })
-    vim.api.nvim_set_hl(0, "Purple", { fg = default.colors.purple, italic = true, bold = true, underline = true })
+    vim.api.nvim_set_hl(0, "Purple", {
+        fg = default.colors.purple,
+        italic = true,
+        bold = true,--[[ , underline = true ]] 
+    })
     vim.fn.matchadd("Red", "[██]")
     vim.fn.matchadd("Orange", "Bryant")
-    vim.fn.matchadd("Purple", "'Stand up for what's right. Back down for what's wrong'")
+    vim.fn.matchadd("Purple", "'Fight for what's right. No matter if it means standing all ALONE'")
     vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>q!<CR>", { noremap = true, silent = true })
 end
 
