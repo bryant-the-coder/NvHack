@@ -135,4 +135,30 @@ M.rename = function()
     end, { buffer = created_buffer })
 end
 
+M.l_motion = function()
+    local cursorPosition = vim.api.nvim_win_get_cursor(0)
+    vim.cmd("normal ^")
+    local firstChar = vim.api.nvim_win_get_cursor(0)
+
+    if cursorPosition[2] < firstChar[2] then
+        vim.cmd("normal ^")
+    else
+        vim.api.nvim_win_set_cursor(0, cursorPosition)
+        vim.cmd("normal! l")
+    end
+end
+
+M.h_motion = function()
+    local cursorPosition = vim.api.nvim_win_get_cursor(0)
+    vim.cmd("normal ^")
+    local firstChar = vim.api.nvim_win_get_cursor(0)
+
+    if cursorPosition[2] <= firstChar[2] then
+        vim.cmd("normal 0")
+    else
+        vim.api.nvim_win_set_cursor(0, cursorPosition)
+        vim.cmd("normal! h")
+    end
+end
+
 return M

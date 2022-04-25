@@ -65,6 +65,12 @@ map("n", "<leader>sf", "<cmd>source % <CR>")
 -- k = gk
 map({ "n", "v" }, "j", "gj")
 map({ "n", "v" }, "k", "gk")
+map("n", "l", function()
+    require("core.utils").l_motion()
+end)
+map("n", "h", function()
+    require("core.utils").h_motion()
+end)
 
 -- Indenting
 map("v", ">", ">gv")
@@ -115,7 +121,6 @@ map("n", "H", "<C-w><C-h>")
 -- Buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>")
-map("n", "<C-w>", "<cmd>bdelete<CR>")
 
 -- Moving lines up & down (complicated)
 map("n", "<C-down>", "<cmd>m .+1<CR>==")
@@ -145,11 +150,6 @@ map("n", "<leader>tt", "<cmd>Trouble<CR>")
 
 -- Neogen
 map("n", "<leader>ng", "<cmd>Neogen<CR>")
-
--- ToggleTerm
-map("n", "<ledaer>lg>", function()
-    return _lazygit_toggle()
-end)
 
 -- TSPlayground
 map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
@@ -210,9 +210,6 @@ map("n", "<leader>fd", function()
 end)
 map("n", "<leader>fb", function()
     require("telescope.builtin").buffers()
-end)
-map("n", "<leader>fp", function()
-    require("telescope.builtin").file_browser()
 end)
 map("n", "<leader>fc", function()
     require("telescope.builtin").colorscheme()
