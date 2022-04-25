@@ -133,7 +133,7 @@ function M.display()
     vim.api.nvim_set_hl(0, "Purple", {
         fg = default.colors.purple,
         italic = true,
-        bold = true,--[[ , underline = true ]] 
+        bold = true,--[[ , underline = true ]]
     })
     vim.fn.matchadd("Red", "[██]")
     vim.fn.matchadd("Orange", "Bryant")
