@@ -34,7 +34,7 @@ parser_configs.norg_table = {
         branch = "main",
     },
 }
-require("nvim-treesitter.install").compilers = { "clang" }
+require("nvim-treesitter.install").compilers = { "clang", "gcc" }
 treesitter.setup({
     ensure_installed = langs,
     sync_install = false,
