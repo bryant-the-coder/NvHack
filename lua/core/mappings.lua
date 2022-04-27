@@ -50,6 +50,7 @@ end)
 
 -- ESC to clear all highlights
 map({ "n", "i", "v" }, "<ESC>", "<cmd>noh<CR>")
+-- map({ "n", "v" }, "<CR>", [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]], { silent = true, expr = true })
 
 -- Rename (easy way)
 map("n", "<A-r>", function()
@@ -162,7 +163,7 @@ map("n", "<leader>pc", "<cmd>PackerClean<CR>")
 map("n", "<leader>ps", "<cmd>PackerSync<CR>")
 
 -- LSP
-map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename variables" })
+map("n", "<leader>lr", vim.lsp.buf.rename)
 map("n", "<leader>ld", vim.lsp.buf.definition)
 map("n", "<leader>lt", vim.lsp.buf.type_definition)
 map("n", "<leader>lh", vim.lsp.buf.signature_help)
