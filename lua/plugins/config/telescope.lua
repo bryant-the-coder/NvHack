@@ -5,6 +5,7 @@ end
 
 local actions = require("telescope.actions")
 local theme = require("telescope.themes")
+local previewers_utils = require("telescope.previewers.utils")
 
 telescope.setup({
     defaults = {
@@ -44,6 +45,13 @@ telescope.setup({
             ".ico",
             ".add",
             ".add.spl",
+        },
+        preview = {
+            filesize_hook = function(filepath, bufnr, opts)
+                -- If the file is very big only print the head of the it
+                local cmd = { "head", "-c", 1000000, filepath }
+                previewers_utils.job_maker(cmd, bufnr, opts)
+            end,
         },
         mappings = {
             i = {
