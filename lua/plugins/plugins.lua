@@ -123,7 +123,7 @@ return require("packer").startup({
             "nvim-treesitter/nvim-treesitter",
             event = { "BufRead", "BufNewFile" },
             module = "nvim-treesitter",
-            commit = "bca65c068b92f19174dbba15d538315e8c89a5d6",
+            -- commit = "bca65c068b92f19174dbba15d538315e8c89a5d6",
             disable = false,
             run = ":TSUpdate",
             config = function()
