@@ -512,6 +512,13 @@ return require("packer").startup({
                 })
             end,
         })
+        use({
+            "j-hui/fidget.nvim",
+            disable = true,
+            config = function()
+                require("plugins.config.other")
+            end,
+        })
         -- use({
         --     "kwakzalver/duckytype.nvim",
         --     event = "BufEnter",
