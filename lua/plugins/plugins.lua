@@ -514,9 +514,9 @@ return require("packer").startup({
         })
         use({
             "j-hui/fidget.nvim",
-            disable = true,
+            disable = false,
             config = function()
-                require("plugins.config.other")
+                require("plugins.config.fidget")
             end,
         })
         -- use({
