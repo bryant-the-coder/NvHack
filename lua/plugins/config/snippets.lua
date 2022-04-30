@@ -18,6 +18,7 @@ local dl = require("luasnip.extras").dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_lua").lazy_load()
 
 ls.config.setup({
     -- This tells LuaSnip to remember to keep around the last snippet.
@@ -63,4 +64,3 @@ ls.config.setup({
         parse = parse,
     },
 })
-require("luasnip.loaders.from_lua").lazy_load()
