@@ -28,6 +28,7 @@ Base16 + Custom highlights for bufferline
 
 Thanks to these wonderful people. Their config guided me into making my config.
 
+- [NvChad](https://github.com/NvChad/Nvchad)
 - [max397574](https://github.com/max397574/NeovimConfig)
   > Complicated config but you will find it very useful.
 - [abzcoding](https://github.com/abzcoding/lvim)
