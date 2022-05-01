@@ -72,6 +72,11 @@ fidget.setup({
             )
         end,
     },
+    sources = {
+        ["null-ls"] = {
+            ignore = true,
+        },
+    },
     debug = {
         logging = false,
         strict = false,
