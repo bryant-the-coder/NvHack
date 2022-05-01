@@ -207,15 +207,11 @@ return require("packer").startup({
             "max397574/lua-dev.nvim",
             module = "lua-dev",
             after = "nvim-lspconfig",
-            disable = true,
+            disable = false,
         })
 
-        -- JSON
         use({
-            "b0o/schemastore.nvim",
-            after = "nvim-lspconfig",
-            event = "InsertEnter",
-            disable = false,
+            "p00f/clangd_extensions.nvim",
         })
 
         use({
