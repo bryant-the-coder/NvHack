@@ -3,9 +3,6 @@ if not status_ok then
     return
 end
 
--- require("plugins.config.lsp.installer")
--- require("plugins.config.lsp.handlers").setup()
-
 -- Taken from max. Thanks max
 
 -- local border = {
@@ -217,6 +214,28 @@ capabilities.textDocument.codeAction = {
     },
 }
 
+local function lsp_highlight_document(client, bufnr)
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+        vim.api.nvim_create_autocmd("CursorHold", {
+            callback = function()
+                vim.lsp.buf.document_highlight()
+            end,
+            buffer = bufnr,
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            callback = function()
+                vim.lsp.buf.clear_references()
+            end,
+            buffer = bufnr,
+        })
+    end
+
+    vim.api.nvim_set_hl(0, "LspReferenceText", { nocombine = true, reverse = false, underline = true })
+    vim.api.nvim_set_hl(0, "LspReferenceRead", { nocombine = true, reverse = false, underline = true })
+    vim.api.nvim_set_hl(0, "LspReferenceWrite", { nocombine = true, reverse = false, underline = true })
+end
+
 local servers = {
     "emmet_ls",
     "html",
@@ -235,15 +254,8 @@ require("nvim-lsp-installer").setup({
     ensure_installed = servers,
 })
 
-local function on_attach(client)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-end
-
-local function on_attach_utf16(client)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-    client.offset_encoding = "utf-16"
+local function on_attach(client, bufnr)
+    require("plugins.config.lsp.on_attach").setup(client, bufnr)
 end
 
 -- sumneko_lua
@@ -264,7 +276,7 @@ local sumneko = {
         },
     },
 }
-local use_lua_dev = true
+local use_lua_dev = false
 if use_lua_dev then
     local luadev = require("lua-dev").setup({
         library = {
@@ -289,6 +301,7 @@ lspconfig.jsonls.setup({
 local clangd_defaults = require("lspconfig.server_configurations.clangd")
 local clangd_configs = vim.tbl_deep_extend("force", clangd_defaults["default_config"], {
     on_attach = on_attach,
+    capabilities = capabilities,
     cmd = {
         "clangd",
         "-j=4",
@@ -376,4 +389,5 @@ require("clangd_extensions").setup({
 -- Rust
 lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
+    capabilities = capabilities,
 })

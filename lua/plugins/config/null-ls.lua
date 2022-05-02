@@ -3,6 +3,7 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 -- local diagnostics = null_ls.builtins.diagnostics
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
     debug = false,
@@ -16,11 +17,12 @@ null_ls.setup({
     },
 
     -- Format on save (laggy)
-    on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-            -- This is for markdown files btw
-            -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)")
-            vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-        end
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format()
+            end,
+        })
     end,
 })
