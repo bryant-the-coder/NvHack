@@ -96,6 +96,15 @@ return require("packer").startup({
             end,
         })
 
+        use({
+            "max397574/neorg-kanban",
+            after = "neorg",
+        })
+
+        use({
+            "nvim-neorg/neorg-telescope",
+        })
+
         -- Explorer menu
         use({
             "kyazdani42/nvim-tree.lua",
