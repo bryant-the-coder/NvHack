@@ -202,6 +202,7 @@ end)
 -- Telescope
 map("n", "<leader>ff", function()
     require("plugins.config.telescope").find_files()
+    -- require("telescope.builtin").find_files()
 end)
 map("n", "<leader>fw", function()
     require("plugins.config.telescope").live_grep()

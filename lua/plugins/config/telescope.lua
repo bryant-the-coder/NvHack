@@ -90,7 +90,7 @@ M.find_files = function()
             prompt_position = "top",
         },
     }
-    require("telescope.builtin").find_files(opts)
+     require("telescope.builtin").find_files(opts)
 end
 
 M.live_grep = function()
