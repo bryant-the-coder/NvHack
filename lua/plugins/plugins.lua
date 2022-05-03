@@ -294,6 +294,9 @@ return require("packer").startup({
             disable = false,
             module = "telescope",
             cmd = "Telescope",
+            config = function()
+                require("plugins.config.telescope")
+            end,
         })
         use({
             "nvim-telescope/telescope-fzf-native.nvim",
@@ -307,7 +310,7 @@ return require("packer").startup({
             "norcalli/nvim-colorizer.lua",
             disable = false,
             module = "colorizer",
-            ft = { "css", "scss", "html", "js", "jsx" },
+            ft = { "lua", "css", "scss", "html", "js", "jsx" },
             opt = true,
         })
 

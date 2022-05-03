@@ -22,7 +22,7 @@ DEFAULT_OPTIONS = {
     hsl_fn = true,
     css = true,
     css_fn = true,
-    mode = "background",
+    mode = "foreground",
 }
 
 -- Impatient
