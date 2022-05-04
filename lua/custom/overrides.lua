@@ -115,7 +115,7 @@ if ui.transparency then
 else
     fg_bg("StatusLineNC", "#15171c")
     fg_bg("BufferlineFill", grey_fg, darker_black)
-    fg_bg("Folded", black, white)
+    fg_bg("Folded", white, grey)
 end
 
 -----------------------------------
