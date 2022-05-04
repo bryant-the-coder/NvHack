@@ -65,6 +65,33 @@ telescope.setup({
             },
         },
     },
+    pickers = {
+        live_grep = {
+            preview_title = "~ Location Preview ~ ",
+            prompt_title = "~ Find String ~",
+            border = true,
+            disable_coordinates = true,
+            file_ignore_patterns = {
+                "vendor/*",
+                "node_modules",
+                "%.jpg",
+                "%.jpeg",
+                "%.png",
+                "%.svg",
+                "%.otf",
+                "%.ttf",
+            },
+        },
+        find_files = {
+            prompt_title = "~ Find Files ~",
+            preview_title = "~ File Preview ~",
+            results_title = "~ Files ~",
+        },
+        diagnostics = {
+            prompt_title = "~ Diagnostics ~",
+            preview_title = "~ Diagnostics Preview ~",
+        },
+    },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
