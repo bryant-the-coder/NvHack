@@ -13,34 +13,27 @@ local luasnip = require("luasnip")
 
 local kind_icons = {
     Text = "",
-    -- Method = "m",
-    -- Function = "",
-    -- Constructor = "",
     Method = "",
     Function = "",
-    Constructor = "",
-    Field = "",
-    -- Variable = "",
-    Variable = "",
-    Class = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
     Interface = "",
-    -- Module = "",
-    Module = "",
-    Property = "",
-    Unit = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
     Value = "",
     Enum = "",
-    -- Keyword = "",
-    Keyword = "",
-    -- Snippet = "",
-    Snippet = "",
+    Keyword = "",
+    Snippet = "",
     Color = "",
     File = "",
-    Reference = "",
+    Reference = "",
     Folder = "",
     EnumMember = "",
-    Constant = "",
-    Struct = "",
+    Constant = "",
+    Struct = "פּ",
     Event = "",
     Operator = "",
     TypeParameter = "",
@@ -84,13 +77,11 @@ cmp.setup({
             border = border,
             scrollbar = "┃",
             -- scrollbar = "║",
-            winhighlight = "Normal:LineNr,FloatBorder:FloatBorder,CursorLine:Pmenu,Search:None",
         },
         documentation = {
             border = border,
             -- scrollbar = "║",
             scrollbar = "┃",
-            winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
         },
     },
     snippet = {
@@ -144,7 +135,7 @@ cmp.setup({
         -- fields = { "kind", "menu", "abbr" },
         format = function(entry, vim_item)
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-            vim_item.menu = ({
+            --[[ vim_item.menu = ({
                 buffer = "[BUF]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[API]",
@@ -152,7 +143,7 @@ cmp.setup({
                 luasnip = "[SNIP]",
                 npm = "[NPM]",
                 neorg = "[NEORG]",
-            })[entry.source.name]
+            })[entry.source.name] ]]
             return vim_item
         end,
     },
