@@ -196,21 +196,35 @@ return require("packer").startup({
 
         -- LSP
         use({
-            "neovim/nvim-lspconfig",
-            module = "lspconfig",
-            event = "BufRead",
-            disable = false,
-            tag = "v0.1.3",
-            config = function()
-                require("plugins.config.lsp")
-            end,
-        })
-
-        -- LSP installer
-        use({
             "williamboman/nvim-lsp-installer",
             disable = false,
+            {
+                "neovim/nvim-lspconfig",
+                module = "lspconfig",
+                event = "BufRead",
+                disable = false,
+                tag = "v0.1.3",
+                config = function()
+                    require("plugins.config.lsp")
+                end,
+            },
         })
+        -- use({
+        --     "neovim/nvim-lspconfig",
+        --     module = "lspconfig",
+        --     event = "BufRead",
+        --     disable = false,
+        --     tag = "v0.1.3",
+        --     config = function()
+        --         require("plugins.config.lsp")
+        --     end,
+        -- })
+
+        -- -- LSP installer
+        -- use({
+        --     "williamboman/nvim-lsp-installer",
+        --     disable = false,
+        -- })
 
         use({
             "max397574/lua-dev.nvim",
@@ -301,7 +315,12 @@ return require("packer").startup({
         use({
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
+            module = "fzf",
             disable = false,
+            after = "telescope.nvim",
+        })
+        use({
+            "nvim-telescope/telescope-file-browser.nvim",
             after = "telescope.nvim",
         })
 
