@@ -7,6 +7,9 @@ local actions = require("telescope.actions")
 local theme = require("telescope.themes")
 local previewers_utils = require("telescope.previewers.utils")
 
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("file_browser")
+
 telescope.setup({
     defaults = {
         layout_config = {
@@ -103,9 +106,6 @@ telescope.setup({
         file_browser = {},
     },
 })
-
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("file_browser")
 
 local M = {}
 
