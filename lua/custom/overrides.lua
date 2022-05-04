@@ -66,7 +66,7 @@ end
 
 -- Toggle transparent / ui right here :D
 local ui = {
-    transparency = true,
+    transparency = false,
     italic = true,
 }
 hl(0, "StatusNormal", { fg = "#181a1f", bg = "#98c379" })
@@ -157,10 +157,10 @@ fg("DiagnosticWarn", yellow)
 fg("DiagnosticInformation", green)
 
 -- Pmenu
-bg("Pmenu", one_bg)
-bg("PmenuSbar", one_bg2)
-bg("PmenuThumb", nord_blue)
-bg("PmenuSel", pmenu_bg)
+bg("Pmenu", black)
+bg("PmenuSbar", one_bg)
+bg("PmenuThumb", grey)
+fg_bg("PmenuSel", black, pmenu_bg)
 
 -- GitSigns
 fg("GitSignsAdd", green)
@@ -177,7 +177,8 @@ fg("NeoTreeFileNameOpened", folder_bg)
 -- CMP
 fg("CmpItemAbbrDeprecated", "#808080", { strikethrough = true })
 
-fg("CmpItemAbbrMatch", "#569CD6")
+-- fg("CmpItemAbbrMatch", "#569CD6")
+fg("CmpItemAbbrMatch", blue, { bold = true })
 fg("CmpItemAbbrMatchFuzzy", "#569CD6")
 
 fg("CmpItemKindVariable", "#9CDCFE")
@@ -191,7 +192,8 @@ fg("CmpItemKindKeyword", "#D4D4D4")
 fg("CmpItemKindProperty", "#D4D4D4")
 fg("CmpItemKindUnit", "#D4D4D4")
 
-fg("CmpCompletionWindowBorder", grey)
+-- fg("CmpBorder", blue)
+fg("CmpBorder", grey)
 fg("CmpDocumentationWindowBorder", grey)
 
 -- Telescope
