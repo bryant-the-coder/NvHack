@@ -113,7 +113,7 @@ return require("packer").startup({
             config = function()
                 require("plugins.config.nvim-tree")
             end,
-            disable = true,
+            disable = false,
         })
         use({
             "nvim-neo-tree/neo-tree.nvim",
@@ -306,7 +306,7 @@ return require("packer").startup({
         use({
             "nvim-telescope/telescope.nvim",
             disable = false,
-            module = "telescope",
+            module = { "telescope", "plugins.config.telescope" },
             cmd = "Telescope",
             config = function()
                 require("plugins.config.telescope")
@@ -315,9 +315,7 @@ return require("packer").startup({
         use({
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
-            module = "fzf",
             disable = false,
-            after = "telescope.nvim",
         })
         use({
             "nvim-telescope/telescope-file-browser.nvim",

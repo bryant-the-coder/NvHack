@@ -4,26 +4,16 @@ local status_ok, color = pcall(require, "colorizer")
 if not status_ok then
     return
 end
-color.setup({
-    "css",
-    "scss",
-    "javascript",
-    "typescript",
-    "html",
-    "lua",
-})
-
-DEFAULT_OPTIONS = {
-    RGB = true,
-    RRGGBB = true,
-    names = true,
+require("colorizer").setup({
+    "*",
+}, {
+    mode = "foreground",
+    hsl_fn = true,
     RRGGBBAA = true,
     rgb_fn = true,
-    hsl_fn = true,
     css = true,
     css_fn = true,
-    mode = "foreground",
-}
+})
 
 -- Impatient
 require("impatient")

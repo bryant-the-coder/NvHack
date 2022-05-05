@@ -5,8 +5,6 @@ if not present then
     return
 end
 
-g.nvim_tree_indent_markers = 1
-
 g.nvim_tree_icons = {
     default = "",
     symlink = "",
@@ -23,9 +21,11 @@ g.nvim_tree_icons = {
         default = "",
         empty = "",
         empty_open = "",
-        open = "",
+        open = "",
         symlink = "",
         symlink_open = "",
+        arrow_open = "",
+        arrow_closed = "",
     },
 }
 
@@ -36,16 +36,12 @@ tree.setup({
     open_on_tab = true,
     hijack_cursor = false,
     update_cwd = false,
-    update_to_buf_dir = {
-        enable = false,
-        auto_open = true,
-    },
     view = {
         width = 30,
         height = 30,
         hide_root_folder = false,
         side = "right",
-        auto_resize = true,
+        preserve_window_proportions = true,
         mappings = {
             custom_only = false,
             list = {},
@@ -65,6 +61,11 @@ tree.setup({
         cmd = nil,
         args = {},
     },
+    renderer = {
+        indent_markers = {
+            enable = true,
+        },
+    },
     filters = {
         dotfiles = false,
         custom = { ".git", ".gitattributes", "node_module", "package.lock.json" },
@@ -76,15 +77,23 @@ tree.setup({
         cmd = "trash",
         require_confirm = true,
     },
-    open_file = {
-        quit_on_open = true,
-        resize_window = false,
-        window_picker = {
+    actions = {
+        use_system_clipboard = true,
+        change_dir = {
             enable = true,
-            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-            exclude = {
-                filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                buftype = { "nofile", "terminal", "help" },
+            global = false,
+            restrict_above_cwd = false,
+        },
+        open_file = {
+            quit_on_open = false,
+            resize_window = false,
+            window_picker = {
+                enable = true,
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    buftype = { "nofile", "terminal", "help" },
+                },
             },
         },
     },
