@@ -68,6 +68,7 @@ telescope.setup({
             },
         },
     },
+
     pickers = {
         live_grep = {
             preview_title = "~ Location Preview ~ ",
