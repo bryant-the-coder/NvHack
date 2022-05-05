@@ -26,13 +26,13 @@
 local base16 = require("base16")
 
 -- Theme that I like
--- A) everforest
--- B) everblush
+-- A) everblush
+-- B) onedark
 -- C) UWU
--- D) onedark
+-- D) everforest
 -- E) rose_pine
 
-_G.theme = "everblush"
+_G.theme = "onedark"
 
 local theme = _G.theme
 local time = os.date("*t")
