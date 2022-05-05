@@ -14,9 +14,9 @@ local langs = {
     "norg_meta",
     "norg_table",
     "toml",
-    -- "html",
-    -- "javascript",
-    -- "scss",
+    "html",
+    "javascript",
+    "scss",
 }
 
 parser_configs.norg_meta = {
