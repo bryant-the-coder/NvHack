@@ -334,7 +334,6 @@ return require("packer").startup({
         -- Indentation
         use({
             "lukas-reineke/indent-blankline.nvim",
-            -- event = "BufWinEnter",
             event = "InsertEnter",
             disable = false,
             opt = true,
@@ -366,6 +365,7 @@ return require("packer").startup({
         -- Terminal
         use({
             "akinsho/toggleterm.nvim",
+            tag = "v1.*",
             config = function()
                 require("plugins.config.toggleterm")
             end,
@@ -390,7 +390,6 @@ return require("packer").startup({
                         excluded_filetypes = { "harpoon", "package.lock.json" },
                     },
                 })
-                require("telescope").load_extension("harpoon")
             end,
         })
 
