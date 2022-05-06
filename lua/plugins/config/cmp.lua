@@ -131,6 +131,18 @@ cmp.setup({
             end
         end, { "i", "s" }),
     }),
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
     formatting = {
         -- fields = { "kind", "menu", "abbr" },
         format = function(entry, vim_item)
@@ -147,7 +159,6 @@ cmp.setup({
             return vim_item
         end,
     },
-
     sources = cmp.config.sources({
         { name = "nvim_lsp", priority = "9" },
         { name = "luasnip", priority = "8" },
