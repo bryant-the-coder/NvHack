@@ -28,4 +28,11 @@ function on_attach.setup(client, bufnr)
     lsp_highlight_document(client, bufnr)
 end
 
+function on_attach.utf16(client, bufnr)
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+    client.offset_encoding = "utf-16"
+    lsp_highlight_document(client, bufnr)
+end
+
 return on_attach

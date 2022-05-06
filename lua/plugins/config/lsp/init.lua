@@ -185,8 +185,48 @@ local config = {
 
 vim.diagnostic.config(config)
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local completion = capabilities.textDocument.completion.completionItem
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = {
+    valueSet = { 1 },
+}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = { "documentation", "detail", "additionalTextEdits" },
+}
+capabilities.textDocument.codeAction = {
+    dynamicRegistration = false,
+    codeActionLiteralSupport = {
+        codeActionKind = {
+            valueSet = {
+                "",
+                "quickfix",
+                "refactor",
+                "refactor.extract",
+                "refactor.inline",
+                "refactor.rewrite",
+                "source",
+                "source.organizeImports",
+            },
+        },
+    },
+}
+
 local function on_attach(client, bufnr)
     require("plugins.config.lsp.on_attach").setup(client, bufnr)
+end
+
+local function on_attach_utf16(client, bufnr)
+    require("plugins.config.lsp.on_attach").utf16(client, bufnr)
 end
 
 -- sumneko_lua
@@ -231,20 +271,8 @@ lspconfig.jsonls.setup({
 -- Clangd / C++
 local clangd_defaults = require("lspconfig.server_configurations.clangd")
 local clangd_configs = vim.tbl_deep_extend("force", clangd_defaults["default_config"], {
-    on_attach = on_attach,
+    on_attach = on_attach_utf16,
     capabilities = capabilities,
-    cmd = {
-        "clangd",
-        "-j=4",
-        "--background-index",
-        "--clang-tidy",
-        "--fallback-style=llvm",
-        "--all-scopes-completion",
-        "--completion-style=detailed",
-        "--header-insertion=iwyu",
-        "--header-insertion-decorators",
-        "--pch-storage=memory",
-    },
 })
 require("clangd_extensions").setup({
     server = clangd_configs,
@@ -293,7 +321,6 @@ require("clangd_extensions").setup({
                 statement = "",
                 ["template argument"] = "",
             },
-
             kind_icons = {
                 Compound = "",
                 Recovery = "",
@@ -303,7 +330,6 @@ require("clangd_extensions").setup({
                 TemplateTemplateParm = "",
                 TemplateParamObject = "",
             },
-
             highlights = {
                 detail = "Comment",
             },

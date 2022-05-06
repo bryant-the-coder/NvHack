@@ -151,10 +151,10 @@ fg("Visual", blue)
 bg("NeorgCodeBlock", darker_black)
 
 -- Lsp diagnostics
-fg("DiagnosticHint", purple)
-fg("DiagnosticError", red)
-fg("DiagnosticWarn", yellow)
-fg("DiagnosticInformation", green)
+-- fg("DiagnosticHint", purple)
+-- fg("DiagnosticError", red)
+-- fg("DiagnosticWarn", yellow)
+-- fg("DiagnosticInformation", green)
 
 -- Pmenu
 bg("Pmenu", black)
@@ -213,6 +213,7 @@ bg("TelescopePreviewLine", light_grey)
 
 -- Nvim-Tree
 bg("NvimTreeNormal", darker_black)
+bg("NvimTreeCursorLine", darker_black)
 bg("NvimTreeNormalNC", darker_black)
 fg("NvimTreeEmptyFolderName", folder_bg)
 fg("NvimTreeFolderName", folder_bg)
