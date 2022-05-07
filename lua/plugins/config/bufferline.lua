@@ -8,6 +8,13 @@ local default = {
 }
 local groups = require("bufferline.groups")
 local fn = vim.fn
+
+vim.cmd([[
+ function! Quit_vim(a,b,c,d)
+     wqa
+ endfunction
+]])
+
 -- Code from NvChad
 bufferline.setup({
     options = {
@@ -35,7 +42,7 @@ bufferline.setup({
         separator_style = "thin",
         show_buffer_icons = true,
         show_buffer_close_icons = true,
-        show_close_icon = true,
+        show_close_icon = false,
         show_tab_indicators = true,
         enforce_regular_tabs = true,
         always_show_bufferline = true,
@@ -56,6 +63,14 @@ bufferline.setup({
 
             return true
         end,
+
+        custom_areas = {
+            right = function()
+                return {
+                    { text = "%@Quit_vim@  %X" },
+                }
+            end,
+        },
     },
     highlights = {
         background = {
