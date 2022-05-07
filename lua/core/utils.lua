@@ -112,6 +112,7 @@ M.rename = function()
         -- Use notify.nvim, logs notification as warn, title as Variable Rename
         vim.notify(rename_old .. "  " .. rename_new, vim.log.levels.WARN, { title = "Variable Rename" })
     end
+
     local rename_old = vim.fn.expand("<cword>")
     local created_buffer = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_open_win(created_buffer, true, {
@@ -159,6 +160,19 @@ M.h_motion = function()
         vim.api.nvim_win_set_cursor(0, cursorPosition)
         vim.cmd("normal! h")
     end
+end
+
+M.border = function()
+    return {
+        { "╭", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "╮", "FloatBorder" },
+        { "│", "FloatBorder" },
+        { "╯", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "╰", "FloatBorder" },
+        { "│", "FloatBorder" },
+    }
 end
 
 return M
