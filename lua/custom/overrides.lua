@@ -150,11 +150,14 @@ fg("Visual", blue)
 -- Neorg
 bg("NeorgCodeBlock", darker_black)
 
+-- Bufferline
+fg("BufferLineRightCustomAreaText1", red)
+
 -- Lsp diagnostics
--- fg("DiagnosticHint", purple)
--- fg("DiagnosticError", red)
--- fg("DiagnosticWarn", yellow)
--- fg("DiagnosticInformation", green)
+fg("DiagnosticHint", purple)
+fg("DiagnosticError", red)
+fg("DiagnosticWarn", yellow)
+fg("DiagnosticInformation", green)
 
 -- Pmenu
 bg("Pmenu", black)
