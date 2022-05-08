@@ -32,7 +32,7 @@ map("n", "<C-q>", "<cmd>q<CR>")
 map("n", "<leader>dd", "<cmd>bdelete<CR>")
 
 -- Pasting stuff
-map("v", "p", "p:let @+=@0<CR>")
+map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 
 -- Folding
 map("n", "<space>", "za")
@@ -163,7 +163,7 @@ map("n", "<leader>pc", "<cmd>PackerClean<CR>")
 map("n", "<leader>ps", "<cmd>PackerSync<CR>")
 
 -- LSP
-map("n", "<leader>lr", vim.lsp.buf.rename)
+--[[ map("n", "<leader>lr", vim.lsp.buf.rename)
 map("n", "<leader>ld", vim.lsp.buf.definition)
 map("n", "<leader>lt", vim.lsp.buf.type_definition)
 map("n", "<leader>lh", vim.lsp.buf.signature_help)
@@ -177,7 +177,7 @@ map("n", "<C-k>", function()
 end)
 map("n", "<C-j>", function()
     vim.diagnostic.goto_next({ border = "rounded" })
-end)
+end) ]]
 
 -- Harpooon
 map("n", "<A-p>", function()
