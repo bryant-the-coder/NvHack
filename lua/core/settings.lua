@@ -34,6 +34,7 @@ o.clipboard = "unnamedplus" -- Use system clipboard
 o.foldmethod = "marker"
 o.completeopt = "menuone,noselect,menu"
 o.lazyredraw = true -- Don't redraw screen while processing macros
+o.confirm = true
 
 -- Command line
 o.shortmess:append("I") -- Less and shorter messages in command line
