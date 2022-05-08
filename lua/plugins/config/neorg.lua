@@ -28,12 +28,12 @@ neorg.setup({
             },
         },
         ["core.norg.completion"] = {
-            config = { -- Note that this table is optional and doesn't need to be provided
+            config = {
                 engine = "nvim-cmp",
             },
         },
         ["core.gtd.base"] = {
-            config = { -- Note that this table is optional and doesn't need to be provided
+            config = {
                 workspace = "homework",
                 exclude = { "journal" },
             },
