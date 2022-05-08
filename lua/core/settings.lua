@@ -10,6 +10,9 @@ o.cursorlineopt = { "number" } -- Highlighting the number where the cursor is on
 g.mapleader = ","
 o.mouse = "a"
 
+-- Theme
+o.termguicolors = true
+
 -- Number
 o.number = true
 o.relativenumber = true
