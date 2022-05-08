@@ -49,6 +49,17 @@ local function on_attach_utf16(client, bufnr)
     require("plugins.config.lsp.on_attach").utf16(client, bufnr)
 end
 
+local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+}
+
 -- sumneko_lua
 local sumneko = {
     on_attach = on_attach,

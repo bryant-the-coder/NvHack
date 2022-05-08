@@ -253,9 +253,10 @@ return require("packer").startup({
         use({
             "weilbith/nvim-code-action-menu",
             cmd = "CodeActionMenu",
+            ft = { "cpp", "c" },
             event = "BufEnter",
             after = "nvim-lspconfig",
-            disable = true,
+            disable = false,
         })
 
         -- Formatting
