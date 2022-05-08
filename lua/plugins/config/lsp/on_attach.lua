@@ -23,12 +23,46 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 function on_attach.setup(client, bufnr)
+    local map = vim.keymap.set
+    map("n", "<leader>lr", vim.lsp.buf.rename)
+    map("n", "<leader>ld", vim.lsp.buf.definition)
+    map("n", "<leader>lt", vim.lsp.buf.type_definition)
+    map("n", "<leader>lh", vim.lsp.buf.signature_help)
+    map("n", "<leader>ss", vim.lsp.buf.formatting_sync)
+    map("n", "<leader>qf", vim.diagnostic.setqflist)
+    map("n", "<C-a>", vim.lsp.buf.references)
+    -- map("n", "<C-k>", vim.diagnostic.goto_prev)
+    -- map("n", "<C-j>", vim.diagnostic.goto_next)
+    map("n", "<C-k>", function()
+        vim.diagnostic.goto_prev({ border = "rounded" })
+    end)
+    map("n", "<C-j>", function()
+        vim.diagnostic.goto_next({ border = "rounded" })
+    end)
+
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
     lsp_highlight_document(client, bufnr)
 end
 
 function on_attach.utf16(client, bufnr)
+    local map = vim.keymap.set
+    map("n", "<leader>lr", vim.lsp.buf.rename)
+    map("n", "<leader>ld", vim.lsp.buf.definition)
+    map("n", "<leader>lt", vim.lsp.buf.type_definition)
+    map("n", "<leader>lh", vim.lsp.buf.signature_help)
+    map("n", "<leader>ss", vim.lsp.buf.formatting_sync)
+    map("n", "<leader>qf", vim.diagnostic.setqflist)
+    map("n", "<C-a>", vim.lsp.buf.references)
+    -- map("n", "<C-k>", vim.diagnostic.goto_prev)
+    -- map("n", "<C-j>", vim.diagnostic.goto_next)
+    map("n", "<C-k>", function()
+        vim.diagnostic.goto_prev({ border = "rounded" })
+    end)
+    map("n", "<C-j>", function()
+        vim.diagnostic.goto_next({ border = "rounded" })
+    end)
+
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
     client.offset_encoding = "utf-16"
