@@ -110,6 +110,7 @@ return require("packer").startup({
             "kyazdani42/nvim-tree.lua",
             opt = true,
             cmd = "NvimTreeToggle",
+            tag = "nightly",
             config = function()
                 require("plugins.config.nvim-tree")
             end,
@@ -235,6 +236,8 @@ return require("packer").startup({
 
         use({
             "p00f/clangd_extensions.nvim",
+            module = "clangd_extensions",
+            ft = { "cpp", "c" },
         })
 
         use({
@@ -350,6 +353,8 @@ return require("packer").startup({
                 "gc",
                 "gcb",
                 "gb",
+                "gco",
+                "gcO",
             },
             opt = true,
             requires = {
