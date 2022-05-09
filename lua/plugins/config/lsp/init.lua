@@ -106,7 +106,7 @@ local clangd_configs = vim.tbl_deep_extend("force", clangd_defaults["default_con
   capabilities = capabilities,
 })
 lspconfig.clangd.setup({
-  on_attach = on_attach_utf16,
+  on_attach = on_attach,
   capabilities = capabilities,
 })
 --[[ require("clangd_extensions").setup({
