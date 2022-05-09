@@ -17,6 +17,7 @@ o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.signcolumn = "yes:2"
+o.scrolloff = 1000 -- Stop scrolling on the number set
 
 -- Splits
 o.splitright = true
@@ -39,6 +40,14 @@ o.autoindent = true
 o.smarttab = true
 o.linebreak = true
 o.breakindent = true
+
+-- Editor
+o.wrap = false
+o.clipboard = "unnamedplus"
+o.foldmethod = "marker"
+o.completeopt = "menuone,noselect,menu"
+o.lazyredraw = true
+o.confirm = true
 
 -- Search
 o.hlsearch = true

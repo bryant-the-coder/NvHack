@@ -83,6 +83,8 @@ map({ "i", "v" }, "JK", "<ESC>")
 
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
+--[[ map({ "n", "v" }, "j", "jzzzv")
+map({ "n", "v" }, "k", "kzzzv") ]]
 
 -- Go to url
 -- Windows user
