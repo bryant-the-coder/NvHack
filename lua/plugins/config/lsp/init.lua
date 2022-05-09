@@ -1,6 +1,6 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-  return
+    return
 end
 
 -- WARNING: DON'T REMOVE THIS
@@ -17,97 +17,97 @@ capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
 capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 capabilities.textDocument.completion.completionItem.tagSupport = {
-  valueSet = { 1 },
+    valueSet = { 1 },
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = { "documentation", "detail", "additionalTextEdits" },
+    properties = { "documentation", "detail", "additionalTextEdits" },
 }
 capabilities.textDocument.codeAction = {
-  dynamicRegistration = false,
-  codeActionLiteralSupport = {
-    codeActionKind = {
-      valueSet = {
-        "",
-        "quickfix",
-        "refactor",
-        "refactor.extract",
-        "refactor.inline",
-        "refactor.rewrite",
-        "source",
-        "source.organizeImports",
-      },
+    dynamicRegistration = false,
+    codeActionLiteralSupport = {
+        codeActionKind = {
+            valueSet = {
+                "",
+                "quickfix",
+                "refactor",
+                "refactor.extract",
+                "refactor.inline",
+                "refactor.rewrite",
+                "source",
+                "source.organizeImports",
+            },
+        },
     },
-  },
 }
 
 local function on_attach(client, bufnr)
-  require("plugins.config.lsp.on_attach").setup(client, bufnr)
+    require("plugins.config.lsp.on_attach").setup(client, bufnr)
 end
 
 local function on_attach_utf16(client, bufnr)
-  require("plugins.config.lsp.on_attach").utf16(client, bufnr)
+    require("plugins.config.lsp.on_attach").utf16(client, bufnr)
 end
 
 local border = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
 }
 
 -- sumneko_lua
 local sumneko = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "/lua"] = true,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
+            },
         },
-      },
     },
-  },
 }
 local use_lua_dev = false
 if use_lua_dev then
-  local luadev = require("lua-dev").setup({
-    library = {
-      vimruntime = true,
-      types = true,
-      plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-    },
-    lspconfig = sumneko,
-  })
+    local luadev = require("lua-dev").setup({
+        library = {
+            vimruntime = true,
+            types = true,
+            plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+        },
+        lspconfig = sumneko,
+    })
 
-  lspconfig.sumneko_lua.setup(luadev)
+    lspconfig.sumneko_lua.setup(luadev)
 else
-  lspconfig.sumneko_lua.setup(sumneko)
+    lspconfig.sumneko_lua.setup(sumneko)
 end
 
 -- JSON
 lspconfig.jsonls.setup({
-  on_attach = on_attach,
+    on_attach = on_attach,
 })
 
 -- Clangd / C++
 local clangd_defaults = require("lspconfig.server_configurations.clangd")
 local clangd_configs = vim.tbl_deep_extend("force", clangd_defaults["default_config"], {
-  on_attach = on_attach_utf16,
-  capabilities = capabilities,
+    on_attach = on_attach_utf16,
+    capabilities = capabilities,
 })
 lspconfig.clangd.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
 })
 --[[ require("clangd_extensions").setup({
     server = clangd_configs,
@@ -180,6 +180,6 @@ lspconfig.clangd.setup({
 
 -- Rust
 lspconfig.rust_analyzer.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
 })
